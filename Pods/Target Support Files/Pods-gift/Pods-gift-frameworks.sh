@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gift/AFNetworking.framework"
+  install_framework "Pods-gift/Typhoon.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gift/AFNetworking.framework"
+  install_framework "Pods-gift/Typhoon.framework"
 fi

@@ -20,11 +20,16 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Typhoon (3.4.7):
+    - Typhoon/no-arc (= 3.4.7)
+  - Typhoon/no-arc (3.4.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - Typhoon
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Typhoon: 0953addabd5a10a930973fcc131c03badc88c4ba
 
 COCOAPODS: 0.39.0
