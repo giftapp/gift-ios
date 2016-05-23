@@ -85,9 +85,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gift/AFNetworking.framework"
+  install_framework "Pods-gift/Bolts.framework"
+  install_framework "Pods-gift/FBSDKCoreKit.framework"
+  install_framework "Pods-gift/FBSDKLoginKit.framework"
+  install_framework "Pods-gift/FBSDKShareKit.framework"
   install_framework "Pods-gift/Typhoon.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gift/AFNetworking.framework"
+  install_framework "Pods-gift/Bolts.framework"
+  install_framework "Pods-gift/FBSDKCoreKit.framework"
+  install_framework "Pods-gift/FBSDKLoginKit.framework"
+  install_framework "Pods-gift/FBSDKShareKit.framework"
   install_framework "Pods-gift/Typhoon.framework"
 fi
