@@ -7,7 +7,7 @@ target 'gift' do
   pod 'Typhoon', "~> 3.4.7"
 
   # Networking
-  pod 'AFNetworking', "~> 2.6.3"
+  pod 'Alamofire', '~> 3.4'
 
   # Facebook
   pod 'Bolts', "~> 1.7.0"
