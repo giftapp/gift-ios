@@ -3,8 +3,8 @@ use_frameworks!
 
 target 'gift' do
 
-  pod 'Typhoon'
-  pod "AFNetworking", "~> 2.0"
+  pod 'Typhoon', "~> 3.4.7"
+  pod "AFNetworking", "~> 2.6.3"
 
 end
 
