@@ -6,14 +6,15 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Facebook/FacebookClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/AppDelegate.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/ModelBase.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/User.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/ViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/GiftService/GiftServiceCoreClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/DI/ModelAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Events/SuccessfullLoginEvent.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/TyphoonComponentFactory.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/TyphoonPreattachedComponentsRegisterer.m" isTestSource="false" />

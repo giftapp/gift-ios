@@ -57,5 +57,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>TyphoonInitialAssemblies</key>
+    <array>
+        <string>ModelAssembly</string>
+    </array>
 </dict>
 </plist>

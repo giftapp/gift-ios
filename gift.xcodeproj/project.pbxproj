@@ -15,6 +15,7 @@
 		62DD9884CF47FCB8C5C3F8F6 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D4B38A545CA3A300691 /* GiftServiceCoreClient.swift */; };
 		62DD9BBBCA0904A5C08A268D /* ModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A7A25123C4F971FB553 /* ModelAssembly.swift */; };
 		62DD9C0781BF3DBD54781917 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */; };
+		62DD9D35D2BBEBDF2F2B436F /* SuccessfullLoginEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */; };
 		823EAE93079AA4B9E2257B30 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F129F57E84D6CBE21D242F /* Pods_gift.framework */; };
 		90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D611CF39555002D1EB2 /* AppDelegate.swift */; };
 		90C97D641CF39555002D1EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D631CF39555002D1EB2 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		6004962C1A8CFE0B8516897E /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
+		62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessfullLoginEvent.swift; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 				62DD9DA502C877CD334A3C0E /* ModelBase.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		62DD966148FE0A4AEF6FDCFB /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		62DD975EB7DA2C5E341E0ABE /* Facebook */ = {
@@ -150,6 +160,7 @@
 				62DD91A7DF7AA3411A23E33C /* DI */,
 				62DD98DA3510709B12A85277 /* GiftService */,
 				62DD9397360AF03736644421 /* Model */,
+				62DD966148FE0A4AEF6FDCFB /* Events */,
 			);
 			path = gift;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 				62DD9884CF47FCB8C5C3F8F6 /* GiftServiceCoreClient.swift in Sources */,
 				62DD930D91B519AFFF2EFA98 /* User.swift in Sources */,
 				62DD94107045542006F6A8EF /* ModelBase.swift in Sources */,
+				62DD9D35D2BBEBDF2F2B436F /* SuccessfullLoginEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

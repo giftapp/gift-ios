@@ -10,11 +10,17 @@ public class ModelAssembly : TyphoonAssembly {
 
     //Mark: Model
     public dynamic func facebookClient() -> AnyObject {
-        return TyphoonDefinition.withClass(FacebookClient.self)
+        return TyphoonDefinition.withClass(FacebookClient.self) {
+            (definition) in
+            definition.scope = TyphoonScope.Singleton
+        }
     }
 
     public dynamic func giftServiceCoreClient() -> AnyObject {
-        return TyphoonDefinition.withClass(GiftServiceCoreClient.self)
+        return TyphoonDefinition.withClass(GiftServiceCoreClient.self) {
+            (definition) in
+            definition.scope = TyphoonScope.Singleton
+        }
     }
 
     //Mark: ViewControllers
@@ -22,7 +28,7 @@ public class ModelAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(LoginViewController.self) {
             (definition) in
 
-            definition.useInitializer("initWithFacebookClient:") {
+            definition.useInitializer(#selector(LoginViewController.init(facebookClient:))) {
                 (initializer) in
                     initializer.injectParameterWith(self.facebookClient())
             }

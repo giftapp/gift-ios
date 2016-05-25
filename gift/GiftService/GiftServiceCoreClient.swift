@@ -7,25 +7,52 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
+struct GiftServiceCoreClientConstants{
+    static let BASE_URL_PATH = "http://localhost:8080/api"
+    static let AUTHORIZATION_KEY = "api_key"
+}
+
 public class GiftServiceCoreClient : NSObject {
 
-    var manager : Manager
-    let baseURLPath = "http://localhost:8080/api"
+    var manager : Manager!
 
-    //Mark: Lifecycle
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
+
     override init() {
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let headers = [
-                "api_key": "EAADK4zYkZAisBAC11tOKZAZCQCTBnSiyZAqkWaXQvZBrvZAlymRSlDRgPATsYLOBrpripup3a91LuXH5HJ7ylufPyzTTGg4Tv1lbMy5gJVhPnD2TWV7kZBlGSZAWzoAdNJLKahWSRaa1PysorWSnultLy1wOUGLFLVwY6ZBRPWCnuOMrPZBXv0INZAslxX7QbTPKqgZD",
-                "Accept": "application/json"
-        ]
-        configuration.HTTPAdditionalHeaders = headers
-
-        self.manager = Alamofire.Manager(configuration: configuration)
-
-        //TODO: remove this once server is over TLS and .plist app transport security
         super.init()
 
+        self.observeNotification()
+    }
+
+    func observeNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GiftServiceCoreClient.onSuccessfulLoginEvent(_:)), name: SuccessfullLoginEvent.name, object: nil)
+    }
+
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
+    //Mark: Private
+    func onSuccessfulLoginEvent(notification: NSNotification) {
+        let successfullLoginEvent = notification.object as! SuccessfullLoginEvent
+        setAuthenticationHeader(successfullLoginEvent.token)
+    }
+
+    func setAuthenticationHeader(token : String) {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.HTTPAdditionalHeaders = [
+                GiftServiceCoreClientConstants.AUTHORIZATION_KEY: token,
+                "Accept": "application/json"
+        ]
+
+        self.manager = Alamofire.Manager(configuration: configuration)
+        self.allowUnsecureConnection()
+    }
+
+    //TODO: remove this once server is over TLS and .plist app transport security
+    func allowUnsecureConnection() {
         self.manager.delegate.sessionDidReceiveChallenge = { session, challenge in
             var disposition: NSURLSessionAuthChallengeDisposition = .PerformDefaultHandling
             var credential: NSURLCredential?
@@ -51,7 +78,7 @@ public class GiftServiceCoreClient : NSObject {
 
     //Mark: GET
     public func ping() {
-        manager.request(.GET, self.baseURLPath+"/ping").validate().responseJSON { response in
+        manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping").validate().responseJSON { response in
             switch response.result {
             case .Success:
                 print("Validation Successful")
@@ -63,7 +90,7 @@ public class GiftServiceCoreClient : NSObject {
     }
 
     public func getUser() {
-        manager.request(.GET, self.baseURLPath+"/user/5742f7698d6a39092748fa50").validate().responseObject { (response: Response<User, NSError>) in
+        manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/5742f7698d6a39092748fa50").validate().responseObject { (response: Response<User, NSError>) in
             switch response.result {
             case .Success:
                 let user = response.result.value

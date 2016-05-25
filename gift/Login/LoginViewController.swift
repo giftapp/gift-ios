@@ -17,7 +17,7 @@ class LoginViewController : UIViewController, LoginViewDelegate {
 
     // MARK: Lifecycle
 
-    public dynamic init(facebookClient: FacebookClient) {
+    internal dynamic init(facebookClient: FacebookClient) {
         self.facebookClient = facebookClient;
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,9 +41,12 @@ class LoginViewController : UIViewController, LoginViewDelegate {
         self.facebookClient.login(viewController: self) {(error , facebookToken) in
             if error {
                 //Handle error
-            } else {
-                // Logged login
+                return
             }
+
+            // Handle login
+            let successfulLoginEvent = SuccessfullLoginEvent(token: facebookToken!)
+            NSNotificationCenter.defaultCenter().postNotificationName(SuccessfullLoginEvent.name, object: successfulLoginEvent)
         }
     }
 
