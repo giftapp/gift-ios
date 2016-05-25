@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = window {
             window.backgroundColor = UIColor.whiteColor()
             let assembly = ModelAssembly().activate()
+
+            let giftServiceCoreClient = assembly.giftServiceCoreClient() as! GiftServiceCoreClient
+            giftServiceCoreClient.getUser()
+
             let loginViewController = assembly.loginViewController() as! LoginViewController
             window.rootViewController = loginViewController
             window.makeKeyAndVisible()

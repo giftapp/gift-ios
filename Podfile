@@ -9,6 +9,9 @@ target 'gift' do
   # Networking
   pod 'Alamofire', '~> 3.4'
 
+  # JSON mapping
+  pod 'AlamofireObjectMapper', '~> 3.0'
+
   # Layout
   pod 'Cartography', '~> 0.6.0'
 

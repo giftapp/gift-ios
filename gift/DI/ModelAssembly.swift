@@ -6,11 +6,15 @@
 import Foundation
 import Typhoon
 
-class ModelAssembly : TyphoonAssembly {
+public class ModelAssembly : TyphoonAssembly {
 
     //Mark: Model
     public dynamic func facebookClient() -> AnyObject {
         return TyphoonDefinition.withClass(FacebookClient.self)
+    }
+
+    public dynamic func giftServiceCoreClient() -> AnyObject {
+        return TyphoonDefinition.withClass(GiftServiceCoreClient.self)
     }
 
     //Mark: ViewControllers
