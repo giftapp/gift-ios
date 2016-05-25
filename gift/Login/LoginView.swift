@@ -18,6 +18,9 @@ class LoginView : UIView {
 
     var delegate: LoginViewDelegate! = nil
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addCustomViews()
@@ -50,8 +53,9 @@ class LoginView : UIView {
         }
     }
 
-    //Mark: LoginViewDelegate
-
+    //-------------------------------------------------------------------------------------------
+    // MARK: - LoginViewDelegate
+    //-------------------------------------------------------------------------------------------
     func facebookLoginButtonTapped(sender:UIButton!) {
         delegate!.didTapLoginWithFacebook()
     }

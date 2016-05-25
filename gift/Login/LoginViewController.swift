@@ -12,8 +12,9 @@ class LoginViewController : UIViewController, LoginViewDelegate {
 
     var loginView : LoginView!
 
-    // MARK: Lifecycle
-
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     internal dynamic init(authenticator: Authenticator) {
         self.authenticator = authenticator;
         super.init(nibName: nil, bundle: nil)
@@ -32,8 +33,9 @@ class LoginViewController : UIViewController, LoginViewDelegate {
 
     }
 
-    // MARK: LoginViewDelegate
-
+    //-------------------------------------------------------------------------------------------
+    // MARK: - LoginViewDelegate
+    //-------------------------------------------------------------------------------------------
     func didTapLoginWithFacebook() {
         self.authenticator.login(viewController: self) {(error , accessToekn) in
             if error {

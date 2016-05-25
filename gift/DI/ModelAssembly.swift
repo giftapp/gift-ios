@@ -8,7 +8,9 @@ import Typhoon
 
 public class ModelAssembly : TyphoonAssembly {
 
-    //Mark: Model
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Model
+    //-------------------------------------------------------------------------------------------
     public dynamic func authenticator() -> AnyObject {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in
@@ -34,7 +36,9 @@ public class ModelAssembly : TyphoonAssembly {
         }
     }
 
-    //Mark: ViewControllers
+    //-------------------------------------------------------------------------------------------
+    // MARK: - ViewControllers
+    //-------------------------------------------------------------------------------------------
     public dynamic func loginViewController() -> AnyObject {
         return TyphoonDefinition.withClass(LoginViewController.self) {
             (definition) in

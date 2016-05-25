@@ -10,10 +10,16 @@ class Authenticator : NSObject {
 
     var facebookClient : FacebookClient
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     internal dynamic init(facebookClient: FacebookClient) {
         self.facebookClient = facebookClient;
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
     func login(viewController fromViewController: UIViewController, completion: (error: Bool, accessToken: String?) -> Void) {
         self.facebookClient.login(viewController: fromViewController) {(error , facebookToken) in
             completion(error: error, accessToken: facebookToken)

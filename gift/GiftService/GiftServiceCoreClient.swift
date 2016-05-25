@@ -19,7 +19,6 @@ public class GiftServiceCoreClient : NSObject {
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-
     override init() {
         super.init()
 
@@ -34,7 +33,9 @@ public class GiftServiceCoreClient : NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
-    //Mark: Private
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
     func onSuccessfulLoginEvent(notification: NSNotification) {
         let successfullLoginEvent = notification.object as! SuccessfullLoginEvent
         setAuthenticationHeader(successfullLoginEvent.token)
@@ -76,7 +77,9 @@ public class GiftServiceCoreClient : NSObject {
         }
     }
 
-    //Mark: GET
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Get
+    //-------------------------------------------------------------------------------------------
     public func ping() {
         manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping").validate().responseJSON { response in
             switch response.result {
