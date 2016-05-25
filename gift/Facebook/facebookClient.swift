@@ -10,8 +10,12 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class FacebookClient : NSObject {
+
     let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
     func login(viewController fromViewController: UIViewController, completion: (error: Bool, facebookToken: String?) -> Void) {
         fbLoginManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], fromViewController: fromViewController) { (result , error) in
             if error != nil {
