@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
+		62DD937F896F344EABD3EBE6 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9460C0492A39C97D2C64 /* Authenticator.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
 		62DD941BD781E9212B01BB76 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9976A6C2F2C793B09689 /* LoginView.swift */; };
 		62DD9703F4D925D72A6CF240 /* FacebookClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD98915DF578888BB02369 /* FacebookClient.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		6004962C1A8CFE0B8516897E /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessfullLoginEvent.swift; sourceTree = "<group>"; };
+		62DD9460C0492A39C97D2C64 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */,
 				62DD9976A6C2F2C793B09689 /* LoginView.swift */,
+				62DD9460C0492A39C97D2C64 /* Authenticator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				62DD930D91B519AFFF2EFA98 /* User.swift in Sources */,
 				62DD94107045542006F6A8EF /* ModelBase.swift in Sources */,
 				62DD9D35D2BBEBDF2F2B436F /* SuccessfullLoginEvent.swift in Sources */,
+				62DD937F896F344EABD3EBE6 /* Authenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

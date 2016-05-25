@@ -15,6 +15,7 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Login/Authenticator.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/TyphoonComponentFactory.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/TyphoonPreattachedComponentsRegisterer.m" isTestSource="false" />

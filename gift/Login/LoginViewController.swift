@@ -6,19 +6,16 @@
 import Foundation
 import UIKit
 
-import FBSDKCoreKit
-import FBSDKLoginKit
-
 class LoginViewController : UIViewController, LoginViewDelegate {
 
-    var facebookClient : FacebookClient
+    var authenticator : Authenticator
 
     var loginView : LoginView!
 
     // MARK: Lifecycle
 
-    internal dynamic init(facebookClient: FacebookClient) {
-        self.facebookClient = facebookClient;
+    internal dynamic init(authenticator: Authenticator) {
+        self.authenticator = authenticator;
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -38,14 +35,14 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     // MARK: LoginViewDelegate
 
     func didTapLoginWithFacebook() {
-        self.facebookClient.login(viewController: self) {(error , facebookToken) in
+        self.authenticator.login(viewController: self) {(error , accessToekn) in
             if error {
                 //Handle error
                 return
             }
 
             // Handle login
-            let successfulLoginEvent = SuccessfullLoginEvent(token: facebookToken!)
+            let successfulLoginEvent = SuccessfullLoginEvent(token: accessToekn!)
             NSNotificationCenter.defaultCenter().postNotificationName(SuccessfullLoginEvent.name, object: successfulLoginEvent)
         }
     }
