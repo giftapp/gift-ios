@@ -15,9 +15,9 @@ public class ModelAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in
             definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(Authenticator.init(facebookClient:))) {
+            definition.useInitializer(#selector(Authenticator.init(giftServiceCoreClient:))) {
                 (initializer) in
-                initializer.injectParameterWith(self.facebookClient())
+                initializer.injectParameterWith(self.giftServiceCoreClient())
             }
         }
     }
@@ -39,6 +39,10 @@ public class ModelAssembly : TyphoonAssembly {
     //-------------------------------------------------------------------------------------------
     // MARK: - ViewControllers
     //-------------------------------------------------------------------------------------------
+    public dynamic func welcomeViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(WelcomeViewController.self)
+    }
+    
     public dynamic func loginViewController() -> AnyObject {
         return TyphoonDefinition.withClass(LoginViewController.self) {
             (definition) in
@@ -46,6 +50,17 @@ public class ModelAssembly : TyphoonAssembly {
             definition.useInitializer(#selector(LoginViewController.init(authenticator:))) {
                 (initializer) in
                     initializer.injectParameterWith(self.authenticator())
+            }
+        }
+    }
+    
+    public dynamic func verificationCodeViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(VerificationCodeViewController.self) {
+            (definition) in
+            
+            definition.useInitializer(#selector(VerificationCodeViewController.init(authenticator:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.authenticator())
             }
         }
     }

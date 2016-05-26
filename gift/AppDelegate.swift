@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = window {
             window.backgroundColor = UIColor.whiteColor()
             let assembly = ModelAssembly().activate()
-            let loginViewController = assembly.loginViewController() as! LoginViewController
-            window.rootViewController = loginViewController
+            let welcomeViewController = assembly.welcomeViewController() as! WelcomeViewController
+            window.rootViewController = welcomeViewController
             window.makeKeyAndVisible()
         }
 

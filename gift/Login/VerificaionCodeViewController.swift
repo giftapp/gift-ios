@@ -6,12 +6,14 @@
 import Foundation
 import UIKit
 
-class LoginViewController : UIViewController {
-
+class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
+    
     var authenticator : Authenticator
-
-    var loginView : LoginView!
-
+    
+    var verificationCodeView : VerificationCodeView!
+    
+    var phoneNumber : String!
+    
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
@@ -19,39 +21,34 @@ class LoginViewController : UIViewController {
         self.authenticator = authenticator;
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Your phone number"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next",style: .Plain, target: self, action: #selector(nextTapped))
+        self.title = "Verification Code"
         
-        self.loginView =  LoginView(frame: self.view!.frame)
-        view.addSubview(loginView)
+        self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame)
+        self.verificationCodeView.delegate = self
+        view.addSubview(verificationCodeView)
     }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func nextTapped() {
-        let phoneNumber = self.loginView.phoneNumber()
-        authenticator.verifyPhoneNumber(phoneNumber!, success: {
-            print("Verification code sent")
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - VerificationCodeViewDelegate
+    //-------------------------------------------------------------------------------------------
+    func didEnteredVerificationCode(verificationCode: Int) {
+        authenticator.getToken(self.phoneNumber, verificationCode: verificationCode, success: { (token) in
+            print("Got token" + "\(token)")
             }) { (error) in
                 print(error)
         }
-        
-        let assembly = ModelAssembly().activate()
-        let verificationCodeViewController = assembly.verificationCodeViewController() as! VerificationCodeViewController
-        
-        verificationCodeViewController.phoneNumber = phoneNumber
-        
-        self.navigationController?.pushViewController(verificationCodeViewController, animated: true)
     }
-
+    
 }

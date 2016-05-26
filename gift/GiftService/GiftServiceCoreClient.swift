@@ -76,11 +76,44 @@ public class GiftServiceCoreClient : NSObject {
             return (disposition, credential)
         }
     }
-
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Unauthorized
+    //-------------------------------------------------------------------------------------------
+    func verifyPhoneNumber(phoneNumber : String,
+                           success: () -> Void,
+                           failure: (error: ErrorType) -> Void)  {
+        Alamofire.request(.POST, GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/phoneNumberChallenge", parameters: ["phoneNumber": phoneNumber], encoding: .JSON).validate().responseData{ response in
+            switch response.result {
+            case .Success:
+                success()
+            case .Failure(let error):
+                failure(error: error)
+            }
+        }
+    }
+    
+    func getToken(phoneNumber : String,
+                  verificationCode : Int,
+                  success: (token : Token) -> Void,
+                  failure: (error: ErrorType) -> Void)  {
+        
+        Alamofire.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/token",
+            parameters: ["phoneNumber": phoneNumber, "verificationCode" : verificationCode]).validate().responseObject { (response: Response<Token, NSError>) in
+            switch response.result {
+            case .Success:
+                let token = response.result.value
+                success(token: token!)
+            case .Failure(let error):
+                failure(error: error)
+            }
+        }
+    }
+    
     //-------------------------------------------------------------------------------------------
     // MARK: - Get
     //-------------------------------------------------------------------------------------------
-    public func ping() {
+    func ping() {
         manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping").validate().responseJSON { response in
             switch response.result {
             case .Success:
@@ -92,7 +125,7 @@ public class GiftServiceCoreClient : NSObject {
         }
     }
 
-    public func getUser() {
+    func getUser() {
         manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/5742f7698d6a39092748fa50").validate().responseObject { (response: Response<User, NSError>) in
             switch response.result {
             case .Success:

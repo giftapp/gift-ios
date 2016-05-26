@@ -10,7 +10,8 @@
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD937F896F344EABD3EBE6 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9460C0492A39C97D2C64 /* Authenticator.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
-		62DD941BD781E9212B01BB76 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9976A6C2F2C793B09689 /* LoginView.swift */; };
+		62DD94AB59D9E84D12D4B510 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95DED0A9A3B4805BAB1A /* LoginView.swift */; };
+		62DD95BAF556577EF72ECC0D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90B49CDEC4D065D5186E /* WelcomeView.swift */; };
 		62DD9703F4D925D72A6CF240 /* FacebookClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD98915DF578888BB02369 /* FacebookClient.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD9884CF47FCB8C5C3F8F6 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D4B38A545CA3A300691 /* GiftServiceCoreClient.swift */; };
@@ -18,6 +19,10 @@
 		62DD9C0781BF3DBD54781917 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* SuccessfullLoginEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */; };
 		823EAE93079AA4B9E2257B30 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F129F57E84D6CBE21D242F /* Pods_gift.framework */; };
+		901A5F6E1CF78654008C5E52 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F6D1CF78654008C5E52 /* Token.swift */; };
+		901A5F731CF794D2008C5E52 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F721CF794D2008C5E52 /* WelcomeViewController.swift */; };
+		901A5F751CF7990A008C5E52 /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F741CF7990A008C5E52 /* VerificaionCodeViewController.swift */; };
+		901A5F771CF79956008C5E52 /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F761CF79956008C5E52 /* VerificationCodeView.swift */; };
 		90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D611CF39555002D1EB2 /* AppDelegate.swift */; };
 		90C97D641CF39555002D1EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D631CF39555002D1EB2 /* ViewController.swift */; };
 		90C97D6C1CF39555002D1EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C97D6A1CF39555002D1EB2 /* LaunchScreen.storyboard */; };
@@ -25,18 +30,23 @@
 
 /* Begin PBXFileReference section */
 		6004962C1A8CFE0B8516897E /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
+		62DD90B49CDEC4D065D5186E /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessfullLoginEvent.swift; sourceTree = "<group>"; };
 		62DD9460C0492A39C97D2C64 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62DD95DED0A9A3B4805BAB1A /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62DD98915DF578888BB02369 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
-		62DD9976A6C2F2C793B09689 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		62DD9A7A25123C4F971FB553 /* ModelAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssembly.swift; sourceTree = "<group>"; };
 		62DD9D4B38A545CA3A300691 /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		77F129F57E84D6CBE21D242F /* Pods_gift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		901A5F6D1CF78654008C5E52 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		901A5F721CF794D2008C5E52 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		901A5F741CF7990A008C5E52 /* VerificaionCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificaionCodeViewController.swift; sourceTree = "<group>"; };
+		901A5F761CF79956008C5E52 /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		90C97D5E1CF39555002D1EB2 /* gift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C97D611CF39555002D1EB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90C97D631CF39555002D1EB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +96,7 @@
 			children = (
 				62DD981BFB745FF000A6EE9E /* User.swift */,
 				62DD9DA502C877CD334A3C0E /* ModelBase.swift */,
+				901A5F6D1CF78654008C5E52 /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,8 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */,
-				62DD9976A6C2F2C793B09689 /* LoginView.swift */,
 				62DD9460C0492A39C97D2C64 /* Authenticator.swift */,
+				62DD9C7A6E5D2AF4701E990B /* Views */,
+				901A5F721CF794D2008C5E52 /* WelcomeViewController.swift */,
+				901A5F741CF7990A008C5E52 /* VerificaionCodeViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -131,6 +144,16 @@
 				62DD968E1B266F84D407708A /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		62DD9C7A6E5D2AF4701E990B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62DD95DED0A9A3B4805BAB1A /* LoginView.swift */,
+				62DD90B49CDEC4D065D5186E /* WelcomeView.swift */,
+				901A5F761CF79956008C5E52 /* VerificationCodeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		90C97D551CF39555002D1EB2 = {
@@ -292,14 +315,19 @@
 				90C97D641CF39555002D1EB2 /* ViewController.swift in Sources */,
 				90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */,
 				62DD9C0781BF3DBD54781917 /* LoginViewController.swift in Sources */,
-				62DD941BD781E9212B01BB76 /* LoginView.swift in Sources */,
+				901A5F6E1CF78654008C5E52 /* Token.swift in Sources */,
 				62DD9703F4D925D72A6CF240 /* FacebookClient.swift in Sources */,
 				62DD9BBBCA0904A5C08A268D /* ModelAssembly.swift in Sources */,
 				62DD9884CF47FCB8C5C3F8F6 /* GiftServiceCoreClient.swift in Sources */,
 				62DD930D91B519AFFF2EFA98 /* User.swift in Sources */,
+				901A5F751CF7990A008C5E52 /* VerificaionCodeViewController.swift in Sources */,
 				62DD94107045542006F6A8EF /* ModelBase.swift in Sources */,
 				62DD9D35D2BBEBDF2F2B436F /* SuccessfullLoginEvent.swift in Sources */,
 				62DD937F896F344EABD3EBE6 /* Authenticator.swift in Sources */,
+				62DD94AB59D9E84D12D4B510 /* LoginView.swift in Sources */,
+				62DD95BAF556577EF72ECC0D /* WelcomeView.swift in Sources */,
+				901A5F771CF79956008C5E52 /* VerificationCodeView.swift in Sources */,
+				901A5F731CF794D2008C5E52 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

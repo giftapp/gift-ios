@@ -8,21 +8,37 @@ import UIKit
 
 class Authenticator : NSObject {
 
-    var facebookClient : FacebookClient
-
+    var giftServiceCoreClient : GiftServiceCoreClient
+    
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(facebookClient: FacebookClient) {
-        self.facebookClient = facebookClient;
+    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient) {
+        self.giftServiceCoreClient = giftServiceCoreClient
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
-    func login(viewController fromViewController: UIViewController, completion: (error: Bool, accessToken: String?) -> Void) {
-        self.facebookClient.login(viewController: fromViewController) {(error , facebookToken) in
-            completion(error: error, accessToken: facebookToken)
-        }
+    func verifyPhoneNumber(phoneNumber : String,
+                           success: () -> Void,
+                           failure: (error: ErrorType) -> Void)  {
+        self.giftServiceCoreClient.verifyPhoneNumber(phoneNumber, success: success, failure: failure)
+    }
+    
+    func getToken(phoneNumber : String,
+                  verificationCode : Int,
+                  success: (token : Token) -> Void,
+                  failure: (error: ErrorType) -> Void)  {
+        
+        self.giftServiceCoreClient.getToken(phoneNumber, verificationCode: verificationCode, success: {(token) in
+            //Store in keychain
+            
+            let successfulLoginEvent = SuccessfullLoginEvent(token: token.accessToken!)
+            NSNotificationCenter.defaultCenter().postNotificationName(SuccessfullLoginEvent.name, object: successfulLoginEvent)
+            
+            success(token: token)
+            }
+, failure: failure)
     }
 }
