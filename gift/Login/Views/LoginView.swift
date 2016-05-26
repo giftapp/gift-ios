@@ -37,6 +37,7 @@ class LoginView : UIView, UITextFieldDelegate {
         self.addSubview(loginLabel)
         
         phoneNumberTextField.placeholder = "XXX-XXX-XXXX"
+        phoneNumberTextField.keyboardType = UIKeyboardType.NumberPad
         phoneNumberTextField.delegate = self
         self.addSubview(phoneNumberTextField)
         

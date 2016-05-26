@@ -43,6 +43,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         self.addSubview(verificationCodeLabel)
         
         verificationCodeTextField.placeholder = "12345"
+        verificationCodeTextField.keyboardType = UIKeyboardType.NumberPad
         verificationCodeTextField.delegate = self
         self.addSubview(verificationCodeTextField)
     }
