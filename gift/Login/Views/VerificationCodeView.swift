@@ -68,7 +68,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        if (Int(string) == nil) {
+        if (!string.isEmpty && Int(string) == nil) {
             return false
         }
         
