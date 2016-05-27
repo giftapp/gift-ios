@@ -6,16 +6,20 @@
 import Foundation
 import ObjectMapper
 
-class User : ModelBase {
+class User : ModelBase, NSCoding {
     var firstName : String?
     var lastName : String?
     var email : String?
     var avatarURL : String?
 
+    override init() {
+        super.init()
+    }
+    
     required init?(_ map: Map){
         super.init(map)
     }
-
+    
     override func mapping(map: Map) {
         super.mapping(map)
 
@@ -25,4 +29,24 @@ class User : ModelBase {
         avatarURL <- map["avatarURL"]
     }
 
+    @objc required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        self.id = aDecoder.decodeObjectForKey("id") as! String?
+        self.createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate?
+        self.updatedAt = aDecoder.decodeObjectForKey("updatedAt") as! NSDate?
+        self.firstName = aDecoder.decodeObjectForKey("firstName") as! String?
+        self.lastName = aDecoder.decodeObjectForKey("lastName") as! String?
+        self.email = aDecoder.decodeObjectForKey("email") as! String?
+        self.avatarURL = aDecoder.decodeObjectForKey("avatarURL") as! String?
+    }
+
+    @objc func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.id, forKey: "id")
+        aCoder.encodeObject(self.createdAt, forKey: "createdAt")
+        aCoder.encodeObject(self.updatedAt, forKey: "updatedAt")
+        aCoder.encodeObject(self.firstName, forKey: "firstName")
+        aCoder.encodeObject(self.lastName, forKey: "lastName")
+        aCoder.encodeObject(self.email, forKey: "email")
+        aCoder.encodeObject(self.avatarURL, forKey: "avatarURL")
+    }
 }

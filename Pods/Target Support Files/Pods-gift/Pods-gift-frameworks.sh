@@ -91,6 +91,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gift/FBSDKCoreKit.framework"
   install_framework "Pods-gift/FBSDKLoginKit.framework"
   install_framework "Pods-gift/FBSDKShareKit.framework"
+  install_framework "Pods-gift/Locksmith.framework"
   install_framework "Pods-gift/ObjectMapper.framework"
   install_framework "Pods-gift/Typhoon.framework"
 fi
@@ -102,6 +103,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gift/FBSDKCoreKit.framework"
   install_framework "Pods-gift/FBSDKLoginKit.framework"
   install_framework "Pods-gift/FBSDKShareKit.framework"
+  install_framework "Pods-gift/Locksmith.framework"
   install_framework "Pods-gift/ObjectMapper.framework"
   install_framework "Pods-gift/Typhoon.framework"
 fi

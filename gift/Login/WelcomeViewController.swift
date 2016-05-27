@@ -41,6 +41,7 @@ class WelcomeViewController : UIViewController, WelcomeViewDelegate {
     // MARK: - WelcomeViewDelegate
     //-------------------------------------------------------------------------------------------
     func didTapContinue() {
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController)
         appRoute.dismiss(self, animated: true, completion: nil)
     }
 }

@@ -6,11 +6,13 @@
 import Foundation
 import ObjectMapper
 
-class ModelBase : Mappable {
+class ModelBase : NSObject, Mappable {
     var id: String?
     var createdAt: NSDate?
     var updatedAt: NSDate?
 
+    override init() {}
+    
     required init?(_ map: Map) {
 
     }

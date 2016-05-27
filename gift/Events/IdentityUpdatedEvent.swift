@@ -5,8 +5,8 @@
 
 import Foundation
 
-class SuccessfullLoginEvent : NSObject {
+class IdentityUpdatedEvent: NSObject {
 
-    static let name = String(SuccessfullLoginEvent)
+    static let name = String(IdentityUpdatedEvent)
 
 }

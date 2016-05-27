@@ -44,8 +44,8 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
     func didEnteredVerificationCode(verificationCode: Int) {
-        authenticator.getToken(self.phoneNumber, verificationCode: verificationCode, success: { (token) in
-            print("Got token" + "\(token)")
+        authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
+            print("Success")
             }) { (error) in
                 print(error)
         }

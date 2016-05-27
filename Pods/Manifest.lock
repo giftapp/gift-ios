@@ -16,6 +16,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
+  - Locksmith (2.0.8)
   - ObjectMapper (1.3.0)
   - Typhoon (3.4.7):
     - Typhoon/no-arc (= 3.4.7)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - FBSDKCoreKit (~> 4.12.0)
   - FBSDKLoginKit (~> 4.12.0)
   - FBSDKShareKit (~> 4.12.0)
+  - Locksmith (~> 2.0.8)
   - Typhoon (~> 3.4.7)
 
 SPEC CHECKSUMS:
@@ -39,6 +41,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   Typhoon: 0953addabd5a10a930973fcc131c03badc88c4ba
 

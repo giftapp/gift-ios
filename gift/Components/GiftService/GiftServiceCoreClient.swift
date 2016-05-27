@@ -30,7 +30,7 @@ public class GiftServiceCoreClient : NSObject {
     }
 
     func observeNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GiftServiceCoreClient.onSuccessfulLoginEvent(_:)), name: SuccessfullLoginEvent.name, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GiftServiceCoreClient.onSuccessfulLoginEvent(_:)), name: IdentityUpdatedEvent.name, object: nil)
     }
 
     deinit {

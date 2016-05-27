@@ -36,7 +36,6 @@ class Launcher : NSObject {
         
         if (!didDismissWelcomeViewController) {
             self.appRoute.presentController(self.welcomeViewController, animated: false, completion: nil)
-            self.userDefaults.setBool(true, forKey: WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController)
         }
     }
 }

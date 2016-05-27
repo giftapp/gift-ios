@@ -15,6 +15,9 @@ target 'gift' do
   # Layout
   pod 'Cartography', '~> 0.6.0'
 
+  # Keychain access
+  pod 'Locksmith', '~> 2.0.8'
+
   # Facebook
   pod 'Bolts', "~> 1.7.0"
   pod 'FBSDKCoreKit', "~> 4.12.0"

@@ -30,19 +30,16 @@ class Authenticator : NSObject {
         self.giftServiceCoreClient.verifyPhoneNumber(phoneNumber, success: success, failure: failure)
     }
     
-    func getToken(phoneNumber : String,
-                  verificationCode : Int,
-                  success: (token : Token) -> Void,
-                  failure: (error: ErrorType) -> Void)  {
+    func authenticate(phoneNumber : String,
+                      verificationCode : Int,
+                      success: () -> Void,
+                      failure: (error: ErrorType) -> Void)  {
         
         self.giftServiceCoreClient.getToken(phoneNumber, verificationCode: verificationCode, success: {(token) in
-            //Store in keychain
+            //Create Identity
             self.identity.setIdentity(token.user!, token: token)
             
-            let successfulLoginEvent = SuccessfullLoginEvent()
-            NSNotificationCenter.defaultCenter().postNotificationName(SuccessfullLoginEvent.name, object: successfulLoginEvent)
-            
-            success(token: token)
+            success()
             }
 , failure: failure)
     }
