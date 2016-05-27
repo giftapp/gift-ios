@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD937F896F344EABD3EBE6 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9460C0492A39C97D2C64 /* Authenticator.swift */; };
+		62DD93E1D3C55DA8FD28294C /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9FD6F4BF787DB95368F6 /* AppRoute.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
 		62DD94AB59D9E84D12D4B510 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95DED0A9A3B4805BAB1A /* LoginView.swift */; };
 		62DD95BAF556577EF72ECC0D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90B49CDEC4D065D5186E /* WelcomeView.swift */; };
@@ -42,6 +43,7 @@
 		62DD9D4B38A545CA3A300691 /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		62DD9FD6F4BF787DB95368F6 /* AppRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		77F129F57E84D6CBE21D242F /* Pods_gift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901A5F6D1CF78654008C5E52 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		901A5F721CF794D2008C5E52 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 				62DD9A7A25123C4F971FB553 /* ModelAssembly.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		62DD92A488AC18E8DD1DBCF9 /* AppRoute */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9FD6F4BF787DB95368F6 /* AppRoute.swift */,
+			);
+			path = AppRoute;
 			sourceTree = "<group>";
 		};
 		62DD9397360AF03736644421 /* Model */ = {
@@ -187,6 +197,7 @@
 				62DD98DA3510709B12A85277 /* GiftService */,
 				62DD9397360AF03736644421 /* Model */,
 				62DD966148FE0A4AEF6FDCFB /* Events */,
+				62DD92A488AC18E8DD1DBCF9 /* AppRoute */,
 			);
 			path = gift;
 			sourceTree = "<group>";
@@ -328,6 +339,7 @@
 				62DD95BAF556577EF72ECC0D /* WelcomeView.swift in Sources */,
 				901A5F771CF79956008C5E52 /* VerificationCodeView.swift in Sources */,
 				901A5F731CF794D2008C5E52 /* WelcomeViewController.swift in Sources */,
+				62DD93E1D3C55DA8FD28294C /* AppRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

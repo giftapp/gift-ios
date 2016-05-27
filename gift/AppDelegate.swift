@@ -15,16 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //Injected
+    var appRoute : AppRoute!
+    var loginViewController : LoginViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         if let window = window {
             window.backgroundColor = UIColor.whiteColor()
-            let assembly = ModelAssembly().activate()
-            let welcomeViewController = assembly.welcomeViewController() as! WelcomeViewController
-            window.rootViewController = welcomeViewController
             window.makeKeyAndVisible()
         }
+        
+        let navigationViewController = UINavigationController(rootViewController: loginViewController)
+        navigationViewController.navigationBar.translucent = false;
+        appRoute.showController(navigationViewController)
 
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 //        return true

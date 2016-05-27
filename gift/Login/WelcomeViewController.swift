@@ -7,13 +7,17 @@ import Foundation
 import UIKit
 
 class WelcomeViewController : UIViewController, WelcomeViewDelegate {
+
+    //Injected
+    var appRoute : AppRoute
     
     var welcomeView : WelcomeView!
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init() {
+    internal dynamic init(appRoute : AppRoute) {
+        self.appRoute = appRoute;
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,13 +37,6 @@ class WelcomeViewController : UIViewController, WelcomeViewDelegate {
     // MARK: - WelcomeViewDelegate
     //-------------------------------------------------------------------------------------------
     func didTapContinue() {
-        let assembly = ModelAssembly().activate()
-        let loginViewController = assembly.loginViewController() as! LoginViewController
-        
-        let navigationViewController = UINavigationController()
-        navigationViewController.navigationBar.translucent = false;
-        navigationViewController.viewControllers = [loginViewController]
-        
-        self.presentViewController(navigationViewController, animated: true, completion: nil)
+        appRoute.dismiss(self, animated: true, completion: nil)
     }
 }
