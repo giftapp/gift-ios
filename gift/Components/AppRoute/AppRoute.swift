@@ -90,5 +90,18 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
         }
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - UINavigationControllerDelegate
+    //-------------------------------------------------------------------------------------------
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        self.switchTopMost(viewController)
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - UITabBarControllerDelegate
+    //-------------------------------------------------------------------------------------------
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        self.switchTopMost(viewController)
+    }
 
 }
