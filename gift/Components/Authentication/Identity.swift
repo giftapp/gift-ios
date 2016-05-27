@@ -59,4 +59,8 @@ class Identity : NSObject {
         self.storeIdentityInKeyChain()
     }
 
+    func isLoggedIn() -> Bool {
+        return self.token != nil
+    }
+
 }

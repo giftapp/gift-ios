@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */; };
+		62DD91B968A54892530D603F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD934B0D532FF219E57C37 /* MainTabViewController.swift */; };
 		62DD91CFB34634B33901D0C2 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D267EA10AC549902D2F /* Authenticator.swift */; };
 		62DD91E5290BC19B93DF9E2D /* FacebookClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */; };
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
@@ -38,6 +39,7 @@
 		62DD90A09C89F00141448B01 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		62DD90B49CDEC4D065D5186E /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
+		62DD934B0D532FF219E57C37 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD95DED0A9A3B4805BAB1A /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 				62DD90A09C89F00141448B01 /* Identity.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		62DD915264F8C43F70C39C4A /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				62DD934B0D532FF219E57C37 /* MainTabViewController.swift */,
+			);
+			path = Tab;
 			sourceTree = "<group>";
 		};
 		62DD91612DA4B7559E201DFD /* Facebook */ = {
@@ -231,6 +241,7 @@
 				62DD9397360AF03736644421 /* Model */,
 				62DD966148FE0A4AEF6FDCFB /* Events */,
 				62DD97F79DB55AE8082DE02A /* Components */,
+				62DD915264F8C43F70C39C4A /* Tab */,
 			);
 			path = gift;
 			sourceTree = "<group>";
@@ -376,6 +387,7 @@
 				62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */,
 				62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */,
 				62DD9EC14A6E0945A821201A /* Identity.swift in Sources */,
+				62DD91B968A54892530D603F /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

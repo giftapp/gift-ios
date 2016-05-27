@@ -51,11 +51,13 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(Launcher.self) {
             (definition) in
             definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(Launcher.init(appRoute:welcomeViewController:loginViewController:))) {
+            definition.useInitializer(#selector(Launcher.init(appRoute:welcomeViewController:loginViewController:mainTabViewController:identity:))) {
                 (initializer) in
                 initializer.injectParameterWith(self.appRoute())
                 initializer.injectParameterWith(self.viewControllersAssembly.welcomeViewController())
                 initializer.injectParameterWith(self.viewControllersAssembly.loginViewController())
+                initializer.injectParameterWith(self.viewControllersAssembly.mainTabViewController())
+                initializer.injectParameterWith(self.identity())
             }
         }
     }

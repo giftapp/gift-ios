@@ -46,4 +46,17 @@ public class ViewControllersAssembly : TyphoonAssembly {
             }
         }
     }
+
+    public dynamic func mainTabViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(MainTabViewController.self) {
+            (definition) in
+
+            definition.useInitializer(#selector(MainTabViewController.init(homeViewController:historyViewController:settingsViewController:))) {
+                (initializer) in
+                initializer.injectParameterWith(UIViewController())
+                initializer.injectParameterWith(UIViewController())
+                initializer.injectParameterWith(UIViewController())
+            }
+        }
+    }
 }
