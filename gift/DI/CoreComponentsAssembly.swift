@@ -14,9 +14,10 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in
             definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(Authenticator.init(giftServiceCoreClient:))) {
+            definition.useInitializer(#selector(Authenticator.init(giftServiceCoreClient:identity:))) {
                 (initializer) in
                 initializer.injectParameterWith(self.giftServiceCoreClient())
+                initializer.injectParameterWith(self.identity())
             }
         }
     }
@@ -32,6 +33,10 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(GiftServiceCoreClient.self) {
             (definition) in
             definition.scope = TyphoonScope.Singleton
+            definition.useInitializer(#selector(GiftServiceCoreClient.init(identity:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.identity())
+            }
         }
     }
 
@@ -52,6 +57,13 @@ public class CoreComponentsAssembly : TyphoonAssembly {
                 initializer.injectParameterWith(self.viewControllersAssembly.welcomeViewController())
                 initializer.injectParameterWith(self.viewControllersAssembly.loginViewController())
             }
+        }
+    }
+    
+    public dynamic func identity() -> AnyObject {
+        return TyphoonDefinition.withClass(Identity.self) {
+            (definition) in
+            definition.scope = TyphoonScope.Singleton
         }
     }
 

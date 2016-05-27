@@ -8,13 +8,17 @@ import UIKit
 
 class Authenticator : NSObject {
 
+    //Injected
     var giftServiceCoreClient : GiftServiceCoreClient
+    var identity : Identity
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient) {
+    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient, identity : Identity) {
         self.giftServiceCoreClient = giftServiceCoreClient
+        self.identity = identity
+        super.init()
     }
 
     //-------------------------------------------------------------------------------------------
@@ -33,8 +37,9 @@ class Authenticator : NSObject {
         
         self.giftServiceCoreClient.getToken(phoneNumber, verificationCode: verificationCode, success: {(token) in
             //Store in keychain
+            self.identity.setIdentity(token.user!, token: token)
             
-            let successfulLoginEvent = SuccessfullLoginEvent(token: token.accessToken!)
+            let successfulLoginEvent = SuccessfullLoginEvent()
             NSNotificationCenter.defaultCenter().postNotificationName(SuccessfullLoginEvent.name, object: successfulLoginEvent)
             
             success(token: token)

@@ -11,6 +11,7 @@ import ObjectMapper
 
 class Token : ModelBase {
     var accessToken : String?
+    var user : User?
     
     required init?(_ map: Map){
         super.init(map)
@@ -20,6 +21,7 @@ class Token : ModelBase {
         super.mapping(map)
         
         accessToken <- map["accessToken"]
+        user <- map["user"]
     }
     
 }

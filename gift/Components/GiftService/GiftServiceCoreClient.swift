@@ -14,12 +14,16 @@ struct GiftServiceCoreClientConstants{
 
 public class GiftServiceCoreClient : NSObject {
 
+    //Injected
+    var identity : Identity
+    
     var manager : Manager!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    override init() {
+    internal dynamic init(identity : Identity) {
+        self.identity = identity
         super.init()
 
         self.observeNotification()
@@ -37,8 +41,7 @@ public class GiftServiceCoreClient : NSObject {
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     func onSuccessfulLoginEvent(notification: NSNotification) {
-        let successfullLoginEvent = notification.object as! SuccessfullLoginEvent
-        setAuthenticationHeader(successfullLoginEvent.token)
+        setAuthenticationHeader(self.identity.token.accessToken!)
     }
 
     func setAuthenticationHeader(token : String) {
@@ -125,14 +128,15 @@ public class GiftServiceCoreClient : NSObject {
         }
     }
 
-    func getUser() {
-        manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/5742f7698d6a39092748fa50").validate().responseObject { (response: Response<User, NSError>) in
+    func getMe(success: (user : User) -> Void,
+               failure: (error: ErrorType) -> Void) {
+        manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/").validate().responseObject { (response: Response<User, NSError>) in
             switch response.result {
             case .Success:
                 let user = response.result.value
-                print(user)
+                success(user: user!)
             case .Failure(let error):
-                print(error)
+                failure(error: error)
             }
         }
     }

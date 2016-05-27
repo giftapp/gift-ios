@@ -20,6 +20,7 @@
 		62DD9BBBCA0904A5C08A268D /* CoreComponentsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */; };
 		62DD9C0781BF3DBD54781917 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DBB7683EC5FE6C2F75A /* LoginViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* SuccessfullLoginEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */; };
+		62DD9EC14A6E0945A821201A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90A09C89F00141448B01 /* Identity.swift */; };
 		823EAE93079AA4B9E2257B30 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F129F57E84D6CBE21D242F /* Pods_gift.framework */; };
 		901A5F6E1CF78654008C5E52 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F6D1CF78654008C5E52 /* Token.swift */; };
 		901A5F731CF794D2008C5E52 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F721CF794D2008C5E52 /* WelcomeViewController.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		6004962C1A8CFE0B8516897E /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
 		62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
+		62DD90A09C89F00141448B01 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		62DD90B49CDEC4D065D5186E /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* SuccessfullLoginEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessfullLoginEvent.swift; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				62DD9D267EA10AC549902D2F /* Authenticator.swift */,
+				62DD90A09C89F00141448B01 /* Identity.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */,
 				62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */,
 				62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */,
+				62DD9EC14A6E0945A821201A /* Identity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,13 +9,4 @@ class SuccessfullLoginEvent : NSObject {
 
     static let name = String(SuccessfullLoginEvent)
 
-    let token : String
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - Initialization & Destruction
-    //-------------------------------------------------------------------------------------------
-    init(token : String) {
-        self.token = token
-    }
-
 }
