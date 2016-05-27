@@ -25,7 +25,6 @@
 		901A5F751CF7990A008C5E52 /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F741CF7990A008C5E52 /* VerificaionCodeViewController.swift */; };
 		901A5F771CF79956008C5E52 /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F761CF79956008C5E52 /* VerificationCodeView.swift */; };
 		90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D611CF39555002D1EB2 /* AppDelegate.swift */; };
-		90C97D641CF39555002D1EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D631CF39555002D1EB2 /* ViewController.swift */; };
 		90C97D6C1CF39555002D1EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C97D6A1CF39555002D1EB2 /* LaunchScreen.storyboard */; };
 		90E050EC1CF856D400A60581 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E050EB1CF856D400A60581 /* ApplicationAssembly.swift */; };
 		90E050EE1CF8579800A60581 /* ViewControllersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E050ED1CF8579800A60581 /* ViewControllersAssembly.swift */; };
@@ -53,7 +52,6 @@
 		901A5F761CF79956008C5E52 /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		90C97D5E1CF39555002D1EB2 /* gift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C97D611CF39555002D1EB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		90C97D631CF39555002D1EB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90C97D6B1CF39555002D1EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90E050EB1CF856D400A60581 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		90E050ED1CF8579800A60581 /* ViewControllersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllersAssembly.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				90C97D611CF39555002D1EB2 /* AppDelegate.swift */,
-				90C97D631CF39555002D1EB2 /* ViewController.swift */,
 				90C97D6A1CF39555002D1EB2 /* LaunchScreen.storyboard */,
 				62DD9BEA5EAA58B8D36CB414 /* SupportingFiles */,
 				62DD999BEB60A1918CF50809 /* Login */,
@@ -329,7 +326,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90C97D641CF39555002D1EB2 /* ViewController.swift in Sources */,
 				90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */,
 				62DD9C0781BF3DBD54781917 /* LoginViewController.swift in Sources */,
 				901A5F6E1CF78654008C5E52 /* Token.swift in Sources */,
