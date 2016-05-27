@@ -6,6 +6,10 @@
 import Foundation
 import UIKit
 
+struct WelcomeViewControllerUserDefaultKeys {
+    static let didDismissWelcomeViewController = "WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController"
+}
+
 class WelcomeViewController : UIViewController, WelcomeViewDelegate {
 
     //Injected

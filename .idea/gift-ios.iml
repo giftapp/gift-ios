@@ -5,9 +5,10 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/AppRoute/AppRoute.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Components/Authentication/Authenticator.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Components/Launcher/Launcher.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/Facebook/FacebookClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/GiftService/GiftServiceCoreClient.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Components/Authentication/Authenticator.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/WelcomeViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/Views/VerificationCodeView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/Views/WelcomeView.swift" isTestSource="false" />

@@ -10,23 +10,18 @@ class LoginViewController : UIViewController {
     
     // Inections
     var appRoute : AppRoute
-    var welcomeViewController : WelcomeViewController
     var verificationCodeViewController : VerificationCodeViewController
     var authenticator : Authenticator
 
     var loginView : LoginView!
     
-    var didPresentWelcomeViewController : Bool = false
-
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute : AppRoute,
-                          welcomeViewController : WelcomeViewController,
                           verificationCodeViewController : VerificationCodeViewController,
                           authenticator: Authenticator) {
         self.appRoute = appRoute
-        self.welcomeViewController = welcomeViewController
         self.verificationCodeViewController = verificationCodeViewController
         self.authenticator = authenticator;
         super.init(nibName: nil, bundle: nil)
@@ -47,22 +42,9 @@ class LoginViewController : UIViewController {
         view.addSubview(loginView)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        self.presentWelcomeViewController()
-    }
-    
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func presentWelcomeViewController() {
-        if (self.didPresentWelcomeViewController) {
-            return
-        }
-        
-        self.appRoute.presentController(self.welcomeViewController, animated: false, completion: nil)
-        self.didPresentWelcomeViewController = true
-    }
-
     func nextTapped() {
         let phoneNumber = self.loginView.phoneNumber()
         authenticator.verifyPhoneNumber(phoneNumber!, success: {

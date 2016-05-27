@@ -27,10 +27,9 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(LoginViewController.self) {
             (definition) in
             
-            definition.useInitializer(#selector(LoginViewController.init(appRoute:welcomeViewController:verificationCodeViewController:authenticator:))) {
+            definition.useInitializer(#selector(LoginViewController.init(appRoute:verificationCodeViewController:authenticator:))) {
                 (initializer) in
                 initializer.injectParameterWith(self.coreComponentsAssembly.appRoute())
-                initializer.injectParameterWith(self.welcomeViewController())
                 initializer.injectParameterWith(self.verificationCodeViewController())
                 initializer.injectParameterWith(self.coreComponentsAssembly.authenticator())
             }

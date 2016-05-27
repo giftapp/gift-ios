@@ -8,6 +8,8 @@ import Typhoon
 
 public class CoreComponentsAssembly : TyphoonAssembly {
 
+    public var viewControllersAssembly: ViewControllersAssembly!
+    
     public dynamic func authenticator() -> AnyObject {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in
@@ -37,6 +39,19 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(AppRoute.self) {
             (definition) in
             definition.scope = TyphoonScope.Singleton
+        }
+    }
+    
+    public dynamic func launcher() -> AnyObject {
+        return TyphoonDefinition.withClass(Launcher.self) {
+            (definition) in
+            definition.scope = TyphoonScope.Singleton
+            definition.useInitializer(#selector(Launcher.init(appRoute:welcomeViewController:loginViewController:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.appRoute())
+                initializer.injectParameterWith(self.viewControllersAssembly.welcomeViewController())
+                initializer.injectParameterWith(self.viewControllersAssembly.loginViewController())
+            }
         }
     }
 

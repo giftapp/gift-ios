@@ -18,7 +18,7 @@ public class ApplicationAssembly : TyphoonAssembly {
             (definition) in
             
             definition.injectProperty(#selector(CoreComponentsAssembly.appRoute), with: self.coreComponentsAssembly.appRoute())
-            definition.injectProperty(#selector(ViewControllersAssembly.loginViewController), with: self.viewControllersAssembly.loginViewController())
+            definition.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
             
         }
     }

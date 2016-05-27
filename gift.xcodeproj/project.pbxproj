@@ -13,6 +13,7 @@
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
 		62DD94AB59D9E84D12D4B510 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95DED0A9A3B4805BAB1A /* LoginView.swift */; };
+		62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF77C898E54A0867FFB /* Launcher.swift */; };
 		62DD95BAF556577EF72ECC0D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90B49CDEC4D065D5186E /* WelcomeView.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
@@ -41,6 +42,7 @@
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreComponentsAssembly.swift; sourceTree = "<group>"; };
 		62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
+		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		62DD9D267EA10AC549902D2F /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			path = AppRoute;
 			sourceTree = "<group>";
 		};
+		62DD97B1C587EBF739B1064D /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9BF77C898E54A0867FFB /* Launcher.swift */,
+			);
+			path = Launcher;
+			sourceTree = "<group>";
+		};
 		62DD97F79DB55AE8082DE02A /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				62DD91612DA4B7559E201DFD /* Facebook */,
 				62DD9E6ED7C24DFEA97CBED9 /* GiftService */,
 				62DD97B0F8F3C99C4CB8CABB /* AppRoute */,
+				62DD97B1C587EBF739B1064D /* Launcher */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -360,6 +371,7 @@
 				62DD91E5290BC19B93DF9E2D /* FacebookClient.swift in Sources */,
 				62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */,
 				62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */,
+				62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

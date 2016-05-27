@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //Injected
     var appRoute : AppRoute!
-    var loginViewController : LoginViewController!
+    var launcher : Launcher!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -26,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.makeKeyAndVisible()
         }
         
-        let navigationViewController = UINavigationController(rootViewController: loginViewController)
-        navigationViewController.navigationBar.translucent = false;
-        appRoute.showController(navigationViewController)
+        self.launcher.launch(launchOptions)
 
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 //        return true
