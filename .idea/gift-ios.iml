@@ -4,25 +4,25 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Facebook/FacebookClient.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Components/AppRoute/AppRoute.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Components/Authentication/Authenticator.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Components/Facebook/FacebookClient.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Components/GiftService/GiftServiceCoreClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/WelcomeViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/Views/VerificationCodeView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/Views/WelcomeView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/Views/LoginView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/LoginViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Login/Authenticator.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Login/VerificaionCodeViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Model/Token.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ViewControllersAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ApplicationAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/DI/CoreComponentsAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/AppDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/ModelBase.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/User.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/AppRoute/AppRoute.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/GiftService/GiftServiceCoreClient.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/DI/CoreComponentsAssembly.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ApplicationAssembly.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ViewControllersAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Model/Token.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Events/SuccessfullLoginEvent.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKAppGroupAddDialog.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareButton.h" isTestSource="false" />
