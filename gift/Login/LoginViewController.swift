@@ -59,7 +59,7 @@ class LoginViewController : UIViewController {
             return
         }
         
-        self.appRoute.presentController(self.welcomeViewController, animated: true, completion: nil)
+        self.appRoute.presentController(self.welcomeViewController, animated: false, completion: nil)
         self.didPresentWelcomeViewController = true
     }
 
