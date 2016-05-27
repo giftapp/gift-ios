@@ -7,18 +7,21 @@ import Foundation
 import UIKit
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
-    
+
+    //Injected
     var authenticator : Authenticator
-    
+    var launcher : Launcher
+
     var verificationCodeView : VerificationCodeView!
-    
+
     var phoneNumber : String!
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(authenticator: Authenticator) {
+    internal dynamic init(authenticator: Authenticator, launcher : Launcher) {
         self.authenticator = authenticator;
+        self.launcher = launcher
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,7 +48,8 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //-------------------------------------------------------------------------------------------
     func didEnteredVerificationCode(verificationCode: Int) {
         authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
-            print("Success")
+            print("Successfully logged in")
+            self.launcher.launch(nil)
             }) { (error) in
                 print(error)
         }

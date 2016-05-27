@@ -40,10 +40,13 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(VerificationCodeViewController.self) {
             (definition) in
             
-            definition.useInitializer(#selector(VerificationCodeViewController.init(authenticator:))) {
+            definition.useInitializer(#selector(VerificationCodeViewController.init(authenticator:launcher:))) {
                 (initializer) in
                 initializer.injectParameterWith(self.coreComponentsAssembly.authenticator())
+                initializer.injectParameterWith(nil) // property injection
             }
+            definition.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
+
         }
     }
 
