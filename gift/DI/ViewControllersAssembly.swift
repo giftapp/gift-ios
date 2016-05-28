@@ -70,9 +70,45 @@ public class ViewControllersAssembly : TyphoonAssembly {
 
             definition.useInitializer(#selector(MainTabViewController.init(homeViewController:historyViewController:settingsViewController:))) {
                 (initializer) in
-                initializer.injectParameterWith(UIViewController())
-                initializer.injectParameterWith(UIViewController())
-                initializer.injectParameterWith(UIViewController())
+                initializer.injectParameterWith(self.homeViewController())
+                initializer.injectParameterWith(self.historyViewController())
+                initializer.injectParameterWith(self.settingsViewController())
+            }
+        }
+    }
+    
+    public dynamic func homeViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(HomeViewController.self) {
+            (definition) in
+            
+            definition.useInitializer(#selector(HomeViewController.init(appRoute:identity:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.coreComponentsAssembly.appRoute())
+                initializer.injectParameterWith(self.coreComponentsAssembly.identity())
+            }
+        }
+    }
+    
+    public dynamic func historyViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(HistoryViewController.self) {
+            (definition) in
+            
+            definition.useInitializer(#selector(HistoryViewController.init(appRoute:identity:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.coreComponentsAssembly.appRoute())
+                initializer.injectParameterWith(self.coreComponentsAssembly.identity())
+            }
+        }
+    }
+    
+    public dynamic func settingsViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(SettingsViewController.self) {
+            (definition) in
+            
+            definition.useInitializer(#selector(SettingsViewController.init(appRoute:identity:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.coreComponentsAssembly.appRoute())
+                initializer.injectParameterWith(self.coreComponentsAssembly.identity())
             }
         }
     }

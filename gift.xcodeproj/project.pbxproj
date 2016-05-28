@@ -15,16 +15,19 @@
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD932897C0148AA10FAC18 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B0C5DCF232B4EFFB08B /* WelcomeView.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
+		62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */; };
 		62DD95670B946382752186DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DCA03503B4293DAD836 /* LoginViewController.swift */; };
 		62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF77C898E54A0867FFB /* Launcher.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
 		62DD9BBBCA0904A5C08A268D /* CoreComponentsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */; };
+		62DD9C657A4D9B4D33844951 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9900EBB0861053EA469F /* HomeViewController.swift */; };
 		62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */; };
 		62DD9D1576A1ACF87587B88F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9813538E57C41CA9F43B /* WelcomeViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
+		62DD9E721DF907942F60A02A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B951D76394291709BEF /* SettingsViewController.swift */; };
 		62DD9EC14A6E0945A821201A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90A09C89F00141448B01 /* Identity.swift */; };
 		823EAE93079AA4B9E2257B30 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F129F57E84D6CBE21D242F /* Pods_gift.framework */; };
 		901A5F6E1CF78654008C5E52 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F6D1CF78654008C5E52 /* Token.swift */; };
@@ -39,14 +42,17 @@
 		62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
 		62DD90A09C89F00141448B01 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
+		62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD9813538E57C41CA9F43B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		62DD9900EBB0861053EA469F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreComponentsAssembly.swift; sourceTree = "<group>"; };
 		62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
 		62DD9B0C5DCF232B4EFFB08B /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		62DD9B951D76394291709BEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
@@ -95,6 +101,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		62DD9094D01EB0A3BC318D86 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		62DD90CB1E046E87ABC0D451 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,14 @@
 				62DD90A09C89F00141448B01 /* Identity.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		62DD90E046CAB18A085E82F5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9900EBB0861053EA469F /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		62DD91612DA4B7559E201DFD /* Facebook */ = {
@@ -130,6 +152,14 @@
 				901A5F6D1CF78654008C5E52 /* Token.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		62DD9499322AFDEB38BB2712 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9B951D76394291709BEF /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
 		62DD9547D1A13053D5C91CB4 /* Views */ = {
@@ -212,6 +242,9 @@
 				62DD97A94156DA79EB7B6382 /* Login */,
 				62DD9F4907CB3FA89BFE7AED /* Tab */,
 				62DD993D16D479E728016116 /* EditProfile */,
+				62DD90E046CAB18A085E82F5 /* Home */,
+				62DD9094D01EB0A3BC318D86 /* History */,
+				62DD9499322AFDEB38BB2712 /* SettingsViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -408,6 +441,9 @@
 				62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */,
 				62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */,
 				62DD9229654B5ABFD4ACFFDD /* EditProfileViewController.swift in Sources */,
+				62DD9C657A4D9B4D33844951 /* HomeViewController.swift in Sources */,
+				62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */,
+				62DD9E721DF907942F60A02A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,6 +42,10 @@ class LoginViewController : UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next",style: .Plain, target: self, action: #selector(nextTapped))
         
+        self.addCustomViews()
+    }
+
+    func addCustomViews() {
         self.loginView =  LoginView(frame: self.view!.frame)
         view.addSubview(loginView)
     }

@@ -45,10 +45,11 @@ class EditProfileViewController : UIViewController {
         self.title = "Edit Profile"
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",style: .Done, target: self, action: #selector(doneTapped))
+
+        self.addCustomViews()
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.addCustomViews()
         self.setConstraints()
     }
     

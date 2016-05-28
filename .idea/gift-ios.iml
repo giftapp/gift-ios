@@ -8,7 +8,6 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/DI/ApplicationAssembly.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/DI/CoreComponentsAssembly.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/AppDelegate.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Tab/MainTabViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/EditProfileViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/WelcomeViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/Views/VerificationCodeView.swift" isTestSource="false" />
@@ -16,6 +15,10 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/Views/LoginView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/LoginViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/VerificaionCodeViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/History/HistoryViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Home/HomeViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/SettingsViewController/SettingsViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Tab/MainTabViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/ModelBase.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/User.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/Token.swift" isTestSource="false" />

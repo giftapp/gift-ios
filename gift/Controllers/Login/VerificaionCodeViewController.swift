@@ -39,11 +39,15 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         
         self.title = "Verification Code"
         
+        self.addCustomViews()
+    }
+
+    func addCustomViews() {
         self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame)
         self.verificationCodeView.delegate = self
         view.addSubview(verificationCodeView)
     }
-    
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
