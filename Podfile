@@ -27,6 +27,12 @@ target 'gift' do
   # Date manipulations
   pod 'Timepiece', "~> 0.4.2"                                       # not used yet
 
+  # Image picker
+  pod 'ImagePicker', "~> 1.3.0"                                     # not used yet
+
+  # Image processing
+  pod 'Toucan', "~> 0.5.0"                                          # not used yet
+
   # UI
   pod 'TextAttributes', "~> 0.3.1" # Attributed strings             # not used yet
   pod 'RAMAnimatedTabBarController', "~> 1.4.0" # Animated tab bar  # not used yet
