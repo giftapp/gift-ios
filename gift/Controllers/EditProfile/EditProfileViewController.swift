@@ -11,6 +11,7 @@ class EditProfileViewController : UIViewController {
 
     // Injections
     var appRoute : AppRoute
+    var identity : Identity
     var facebookClient : FacebookClient
     var giftServiceCoreClient : GiftServiceCoreClient
 
@@ -21,9 +22,11 @@ class EditProfileViewController : UIViewController {
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute : AppRoute,
+                          identity : Identity,
                           facebookClient : FacebookClient,
                           giftServiceCoreClient : GiftServiceCoreClient) {
         self.appRoute = appRoute
+        self.identity = identity
         self.facebookClient = facebookClient
         self.giftServiceCoreClient = giftServiceCoreClient
         super.init(nibName: nil, bundle: nil)
@@ -82,6 +85,7 @@ class EditProfileViewController : UIViewController {
             } else {
                 self.giftServiceCoreClient.setFacebookAccount(facebookToken!, success: { (user) in
                     print ("Succsessfully got user from facebook")
+                    self.identity.setIdentity(user, token: self.identity.token)
                     self.appRoute.dismiss(self, animated: true, completion: nil)
                     }, failure: { (error) in
                         print (error)

@@ -44,7 +44,7 @@ class Launcher : NSObject {
             appRoute.showController(self.mainTabViewController)
             
             //Show edit if needed
-            if ((self.identity.user.needsEdit) != nil) {
+            if (self.identity.user.needsEdit!) {
                 let navigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
                 navigationViewController.navigationBar.translucent = false;
                 self.appRoute.presentController(navigationViewController, animated: true, completion: nil)
