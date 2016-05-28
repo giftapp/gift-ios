@@ -27,10 +27,14 @@ public class GiftServiceCoreClient : NSObject {
         super.init()
 
         self.observeNotification()
+        
+        if (self.identity.isLoggedIn()) {
+            self.updateAuthenticationHeaderFromIdentity()
+        }
     }
 
     func observeNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GiftServiceCoreClient.onSuccessfulLoginEvent(_:)), name: IdentityUpdatedEvent.name, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GiftServiceCoreClient.onIdentityUpdatedEvent(_:)), name: IdentityUpdatedEvent.name, object: nil)
     }
 
     deinit {
@@ -40,8 +44,12 @@ public class GiftServiceCoreClient : NSObject {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func onSuccessfulLoginEvent(notification: NSNotification) {
-        setAuthenticationHeader(self.identity.token.accessToken!)
+    func onIdentityUpdatedEvent(notification: NSNotification) {
+        self.updateAuthenticationHeaderFromIdentity()
+    }
+    
+    func updateAuthenticationHeaderFromIdentity() {
+        self.setAuthenticationHeader(self.identity.token.accessToken!)
     }
 
     func setAuthenticationHeader(token : String) {
@@ -140,5 +148,21 @@ public class GiftServiceCoreClient : NSObject {
             }
         }
     }
-
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Post
+    //-------------------------------------------------------------------------------------------
+    func setFacebookAccount(facebookAccessToken :String,
+                            success: (user : User) -> Void,
+                            failure: (error: ErrorType) -> Void) {
+        manager.request(.POST, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/facebook", parameters: ["facebookAccessToken": facebookAccessToken], encoding: .JSON).validate().responseObject { (response: Response<User, NSError>) in
+            switch response.result {
+            case .Success:
+                let user = response.result.value
+                success(user: user!)
+            case .Failure(let error):
+                failure(error: error)
+            }
+        }
+    }
 }

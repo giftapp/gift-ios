@@ -49,6 +49,19 @@ public class ViewControllersAssembly : TyphoonAssembly {
 
         }
     }
+    
+    public dynamic func editProfileViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(EditProfileViewController.self) {
+            (definition) in
+            
+            definition.useInitializer(#selector(EditProfileViewController.init(appRoute:facebookClient:giftServiceCoreClient:))) {
+                (initializer) in
+                initializer.injectParameterWith(self.coreComponentsAssembly.appRoute())
+                initializer.injectParameterWith(self.coreComponentsAssembly.facebookClient())
+                initializer.injectParameterWith(self.coreComponentsAssembly.giftServiceCoreClient())
+            }
+        }
+    }
 
     public dynamic func mainTabViewController() -> AnyObject {
         return TyphoonDefinition.withClass(MainTabViewController.self) {

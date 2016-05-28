@@ -11,6 +11,7 @@ class User : ModelBase, NSCoding {
     var lastName : String?
     var email : String?
     var avatarURL : String?
+    var needsEdit : Bool?
 
     override init() {
         super.init()
@@ -27,6 +28,7 @@ class User : ModelBase, NSCoding {
         lastName <- map["lastName"]
         email <- map["email"]
         avatarURL <- map["avatarURL"]
+        needsEdit <- map["needsEdit"]
     }
 
     @objc required convenience init?(coder aDecoder: NSCoder) {
@@ -38,6 +40,7 @@ class User : ModelBase, NSCoding {
         self.lastName = aDecoder.decodeObjectForKey("lastName") as! String?
         self.email = aDecoder.decodeObjectForKey("email") as! String?
         self.avatarURL = aDecoder.decodeObjectForKey("avatarURL") as! String?
+        self.needsEdit = aDecoder.decodeObjectForKey("needsEdit") as! Bool?
     }
 
     @objc func encodeWithCoder(aCoder: NSCoder) {
@@ -48,5 +51,6 @@ class User : ModelBase, NSCoding {
         aCoder.encodeObject(self.lastName, forKey: "lastName")
         aCoder.encodeObject(self.email, forKey: "email")
         aCoder.encodeObject(self.avatarURL, forKey: "avatarURL")
+        aCoder.encodeObject(self.needsEdit, forKey: "needsEdit")
     }
 }

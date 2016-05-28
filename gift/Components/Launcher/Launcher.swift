@@ -12,6 +12,7 @@ class Launcher : NSObject {
     var appRoute : AppRoute
     var welcomeViewController : WelcomeViewController
     var loginViewController : LoginViewController
+    var editProfileViewController : EditProfileViewController
     var mainTabViewController : MainTabViewController
     var identity : Identity
     
@@ -20,11 +21,13 @@ class Launcher : NSObject {
     internal dynamic init(appRoute : AppRoute,
                           welcomeViewController : WelcomeViewController,
                           loginViewController : LoginViewController,
+                          editProfileViewController : EditProfileViewController,
                           mainTabViewController : MainTabViewController,
                           identity : Identity) {
         self.appRoute = appRoute
         self.welcomeViewController = welcomeViewController
         self.loginViewController = loginViewController
+        self.editProfileViewController = editProfileViewController
         self.mainTabViewController = mainTabViewController
         self.identity = identity
         super.init()
@@ -39,6 +42,13 @@ class Launcher : NSObject {
             appRoute.showController(navigationViewController)
         } else {
             appRoute.showController(self.mainTabViewController)
+            
+            //Show edit if needed
+            if ((self.identity.user.needsEdit) != nil) {
+                let navigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
+                navigationViewController.navigationBar.translucent = false;
+                self.appRoute.presentController(navigationViewController, animated: true, completion: nil)
+            }
         }
         
         //Show welcome if needed

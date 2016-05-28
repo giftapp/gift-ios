@@ -13,6 +13,7 @@ class LoginViewController : UIViewController {
     var verificationCodeViewController : VerificationCodeViewController
     var authenticator : Authenticator
 
+    //Views
     var loginView : LoginView!
     
     //-------------------------------------------------------------------------------------------
@@ -23,7 +24,7 @@ class LoginViewController : UIViewController {
                           authenticator: Authenticator) {
         self.appRoute = appRoute
         self.verificationCodeViewController = verificationCodeViewController
-        self.authenticator = authenticator;
+        self.authenticator = authenticator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,6 +32,9 @@ class LoginViewController : UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Lifecycle
+    //-------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
 
