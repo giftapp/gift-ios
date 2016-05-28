@@ -92,7 +92,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gift/FBSDKLoginKit.framework"
   install_framework "Pods-gift/FBSDKShareKit.framework"
   install_framework "Pods-gift/Locksmith.framework"
+  install_framework "Pods-gift/MZTimerLabel.framework"
   install_framework "Pods-gift/ObjectMapper.framework"
+  install_framework "Pods-gift/RAMAnimatedTabBarController.framework"
+  install_framework "Pods-gift/TextAttributes.framework"
+  install_framework "Pods-gift/Timepiece.framework"
   install_framework "Pods-gift/Typhoon.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -104,6 +108,10 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gift/FBSDKLoginKit.framework"
   install_framework "Pods-gift/FBSDKShareKit.framework"
   install_framework "Pods-gift/Locksmith.framework"
+  install_framework "Pods-gift/MZTimerLabel.framework"
   install_framework "Pods-gift/ObjectMapper.framework"
+  install_framework "Pods-gift/RAMAnimatedTabBarController.framework"
+  install_framework "Pods-gift/TextAttributes.framework"
+  install_framework "Pods-gift/Timepiece.framework"
   install_framework "Pods-gift/Typhoon.framework"
 fi

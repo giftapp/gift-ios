@@ -24,5 +24,13 @@ target 'gift' do
   pod 'FBSDKShareKit', "~> 4.12.0"
   pod 'FBSDKLoginKit', "~> 4.12.0"
 
+  # Date manipulations
+  pod 'Timepiece', "~> 0.4.2"                                       # not used yet
+
+  # UI
+  pod 'TextAttributes', "~> 0.3.1" # Attributed strings             # not used yet
+  pod 'RAMAnimatedTabBarController', "~> 1.4.0" # Animated tab bar  # not used yet
+  pod 'MZTimerLabel', "~> 0.5.4" # Countdown UILabel                # not used yet
+
 end
 
