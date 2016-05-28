@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'gift' do
@@ -33,9 +33,14 @@ target 'gift' do
   # Image processing
   pod 'Toucan', "~> 0.5.0"                                          # not used yet
 
+  # Splash view
+  pod 'SKSplashView', "~> 0.1.2"                                    # not used yet
+
   # UI
   pod 'TextAttributes', "~> 0.3.1" # Attributed strings             # not used yet
   pod 'RAMAnimatedTabBarController', "~> 1.4.0" # Animated tab bar  # not used yet
+  pod 'PMAlertController', "~> 1.0.4" # Alert controller            # not used yet
+  pod 'NVActivityIndicatorView', "~> 2.7" # Activity indicator      # not used yet
   pod 'MZTimerLabel', "~> 0.5.4" # Countdown UILabel                # not used yet
 
 end
