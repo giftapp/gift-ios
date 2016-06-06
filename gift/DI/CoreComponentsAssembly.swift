@@ -9,7 +9,14 @@ import Typhoon
 public class CoreComponentsAssembly : TyphoonAssembly {
 
     public var viewControllersAssembly: ViewControllersAssembly!
-    
+
+    private dynamic func logConfigurer() -> AnyObject {
+        return TyphoonDefinition.withClass(LogConfigurer.self) {
+            (definition) in
+            definition.scope = TyphoonScope.Singleton
+        }
+    }
+
     public dynamic func authenticator() -> AnyObject {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in

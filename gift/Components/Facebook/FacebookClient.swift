@@ -5,11 +5,14 @@
 
 import Foundation
 import UIKit
+import XCGLogger
 
 import FBSDKCoreKit
 import FBSDKLoginKit
 
 class FacebookClient : NSObject {
+
+    private let log = XCGLogger.defaultInstance()
 
     private let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
 
@@ -20,15 +23,15 @@ class FacebookClient : NSObject {
         fbLoginManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], fromViewController: fromViewController) { (result , error) in
             if error != nil {
                 // Process error
-                print("Failed to login with facebook")
+                self.log.error("Failed to login with facebook")
                 completion(error: true, facebookToken: nil)
             } else if (result.isCancelled) {
                 // Cancelled
-                print("Aborted login with facebook")
+                self.log.debug("Aborted login with facebook")
                 completion(error: true, facebookToken: nil)
             } else {
                 // Logged in
-                print("Successfully login with facebook", FBSDKAccessToken.currentAccessToken().tokenString)
+                self.log.debug("Successfully login with facebook, token is: " + FBSDKAccessToken.currentAccessToken().tokenString)
                 completion(error: false, facebookToken: FBSDKAccessToken.currentAccessToken().tokenString)
             }
         }

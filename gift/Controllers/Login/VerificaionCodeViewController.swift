@@ -5,8 +5,11 @@
 
 import Foundation
 import UIKit
+import XCGLogger
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
+
+    private let log = XCGLogger.defaultInstance()
 
     //Injected
     private var authenticator : Authenticator
@@ -57,10 +60,10 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //-------------------------------------------------------------------------------------------
     internal func didEnteredVerificationCode(verificationCode: Int) {
         authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
-            print("Successfully logged in")
+            self.log.debug("Successfully logged in")
             self.launcher.launch(nil)
             }) { (error) in
-                print(error)
+            self.log.error("Failed logging in: \(error)")
         }
     }
     

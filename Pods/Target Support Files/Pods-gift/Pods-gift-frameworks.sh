@@ -103,6 +103,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gift/Timepiece.framework"
   install_framework "Pods-gift/Toucan.framework"
   install_framework "Pods-gift/Typhoon.framework"
+  install_framework "Pods-gift/XCGLogger.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gift/Alamofire.framework"
@@ -124,4 +125,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gift/Timepiece.framework"
   install_framework "Pods-gift/Toucan.framework"
   install_framework "Pods-gift/Typhoon.framework"
+  install_framework "Pods-gift/XCGLogger.framework"
 fi

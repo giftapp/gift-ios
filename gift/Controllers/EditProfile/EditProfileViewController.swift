@@ -6,8 +6,11 @@
 import Foundation
 import UIKit
 import Cartography
+import XCGLogger
 
 class EditProfileViewController : UIViewController {
+
+    private let log = XCGLogger.defaultInstance()
 
     // Injections
     private var appRoute : AppRoute
@@ -81,14 +84,14 @@ class EditProfileViewController : UIViewController {
     internal func loginWithFacebookTapped(sender:UIButton!) {
         self.facebookClient.login(viewController: self) { (error, facebookToken) in
             if (error) {
-                print ("error while login with facebook")
+                self.log.error("error while login with facebook")
             } else {
                 self.giftServiceCoreClient.setFacebookAccount(facebookToken!, success: { (user) in
-                    print ("Succsessfully got user from facebook")
+                    self.log.debug("Succsessfully got user from facebook")
                     self.identity.updateUser(user)
                     self.appRoute.dismiss(self, animated: true, completion: nil)
                     }, failure: { (error) in
-                        print (error)
+                        self.log.error("error while updating user account with facebook account: \(error)")
                 })
             }
         }

@@ -5,9 +5,12 @@
 
 import Foundation
 import UIKit
+import XCGLogger
 
 class LoginViewController : UIViewController {
-    
+
+    private let log = XCGLogger.defaultInstance()
+
     // Inections
     var appRoute : AppRoute
     var verificationCodeViewController : VerificationCodeViewController
@@ -56,9 +59,9 @@ class LoginViewController : UIViewController {
     @objc private func nextTapped() {
         let phoneNumber = self.loginView.phoneNumber()
         authenticator.verifyPhoneNumber(phoneNumber!, success: {
-            print("Verification code sent")
-            }) { (error) in
-                print(error)
+            self.log.debug("Verification code sent")
+        }) { (error) in
+            self.log.error("Failed sending verification code: \(error)")
         }
         
         self.verificationCodeViewController.phoneNumber = phoneNumber

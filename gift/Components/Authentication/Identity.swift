@@ -5,6 +5,7 @@
 
 import Foundation
 import Locksmith
+import XCGLogger
 
 struct IdentityConsts {
     static let service = "gift"
@@ -15,6 +16,8 @@ struct IdentityConsts {
 
 
 class Identity : NSObject {
+
+    private let log = XCGLogger.defaultInstance()
 
     var user : User?
     var token : Token?
@@ -33,31 +36,31 @@ class Identity : NSObject {
         if let keyChainDictionary = keyChainDictionaryOpt {
             self.user = keyChainDictionary[IdentityConsts.userKey] as? User
             self.token = keyChainDictionary[IdentityConsts.tokenKey] as? Token
-            print ("Successfully loaded account from keychain")
+            log.info("Successfully loaded account from keychain")
         }
     }
     
     private func storeIdentityInKeyChain() {
         guard let user = self.user
             else {
-                print ("Misssing user in identity")
+                log.severe("Missing user in identity")
                 return //TODO:consider throw
             }
         
         guard let token = self.token
             else {
-                print ("Misssing token in identity")
+                log.severe("Missing token in identity")
                 return
             }
         
         do {
             try Locksmith.updateData([IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account)
-            print ("Successfully stored account in keychain")
+            log.debug("Successfully stored account in keychain")
 
             //Broadcast event
             NSNotificationCenter.defaultCenter().postNotificationName(IdentityUpdatedEvent.name, object: nil)
         } catch {
-            print ("Failed to store account in keychain")
+            log.severe("Failed to store account in keychain")
         }
     }
 

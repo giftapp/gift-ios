@@ -30,6 +30,7 @@ PODS:
   - Typhoon (3.4.7):
     - Typhoon/no-arc (= 3.4.7)
   - Typhoon/no-arc (3.4.7)
+  - XCGLogger (3.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - Timepiece (~> 0.4.2)
   - Toucan (~> 0.5.0)
   - Typhoon (~> 3.4.7)
+  - XCGLogger (~> 3.3)
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
@@ -71,5 +73,6 @@ SPEC CHECKSUMS:
   Timepiece: cf53bb908bf542acc0e3d5f69cabfed869df4ebd
   Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40
   Typhoon: 0953addabd5a10a930973fcc131c03badc88c4ba
+  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
 COCOAPODS: 0.39.0
