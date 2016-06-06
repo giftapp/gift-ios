@@ -17,13 +17,13 @@ PODS:
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
   - ImagePicker (1.3.0)
+  - Kingfisher (2.4.1)
   - Locksmith (2.0.8)
   - MZTimerLabel (0.5.4)
   - NVActivityIndicatorView (2.7)
   - ObjectMapper (1.3.0)
   - PMAlertController (1.0.4)
   - RAMAnimatedTabBarController (1.4.0)
-  - SKSplashView (0.1.2)
   - TextAttributes (0.3.1)
   - Timepiece (0.4.2)
   - Toucan (0.5.0)
@@ -40,12 +40,12 @@ DEPENDENCIES:
   - FBSDKLoginKit (~> 4.12.0)
   - FBSDKShareKit (~> 4.12.0)
   - ImagePicker (~> 1.3.0)
+  - Kingfisher (~> 2.4.1)
   - Locksmith (~> 2.0.8)
   - MZTimerLabel (~> 0.5.4)
   - NVActivityIndicatorView (~> 2.7)
   - PMAlertController (~> 1.0.4)
   - RAMAnimatedTabBarController (~> 1.4.0)
-  - SKSplashView (~> 0.1.2)
   - TextAttributes (~> 0.3.1)
   - Timepiece (~> 0.4.2)
   - Toucan (~> 0.5.0)
@@ -60,13 +60,13 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
   ImagePicker: ed649bfeb850b2b8715c9e95a35725c730b5f627
+  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   NVActivityIndicatorView: dc80f18fb27ac92f0aa87246cc13dc39ed3e9ee0
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   PMAlertController: 7f969c937a80bea634a5bf957b66943b493e1aca
   RAMAnimatedTabBarController: 6f221d7dc647b4266c9e05618c84b5639f190297
-  SKSplashView: c65333b6707be6f237d09e7c8977941114b0a70d
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
   Timepiece: cf53bb908bf542acc0e3d5f69cabfed869df4ebd
   Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40

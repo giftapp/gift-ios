@@ -30,11 +30,11 @@ target 'gift' do
   # Image picker
   pod 'ImagePicker', "~> 1.3.0"                                     # not used yet
 
+  # Image cache
+  pod 'Kingfisher', '~> 2.4.1'                                      # not used yet
+
   # Image processing
   pod 'Toucan', "~> 0.5.0"                                          # not used yet
-
-  # Splash view
-  pod 'SKSplashView', "~> 0.1.2"                                    # not used yet
 
   # UI
   pod 'TextAttributes', "~> 0.3.1" # Attributed strings             # not used yet
