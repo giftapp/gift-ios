@@ -31,6 +31,8 @@
 		62DD9EC14A6E0945A821201A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90A09C89F00141448B01 /* Identity.swift */; };
 		823EAE93079AA4B9E2257B30 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F129F57E84D6CBE21D242F /* Pods_gift.framework */; };
 		901A5F6E1CF78654008C5E52 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F6D1CF78654008C5E52 /* Token.swift */; };
+		9063255F1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */; };
+		906325611D06146C00064FC0 /* Alamofire+NonSecureConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */; };
 		90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D611CF39555002D1EB2 /* AppDelegate.swift */; };
 		90C97D6C1CF39555002D1EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C97D6A1CF39555002D1EB2 /* LaunchScreen.storyboard */; };
 		90E050EC1CF856D400A60581 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E050EB1CF856D400A60581 /* ApplicationAssembly.swift */; };
@@ -64,6 +66,8 @@
 		62DD9F0225584711E507EE8E /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		77F129F57E84D6CBE21D242F /* Pods_gift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901A5F6D1CF78654008C5E52 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+AuthenticationHeader.swift"; sourceTree = "<group>"; };
+		906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+NonSecureConnection.swift"; sourceTree = "<group>"; };
 		90C97D5E1CF39555002D1EB2 /* gift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C97D611CF39555002D1EB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90C97D6B1CF39555002D1EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -180,6 +184,14 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
+		62DD96973C6D0E1F7CD55345 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				62DD989C6EC9782DDAF6D696 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		62DD97A94156DA79EB7B6382 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,15 @@
 				62DD97B1C587EBF739B1064D /* Launcher */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		62DD989C6EC9782DDAF6D696 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */,
+				906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		62DD993D16D479E728016116 /* EditProfile */ = {
@@ -294,6 +315,7 @@
 				62DD966148FE0A4AEF6FDCFB /* Events */,
 				62DD97F79DB55AE8082DE02A /* Components */,
 				62DD9D427D540E98FD4D243A /* Controllers */,
+				62DD96973C6D0E1F7CD55345 /* Utils */,
 			);
 			path = gift;
 			sourceTree = "<group>";
@@ -432,11 +454,13 @@
 				62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */,
 				62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */,
 				62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */,
+				9063255F1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift in Sources */,
 				62DD9EC14A6E0945A821201A /* Identity.swift in Sources */,
 				62DD95670B946382752186DE /* LoginViewController.swift in Sources */,
 				62DD92B8DF265DEC0212B6EA /* LoginView.swift in Sources */,
 				62DD932897C0148AA10FAC18 /* WelcomeView.swift in Sources */,
 				62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */,
+				906325611D06146C00064FC0 /* Alamofire+NonSecureConnection.swift in Sources */,
 				62DD9D1576A1ACF87587B88F /* WelcomeViewController.swift in Sources */,
 				62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */,
 				62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */,

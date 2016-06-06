@@ -18,6 +18,9 @@ class Launcher : NSObject {
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute : AppRoute,
                           welcomeViewController : WelcomeViewController,
                           loginViewController : LoginViewController,
@@ -33,6 +36,9 @@ class Launcher : NSObject {
         super.init()
     }
     
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
     func launch(launchOptions: [NSObject: AnyObject]?) {
 
         if (!self.identity.isLoggedIn()) {
@@ -44,7 +50,7 @@ class Launcher : NSObject {
             appRoute.showController(self.mainTabViewController)
             
             //Show edit if needed
-            if (self.identity.user.needsEdit!) {
+            if (self.identity.user!.needsEdit!) {
                 let navigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
                 navigationViewController.navigationBar.translucent = false;
                 self.appRoute.presentController(navigationViewController, animated: true, completion: nil)

@@ -11,7 +11,7 @@ import FBSDKLoginKit
 
 class FacebookClient : NSObject {
 
-    let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+    private let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Public

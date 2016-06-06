@@ -9,7 +9,10 @@ import UIKit
 class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDelegate {
 
     private weak var topMostViewController : UIViewController!
-
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
     func showController(controller : UIViewController) {
         let window : UIWindow = UIApplication.sharedApplication().keyWindow!
 

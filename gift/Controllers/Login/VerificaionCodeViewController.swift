@@ -9,11 +9,11 @@ import UIKit
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
 
     //Injected
-    var authenticator : Authenticator
-    var launcher : Launcher
+    private var authenticator : Authenticator
+    var launcher : Launcher //property injected
 
     //Views
-    var verificationCodeView : VerificationCodeView!
+    private var verificationCodeView : VerificationCodeView!
 
     //Properties
     var phoneNumber : String!
@@ -42,7 +42,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         self.addCustomViews()
     }
 
-    func addCustomViews() {
+    private func addCustomViews() {
         self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame)
         self.verificationCodeView.delegate = self
         view.addSubview(verificationCodeView)
@@ -55,7 +55,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //-------------------------------------------------------------------------------------------
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
-    func didEnteredVerificationCode(verificationCode: Int) {
+    internal func didEnteredVerificationCode(verificationCode: Int) {
         authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
             print("Successfully logged in")
             self.launcher.launch(nil)

@@ -9,9 +9,9 @@ import UIKit
 class MainTabViewController : UITabBarController{
 
     //Injections
-    var homeViewController : UIViewController
-    var historyViewController : UIViewController
-    var settingsViewController : UIViewController
+    private var homeViewController : UIViewController
+    private var historyViewController : UIViewController
+    private var settingsViewController : UIViewController
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -40,6 +40,9 @@ class MainTabViewController : UITabBarController{
         //TODO: add observer for badge count
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
     private func getHomeTab() -> UIViewController {
         self.homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeTab")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "homeTabSelected")!.imageWithRenderingMode(.AlwaysOriginal))
         return self.embedInNavigationController(self.homeViewController)

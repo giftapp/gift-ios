@@ -34,7 +34,7 @@ class WelcomeView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func addCustomViews() {
+    private func addCustomViews() {
         self.backgroundColor = UIColor.grayColor()
         
         welcomeLabel.textAlignment = NSTextAlignment.Center
@@ -47,7 +47,7 @@ class WelcomeView : UIView {
         self.addSubview(continueButton)
     }
 
-    func setConstraints() {
+    private func setConstraints() {
         welcomeLabel.sizeToFit()
 
         constrain(welcomeLabel, continueButton) { welcomeLabel, continueButton in
@@ -62,7 +62,7 @@ class WelcomeView : UIView {
     //-------------------------------------------------------------------------------------------
     // MARK: - LoginViewDelegate
     //-------------------------------------------------------------------------------------------
-    func didTapContinue(sender:UIButton!) {
+    @objc private func didTapContinue(sender:UIButton!) {
         delegate!.didTapContinue()
     }
 

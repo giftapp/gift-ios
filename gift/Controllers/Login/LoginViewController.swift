@@ -45,7 +45,7 @@ class LoginViewController : UIViewController {
         self.addCustomViews()
     }
 
-    func addCustomViews() {
+    private func addCustomViews() {
         self.loginView =  LoginView(frame: self.view!.frame)
         view.addSubview(loginView)
     }
@@ -53,7 +53,7 @@ class LoginViewController : UIViewController {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func nextTapped() {
+    @objc private func nextTapped() {
         let phoneNumber = self.loginView.phoneNumber()
         authenticator.verifyPhoneNumber(phoneNumber!, success: {
             print("Verification code sent")

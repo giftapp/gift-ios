@@ -29,7 +29,7 @@ class LoginView : UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func addCustomViews() {
+    private func addCustomViews() {
         self.backgroundColor = UIColor.whiteColor()
         
         loginLabel.textAlignment = NSTextAlignment.Center
@@ -43,7 +43,7 @@ class LoginView : UIView, UITextFieldDelegate {
         
     }
 
-    func setConstraints() {
+    private func setConstraints() {
         loginLabel.sizeToFit()
 
         constrain(loginLabel, phoneNumberTextField) { loginLabel, phoneNumberTextField in
@@ -64,7 +64,7 @@ class LoginView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    internal func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         let currentCharacterCount = textField.text?.characters.count ?? 0
         // Prevent crashing undo bug

@@ -13,10 +13,10 @@ struct WelcomeViewControllerUserDefaultKeys {
 class WelcomeViewController : UIViewController, WelcomeViewDelegate {
 
     //Injected
-    var appRoute : AppRoute
+    private var appRoute : AppRoute
 
     //Views
-    var welcomeView : WelcomeView!
+    private var welcomeView : WelcomeView!
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -38,7 +38,8 @@ class WelcomeViewController : UIViewController, WelcomeViewDelegate {
         
         self.addCustomViews()
     }
-    func addCustomViews() {
+    
+    private func addCustomViews() {
         self.welcomeView =  WelcomeView(frame: self.view!.frame)
         self.welcomeView.delegate = self
         view.addSubview(welcomeView)
@@ -47,7 +48,7 @@ class WelcomeViewController : UIViewController, WelcomeViewDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - WelcomeViewDelegate
     //-------------------------------------------------------------------------------------------
-    func didTapContinue() {
+    internal func didTapContinue() {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController)
         appRoute.dismiss(self, animated: true, completion: nil)
     }

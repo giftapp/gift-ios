@@ -13,6 +13,9 @@ class Token : ModelBase, NSCoding {
     var accessToken : String?
     var user : User?
     
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     override init() {
         super.init()
     }
@@ -21,6 +24,9 @@ class Token : ModelBase, NSCoding {
         super.init(map)
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Mappable
+    //-------------------------------------------------------------------------------------------
     override func mapping(map: Map) {
         super.mapping(map)
         
@@ -28,6 +34,9 @@ class Token : ModelBase, NSCoding {
         user <- map["user"]
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - NSCoding
+    //-------------------------------------------------------------------------------------------
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
         self.id = aDecoder.decodeObjectForKey("id") as! String?

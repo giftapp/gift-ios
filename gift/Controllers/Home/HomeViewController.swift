@@ -9,8 +9,8 @@ import UIKit
 class HomeViewController : UIViewController {
 
     // Injections
-    var appRoute : AppRoute
-    var identity : Identity
+    private var appRoute : AppRoute
+    private var identity : Identity
 
     //Views
 
@@ -43,11 +43,11 @@ class HomeViewController : UIViewController {
         self.setConstraints()
     }
 
-    func addCustomViews() {
+    private func addCustomViews() {
         self.view.backgroundColor = UIColor.whiteColor()
     }
 
-    func setConstraints() {
+    private func setConstraints() {
 //        constrain(loginWithFaceBookButton) { loginWithFaceBookButton in
 //            loginWithFaceBookButton.center == loginWithFaceBookButton.superview!.center
 //        }

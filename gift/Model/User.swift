@@ -12,7 +12,10 @@ class User : ModelBase, NSCoding {
     var email : String?
     var avatarURL : String?
     var needsEdit : Bool?
-
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     override init() {
         super.init()
     }
@@ -21,6 +24,9 @@ class User : ModelBase, NSCoding {
         super.init(map)
     }
     
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Mappable
+    //-------------------------------------------------------------------------------------------
     override func mapping(map: Map) {
         super.mapping(map)
 
@@ -31,6 +37,9 @@ class User : ModelBase, NSCoding {
         needsEdit <- map["needsEdit"]
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - NSCoding
+    //-------------------------------------------------------------------------------------------
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
         self.id = aDecoder.decodeObjectForKey("id") as! String?

@@ -16,8 +16,8 @@ struct IdentityConsts {
 
 class Identity : NSObject {
 
-    var user : User!
-    var token : Token!
+    var user : User?
+    var token : Token?
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -31,15 +31,27 @@ class Identity : NSObject {
     private func loadIdentityFromKeychain() {
         let keyChainDictionaryOpt = Locksmith.loadDataForUserAccount(IdentityConsts.account)
         if let keyChainDictionary = keyChainDictionaryOpt {
-            self.user = keyChainDictionary[IdentityConsts.userKey] as! User
-            self.token = keyChainDictionary[IdentityConsts.tokenKey] as! Token
+            self.user = keyChainDictionary[IdentityConsts.userKey] as? User
+            self.token = keyChainDictionary[IdentityConsts.tokenKey] as? Token
             print ("Successfully loaded account from keychain")
         }
     }
     
     private func storeIdentityInKeyChain() {
+        guard let user = self.user
+            else {
+                print ("Misssing user in identity")
+                return //TODO:consider throw
+            }
+        
+        guard let token = self.token
+            else {
+                print ("Misssing token in identity")
+                return
+            }
+        
         do {
-            try Locksmith.updateData([IdentityConsts.userKey: self.user, IdentityConsts.tokenKey : self.token], forUserAccount: IdentityConsts.account)
+            try Locksmith.updateData([IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account)
             print ("Successfully stored account in keychain")
 
             //Broadcast event
@@ -56,6 +68,18 @@ class Identity : NSObject {
         self.user = user
         self.token = token
 
+        self.storeIdentityInKeyChain()
+    }
+    
+    func updateUser(user: User) {
+        self.user = user
+        
+        self.storeIdentityInKeyChain()
+    }
+    
+    func updateToken(token: Token) {
+        self.token = token
+        
         self.storeIdentityInKeyChain()
     }
 

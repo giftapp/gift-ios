@@ -44,50 +44,22 @@ public class GiftServiceCoreClient : NSObject {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func onIdentityUpdatedEvent(notification: NSNotification) {
+    @objc private func onIdentityUpdatedEvent(notification: NSNotification) {
         self.updateAuthenticationHeaderFromIdentity()
     }
     
-    func updateAuthenticationHeaderFromIdentity() {
-        self.setAuthenticationHeader(self.identity.token.accessToken!)
-    }
-
-    func setAuthenticationHeader(token : String) {
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.HTTPAdditionalHeaders = [
-                GiftServiceCoreClientConstants.AUTHORIZATION_KEY: token,
-                "Accept": "application/json"
-        ]
-
-        self.manager = Alamofire.Manager(configuration: configuration)
-        self.allowUnsecureConnection()
-    }
-
-    //TODO: remove this once server is over TLS and .plist app transport security
-    func allowUnsecureConnection() {
-        self.manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-            var disposition: NSURLSessionAuthChallengeDisposition = .PerformDefaultHandling
-            var credential: NSURLCredential?
-
-            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-                disposition = NSURLSessionAuthChallengeDisposition.UseCredential
-                credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
-            } else {
-                if challenge.previousFailureCount > 0 {
-                    disposition = .CancelAuthenticationChallenge
-                } else {
-                    credential = self.manager.session.configuration.URLCredentialStorage?.defaultCredentialForProtectionSpace(challenge.protectionSpace)
-
-                    if credential != nil {
-                        disposition = .UseCredential
-                    }
-                }
+    private func updateAuthenticationHeaderFromIdentity() {
+        guard let accessToken = self.identity.token?.accessToken
+            else {
+                print("Error: expected access token")
+                return
             }
-
-            return (disposition, credential)
-        }
+        
+        self.manager = Manager.getManagerWithAuthenticationHeader(GiftServiceCoreClientConstants.AUTHORIZATION_KEY, token: accessToken)
+        
+        self.manager.allowUnsecureConnection()
     }
-    
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Unauthorized
     //-------------------------------------------------------------------------------------------
@@ -128,7 +100,6 @@ public class GiftServiceCoreClient : NSObject {
         manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping").validate().responseJSON { response in
             switch response.result {
             case .Success:
-                print("Validation Successful")
                 debugPrint(response)
             case .Failure(let error):
                 print(error)

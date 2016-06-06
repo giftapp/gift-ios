@@ -9,8 +9,8 @@ import UIKit
 class Authenticator : NSObject {
 
     //Injected
-    var giftServiceCoreClient : GiftServiceCoreClient
-    var identity : Identity
+    private var giftServiceCoreClient : GiftServiceCoreClient
+    private var identity : Identity
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction

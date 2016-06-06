@@ -10,10 +10,10 @@ import Cartography
 class EditProfileViewController : UIViewController {
 
     // Injections
-    var appRoute : AppRoute
-    var identity : Identity
-    var facebookClient : FacebookClient
-    var giftServiceCoreClient : GiftServiceCoreClient
+    private var appRoute : AppRoute
+    private var identity : Identity
+    private var facebookClient : FacebookClient
+    private var giftServiceCoreClient : GiftServiceCoreClient
 
     //Views
     private var loginWithFaceBookButton: UIButton = UIButton()
@@ -53,7 +53,7 @@ class EditProfileViewController : UIViewController {
         self.setConstraints()
     }
     
-    func addCustomViews() {
+    private func addCustomViews() {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.loginWithFaceBookButton.setTitle("Login with Facebook", forState: UIControlState.Normal)
@@ -64,7 +64,7 @@ class EditProfileViewController : UIViewController {
         
     }
     
-    func setConstraints() {        
+    private func setConstraints() {
         constrain(loginWithFaceBookButton) { loginWithFaceBookButton in
             loginWithFaceBookButton.center == loginWithFaceBookButton.superview!.center
         }
@@ -74,19 +74,18 @@ class EditProfileViewController : UIViewController {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func doneTapped() {
-        
+    internal func doneTapped() {
         self.appRoute.dismiss(self, animated: true, completion: nil)
     }
 
-    func loginWithFacebookTapped(sender:UIButton!) {
+    internal func loginWithFacebookTapped(sender:UIButton!) {
         self.facebookClient.login(viewController: self) { (error, facebookToken) in
             if (error) {
                 print ("error while login with facebook")
             } else {
                 self.giftServiceCoreClient.setFacebookAccount(facebookToken!, success: { (user) in
                     print ("Succsessfully got user from facebook")
-                    self.identity.setIdentity(user, token: self.identity.token)
+                    self.identity.updateUser(user)
                     self.appRoute.dismiss(self, animated: true, completion: nil)
                     }, failure: { (error) in
                         print (error)

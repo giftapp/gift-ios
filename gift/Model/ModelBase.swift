@@ -11,12 +11,18 @@ class ModelBase : NSObject, Mappable {
     var createdAt: NSDate?
     var updatedAt: NSDate?
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     override init() {}
     
     required init?(_ map: Map) {
 
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Mappable
+    //-------------------------------------------------------------------------------------------
     func mapping(map: Map) {
         id <- map["id"]
         createdAt <- (map["createdAt"], DateTransform())

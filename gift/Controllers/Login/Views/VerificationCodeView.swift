@@ -35,7 +35,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addCustomViews() {
+    private func addCustomViews() {
         self.backgroundColor = UIColor.whiteColor()
         
         verificationCodeLabel.textAlignment = NSTextAlignment.Center
@@ -48,7 +48,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         self.addSubview(verificationCodeTextField)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         verificationCodeLabel.sizeToFit()
         verificationCodeTextField.sizeToFit()
         
@@ -67,7 +67,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    internal func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         if (!string.isEmpty && Int(string) == nil) {
             return false
