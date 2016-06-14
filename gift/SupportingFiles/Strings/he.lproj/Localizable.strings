@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  gift
+
+  Created by Matan Lachmish on 14/06/2016.
+  Copyright © 2016 GiftApp. All rights reserved.
+*/
+
+"Gift" = "Gift";
+"Gift slogen" = "המתנה שלך לחתונה";
+
+"Please insert your phone number" = "הכנס את מספר הטלפון שלך";

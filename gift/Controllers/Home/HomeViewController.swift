@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import Cartography
 
 class HomeViewController : UIViewController {
 
@@ -13,6 +14,14 @@ class HomeViewController : UIViewController {
     private var identity : Identity
 
     //Views
+    private var logoLabel : UILabel!
+    private var slogenLabel : UILabel!
+    private var descriptionLabel : UILabel!
+    private var separatorViewA : UILabel!
+    private var dayLabel : UILabel!
+    private var dateLabel : UILabel!
+    private var separatorViewB : UILabel!
+    private var sendGiftButton : UIButton!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -45,12 +54,22 @@ class HomeViewController : UIViewController {
 
     private func addCustomViews() {
         self.view.backgroundColor = UIColor.whiteColor()
+        
+        self.logoLabel = UILabel()
+        self.logoLabel.text = "Gift".localized
+        self.view.addSubview(self.logoLabel)
+        
+        self.slogenLabel = UILabel()
+        self.slogenLabel.text = "Gift slogen".localized
+        self.view.addSubview(self.slogenLabel)
     }
 
     private func setConstraints() {
-//        constrain(loginWithFaceBookButton) { loginWithFaceBookButton in
-//            loginWithFaceBookButton.center == loginWithFaceBookButton.superview!.center
-//        }
+        constrain(logoLabel, slogenLabel) { logoLabel, slogenLabel in
+            logoLabel.center == logoLabel.superview!.center
+            slogenLabel.centerX == logoLabel.centerX
+            slogenLabel.top == logoLabel.bottom + 15
+        }
     }
 
 

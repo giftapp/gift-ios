@@ -33,7 +33,7 @@ class LoginView : UIView, UITextFieldDelegate {
         self.backgroundColor = UIColor.whiteColor()
         
         loginLabel.textAlignment = NSTextAlignment.Center
-        loginLabel.text = "Please insert your phone number"
+        loginLabel.text = "Please insert your phone number".localized
         self.addSubview(loginLabel)
         
         phoneNumberTextField.placeholder = "XXX-XXX-XXXX"
