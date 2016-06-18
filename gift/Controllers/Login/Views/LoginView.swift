@@ -159,6 +159,10 @@ class LoginView : UIView, UITextFieldDelegate {
     func phoneNumber() -> String? {
         return self.phoneNumberTextField.text
     }
+
+    func focus() {
+        self.phoneNumberTextField.becomeFirstResponder()
+    }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate

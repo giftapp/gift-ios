@@ -44,6 +44,13 @@ class LoginViewController : UIViewController, LoginViewDelegate {
         self.addCustomViews()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.loginView.focus()
+    }
+
+
     private func addCustomViews() {
         self.loginView =  LoginView(frame: self.view!.frame)
         self.loginView.delegate = self
