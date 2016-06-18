@@ -6,6 +6,16 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Strings/he.lproj/Localizable.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Strings/en.lproj/Localizable.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-BoldItalic.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Medium.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Regular.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-BlackItalic.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Black.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-MediumItalic.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-LightItalic.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Light.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Italic.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Bold.ttf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/UIFont+GFTAdditions.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/UIColor+GFTAdditions.swift" isTestSource="false" />
