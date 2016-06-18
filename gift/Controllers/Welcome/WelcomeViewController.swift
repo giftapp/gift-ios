@@ -17,7 +17,7 @@ class WelcomeViewController : UIViewController, WelcomeViewDelegate {
 
     //Views
     private var welcomeView : WelcomeView!
-    
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------

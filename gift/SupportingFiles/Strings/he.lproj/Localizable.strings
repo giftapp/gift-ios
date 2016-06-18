@@ -6,7 +6,13 @@
   Copyright © 2016 GiftApp. All rights reserved.
 */
 
-"Gift" = "Gift";
-"Gift slogen" = "המתנה שלך לחתונה";
 
+//General
+
+//Welcome Screen
+"Gift slogen" = "המתנה שלך לחתונה";
+"Continue Button" = "התחל עכשיו";
+
+//Login Screen
+"Gift" = "Gift";
 "Please insert your phone number" = "הכנס את מספר הטלפון שלך";

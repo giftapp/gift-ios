@@ -16,7 +16,6 @@
 		62DD92B8DF265DEC0212B6EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F0225584711E507EE8E /* LoginView.swift */; };
 		62DD92CCD1D9C4A7B1F039D6 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */; };
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
-		62DD932897C0148AA10FAC18 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B0C5DCF232B4EFFB08B /* WelcomeView.swift */; };
 		62DD9342DE06393B4A5B925D /* UIColor+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D0A8D2EBAA15313CDE0 /* UIColor+GFTAdditions.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
 		62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */; };
@@ -26,6 +25,7 @@
 		62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF77C898E54A0867FFB /* Launcher.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD975B6079E4F4BBD978A9 /* LogConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD933197077D4B656A5BAC /* LogConfigurer.swift */; };
+		62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */; };
 		62DD980F331211CC7A8BAE97 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */; };
 		62DD98B2E9FB4FF2D8B4AF7A /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
@@ -38,8 +38,8 @@
 		62DD9C713DF6BBDE25C3AB75 /* UIFont+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD93FBB635833E2F0E6D1A /* UIFont+GFTAdditions.swift */; };
 		62DD9C7666D58695272470D7 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9826702EABC276EC9D84 /* Rubik-BlackItalic.ttf */; };
 		62DD9CC079B66F74B25ED2C5 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD90AAEB142790B7CE0DB7 /* Rubik-Light.ttf */; };
+		62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */; };
 		62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */; };
-		62DD9D1576A1ACF87587B88F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9813538E57C41CA9F43B /* WelcomeViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
 		62DD9E721DF907942F60A02A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B951D76394291709BEF /* SettingsViewController.swift */; };
@@ -70,7 +70,7 @@
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
-		62DD9813538E57C41CA9F43B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62DD9826702EABC276EC9D84 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
@@ -79,10 +79,10 @@
 		62DD995503C45636206650A9 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreComponentsAssembly.swift; sourceTree = "<group>"; };
 		62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
-		62DD9B0C5DCF232B4EFFB08B /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		62DD9B951D76394291709BEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		62DD9D0A8D2EBAA15313CDE0 /* UIColor+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+GFTAdditions.swift"; sourceTree = "<group>"; };
@@ -197,6 +197,14 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		62DD92814ED792E0BAFBC1FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		62DD9397360AF03736644421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,10 +227,18 @@
 			isa = PBXGroup;
 			children = (
 				62DD9F0225584711E507EE8E /* LoginView.swift */,
-				62DD9B0C5DCF232B4EFFB08B /* WelcomeView.swift */,
 				62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		62DD9552B56D3889065666E6 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */,
+				62DD92814ED792E0BAFBC1FA /* Views */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		62DD966148FE0A4AEF6FDCFB /* Events */ = {
@@ -246,7 +262,6 @@
 			children = (
 				62DD9DCA03503B4293DAD836 /* LoginViewController.swift */,
 				62DD9547D1A13053D5C91CB4 /* Views */,
-				62DD9813538E57C41CA9F43B /* WelcomeViewController.swift */,
 				62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */,
 			);
 			path = Login;
@@ -335,6 +350,7 @@
 				62DD90E046CAB18A085E82F5 /* Home */,
 				62DD9094D01EB0A3BC318D86 /* History */,
 				62DD9499322AFDEB38BB2712 /* SettingsViewController */,
+				62DD9552B56D3889065666E6 /* Welcome */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -571,10 +587,8 @@
 				62DD9EC14A6E0945A821201A /* Identity.swift in Sources */,
 				62DD95670B946382752186DE /* LoginViewController.swift in Sources */,
 				62DD92B8DF265DEC0212B6EA /* LoginView.swift in Sources */,
-				62DD932897C0148AA10FAC18 /* WelcomeView.swift in Sources */,
 				62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */,
 				906325611D06146C00064FC0 /* Alamofire+NonSecureConnection.swift in Sources */,
-				62DD9D1576A1ACF87587B88F /* WelcomeViewController.swift in Sources */,
 				62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */,
 				62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */,
 				62DD9229654B5ABFD4ACFFDD /* EditProfileViewController.swift in Sources */,
@@ -585,6 +599,8 @@
 				62DD94BBD10FB559F8D4A924 /* String+Localized.swift in Sources */,
 				62DD9C713DF6BBDE25C3AB75 /* UIFont+GFTAdditions.swift in Sources */,
 				62DD9342DE06393B4A5B925D /* UIColor+GFTAdditions.swift in Sources */,
+				62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */,
+				62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

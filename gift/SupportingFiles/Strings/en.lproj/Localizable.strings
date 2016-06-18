@@ -6,7 +6,13 @@
   Copyright © 2016 GiftApp. All rights reserved.
 */
 
-"Gift" = "Gift";
-"Gift slogen" = "Your gift for the wedding";
 
+//General
+
+//Welcome Screen
+"Gift slogen" = "Your gift for the wedding";
+"Continue Button" = "Start Now";
+
+//Login Screen
+"Gift" = "Gift";
 "Please insert your phone number" = "Please insert your phone number";
