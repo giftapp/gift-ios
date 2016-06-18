@@ -43,10 +43,9 @@ class Launcher : NSObject {
 
         if (!self.identity.isLoggedIn()) {
             //Show login
-            let navigationViewController = UINavigationController(rootViewController: self.loginViewController)
-            navigationViewController.navigationBar.translucent = false;
-            appRoute.showController(navigationViewController)
+            appRoute.showController(self.loginViewController)
         } else {
+            //Show main tab
             appRoute.showController(self.mainTabViewController)
             
             //Show edit if needed

@@ -16,11 +16,13 @@ protocol WelcomeViewDelegate{
 
 class WelcomeView : UIView {
 
+    //Views
     private var backgroundImage : UIImageView!
     private var giftLogoImage : UIImageView!
     private var slogenLabel: UILabel!
     private var continueButton: UIButton!
 
+    //Vars
     var delegate: WelcomeViewDelegate! = nil
 
     //-------------------------------------------------------------------------------------------
@@ -37,6 +39,8 @@ class WelcomeView : UIView {
     }
 
     private func addCustomViews() {
+        self.backgroundColor = UIColor.gftBackgroundWhiteColor()
+
         backgroundImage = UIImageView(image: UIImage(named:"welcomeScreenBackground")!)
         self.addSubview(backgroundImage)
 
@@ -45,14 +49,14 @@ class WelcomeView : UIView {
 
 
         slogenLabel = UILabel()
-        slogenLabel.text = "Gift slogen".localized
+        slogenLabel.text = "WelcomeView.Gift slogan".localized
         slogenLabel.textAlignment = NSTextAlignment.Center
         slogenLabel.font = UIFont.gftHeader1Font()
         slogenLabel.textColor = UIColor.gftWaterBlueColor()
         self.addSubview(slogenLabel)
 
         continueButton = UIButton()
-        continueButton.setTitle("Continue Button".localized, forState: UIControlState.Normal)
+        continueButton.setTitle("WelcomeView.Continue Button".localized, forState: UIControlState.Normal)
         continueButton.titleLabel!.font = UIFont.gftHeader1Font()
         continueButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
         continueButton.backgroundColor = UIColor.gftAzureColor()
@@ -61,8 +65,6 @@ class WelcomeView : UIView {
     }
 
     private func setConstraints() {
-        slogenLabel.sizeToFit()
-
         constrain(backgroundImage, giftLogoImage, slogenLabel, continueButton) { backgroundImage, giftLogoImage, slogenLabel, continueButton in
             backgroundImage.left == backgroundImage.superview!.left
             backgroundImage.top == backgroundImage.superview!.top
@@ -74,7 +76,7 @@ class WelcomeView : UIView {
             slogenLabel.top == giftLogoImage.bottom + 10
 
             continueButton.centerX == continueButton.superview!.centerX
-            continueButton.top == backgroundImage.bottom
+            continueButton.height == 53
             continueButton.bottom == continueButton.superview!.bottom
             continueButton.left == continueButton.superview!.left
             continueButton.right == continueButton.superview!.right
@@ -82,7 +84,7 @@ class WelcomeView : UIView {
     }
 
     //-------------------------------------------------------------------------------------------
-    // MARK: - LoginViewDelegate
+    // MARK: - WelcomeViewDelegate
     //-------------------------------------------------------------------------------------------
     @objc private func didTapContinue(sender:UIButton!) {
         delegate!.didTapContinue()

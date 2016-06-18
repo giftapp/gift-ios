@@ -46,6 +46,7 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/DI/ApplicationAssembly.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/DI/CoreComponentsAssembly.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+AuthenticationHeader.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/UITextField+Boarders.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+NonSecureConnection.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+Localized.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />

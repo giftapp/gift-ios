@@ -41,6 +41,7 @@
 		62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */; };
 		62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
+		62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
 		62DD9E721DF907942F60A02A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B951D76394291709BEF /* SettingsViewController.swift */; };
 		62DD9EC14A6E0945A821201A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90A09C89F00141448B01 /* Identity.swift */; };
@@ -68,6 +69,7 @@
 		62DD93FBB635833E2F0E6D1A /* UIFont+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+GFTAdditions.swift"; sourceTree = "<group>"; };
 		62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Boarders.swift"; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */,
 				906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */,
 				62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */,
+				62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				62DD9342DE06393B4A5B925D /* UIColor+GFTAdditions.swift in Sources */,
 				62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */,
 				62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */,
+				62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

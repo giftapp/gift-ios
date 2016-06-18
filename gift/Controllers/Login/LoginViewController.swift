@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import XCGLogger
 
-class LoginViewController : UIViewController {
+class LoginViewController : UIViewController, LoginViewDelegate {
 
     private let log = XCGLogger.defaultInstance()
 
@@ -41,31 +41,37 @@ class LoginViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Your phone number"
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next",style: .Plain, target: self, action: #selector(nextTapped))
-        
         self.addCustomViews()
     }
 
     private func addCustomViews() {
         self.loginView =  LoginView(frame: self.view!.frame)
+        self.loginView.delegate = self
         view.addSubview(loginView)
     }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    @objc private func nextTapped() {
-        let phoneNumber = self.loginView.phoneNumber()
-        authenticator.verifyPhoneNumber(phoneNumber!, success: {
+    private func sendPhoneNumberForVerification(phoneNumber : String) {
+        authenticator.verifyPhoneNumber(phoneNumber, success: {
             self.log.debug("Verification code sent")
         }) { (error) in
             self.log.error("Failed sending verification code: \(error)")
         }
-        
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - LoginViewDelegate
+    //-------------------------------------------------------------------------------------------
+    func didTapContinue() {
+        //TODO: validate input
+        let phoneNumber = self.loginView.phoneNumber()!
+        sendPhoneNumberForVerification(phoneNumber)
+
+        //Prepare & Present verificationCodeViewController
         self.verificationCodeViewController.phoneNumber = phoneNumber
-        self.appRoute.pushViewController(verificationCodeViewController, animated: true)
+        self.appRoute.presentController(verificationCodeViewController, animated: true, completion:nil)
     }
 
 }

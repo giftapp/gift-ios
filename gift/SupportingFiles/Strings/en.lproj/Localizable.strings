@@ -9,10 +9,12 @@
 
 //General
 
-//Welcome Screen
-"Gift slogen" = "Your gift for the wedding";
-"Continue Button" = "Start Now";
+//WelcomeView
+"WelcomeView.Gift slogan" = "Your gift for the wedding";
+"WelcomeView.Continue Button" = "Start Now";
 
-//Login Screen
-"Gift" = "Gift";
-"Please insert your phone number" = "Please insert your phone number";
+//LoginView
+"LoginView.Welcome" = "Welcome";
+"LoginView.Phone number place holder" = "Phone Number";
+"LoginView.Phone number disclaimer" = "Please provide a phone number in order to create a personal and secured account\n so you can provide a gift for any wedding";
+"LoginView.Continue Button" = "Next";

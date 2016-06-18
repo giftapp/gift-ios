@@ -60,7 +60,7 @@ class HomeViewController : UIViewController {
         self.view.addSubview(self.logoLabel)
         
         self.slogenLabel = UILabel()
-        self.slogenLabel.text = "Gift slogen".localized
+        self.slogenLabel.text = "WelcomeView.Gift slogan".localized
         self.view.addSubview(self.slogenLabel)
     }
 
