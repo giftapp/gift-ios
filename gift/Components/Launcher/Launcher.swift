@@ -55,10 +55,10 @@ class Launcher : NSObject {
                 self.appRoute.presentController(navigationViewController, animated: true, completion: nil)
             }
         }
-        
+
         //Show welcome if needed
         let didDismissWelcomeViewController = self.userDefaults.boolForKey(WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController)
-        
+
         if (!didDismissWelcomeViewController) {
             self.appRoute.presentController(self.welcomeViewController, animated: false, completion: nil)
         }

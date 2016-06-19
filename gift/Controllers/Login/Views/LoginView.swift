@@ -161,10 +161,6 @@ class LoginView : UIView, UITextFieldDelegate {
         return self.phoneNumberTextField.text
     }
 
-    func focus() {
-        self.phoneNumberTextField.becomeFirstResponder()
-    }
-
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
