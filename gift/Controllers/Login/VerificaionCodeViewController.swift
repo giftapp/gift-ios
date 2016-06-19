@@ -12,20 +12,22 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     private let log = XCGLogger.defaultInstance()
 
     //Injected
+    private var appRoute : AppRoute
     private var authenticator : Authenticator
     var launcher : Launcher //property injected
 
     //Views
     private var verificationCodeView : VerificationCodeView!
 
-    //Properties
+    //Public properties
     var phoneNumber : String!
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(authenticator: Authenticator, launcher : Launcher) {
-        self.authenticator = authenticator;
+    internal dynamic init(appRoute: AppRoute, authenticator: Authenticator, launcher : Launcher) {
+        self.appRoute = appRoute
+        self.authenticator = authenticator
         self.launcher = launcher
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,8 +47,14 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         self.addCustomViews()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.verificationCodeView.focus()
+    }
+
     private func addCustomViews() {
-        self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame)
+        self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame, phoneNumber: self.phoneNumber)
         self.verificationCodeView.delegate = self
         view.addSubview(verificationCodeView)
     }
@@ -66,5 +74,10 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
             self.log.error("Failed logging in: \(error)")
         }
     }
-    
+
+    func didTapRetry() {
+        self.appRoute.dismiss(self, animated: true, completion: nil)
+    }
+
+
 }

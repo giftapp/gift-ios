@@ -18,3 +18,9 @@
 "LoginView.Phone number place holder" = "מספר טלפון";
 "LoginView.Phone number disclaimer" = "אנא הכנס מספר טלפון עבור יצירת חשבון מאובטח ואישי\n באמצעותו תוכל לשלוח מתנה לכל זוג בכל חתונה";
 "LoginView.Continue Button" = "הבא";
+
+//VerificationCodeView
+"VerificationCodeView.Insert verification code" = "הכנס את 5 ספרות הקוד";
+"VerificationCodeView.Description" = "קוד אימות נשלח אליך בהודעת טקסט\nלמספר %@";
+"VerificationCodeView.VerificationCode placeholder" = "קוד אימות";
+"VerificationCodeView.Retry Button" = "לחץ לשליחת קוד נוסף";

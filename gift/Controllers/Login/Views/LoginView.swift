@@ -72,6 +72,7 @@ class LoginView : UIView, UITextFieldDelegate {
         phoneNumberTextField.backgroundColor = UIColor.gftWhiteColor()
         phoneNumberTextField.placeholder = "LoginView.Phone number place holder".localized
         phoneNumberTextField.textAlignment = NSTextAlignment.Center
+        phoneNumberTextField.font = UIFont.gftText1Font()
         phoneNumberTextField.keyboardType = UIKeyboardType.NumberPad
         phoneNumberTextField.delegate = self
         self.addSubview(phoneNumberTextField)
@@ -163,6 +164,13 @@ class LoginView : UIView, UITextFieldDelegate {
     func focus() {
         self.phoneNumberTextField.becomeFirstResponder()
     }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
+    @objc private func didTapContinue(sender:UIButton!) {
+        delegate!.didTapContinue()
+    }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
@@ -176,12 +184,5 @@ class LoginView : UIView, UITextFieldDelegate {
         }
         let newLength = currentCharacterCount + string.characters.count - range.length
         return newLength <= LoginViewConstants.PHONE_NUMBER_DIGITS
-    }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - LoginViewDelegate
-    //-------------------------------------------------------------------------------------------
-    @objc private func didTapContinue(sender:UIButton!) {
-        delegate!.didTapContinue()
     }
 }
