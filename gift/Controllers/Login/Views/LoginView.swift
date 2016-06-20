@@ -130,7 +130,7 @@ class LoginView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     func keyboardWillShow(notification: NSNotification) {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
 
         constrain(continueButton, replace: self.continueButtonConstraintsGroup) { continueButton in
             continueButton.centerX == continueButton.superview!.centerX
