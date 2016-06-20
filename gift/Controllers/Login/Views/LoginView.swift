@@ -91,6 +91,7 @@ class LoginView : UIView, UITextFieldDelegate {
         continueButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
         continueButton.backgroundColor = UIColor.gftAzureColor()
         continueButton.addTarget(self, action: #selector(LoginView.didTapContinue(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        enableContinueButton(false)
         self.addSubview(continueButton)
     }
 
@@ -167,7 +168,17 @@ class LoginView : UIView, UITextFieldDelegate {
     @objc private func didTapContinue(sender:UIButton!) {
         delegate!.didTapContinue()
     }
-    
+
+    private func enableContinueButton(enabled: Bool) {
+        if (enabled) {
+            continueButton.enabled = true
+            continueButton.alpha = 1
+        } else {
+            continueButton.enabled = false
+            continueButton.alpha = 0.5
+        }
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
@@ -179,6 +190,8 @@ class LoginView : UIView, UITextFieldDelegate {
             return false
         }
         let newLength = currentCharacterCount + string.characters.count - range.length
+        enableContinueButton(newLength >= LoginViewConstants.PHONE_NUMBER_DIGITS)
+
         return newLength <= LoginViewConstants.PHONE_NUMBER_DIGITS
     }
 }
