@@ -8,10 +8,16 @@
 
 
 //General
+"Global.Cancel" = "Cancel";
 
 //WelcomeView
 "WelcomeView.Gift slogan" = "Your gift for the wedding";
 "WelcomeView.Continue Button" = "Start Now";
+
+//LoginViewController
+"LoginViewController.Alert verification code.Title" = "We are about to send SMS to %@";
+"LoginViewController.Alert verification code.Description" = "Please verify that the number is correct";
+"LoginViewController.Send" = "Send";
 
 //LoginView
 "LoginView.Welcome" = "Welcome";

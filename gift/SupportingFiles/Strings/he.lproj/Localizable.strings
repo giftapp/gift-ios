@@ -8,10 +8,16 @@
 
 
 //General
+"Global.Cancel" = "בטל";
 
 //LoginView.Welcome Screen
 "WelcomeView.Gift slogan" = "המתנה שלך לחתונה";
 "WelcomeView.Continue Button" = "התחל עכשיו";
+
+//LoginViewController
+"LoginViewController.Alert verification code.Title" = "אנחנו עומדים לשלוח SMS ל %@";
+"LoginViewController.Alert verification code.Description" = "אנא וודא כי המספר נכון";
+"LoginViewController.Send" = "שלח";
 
 //Login Screen
 "LoginView.Welcome" = "ברוכים הבאים";

@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import XCGLogger
+import PMAlertController
 
 class LoginViewController : UIViewController, LoginViewDelegate {
 
@@ -61,17 +62,28 @@ class LoginViewController : UIViewController, LoginViewDelegate {
         }
     }
 
+    private func alertSendingVerificationCode() {
+        //TODO: validate input
+        let phoneNumber = self.loginView.phoneNumber
+
+        let alertVC = PMAlertController(title: String.localizedStringWithFormat("LoginViewController.Alert verification code.Title".localized, phoneNumber.formateAsPhoneNumber), description: "LoginViewController.Alert verification code.Description".localized, image: nil, style: .Alert)
+        alertVC.addAction(PMAlertAction(title: "Global.Cancel".localized, style: .Cancel, action: nil))
+        alertVC.addAction(PMAlertAction(title: "LoginViewController.Send".localized, style: .Default, action: { () in
+            self.sendPhoneNumberForVerification(phoneNumber)
+
+            //Prepare & Present verificationCodeViewController
+            self.verificationCodeViewController.phoneNumber = phoneNumber
+            self.appRoute.presentController(self.verificationCodeViewController, animated: true, completion:nil)
+        }))
+
+        self.presentViewController(alertVC, animated: true, completion: nil)
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - LoginViewDelegate
     //-------------------------------------------------------------------------------------------
     func didTapContinue() {
-        //TODO: validate input
-        let phoneNumber = self.loginView.phoneNumber
-        sendPhoneNumberForVerification(phoneNumber)
-
-        //Prepare & Present verificationCodeViewController
-        self.verificationCodeViewController.phoneNumber = phoneNumber
-        self.appRoute.presentController(verificationCodeViewController, animated: true, completion:nil)
+        alertSendingVerificationCode()
     }
 
 }

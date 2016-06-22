@@ -42,7 +42,7 @@ target 'gift' do
   # UI
   pod 'TextAttributes', '~> 0.3.1' # Attributed strings             # not used yet
   pod 'RAMAnimatedTabBarController', '~> 1.4.0' # Animated tab bar  # not used yet
-  pod 'PMAlertController', '~> 1.0.4' # Alert controller            # not used yet
+  pod 'PMAlertController', '~> 1.0.4' # Alert controller
   pod 'NVActivityIndicatorView', '~> 2.7' # Activity indicator      # not used yet
   pod 'MZTimerLabel', '~> 0.5.4' # Countdown UILabel                # not used yet
 
