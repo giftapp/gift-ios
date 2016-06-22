@@ -4,35 +4,49 @@
 //
 
 import Foundation
+import Cartography
 import NVActivityIndicatorView
 
 struct ActivityIndicatorSize{
     static let Medium: CGFloat = 35
 }
 
-class ActivityIndicator {
+class ActivityIndicatorView: UIView {
 
     //Private Properties
-    private let activityIndicatorView : NVActivityIndicatorView
+    private var activityIndicatorView : NVActivityIndicatorView!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    private init(frame: CGRect) {
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(0,0,0,0), type: .LineScale, color: UIColor.gftAzureColor(), padding: nil)
-        self.activityIndicatorView.hidden = true
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        self.addCustomViews()
+        self.setConstraints()
     }
 
-    static func getActivityIndicator() -> ActivityIndicator {
-        return ActivityIndicator()
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+
+    private func addCustomViews() {
+        self.activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .LineScale, color: UIColor.gftAzureColor(), padding: nil)
+        self.activityIndicatorView.hidden = true
+        self.addSubview(activityIndicatorView)
+    }
+
+    private func setConstraints() {
+        constrain(activityIndicatorView) { activityIndicatorView in
+            activityIndicatorView.center == activityIndicatorView.superview!.center
+            activityIndicatorView.height == activityIndicatorView.superview!.height
+            activityIndicatorView.width == activityIndicatorView.superview!.width
+        }
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
-    func getView() -> UIView {
-        return self.activityIndicatorView
-    }
-
     func startAnimation() {
         self.activityIndicatorView.hidden = false
         self.activityIndicatorView.startAnimation()

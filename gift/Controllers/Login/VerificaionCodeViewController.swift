@@ -19,7 +19,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
 
     //Views
     private var verificationCodeView : VerificationCodeView!
-    private var activityIndicator : ActivityIndicator!
+    private var activityIndicatorView: ActivityIndicatorView!
 
     //Public properties
     var phoneNumber : String!
@@ -53,12 +53,11 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         self.verificationCodeView.delegate = self
         view.addSubview(verificationCodeView)
 
-        self.activityIndicator = ActivityIndicator.getActivityIndicator()
-        view.addSubview(activityIndicator.getView())
+        self.activityIndicatorView = ActivityIndicatorView()
+        view.addSubview(activityIndicatorView)
     }
 
     private func setConstraints() {
-        let activityIndicatorView = activityIndicator.getView()
         constrain(activityIndicatorView) { activityIndicatorView in
             activityIndicatorView.center == activityIndicatorView.superview!.center
             activityIndicatorView.width == activityIndicatorView.height
@@ -84,15 +83,15 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
     internal func didEnteredVerificationCode(verificationCode: Int) {
-        activityIndicator.startAnimation()
+        activityIndicatorView.startAnimation()
 
         authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
             self.log.debug("Successfully logged in")
-            self.activityIndicator.stopAnimation()
+            self.activityIndicatorView.stopAnimation()
             self.launcher.launch(nil)
             }) { (error) in
             self.log.error("Failed logging in: \(error)")
-            self.activityIndicator.stopAnimation()
+            self.activityIndicatorView.stopAnimation()
         }
     }
 

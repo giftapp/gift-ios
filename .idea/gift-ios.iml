@@ -49,7 +49,7 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/Token.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Events/IdentityUpdatedEvent.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/UIFont+GFTAdditions.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/UI/ActivityIndicator.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/ActivityIndicatorView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/UIColor+GFTAdditions.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/TyphoonComponentFactory.m" isTestSource="false" />
