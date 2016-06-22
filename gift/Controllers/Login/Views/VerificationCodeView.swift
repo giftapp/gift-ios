@@ -29,14 +29,17 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     var delegate: VerificationCodeViewDelegate! = nil
 
     //Private Properties
-    private var phoneNumber: String!
+    var phoneNumber: String! {
+        didSet {
+            descriptionLabel.text = String.localizedStringWithFormat("VerificationCodeView.Description".localized ,self.phoneNumber)
+        }
+    }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    init(frame: CGRect, phoneNumber: String) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.phoneNumber = phoneNumber
         self.addCustomViews()
         self.setConstraints()
     }
@@ -55,8 +58,8 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         inseretPasscodeLabel.textColor = UIColor.gftWaterBlueColor()
         self.addSubview(inseretPasscodeLabel)
 
+        //Text of this label is beeing set from self.phoneNumber didSet
         descriptionLabel = UILabel()
-        descriptionLabel.text = String.localizedStringWithFormat("VerificationCodeView.Description".localized ,self.phoneNumber)
         descriptionLabel.textAlignment = NSTextAlignment.Center
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = UIFont.gftText1Font()

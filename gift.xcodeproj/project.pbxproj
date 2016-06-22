@@ -43,6 +43,7 @@
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
 		62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
+		62DD9E26144A328F3B6D9871 /* String+PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */; };
 		62DD9E721DF907942F60A02A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B951D76394291709BEF /* SettingsViewController.swift */; };
 		62DD9EC14A6E0945A821201A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90A09C89F00141448B01 /* Identity.swift */; };
 		901A5F6E1CF78654008C5E52 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F6D1CF78654008C5E52 /* Token.swift */; };
@@ -87,6 +88,7 @@
 		62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+PhoneNumber.swift"; sourceTree = "<group>"; };
 		62DD9D0A8D2EBAA15313CDE0 /* UIColor+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+GFTAdditions.swift"; sourceTree = "<group>"; };
 		62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		62DD9D267EA10AC549902D2F /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */,
 				62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */,
 				62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */,
+				62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */,
 				62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */,
 				62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */,
+				62DD9E26144A328F3B6D9871 /* String+PhoneNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

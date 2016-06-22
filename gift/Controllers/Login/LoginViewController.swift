@@ -66,7 +66,7 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     //-------------------------------------------------------------------------------------------
     func didTapContinue() {
         //TODO: validate input
-        let phoneNumber = self.loginView.phoneNumber()!
+        let phoneNumber = self.loginView.phoneNumber
         sendPhoneNumberForVerification(phoneNumber)
 
         //Prepare & Present verificationCodeViewController

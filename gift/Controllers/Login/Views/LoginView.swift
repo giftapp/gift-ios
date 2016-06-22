@@ -25,9 +25,14 @@ class LoginView : UIView, UITextFieldDelegate {
     private var phoneNumberDisclaimerLabel: UILabel!
     private var continueButton: UIButton!
 
-    //Vars
-    var delegate: LoginViewDelegate! = nil
+    //Private Properties
     private var continueButtonConstraintsGroup: ConstraintGroup!
+
+    //Public Properties
+    var delegate: LoginViewDelegate! = nil
+    var phoneNumber : String {
+        return self.phoneNumberTextField.text!.phoneNumberAsRawString()
+    }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -158,9 +163,6 @@ class LoginView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
-    func phoneNumber() -> String? {
-        return self.phoneNumberTextField.text
-    }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
@@ -185,13 +187,29 @@ class LoginView : UIView, UITextFieldDelegate {
     internal func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         let currentCharacterCount = textField.text?.characters.count ?? 0
-        // Prevent crashing undo bug
+
+        //Prevent crashing undo bug
         if (range.length + range.location > currentCharacterCount){
             return false
         }
-        let newLength = currentCharacterCount + string.characters.count - range.length
-        enableContinueButton(newLength >= LoginViewConstants.PHONE_NUMBER_DIGITS)
 
-        return newLength <= LoginViewConstants.PHONE_NUMBER_DIGITS
+        let newLength = currentCharacterCount + string.characters.count - range.length
+
+        //Format text as phone number
+        if (newLength == 4 && string != "") {
+            let formattedString = textField.text! + "-" + string
+            textField.text = formattedString
+            return false
+        }
+
+        if (newLength == 4 && string == "") {
+            textField.text = String(textField.text!.characters.dropLast(2))
+            return false
+        }
+
+        //Enable continue button
+        enableContinueButton(newLength >= LoginViewConstants.PHONE_NUMBER_DIGITS + 1)
+
+        return newLength <= LoginViewConstants.PHONE_NUMBER_DIGITS + 1
     }
 }

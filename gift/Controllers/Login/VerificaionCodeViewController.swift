@@ -42,15 +42,23 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Verification Code"
-        
         self.addCustomViews()
     }
 
     private func addCustomViews() {
-        self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame, phoneNumber: self.phoneNumber)
+        self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame)
         self.verificationCodeView.delegate = self
         view.addSubview(verificationCodeView)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.updateCustomViews()
+    }
+
+    private func updateCustomViews() {
+        self.verificationCodeView.phoneNumber = self.phoneNumber.formateAsPhoneNumber
     }
 
     //-------------------------------------------------------------------------------------------
