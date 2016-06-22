@@ -74,6 +74,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
 
     private func updateCustomViews() {
         self.verificationCodeView.phoneNumber = self.phoneNumber.formateAsPhoneNumber
+        self.verificationCodeView.clearVerificationCode()
     }
 
     //-------------------------------------------------------------------------------------------
@@ -82,7 +83,9 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     private func alertFailedVerifyingCode() {
         let alertVC = PMAlertController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, style: .Alert)
         alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .Cancel, action: nil))
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        self.presentViewController(alertVC, animated: true, completion: { () in
+            self.verificationCodeView.clearVerificationCode()
+        })
     }
 
     //-------------------------------------------------------------------------------------------
