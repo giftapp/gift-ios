@@ -3,6 +3,7 @@ PODS:
   - AlamofireObjectMapper (3.0.0):
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
+  - AsyncSwift (1.7.2)
   - Bolts (1.7.0):
     - Bolts/AppLinks (= 1.7.0)
     - Bolts/Tasks (= 1.7.0)
@@ -35,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - AlamofireObjectMapper (~> 3.0)
+  - AsyncSwift (~> 1.7.2)
   - Bolts (~> 1.7.0)
   - Cartography (~> 0.6.0)
   - FBSDKCoreKit (~> 4.12.0)
@@ -56,6 +58,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775

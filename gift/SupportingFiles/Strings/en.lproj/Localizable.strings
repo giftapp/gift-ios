@@ -9,14 +9,17 @@
 
 //General
 "Global.Cancel" = "Cancel";
+"Global.Try again" = "Try Again";
 
 //WelcomeView
 "WelcomeView.Gift slogan" = "Your gift for the wedding";
 "WelcomeView.Continue Button" = "Start Now";
 
 //LoginViewController
-"LoginViewController.Alert verification code.Title" = "We are about to send SMS to %@";
-"LoginViewController.Alert verification code.Description" = "Please verify that the number is correct";
+"LoginViewController.Alert failed sending verification code.Title" = "Failed to send verification code";
+"LoginViewController.Alert failed sending verification code.Description" = "Please check your internet connection and try again";
+"LoginViewController.Alert check number before sending verification code.Title" = "We are about to send SMS to %@";
+"LoginViewController.Alert check number before sending verification code.Description" = "Please verify that the number is correct";
 "LoginViewController.Send" = "Send";
 
 //LoginView

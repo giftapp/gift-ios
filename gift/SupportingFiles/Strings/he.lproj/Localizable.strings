@@ -9,14 +9,17 @@
 
 //General
 "Global.Cancel" = "בטל";
+"Global.Try again" = "נסה שוב";
 
 //LoginView.Welcome Screen
 "WelcomeView.Gift slogan" = "המתנה שלך לחתונה";
 "WelcomeView.Continue Button" = "התחל עכשיו";
 
 //LoginViewController
-"LoginViewController.Alert verification code.Title" = "אנחנו עומדים לשלוח SMS ל %@";
-"LoginViewController.Alert verification code.Description" = "אנא וודא כי המספר נכון";
+"LoginViewController.Alert failed sending verification code.Title" = "קוד האימות אינו נשלח";
+"LoginViewController.Alert failed sending verification code.Description" = "אנא וודא כי קיים חיבור לאינטרנט ונסה שנית";
+"LoginViewController.Alert check number before sending verification code.Title" = "אנחנו עומדים לשלוח SMS ל %@";
+"LoginViewController.Alert check number before sending verification code.Description" = "אנא וודא/י כי המספר נכון";
 "LoginViewController.Send" = "שלח";
 
 //Login Screen
