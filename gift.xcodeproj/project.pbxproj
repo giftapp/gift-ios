@@ -221,12 +221,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		62DD9499322AFDEB38BB2712 /* SettingsViewController */ = {
+		62DD9499322AFDEB38BB2712 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				62DD9B951D76394291709BEF /* SettingsViewController.swift */,
 			);
-			path = SettingsViewController;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		62DD9547D1A13053D5C91CB4 /* Views */ = {
@@ -358,7 +358,7 @@
 				62DD993D16D479E728016116 /* EditProfile */,
 				62DD90E046CAB18A085E82F5 /* Home */,
 				62DD9094D01EB0A3BC318D86 /* History */,
-				62DD9499322AFDEB38BB2712 /* SettingsViewController */,
+				62DD9499322AFDEB38BB2712 /* Settings */,
 				62DD9552B56D3889065666E6 /* Welcome */,
 			);
 			path = Controllers;

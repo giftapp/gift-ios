@@ -28,6 +28,9 @@
 "LoginView.Phone number disclaimer" = "Please provide a phone number in order to create a personal and secured account\n so you can provide a gift for any wedding";
 "LoginView.Continue Button" = "Next";
 
+//VerificationCodeViewController
+"VerificationCodeViewController.Alert failed verifying code.Title" = "Bad verification code";
+
 //VerificationCodeView
 "VerificationCodeView.Insert verification code" = "Insert the 5 verification code digits";
 "VerificationCodeView.Description" = "We have sent you a verification code via SMS to %@";

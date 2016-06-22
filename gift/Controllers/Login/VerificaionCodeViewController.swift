@@ -7,6 +7,7 @@ import Foundation
 import UIKit
 import XCGLogger
 import Cartography
+import PMAlertController
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
 
@@ -78,7 +79,12 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    
+    private func alertFailedVerifyingCode() {
+        let alertVC = PMAlertController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, style: .Alert)
+        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .Cancel, action: nil))
+        self.presentViewController(alertVC, animated: true, completion: nil)
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
@@ -92,6 +98,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
             }) { (error) in
             self.log.error("Failed logging in: \(error)")
             self.activityIndicatorView.stopAnimation()
+            self.alertFailedVerifyingCode()
         }
     }
 
