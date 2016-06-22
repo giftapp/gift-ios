@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import XCGLogger
+import Cartography
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
 
@@ -18,6 +19,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
 
     //Views
     private var verificationCodeView : VerificationCodeView!
+    private var activityIndicator : ActivityIndicator!
 
     //Public properties
     var phoneNumber : String!
@@ -43,12 +45,25 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         super.viewDidLoad()
         
         self.addCustomViews()
+        self.setConstraints()
     }
 
     private func addCustomViews() {
-        self.verificationCodeView =  VerificationCodeView(frame: self.view!.frame)
+        self.verificationCodeView = VerificationCodeView(frame: self.view!.frame)
         self.verificationCodeView.delegate = self
         view.addSubview(verificationCodeView)
+
+        self.activityIndicator = ActivityIndicator.getActivityIndicator()
+        view.addSubview(activityIndicator.getView())
+    }
+
+    private func setConstraints() {
+        let activityIndicatorView = activityIndicator.getView()
+        constrain(activityIndicatorView) { activityIndicatorView in
+            activityIndicatorView.center == activityIndicatorView.superview!.center
+            activityIndicatorView.width == activityIndicatorView.height
+            activityIndicatorView.width == ActivityIndicatorSize.Medium
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -69,11 +84,15 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
     internal func didEnteredVerificationCode(verificationCode: Int) {
+        activityIndicator.startAnimation()
+
         authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
             self.log.debug("Successfully logged in")
+            self.activityIndicator.stopAnimation()
             self.launcher.launch(nil)
             }) { (error) in
             self.log.error("Failed logging in: \(error)")
+            self.activityIndicator.stopAnimation()
         }
     }
 

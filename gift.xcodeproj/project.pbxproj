@@ -17,6 +17,7 @@
 		62DD92CCD1D9C4A7B1F039D6 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */; };
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD9342DE06393B4A5B925D /* UIColor+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D0A8D2EBAA15313CDE0 /* UIColor+GFTAdditions.swift */; };
+		62DD93DB9FE9ED9C67552645 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DAE2ED60C38134277A3 /* ActivityIndicator.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
 		62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */; };
 		62DD94BBD10FB559F8D4A924 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */; };
@@ -94,6 +95,7 @@
 		62DD9D267EA10AC549902D2F /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
+		62DD9DAE2ED60C38134277A3 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		62DD9DCA03503B4293DAD836 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificaionCodeViewController.swift; sourceTree = "<group>"; };
 		62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			children = (
 				62DD93FBB635833E2F0E6D1A /* UIFont+GFTAdditions.swift */,
 				62DD9D0A8D2EBAA15313CDE0 /* UIColor+GFTAdditions.swift */,
+				62DD9DAE2ED60C38134277A3 /* ActivityIndicator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */,
 				62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */,
 				62DD9E26144A328F3B6D9871 /* String+PhoneNumber.swift in Sources */,
+				62DD93DB9FE9ED9C67552645 /* ActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
