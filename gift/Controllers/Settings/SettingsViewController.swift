@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import Cartography
 
 class SettingsViewController : UIViewController {
 
@@ -13,6 +14,7 @@ class SettingsViewController : UIViewController {
     private var identity : Identity
 
     //Views
+    private var logoutButton: UIButton!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -45,16 +47,27 @@ class SettingsViewController : UIViewController {
 
     private func addCustomViews() {
         self.view.backgroundColor = UIColor.whiteColor()
+
+        logoutButton = UIButton()
+        logoutButton.setTitle("Logout", forState: UIControlState.Normal)
+        logoutButton.titleLabel!.font = UIFont.gftHeader1Font()
+        logoutButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
+        logoutButton.backgroundColor = UIColor.gftAzureColor()
+        logoutButton.addTarget(self, action: #selector(SettingsViewController.didTapLogout(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(logoutButton)
     }
 
     private func setConstraints() {
-//        constrain(loginWithFaceBookButton) { loginWithFaceBookButton in
-//            loginWithFaceBookButton.center == loginWithFaceBookButton.superview!.center
-//        }
+        constrain(logoutButton) { logoutButton in
+            logoutButton.center == logoutButton.superview!.center
+        }
     }
 
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    @objc private func didTapLogout(sender:UIButton!) {
+        self.identity.logout()
+    }
 }

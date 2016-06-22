@@ -30,7 +30,10 @@ class Identity : NSObject {
         
         self.loadIdentityFromKeychain()
     }
-    
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
     private func loadIdentityFromKeychain() {
         let keyChainDictionaryOpt = Locksmith.loadDataForUserAccount(IdentityConsts.account)
         if let keyChainDictionary = keyChainDictionaryOpt {
@@ -64,6 +67,15 @@ class Identity : NSObject {
         }
     }
 
+    private func deleteIdentityFromKeyChain() {
+        do {
+            try Locksmith.deleteDataForUserAccount(IdentityConsts.account)
+            log.debug("Successfully delete account from keychain")
+        } catch {
+            log.severe("Failed to delete account from keychain")
+        }
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
@@ -84,6 +96,11 @@ class Identity : NSObject {
         self.token = token
         
         self.storeIdentityInKeyChain()
+    }
+
+    func logout() {
+        log.info("Loging out...")
+        self.deleteIdentityFromKeyChain()
     }
 
     func isLoggedIn() -> Bool {
