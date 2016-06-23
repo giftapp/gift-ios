@@ -31,7 +31,7 @@ target 'gift' do
   pod 'FBSDKLoginKit', '~> 4.12.0'
 
   # Date manipulations
-  pod 'Timepiece', '~> 0.4.2'                                       # not used yet
+  pod 'SwiftDate', '~> 3.0.8'                                       # not used yet
 
   # Image picker
   pod 'ImagePicker', '~> 1.3.0'                                     # not used yet
