@@ -79,6 +79,7 @@ class LoginView : UIView, UITextFieldDelegate {
         phoneNumberTextField.textAlignment = NSTextAlignment.Center
         phoneNumberTextField.font = UIFont.gftText1Font()
         phoneNumberTextField.keyboardType = UIKeyboardType.NumberPad
+        phoneNumberTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         phoneNumberTextField.delegate = self
         self.addSubview(phoneNumberTextField)
 
