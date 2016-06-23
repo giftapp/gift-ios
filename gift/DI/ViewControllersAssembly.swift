@@ -44,7 +44,7 @@ public class ViewControllersAssembly : TyphoonAssembly {
                 (initializer) in
                 initializer.injectParameterWith(self.coreComponentsAssembly.appRoute())
                 initializer.injectParameterWith(self.coreComponentsAssembly.authenticator())
-                initializer.injectParameterWith(nil) // property injection
+                initializer.injectParameterWith(nil) // Property injected
             }
             definition.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
 

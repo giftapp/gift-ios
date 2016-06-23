@@ -16,7 +16,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //Injected
     private var appRoute : AppRoute
     private var authenticator : Authenticator
-    var launcher : Launcher //property injected
+    var launcher : Launcher //Property injected
 
     //Views
     private var verificationCodeView : VerificationCodeView!

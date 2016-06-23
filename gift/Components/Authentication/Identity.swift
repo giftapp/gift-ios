@@ -19,13 +19,18 @@ class Identity : NSObject {
 
     private let log = XCGLogger.defaultInstance()
 
+    //Injected
+    var launcher : Launcher //Property injected
+    
+    //Public properties
     var user : User?
     var token : Token?
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic override init() {
+    internal dynamic init(launcher : Launcher) {
+        self.launcher = launcher
         super.init()
         
         self.loadIdentityFromKeychain()
@@ -40,6 +45,10 @@ class Identity : NSObject {
             self.user = keyChainDictionary[IdentityConsts.userKey] as? User
             self.token = keyChainDictionary[IdentityConsts.tokenKey] as? Token
             log.info("Successfully loaded account from keychain")
+        } else {
+            self.user = nil
+            self.token = nil
+            log.info("No accounts were found in keychain")
         }
     }
     
@@ -101,6 +110,8 @@ class Identity : NSObject {
     func logout() {
         log.info("Loging out...")
         self.deleteIdentityFromKeyChain()
+        self.loadIdentityFromKeychain()
+        self.launcher.launch(nil)
     }
 
     func isLoggedIn() -> Bool {

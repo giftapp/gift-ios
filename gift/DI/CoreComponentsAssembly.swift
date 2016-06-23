@@ -74,6 +74,11 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(Identity.self) {
             (definition) in
             definition.scope = TyphoonScope.Singleton
+            definition.useInitializer(#selector(Identity.init(launcher:))) {
+                (initializer) in
+                initializer.injectParameterWith(nil) // Property injected
+            }
+            definition.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.launcher())
         }
     }
 
