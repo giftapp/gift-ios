@@ -36,3 +36,8 @@
 "VerificationCodeView.Description" = "קוד אימות נשלח אליך בהודעת טקסט\nלמספר %@";
 "VerificationCodeView.VerificationCode placeholder" = "קוד אימות";
 "VerificationCodeView.Retry Button" = "לחץ לשליחת קוד נוסף";
+
+//MainTabViewController
+"Main Tab" = "מתנה";
+"History Tab" = "היסטוריה";
+"Settings Tab" = "הגדרות";

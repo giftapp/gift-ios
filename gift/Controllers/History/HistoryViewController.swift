@@ -34,8 +34,6 @@ class HistoryViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "History"
-
         self.addCustomViews()
     }
 

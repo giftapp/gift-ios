@@ -36,3 +36,8 @@
 "VerificationCodeView.Description" = "We have sent you a verification code via SMS to %@";
 "VerificationCodeView.VerificationCode placeholder" = "Verification Code";
 "VerificationCodeView.Retry Button" = "Tap to send another verification code";
+
+//MainTabViewController
+"Main Tab" = "gift";
+"History Tab" = "History";
+"Settings Tab" = "Settings";
