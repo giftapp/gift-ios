@@ -44,17 +44,17 @@ class MainTabViewController : UITabBarController{
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func getHomeTab() -> UIViewController {
-        self.homeViewController.tabBarItem = UITabBarItem(title: "Main Tab".localized, image: UIImage(named: "giftTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "giftTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
-        return self.embedInNavigationController(self.homeViewController)
+        self.homeViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.Main Tab".localized, image: UIImage(named: "giftTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "giftTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
+        return self.homeViewController
     }
 
     private func getHistoryTab() -> UIViewController {
-        self.historyViewController.tabBarItem = UITabBarItem(title: "History Tab".localized, image: UIImage(named: "historyTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "historyTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
+        self.historyViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.History Tab".localized, image: UIImage(named: "historyTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "historyTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
         return self.embedInNavigationController(self.historyViewController)
     }
 
     private func getSettingsTab() -> UIViewController {
-        self.settingsViewController.tabBarItem = UITabBarItem(title: "Settings Tab".localized, image: UIImage(named: "profileTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "profileTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
+        self.settingsViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.Settings Tab".localized, image: UIImage(named: "profileTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "profileTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
         return self.embedInNavigationController(self.settingsViewController)
     }
 

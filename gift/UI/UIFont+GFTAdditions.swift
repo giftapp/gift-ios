@@ -12,6 +12,10 @@ extension UIFont {
 		return UIFont(name: "Rubik-Light", size: 25.0)
 	}
 
+	class func gftHeader2Font() -> UIFont? {
+		return UIFont(name: "Rubik-Light", size: 20.0)
+	}
+
 	class func gftLinkFont() -> UIFont? {
 		return UIFont(name: "Rubik-Regular", size: 15.0)
 	}

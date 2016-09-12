@@ -38,6 +38,9 @@
 "VerificationCodeView.Retry Button" = "Tap to send another verification code";
 
 //MainTabViewController
-"Main Tab" = "gift";
-"History Tab" = "History";
-"Settings Tab" = "Settings";
+"MainTabViewController.Main Tab" = "gift";
+"MainTabViewController.History Tab" = "History";
+"MainTabViewController.Settings Tab" = "Settings";
+
+//HomeViewController
+"HomeViewController.Send a gift" = "Send a gift";
