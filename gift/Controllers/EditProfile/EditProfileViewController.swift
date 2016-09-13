@@ -71,7 +71,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         let shouldEnableDoneButton =
             !(editProfileView.firstName ?? "").isEmpty &&
             !(editProfileView.lastName ?? "").isEmpty &&
-            !(editProfileView.email ?? "").isValidEmail
+            (editProfileView.email ?? "").isValidEmail
 
         editProfileView.enableDoneButton(shouldEnableDoneButton)
     }
