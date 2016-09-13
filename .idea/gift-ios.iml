@@ -16,6 +16,33 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-LightItalic.ttf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Italic.ttf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/SupportingFiles/Fonts/Rubik-Bold.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/DI/CoreComponentsAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ApplicationAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ViewControllersAssembly.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/PaddedTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/ActivityIndicatorView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/BigButton.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Extensions/UIFont+GFTAdditions.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Extensions/UIColor+GFTAdditions.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/Views/EditProfileView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/EditProfileViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/Views/VerificationCodeView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/Views/LoginView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/LoginViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/VerificaionCodeViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Welcome/WelcomeViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Welcome/Views/WelcomeView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Settings/SettingsViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Home/HomeViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/History/HistoryViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Tab/MainTabViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+AuthenticationHeader.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+NonSecureConnection.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+Localized.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/UITextField+Boarders.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+PhoneNumber.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+Email.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/Facebook/FacebookClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/Launcher/Launcher.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/Authentication/Authenticator.swift" isTestSource="false" />
@@ -23,34 +50,11 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/AppRoute/AppRoute.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/GiftService/GiftServiceCoreClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/Log/LogConfigurer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/UI/UIFont+GFTAdditions.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/UI/UIColor+GFTAdditions.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/UI/ActivityIndicatorView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/EditProfileViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Settings/SettingsViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Welcome/WelcomeViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Welcome/Views/WelcomeView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Tab/MainTabViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Home/HomeViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/History/HistoryViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/Views/VerificationCodeView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/Views/LoginView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/LoginViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/VerificaionCodeViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Events/IdentityUpdatedEvent.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/DI/CoreComponentsAssembly.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ApplicationAssembly.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/DI/ViewControllersAssembly.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/AppDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/ModelBase.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/User.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Model/Token.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+AuthenticationHeader.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+NonSecureConnection.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+PhoneNumber.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/UITextField+Boarders.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+Localized.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Events/IdentityUpdatedEvent.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/TyphoonComponentFactory.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Typhoon/Source/Factory/Hooks/NSObject+FactoryHooks.h" isTestSource="false" />

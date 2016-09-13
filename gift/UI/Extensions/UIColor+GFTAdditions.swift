@@ -43,4 +43,9 @@ extension UIColor {
 	class func gftBackgroundWhiteColor() -> UIColor {
 		return UIColor(white: 247.0 / 255.0, alpha: 1.0)
 	}
+
+	class func gftFacebookBlueColor() -> UIColor {
+		return UIColor(red: 60.0 / 255.0, green: 90.0 / 255.0, blue: 150.0 / 255.0, alpha: 1.0)
+	}
+
 }

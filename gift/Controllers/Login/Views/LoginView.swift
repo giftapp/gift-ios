@@ -29,7 +29,7 @@ class LoginView : UIView, UITextFieldDelegate {
     private var continueButtonConstraintsGroup: ConstraintGroup!
 
     //Public Properties
-    var delegate: LoginViewDelegate! = nil
+    var delegate: LoginViewDelegate!
     var phoneNumber : String {
         return self.phoneNumberTextField.text!.phoneNumberAsRawString()
     }
@@ -78,7 +78,7 @@ class LoginView : UIView, UITextFieldDelegate {
         phoneNumberTextField.placeholder = "LoginView.Phone number place holder".localized
         phoneNumberTextField.textAlignment = NSTextAlignment.Center
         phoneNumberTextField.font = UIFont.gftText1Font()
-        phoneNumberTextField.keyboardType = UIKeyboardType.NumberPad
+        phoneNumberTextField.keyboardType = UIKeyboardType.PhonePad
         phoneNumberTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         phoneNumberTextField.delegate = self
         self.addSubview(phoneNumberTextField)

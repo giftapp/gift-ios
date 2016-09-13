@@ -5,29 +5,28 @@
 
 import Foundation
 import UIKit
-import Cartography
 import XCGLogger
 
-class EditProfileViewController : UIViewController {
+class EditProfileViewController: UIViewController, EditProfileViewDelegate {
 
     private let log = XCGLogger.defaultInstance()
 
     // Injections
-    private var appRoute : AppRoute
-    private var identity : Identity
-    private var facebookClient : FacebookClient
-    private var giftServiceCoreClient : GiftServiceCoreClient
+    private var appRoute: AppRoute
+    private var identity: Identity
+    private var facebookClient: FacebookClient
+    private var giftServiceCoreClient: GiftServiceCoreClient
 
     //Views
-    private var loginWithFaceBookButton: UIButton = UIButton()
+    private var editProfileView: EditProfileView!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute : AppRoute,
-                          identity : Identity,
-                          facebookClient : FacebookClient,
-                          giftServiceCoreClient : GiftServiceCoreClient) {
+    internal dynamic init(appRoute: AppRoute,
+                          identity: Identity,
+                          facebookClient: FacebookClient,
+                          giftServiceCoreClient: GiftServiceCoreClient) {
         self.appRoute = appRoute
         self.identity = identity
         self.facebookClient = facebookClient
@@ -45,55 +44,55 @@ class EditProfileViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Edit Profile"
-
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",style: .Done, target: self, action: #selector(doneTapped))
+        self.title = "EditProfileViewController.Title".localized
+        self.navigationController!.navigationBar.barStyle = .Black
+        self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
 
         self.addCustomViews()
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        self.setConstraints()
-    }
-    
+
     private func addCustomViews() {
-        self.view.backgroundColor = UIColor.whiteColor()
-        
-        self.loginWithFaceBookButton.setTitle("Login with Facebook", forState: UIControlState.Normal)
-        self.loginWithFaceBookButton.backgroundColor = UIColor.blueColor()
-        self.loginWithFaceBookButton.addTarget(self, action: #selector(loginWithFacebookTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(self.loginWithFaceBookButton)
-        
-        
-    }
-    
-    private func setConstraints() {
-        constrain(loginWithFaceBookButton) { loginWithFaceBookButton in
-            loginWithFaceBookButton.center == loginWithFaceBookButton.superview!.center
+        if editProfileView == nil {
+            editProfileView = EditProfileView()
+            self.editProfileView.delegate = self
+            self.view = editProfileView
         }
     }
 
-    
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    internal func doneTapped() {
-        self.appRoute.dismiss(self, animated: true, completion: nil)
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - EditProfileViewDelegate
+    //-------------------------------------------------------------------------------------------
+    func didUpdateForm() {
+        let shouldEnableDoneButton =
+            !(editProfileView.firstName ?? "").isEmpty &&
+            !(editProfileView.lastName ?? "").isEmpty &&
+            !(editProfileView.email ?? "").isValidEmail
+
+        editProfileView.enableDoneButton(shouldEnableDoneButton)
     }
 
-    internal func loginWithFacebookTapped(sender:UIButton!) {
+    func didTapLoginWithFaceBook() {
         self.facebookClient.login(viewController: self) { (error, facebookToken) in
             if (error) {
                 self.log.error("error while login with facebook")
             } else {
                 self.giftServiceCoreClient.setFacebookAccount(facebookToken!, success: { (user) in
-                    self.log.debug("Succsessfully got user from facebook")
+                    self.log.debug("Successfully got user from facebook")
                     self.identity.updateUser(user)
                     self.appRoute.dismiss(self, animated: true, completion: nil)
-                    }, failure: { (error) in
-                        self.log.error("error while updating user account with facebook account: \(error)")
+                }, failure: { (error) in
+                    self.log.error("error while updating user account with facebook account: \(error)")
                 })
             }
         }
+    }
+
+    func didTapDone() {
+        self.appRoute.dismiss(self, animated: true, completion: nil)
     }
 }
