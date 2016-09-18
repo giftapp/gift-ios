@@ -32,7 +32,6 @@ class ActivityIndicatorView: UIView {
 
     private func addCustomViews() {
         self.activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .LineScale, color: UIColor.gftAzureColor(), padding: nil)
-        self.activityIndicatorView.hidesWhenStopped = true
         self.addSubview(activityIndicatorView)
     }
 
@@ -48,10 +47,10 @@ class ActivityIndicatorView: UIView {
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func startAnimation() {
-        self.activityIndicatorView.startAnimation()
+        self.activityIndicatorView.startAnimating()
     }
 
     func stopAnimation() {
-        self.activityIndicatorView.stopAnimation()
+        self.activityIndicatorView.stopAnimating()
     }
 }

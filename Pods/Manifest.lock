@@ -1,9 +1,9 @@
 PODS:
-  - Alamofire (3.4.0)
-  - AlamofireObjectMapper (3.0.0):
+  - Alamofire (3.5.0)
+  - AlamofireObjectMapper (3.0.2):
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
-  - AsyncSwift (1.7.2)
+  - AsyncSwift (1.7.3)
   - Bolts (1.7.0):
     - Bolts/AppLinks (= 1.7.0)
     - Bolts/Tasks (= 1.7.0)
@@ -18,20 +18,20 @@ PODS:
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
   - ImagePicker (1.3.0)
-  - Kingfisher (2.4.1)
+  - Kingfisher (2.4.3)
   - Locksmith (2.0.8)
   - MZTimerLabel (0.5.4)
-  - NVActivityIndicatorView (2.7)
-  - ObjectMapper (1.3.0)
-  - PMAlertController (1.0.4)
-  - RAMAnimatedTabBarController (1.4.0)
+  - NVActivityIndicatorView (2.12)
+  - ObjectMapper (1.4.0)
+  - PMAlertController (1.0.5)
+  - RAMAnimatedTabBarController (1.4.2)
   - SwiftDate (3.0.8)
   - TextAttributes (0.3.1)
   - Toucan (0.5.0)
-  - Typhoon (3.4.7):
-    - Typhoon/no-arc (= 3.4.7)
-  - Typhoon/no-arc (3.4.7)
-  - XCGLogger (3.3)
+  - Typhoon (3.4.9):
+    - Typhoon/no-arc (= 3.4.9)
+  - Typhoon/no-arc (3.4.9)
+  - XCGLogger (3.5.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
@@ -56,26 +56,28 @@ DEPENDENCIES:
   - XCGLogger (~> 3.3)
 
 SPEC CHECKSUMS:
-  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
-  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
+  AlamofireObjectMapper: 70f97cbf45c01c48d26aa07a1a7059a60ed7411d
+  AsyncSwift: f3ad5dd077bbd1477e7573e87071a532fedaca1a
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
   ImagePicker: ed649bfeb850b2b8715c9e95a35725c730b5f627
-  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
+  Kingfisher: 322a9c1c5b03212c1e741d6bece72d387b01a77a
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
-  NVActivityIndicatorView: dc80f18fb27ac92f0aa87246cc13dc39ed3e9ee0
-  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
-  PMAlertController: 7f969c937a80bea634a5bf957b66943b493e1aca
-  RAMAnimatedTabBarController: 6f221d7dc647b4266c9e05618c84b5639f190297
+  NVActivityIndicatorView: de8be03826726ad99cdfacf7fe09e88cbfeef911
+  ObjectMapper: a07ad0462c5adf014adc0f89ef04c29b626e855e
+  PMAlertController: 779265aacbceca054e27ef4f164169e697976d5a
+  RAMAnimatedTabBarController: 062f269b89bdeb6c52b7c98441f16966d8eb6ff3
   SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
   Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40
-  Typhoon: 0953addabd5a10a930973fcc131c03badc88c4ba
-  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
+  Typhoon: dbbbdeb868ac1e11908fc3e17b119a976471f07a
+  XCGLogger: dbe4a9c7bbaac73717a34e0b94c64fd151c74d6c
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 2c563432fc9d91ace6f5db9462bfbfebee933cd7
+
+COCOAPODS: 1.0.1
