@@ -5,13 +5,10 @@
 
 import Foundation
 import UIKit
-import XCGLogger
 import Cartography
 import PMAlertController
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
-
-    private let log = XCGLogger.defaultInstance()
 
     //Injected
     private var appRoute : AppRoute
@@ -95,11 +92,11 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         activityIndicatorView.startAnimation()
 
         authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
-            self.log.debug("Successfully logged in")
+            Logger.debug("Successfully logged in")
             self.activityIndicatorView.stopAnimation()
             self.launcher.launch(nil)
             }) { (error) in
-            self.log.error("Failed logging in: \(error)")
+            Logger.error("Failed logging in: \(error)")
             self.activityIndicatorView.stopAnimation()
             self.alertFailedVerifyingCode()
         }

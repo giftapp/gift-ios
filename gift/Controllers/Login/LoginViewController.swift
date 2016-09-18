@@ -5,12 +5,9 @@
 
 import Foundation
 import UIKit
-import XCGLogger
 import PMAlertController
 
 class LoginViewController : UIViewController, LoginViewDelegate {
-
-    private let log = XCGLogger.defaultInstance()
 
     // Inections
     var appRoute : AppRoute
@@ -56,12 +53,12 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     //-------------------------------------------------------------------------------------------
     private func sendPhoneNumberForVerification(phoneNumber : String) {
         authenticator.verifyPhoneNumber(phoneNumber, success: {
-            self.log.debug("Verification code sent")
+            Logger.debug("Verification code sent")
             //Prepare & Present verificationCodeViewController
             self.verificationCodeViewController.phoneNumber = phoneNumber
             self.presentViewController(self.verificationCodeViewController, animated: true, completion: nil)
         }) { (error) in
-            self.log.error("Failed sending verification code: \(error)")
+            Logger.error("Failed sending verification code: \(error)")
             self.alertFailedSendingVerificationCode()
         }
     }

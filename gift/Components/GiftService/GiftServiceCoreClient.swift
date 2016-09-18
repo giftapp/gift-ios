@@ -6,7 +6,6 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
-import XCGLogger
 
 struct GiftServiceCoreClientConstants{
     static let BASE_URL_PATH = "http://localhost:8080/api"
@@ -14,8 +13,6 @@ struct GiftServiceCoreClientConstants{
 }
 
 public class GiftServiceCoreClient : NSObject {
-
-    private let log = XCGLogger.defaultInstance()
 
     //Injected
     var identity : Identity
@@ -54,7 +51,7 @@ public class GiftServiceCoreClient : NSObject {
     private func updateAuthenticationHeaderFromIdentity() {
         guard let accessToken = self.identity.token?.accessToken
             else {
-            log.severe("Expected access token")
+            Logger.severe("Expected access token")
                 return
             }
         

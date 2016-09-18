@@ -10,11 +10,8 @@ public class CoreComponentsAssembly : TyphoonAssembly {
 
     public var viewControllersAssembly: ViewControllersAssembly!
 
-    private dynamic func logConfigurer() -> AnyObject {
-        return TyphoonDefinition.withClass(LogConfigurer.self) {
-            (definition) in
-            definition.scope = TyphoonScope.Singleton
-        }
+    private dynamic func configureLog() {
+        Logger.configureLog()
     }
 
     public dynamic func authenticator() -> AnyObject {

@@ -5,11 +5,8 @@
 
 import Foundation
 import UIKit
-import XCGLogger
 
 class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDelegate {
-
-    private let log = XCGLogger.defaultInstance()
 
     private weak var topMostViewController : UIViewController!
     
@@ -34,13 +31,13 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
         }
 
         if (!controllerToPushFrom.isKindOfClass(UINavigationController) && controllerToPushFrom.navigationController == nil) {
-            log.error("Cannot push, presented controller is not a UINavigationController")
+            Logger.error("Cannot push, presented controller is not a UINavigationController")
             print (controllerToPushFrom)
             return
         }
 
         if (controller.isEqual(controllerToPushFrom)) {
-            log.warning("Cannot push, presented controller is not a UINavigationController")
+            Logger.warning("Cannot push, presented controller is not a UINavigationController")
             return
         }
 

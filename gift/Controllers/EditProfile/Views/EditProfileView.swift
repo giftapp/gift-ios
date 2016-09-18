@@ -6,7 +6,6 @@
 import Foundation
 import UIKit
 import Cartography
-import XCGLogger
 
 protocol EditProfileViewDelegate {
     func didUpdateForm()
@@ -15,8 +14,6 @@ protocol EditProfileViewDelegate {
 }
 
 class EditProfileView: UIView, UITextFieldDelegate {
-
-    private let log = XCGLogger.defaultInstance()
 
     //Views
     private var descriptionLabel: UILabel!
@@ -195,7 +192,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
     func didTapLoginWithFaceBook(sender: UIButton!) {
         guard let delegate = self.delegate
             else {
-                log.error("Delegate not set")
+                Logger.error("Delegate not set")
                 return
             }
 
@@ -205,7 +202,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
     func didTapDone(sender: UIButton!) {
         guard let delegate = self.delegate
             else {
-                log.error("Delegate not set")
+                Logger.error("Delegate not set")
                 return
             }
 

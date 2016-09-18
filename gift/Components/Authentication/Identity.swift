@@ -5,7 +5,6 @@
 
 import Foundation
 import Locksmith
-import XCGLogger
 
 struct IdentityConsts {
     static let service = "gift"
@@ -16,8 +15,6 @@ struct IdentityConsts {
 
 
 class Identity : NSObject {
-
-    private let log = XCGLogger.defaultInstance()
 
     //Injected
     var launcher : Launcher //Property injected
@@ -44,44 +41,44 @@ class Identity : NSObject {
         if let keyChainDictionary = keyChainDictionaryOpt {
             self.user = keyChainDictionary[IdentityConsts.userKey] as? User
             self.token = keyChainDictionary[IdentityConsts.tokenKey] as? Token
-            log.info("Successfully loaded account from keychain")
+            Logger.info("Successfully loaded account from keychain")
         } else {
             self.user = nil
             self.token = nil
-            log.info("No accounts were found in keychain")
+            Logger.info("No accounts were found in keychain")
         }
     }
     
     private func storeIdentityInKeyChain() {
         guard let user = self.user
             else {
-                log.severe("Missing user in identity")
+                Logger.severe("Missing user in identity")
                 return //TODO:consider throw
             }
         
         guard let token = self.token
             else {
-                log.severe("Missing token in identity")
+                Logger.severe("Missing token in identity")
                 return
             }
         
         do {
             try Locksmith.updateData([IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account)
-            log.debug("Successfully stored account in keychain")
+            Logger.debug("Successfully stored account in keychain")
 
             //Broadcast event
             NSNotificationCenter.defaultCenter().postNotificationName(IdentityUpdatedEvent.name, object: nil)
         } catch {
-            log.severe("Failed to store account in keychain")
+            Logger.severe("Failed to store account in keychain")
         }
     }
 
     private func deleteIdentityFromKeyChain() {
         do {
             try Locksmith.deleteDataForUserAccount(IdentityConsts.account)
-            log.debug("Successfully delete account from keychain")
+            Logger.debug("Successfully delete account from keychain")
         } catch {
-            log.severe("Failed to delete account from keychain")
+            Logger.severe("Failed to delete account from keychain")
         }
     }
 
@@ -108,7 +105,7 @@ class Identity : NSObject {
     }
 
     func logout() {
-        log.info("Loging out...")
+        Logger.info("Loging out...")
         self.deleteIdentityFromKeyChain()
         self.loadIdentityFromKeychain()
         self.launcher.launch(nil)
