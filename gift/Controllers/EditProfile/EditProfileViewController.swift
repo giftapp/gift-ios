@@ -52,7 +52,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     private func addCustomViews() {
         if editProfileView == nil {
             editProfileView = EditProfileView()
-            self.editProfileView.delegate = self
+            editProfileView.delegate = self
             self.view = editProfileView
         }
     }

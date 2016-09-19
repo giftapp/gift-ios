@@ -9,14 +9,15 @@ import UIKit
 class Launcher : NSObject {
     
     //Injected
-    var appRoute : AppRoute
-    var welcomeViewController : WelcomeViewController
-    var loginViewController : LoginViewController
-    var editProfileViewController : EditProfileViewController
-    var mainTabViewController : MainTabViewController
-    var identity : Identity
+    private var appRoute : AppRoute
+    private var welcomeViewController : WelcomeViewController
+    private var loginViewController : LoginViewController
+    private var editProfileViewController : EditProfileViewController
+    private var mainTabViewController : MainTabViewController
+    private var identity : Identity
     
-    let userDefaults = UserDefaults.standard
+    //Private Properties
+    private let userDefaults = UserDefaults.standard
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction

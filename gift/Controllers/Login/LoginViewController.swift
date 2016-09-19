@@ -10,12 +10,12 @@ import PMAlertController
 class LoginViewController : UIViewController, LoginViewDelegate {
 
     // Inections
-    var appRoute : AppRoute
-    var verificationCodeViewController : VerificationCodeViewController
-    var authenticator : Authenticator
+    private var appRoute : AppRoute
+    private var verificationCodeViewController : VerificationCodeViewController
+    private var authenticator : Authenticator
 
     //Views
-    var loginView : LoginView!
+    private var loginView : LoginView!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -43,9 +43,11 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     }
 
     private func addCustomViews() {
-        self.loginView =  LoginView(frame: self.view!.frame)
-        self.loginView.delegate = self
-        view.addSubview(loginView)
+        if loginView == nil {
+            loginView = LoginView()
+            loginView.delegate = self
+            self.view = loginView
+        }
     }
 
     //-------------------------------------------------------------------------------------------

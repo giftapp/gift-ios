@@ -39,10 +39,12 @@ class WelcomeViewController : UIViewController, WelcomeViewDelegate {
         self.addCustomViews()
     }
     
-    private func addCustomViews() {
-        self.welcomeView =  WelcomeView(frame: self.view!.frame)
-        self.welcomeView.delegate = self
-        view.addSubview(welcomeView)
+    private func addCustomViews() {        
+        if welcomeView == nil {
+            welcomeView = WelcomeView()
+            welcomeView.delegate = self
+            self.view = welcomeView
+        }
     }
 
     //-------------------------------------------------------------------------------------------

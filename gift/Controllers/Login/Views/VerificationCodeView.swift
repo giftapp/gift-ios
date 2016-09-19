@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-struct VerificationCodeViewConstants{
+private struct VerificationCodeViewConstants{
     static let VERIFICATION_CODE_DIGITS = 5
 }
 
@@ -24,11 +24,11 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     private var envelopImage: UIImageView!
     private var verificationCodeTextField : UITextField!
     private var retryButton : UIButton!
+    private var activityIndicatorView: ActivityIndicatorView!
 
     //Public Properties
     var delegate: VerificationCodeViewDelegate! = nil
 
-    //Private Properties
     var phoneNumber: String! {
         didSet {
             descriptionLabel.text = String.localizedStringWithFormat("VerificationCodeView.Description".localized ,self.phoneNumber)
@@ -51,41 +51,56 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     private func addCustomViews() {
         self.backgroundColor = UIColor.gftBackgroundWhiteColor()
 
-        inseretPasscodeLabel = UILabel()
-        inseretPasscodeLabel.text = "VerificationCodeView.Insert verification code".localized
-        inseretPasscodeLabel.textAlignment = NSTextAlignment.center
-        inseretPasscodeLabel.font = UIFont.gftHeader1Font()
-        inseretPasscodeLabel.textColor = UIColor.gftWaterBlueColor()
-        self.addSubview(inseretPasscodeLabel)
+        if inseretPasscodeLabel == nil {
+            inseretPasscodeLabel = UILabel()
+            inseretPasscodeLabel.text = "VerificationCodeView.Insert verification code".localized
+            inseretPasscodeLabel.textAlignment = NSTextAlignment.center
+            inseretPasscodeLabel.font = UIFont.gftHeader1Font()
+            inseretPasscodeLabel.textColor = UIColor.gftWaterBlueColor()
+            self.addSubview(inseretPasscodeLabel)
+        }
 
-        //Text of this label is beeing set from self.phoneNumber didSet
-        descriptionLabel = UILabel()
-        descriptionLabel.textAlignment = NSTextAlignment.center
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont.gftText1Font()
-        descriptionLabel.textColor = UIColor.gftBlackColor()
-        self.addSubview(descriptionLabel)
+        if descriptionLabel == nil {
+            //Text of this label is beeing set from self.phoneNumber didSet
+            descriptionLabel = UILabel()
+            descriptionLabel.textAlignment = NSTextAlignment.center
+            descriptionLabel.numberOfLines = 0
+            descriptionLabel.font = UIFont.gftText1Font()
+            descriptionLabel.textColor = UIColor.gftBlackColor()
+            self.addSubview(descriptionLabel)
+        }
 
-        envelopImage = UIImageView(image: UIImage(named:"envelopIcon")!)
-        self.addSubview(envelopImage)
+        if envelopImage == nil {
+            envelopImage = UIImageView(image: UIImage(named:"envelopIcon")!)
+            self.addSubview(envelopImage)
+        }
 
-        verificationCodeTextField = UITextField()
-        verificationCodeTextField.backgroundColor = UIColor.gftWhiteColor()
-        verificationCodeTextField.placeholder = "VerificationCodeView.VerificationCode placeholder".localized
-        verificationCodeTextField.textAlignment = NSTextAlignment.center
-        verificationCodeTextField.font = UIFont.gftText1Font()
-        verificationCodeTextField.keyboardType = UIKeyboardType.numberPad
-        verificationCodeTextField.delegate = self
-        self.addSubview(verificationCodeTextField)
+        if verificationCodeTextField == nil {
+            verificationCodeTextField = UITextField()
+            verificationCodeTextField.backgroundColor = UIColor.gftWhiteColor()
+            verificationCodeTextField.placeholder = "VerificationCodeView.VerificationCode placeholder".localized
+            verificationCodeTextField.textAlignment = NSTextAlignment.center
+            verificationCodeTextField.font = UIFont.gftText1Font()
+            verificationCodeTextField.keyboardType = UIKeyboardType.numberPad
+            verificationCodeTextField.delegate = self
+            self.addSubview(verificationCodeTextField)
+        }
 
-        retryButton = UIButton()
-        let attributedButtonTitle = NSMutableAttributedString(string: "VerificationCodeView.Retry Button".localized)
-        attributedButtonTitle.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: NSMakeRange(0, attributedButtonTitle.length))
-        attributedButtonTitle.addAttribute(NSFontAttributeName, value: UIFont.gftLinkFont()!, range: NSMakeRange(0, attributedButtonTitle.length))
-        retryButton.setAttributedTitle(attributedButtonTitle, for: UIControlState())
-
-        retryButton.addTarget(self, action: #selector(VerificationCodeView.didTapRetry(sender:)), for: UIControlEvents.touchUpInside)
-        self.addSubview(retryButton)
+        if retryButton == nil {
+            retryButton = UIButton()
+            let attributedButtonTitle = NSMutableAttributedString(string: "VerificationCodeView.Retry Button".localized)
+            attributedButtonTitle.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: NSMakeRange(0, attributedButtonTitle.length))
+            attributedButtonTitle.addAttribute(NSFontAttributeName, value: UIFont.gftLinkFont()!, range: NSMakeRange(0, attributedButtonTitle.length))
+            retryButton.setAttributedTitle(attributedButtonTitle, for: UIControlState())
+            
+            retryButton.addTarget(self, action: #selector(VerificationCodeView.didTapRetry(sender:)), for: UIControlEvents.touchUpInside)
+            self.addSubview(retryButton)
+        }
+        
+        if activityIndicatorView == nil {
+            activityIndicatorView = ActivityIndicatorView()
+            self.addSubview(activityIndicatorView)
+        }
     }
     
     private func setConstraints() {
@@ -122,6 +137,14 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     func clearVerificationCode() {
         self.verificationCodeTextField.text = ""
+    }
+    
+    func activityAnimation(shouldAnimate: Bool) {
+        if shouldAnimate {
+            activityIndicatorView.startAnimation()
+        } else {
+            activityIndicatorView.stopAnimation()
+        }
     }
 
     //-------------------------------------------------------------------------------------------

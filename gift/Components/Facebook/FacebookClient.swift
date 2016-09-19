@@ -9,8 +9,11 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class FacebookClient : NSObject {
+private struct FacebookClientConsts {
+    static let readPermissions = ["public_profile", "email", "user_friends"]
+}
 
+class FacebookClient : NSObject {
 
     private let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
 
@@ -18,7 +21,7 @@ class FacebookClient : NSObject {
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func login(viewController fromViewController: UIViewController, completion: @escaping (_ error: Bool, _ facebookToken: String?) -> Void) {
-        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: fromViewController) { (result , error) in
+        fbLoginManager.logIn(withReadPermissions: FacebookClientConsts.readPermissions, from: fromViewController) { (result , error) in
             if error != nil {
                 // Process error
                 Logger.error("Failed to login with facebook")

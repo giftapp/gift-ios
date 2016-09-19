@@ -8,6 +8,7 @@ import UIKit
 
 class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDelegate {
 
+    //Private Properties
     private weak var topMostViewController : UIViewController!
     
     //-------------------------------------------------------------------------------------------

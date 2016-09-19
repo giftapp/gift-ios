@@ -17,7 +17,6 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
 
     //Views
     private var verificationCodeView : VerificationCodeView!
-    private var activityIndicatorView: ActivityIndicatorView!
 
     //Public properties
     var phoneNumber : String!
@@ -43,22 +42,13 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         super.viewDidLoad()
         
         self.addCustomViews()
-        self.setConstraints()
     }
 
     private func addCustomViews() {
-        self.verificationCodeView = VerificationCodeView(frame: self.view!.frame)
-        self.verificationCodeView.delegate = self
-        view.addSubview(verificationCodeView)
-
-        self.activityIndicatorView = ActivityIndicatorView()
-        view.addSubview(activityIndicatorView)
-    }
-
-    private func setConstraints() {
-        activityIndicatorView.snp.makeConstraints { (make) in
-            make.center.equalTo(activityIndicatorView.superview!)
-            make.width.equalTo(ActivityIndicatorSize.Medium)
+        if verificationCodeView == nil {
+            verificationCodeView = VerificationCodeView()
+            verificationCodeView.delegate = self
+            self.view = verificationCodeView
         }
     }
 
@@ -88,15 +78,15 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
     internal func didEnteredVerificationCode(verificationCode: Int) {
-        activityIndicatorView.startAnimation()
+        verificationCodeView.activityAnimation(shouldAnimate: true)
 
         authenticator.authenticate(phoneNumber: self.phoneNumber, verificationCode: verificationCode, success: {
             Logger.debug("Successfully logged in")
-            self.activityIndicatorView.stopAnimation()
+            self.verificationCodeView.activityAnimation(shouldAnimate: false)
             self.launcher.launch()
             }) { (error) in
             Logger.error("Failed logging in: \(error)")
-            self.activityIndicatorView.stopAnimation()
+            self.verificationCodeView.activityAnimation(shouldAnimate: false)
             self.alertFailedVerifyingCode()
         }
     }

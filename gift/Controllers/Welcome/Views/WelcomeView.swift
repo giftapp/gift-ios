@@ -22,7 +22,7 @@ class WelcomeView : UIView {
     private var slogenLabel: UILabel!
     private var continueButton: UIButton!
 
-    //Vars
+    //Public Properties
     var delegate: WelcomeViewDelegate! = nil
 
     //-------------------------------------------------------------------------------------------
@@ -41,27 +41,34 @@ class WelcomeView : UIView {
     private func addCustomViews() {
         self.backgroundColor = UIColor.gftBackgroundWhiteColor()
 
-        backgroundImage = UIImageView(image: UIImage(named:"welcomeScreenBackground")!)
-        self.addSubview(backgroundImage)
+        if backgroundImage == nil {
+            backgroundImage = UIImageView(image: UIImage(named:"welcomeScreenBackground")!)
+            self.addSubview(backgroundImage)
+        }
+       
+        if giftLogoImage == nil {
+            giftLogoImage = UIImageView(image: UIImage(named:"giftLogoWide")!)
+            self.addSubview(giftLogoImage)
+        }
 
-        giftLogoImage = UIImageView(image: UIImage(named:"giftLogoWide")!)
-        self.addSubview(giftLogoImage)
+        if slogenLabel == nil {
+            slogenLabel = UILabel()
+            slogenLabel.text = "WelcomeView.Gift slogan".localized
+            slogenLabel.textAlignment = NSTextAlignment.center
+            slogenLabel.font = UIFont.gftHeader1Font()
+            slogenLabel.textColor = UIColor.gftWaterBlueColor()
+            self.addSubview(slogenLabel)
+        }
 
-
-        slogenLabel = UILabel()
-        slogenLabel.text = "WelcomeView.Gift slogan".localized
-        slogenLabel.textAlignment = NSTextAlignment.center
-        slogenLabel.font = UIFont.gftHeader1Font()
-        slogenLabel.textColor = UIColor.gftWaterBlueColor()
-        self.addSubview(slogenLabel)
-
-        continueButton = UIButton()
-        continueButton.setTitle("WelcomeView.Continue Button".localized, for: UIControlState())
-        continueButton.titleLabel!.font = UIFont.gftHeader1Font()
-        continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
-        continueButton.backgroundColor = UIColor.gftAzureColor()
-        continueButton.addTarget(self, action: #selector(WelcomeView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
-        self.addSubview(continueButton)
+        if continueButton == nil {
+            continueButton = UIButton()
+            continueButton.setTitle("WelcomeView.Continue Button".localized, for: UIControlState())
+            continueButton.titleLabel!.font = UIFont.gftHeader1Font()
+            continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
+            continueButton.backgroundColor = UIColor.gftAzureColor()
+            continueButton.addTarget(self, action: #selector(WelcomeView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
+            self.addSubview(continueButton)
+        }
     }
 
     private func setConstraints() {

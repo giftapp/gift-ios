@@ -7,8 +7,8 @@ import Foundation
 import UIKit
 import SnapKit
 
-struct LoginViewConstants{
-    static let PHONE_NUMBER_DIGITS = 10
+private struct LoginViewConstants{
+    static let phoneNumberDigitsLength = 10
 }
 
 protocol LoginViewDelegate{
@@ -26,10 +26,11 @@ class LoginView : UIView, UITextFieldDelegate {
     private var continueButton: UIButton!
 
     //Private Properties
-    var continueButtonBottomConstraint: Constraint? = nil
+    private var continueButtonBottomConstraint: Constraint? = nil
 
     //Public Properties
     var delegate: LoginViewDelegate!
+
     var phoneNumber : String {
         return self.phoneNumberTextField.text!.phoneNumberAsRawString()
     }
@@ -60,45 +61,57 @@ class LoginView : UIView, UITextFieldDelegate {
     private func addCustomViews() {
         self.backgroundColor = UIColor.gftBackgroundWhiteColor()
 
-        giftTextualLogoImage = UIImageView(image: UIImage(named:"giftLogoTextual")!)
-        self.addSubview(giftTextualLogoImage)
+        if giftTextualLogoImage == nil {
+            giftTextualLogoImage = UIImageView(image: UIImage(named:"giftLogoTextual")!)
+            self.addSubview(giftTextualLogoImage)
+        }
 
-        welcomeLabel = UILabel()
-        welcomeLabel.text = "LoginView.Welcome".localized
-        welcomeLabel.textAlignment = NSTextAlignment.center
-        welcomeLabel.font = UIFont.gftHeader1Font()
-        welcomeLabel.textColor = UIColor.gftWaterBlueColor()
-        self.addSubview(welcomeLabel)
+        if welcomeLabel == nil {
+            welcomeLabel = UILabel()
+            welcomeLabel.text = "LoginView.Welcome".localized
+            welcomeLabel.textAlignment = NSTextAlignment.center
+            welcomeLabel.font = UIFont.gftHeader1Font()
+            welcomeLabel.textColor = UIColor.gftWaterBlueColor()
+            self.addSubview(welcomeLabel)
+        }
 
-        boxesImage = UIImageView(image: UIImage(named:"boxesIcon")!)
-        self.addSubview(boxesImage)
+        if boxesImage == nil {
+            boxesImage = UIImageView(image: UIImage(named:"boxesIcon")!)
+            self.addSubview(boxesImage)
+        }
+        
+        if phoneNumberTextField == nil {
+            phoneNumberTextField = UITextField()
+            phoneNumberTextField.backgroundColor = UIColor.gftWhiteColor()
+            phoneNumberTextField.placeholder = "LoginView.Phone number place holder".localized
+            phoneNumberTextField.textAlignment = NSTextAlignment.center
+            phoneNumberTextField.font = UIFont.gftText1Font()
+            phoneNumberTextField.keyboardType = UIKeyboardType.phonePad
+            phoneNumberTextField.clearButtonMode = UITextFieldViewMode.whileEditing
+            phoneNumberTextField.delegate = self
+            self.addSubview(phoneNumberTextField)
+        }
 
-        phoneNumberTextField = UITextField()
-        phoneNumberTextField.backgroundColor = UIColor.gftWhiteColor()
-        phoneNumberTextField.placeholder = "LoginView.Phone number place holder".localized
-        phoneNumberTextField.textAlignment = NSTextAlignment.center
-        phoneNumberTextField.font = UIFont.gftText1Font()
-        phoneNumberTextField.keyboardType = UIKeyboardType.phonePad
-        phoneNumberTextField.clearButtonMode = UITextFieldViewMode.whileEditing
-        phoneNumberTextField.delegate = self
-        self.addSubview(phoneNumberTextField)
-
-        phoneNumberDisclaimerLabel = UILabel()
-        phoneNumberDisclaimerLabel.text = "LoginView.Phone number disclaimer".localized
-        phoneNumberDisclaimerLabel.textAlignment = NSTextAlignment.center
-        phoneNumberDisclaimerLabel.numberOfLines = 0
-        phoneNumberDisclaimerLabel.font = UIFont.gftText1Font()
-        phoneNumberDisclaimerLabel.textColor = UIColor.gftBlackColor()
-        self.addSubview(phoneNumberDisclaimerLabel)
-
-        continueButton = UIButton()
-        continueButton.setTitle("LoginView.Continue Button".localized, for: UIControlState())
-        continueButton.titleLabel!.font = UIFont.gftHeader1Font()
-        continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
-        continueButton.backgroundColor = UIColor.gftAzureColor()
-        continueButton.addTarget(self, action: #selector(LoginView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
-        enableContinueButton(enabled: false)
-        self.addSubview(continueButton)
+        if phoneNumberDisclaimerLabel == nil {
+            phoneNumberDisclaimerLabel = UILabel()
+            phoneNumberDisclaimerLabel.text = "LoginView.Phone number disclaimer".localized
+            phoneNumberDisclaimerLabel.textAlignment = NSTextAlignment.center
+            phoneNumberDisclaimerLabel.numberOfLines = 0
+            phoneNumberDisclaimerLabel.font = UIFont.gftText1Font()
+            phoneNumberDisclaimerLabel.textColor = UIColor.gftBlackColor()
+            self.addSubview(phoneNumberDisclaimerLabel)
+        }
+        
+        if continueButton == nil {
+            continueButton = UIButton()
+            continueButton.setTitle("LoginView.Continue Button".localized, for: UIControlState())
+            continueButton.titleLabel!.font = UIFont.gftHeader1Font()
+            continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
+            continueButton.backgroundColor = UIColor.gftAzureColor()
+            continueButton.addTarget(self, action: #selector(LoginView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
+            enableContinueButton(enabled: false)
+            self.addSubview(continueButton)
+        }
     }
 
     private func setConstraints() {
@@ -106,29 +119,29 @@ class LoginView : UIView, UITextFieldDelegate {
             make.top.equalTo(giftTextualLogoImage.superview!).offset(35)
             make.centerX.equalTo(giftTextualLogoImage.superview!)
         }
-        
+
         welcomeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(giftTextualLogoImage.snp.bottom).offset(10)
             make.centerX.equalTo(welcomeLabel.superview!)
         }
-        
+
         boxesImage.snp.makeConstraints { (make) in
             make.top.equalTo(welcomeLabel.snp.bottom).offset(25)
             make.centerX.equalTo(boxesImage.superview!)
         }
-        
+
         phoneNumberTextField.snp.makeConstraints { (make) in
             make.top.equalTo(boxesImage.snp.bottom).offset(20)
             make.centerX.equalTo(phoneNumberTextField.superview!)
             make.height.equalTo(44)
             make.width.equalTo(phoneNumberTextField.superview!)
         }
-        
+
         phoneNumberDisclaimerLabel.snp.makeConstraints { (make) in
             make.top.equalTo(phoneNumberTextField.snp.bottom).offset(10)
             make.centerX.equalTo(phoneNumberDisclaimerLabel.superview!)
         }
-        
+
         continueButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(continueButton.superview!)
             make.height.equalTo(53)
@@ -143,7 +156,7 @@ class LoginView : UIView, UITextFieldDelegate {
     func keyboardWillShow(notification: Notification) {
         var info = (notification as NSNotification).userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
+
         continueButtonBottomConstraint?.update(offset: -1 * keyboardFrame.size.height)
         UIView.animate(withDuration: 1.0) {
             self.layoutIfNeeded()
@@ -182,7 +195,7 @@ class LoginView : UIView, UITextFieldDelegate {
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         let currentCharacterCount = textField.text?.characters.count ?? 0
 
         //Prevent crashing undo bug
@@ -205,8 +218,8 @@ class LoginView : UIView, UITextFieldDelegate {
         }
 
         //Enable continue button
-        enableContinueButton(enabled: newLength >= LoginViewConstants.PHONE_NUMBER_DIGITS + 1)
+        enableContinueButton(enabled: newLength >= LoginViewConstants.phoneNumberDigitsLength + 1)
 
-        return newLength <= LoginViewConstants.PHONE_NUMBER_DIGITS + 1
+        return newLength <= LoginViewConstants.phoneNumberDigitsLength + 1
     }
 }

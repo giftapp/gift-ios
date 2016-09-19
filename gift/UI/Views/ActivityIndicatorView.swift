@@ -31,8 +31,10 @@ class ActivityIndicatorView: UIView {
     }
 
     private func addCustomViews() {
-        self.activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScale, color: UIColor.gftAzureColor(), padding: nil)
-        self.addSubview(activityIndicatorView)
+        if activityIndicatorView == nil {
+            self.activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScale, color: UIColor.gftAzureColor(), padding: nil)
+            self.addSubview(activityIndicatorView)
+        }
     }
 
     private func setConstraints() {

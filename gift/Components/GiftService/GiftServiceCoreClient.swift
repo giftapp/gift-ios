@@ -7,17 +7,18 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
-struct GiftServiceCoreClientConstants{
-    static let BASE_URL_PATH = "http://localhost:8080/api"
-    static let AUTHORIZATION_KEY = "api_key"
+private struct GiftServiceCoreClientConstants{
+    static let baseUrlPath = "http://localhost:8080/api"
+    static let authorizationKey = "api_key"
 }
 
 public class GiftServiceCoreClient : NSObject {
 
     //Injected
-    var identity : Identity
+    private var identity : Identity
     
-    var manager : SessionManager!
+    //Private Properties
+    private var manager : SessionManager!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -55,7 +56,7 @@ public class GiftServiceCoreClient : NSObject {
                 return
             }
         
-        self.manager = SessionManager.getManagerWithAuthenticationHeader(header: GiftServiceCoreClientConstants.AUTHORIZATION_KEY, token: accessToken)
+        self.manager = SessionManager.getManagerWithAuthenticationHeader(header: GiftServiceCoreClientConstants.authorizationKey, token: accessToken)
         
         self.manager.allowUnsecureConnection()
     }
@@ -67,7 +68,7 @@ public class GiftServiceCoreClient : NSObject {
                            success: @escaping () -> Void,
                            failure: @escaping (_ error: Error) -> Void)  {
         
-        let urlString = GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/phoneNumberChallenge"
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/phoneNumberChallenge"
         let parameters: Parameters = ["phoneNumber": phoneNumber]
         
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData{ response in
@@ -85,7 +86,7 @@ public class GiftServiceCoreClient : NSObject {
                   success: @escaping (_ token : Token) -> Void,
                   failure: @escaping (_ error: Error) -> Void)  {
         
-        let urlString = GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/token"
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/token"
         let parameters: Parameters = ["phoneNumber": phoneNumber, "verificationCode" : verificationCode]
         
         Alamofire.request(urlString, method: .get, parameters: parameters).validate().responseObject { (response: DataResponse<Token>) in
@@ -103,7 +104,7 @@ public class GiftServiceCoreClient : NSObject {
     // MARK: - Get
     //-------------------------------------------------------------------------------------------
     func ping() {
-        manager.request(GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping", method: .get).validate().responseJSON { response in
+        manager.request(GiftServiceCoreClientConstants.baseUrlPath+"/ping", method: .get).validate().responseJSON { response in
             switch response.result {
             case .success:
                 debugPrint(response)
@@ -115,7 +116,7 @@ public class GiftServiceCoreClient : NSObject {
 
     func getMe(success: @escaping (_ user : User) -> Void,
                failure: @escaping (_ error: Error) -> Void) {
-        manager.request(GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/", method: .get).validate().responseObject { (response: DataResponse<User>) in
+        manager.request(GiftServiceCoreClientConstants.baseUrlPath+"/user/", method: .get).validate().responseObject { (response: DataResponse<User>) in
             switch response.result {
             case .success:
                 let user = response.result.value
@@ -133,7 +134,7 @@ public class GiftServiceCoreClient : NSObject {
                             success: @escaping (_ user : User) -> Void,
                             failure: @escaping (_ error: Error) -> Void) {
         
-        let urlString = GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/facebook"
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/user/facebook"
         let parameters: Parameters = ["facebookAccessToken": facebookAccessToken]
         
         manager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseObject { (response: DataResponse<User>) in

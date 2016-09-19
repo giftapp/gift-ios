@@ -6,7 +6,7 @@
 import Foundation
 import Locksmith
 
-struct IdentityConsts {
+private struct IdentityConsts {
     static let service = "gift"
     static let account = "me"
     static let userKey = "user"
@@ -37,7 +37,7 @@ class Identity : NSObject {
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func loadIdentityFromKeychain() {
-        let keyChainDictionaryOpt = Locksmith.loadDataForUserAccount(userAccount: IdentityConsts.account)
+        let keyChainDictionaryOpt = Locksmith.loadDataForUserAccount(userAccount: IdentityConsts.account ,inService: IdentityConsts.service)
         if let keyChainDictionary = keyChainDictionaryOpt {
             self.user = keyChainDictionary[IdentityConsts.userKey] as? User
             self.token = keyChainDictionary[IdentityConsts.tokenKey] as? Token

@@ -8,8 +8,14 @@ import XCGLogger
 
 class Logger {
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Initialization & Destruction
+    //-------------------------------------------------------------------------------------------
     private init() {} //This prevents others from using the default '()' initializer for this class.
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
     static private let log = XCGLogger.default
 
     static func debug(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
@@ -32,9 +38,6 @@ class Logger {
         log.logln(closure, level: .severe, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
-    //-------------------------------------------------------------------------------------------
-    // MARK: - Public
-    //-------------------------------------------------------------------------------------------
     static func configureLog() {
         log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
     }
