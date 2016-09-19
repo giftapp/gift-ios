@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 import PMAlertController
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
@@ -56,14 +56,13 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     }
 
     private func setConstraints() {
-        constrain(activityIndicatorView) { activityIndicatorView in
-            activityIndicatorView.center == activityIndicatorView.superview!.center
-            activityIndicatorView.width == activityIndicatorView.height
-            activityIndicatorView.width == ActivityIndicatorSize.Medium
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.center.equalTo(activityIndicatorView.superview!)
+            make.width.equalTo(ActivityIndicatorSize.Medium)
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.updateCustomViews()
@@ -78,9 +77,9 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func alertFailedVerifyingCode() {
-        let alertVC = PMAlertController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, style: .Alert)
-        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .Cancel, action: nil))
-        self.presentViewController(alertVC, animated: true, completion: { () in
+        let alertVC = PMAlertController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, style: .alert)
+        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .cancel, action: nil))
+        self.present(alertVC, animated: true, completion: { () in
             self.verificationCodeView.clearVerificationCode()
         })
     }
@@ -91,10 +90,10 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     internal func didEnteredVerificationCode(verificationCode: Int) {
         activityIndicatorView.startAnimation()
 
-        authenticator.authenticate(self.phoneNumber, verificationCode: verificationCode, success: {
+        authenticator.authenticate(phoneNumber: self.phoneNumber, verificationCode: verificationCode, success: {
             Logger.debug("Successfully logged in")
             self.activityIndicatorView.stopAnimation()
-            self.launcher.launch(nil)
+            self.launcher.launch()
             }) { (error) in
             Logger.error("Failed logging in: \(error)")
             self.activityIndicatorView.stopAnimation()
@@ -103,7 +102,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     }
 
     func didTapRetry() {
-        self.appRoute.dismiss(self, animated: true, completion: nil)
+        self.appRoute.dismiss(controller: self, animated: true, completion: nil)
     }
 
 

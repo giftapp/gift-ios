@@ -8,24 +8,24 @@ import ObjectMapper
 
 class ModelBase : NSObject, Mappable {
     var id: String?
-    var createdAt: NSDate?
-    var updatedAt: NSDate?
+    var createdAt: Date?
+    var updatedAt: Date?
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     override init() {}
     
-    required init?(_ map: Map) {
-
+    required init?(map: Map) {
+        
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Mappable
     //-------------------------------------------------------------------------------------------
     func mapping(map: Map) {
-        id <- map["id"]
-        createdAt <- (map["createdAt"], DateTransform())
-        updatedAt <- (map["updatedAt"], DateTransform())
+        id          <- map["id"]
+        createdAt   <- (map["createdAt"], DateTransform())
+        updatedAt   <- (map["updatedAt"], DateTransform())
     }
 }

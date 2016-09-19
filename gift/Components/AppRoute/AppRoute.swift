@@ -14,97 +14,97 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func showController(controller : UIViewController) {
-        let window : UIWindow = UIApplication.sharedApplication().keyWindow!
+        let window : UIWindow = UIApplication.shared.keyWindow!
 
-        if (window.rootViewController != nil) {
-            window.rootViewController!.dismissViewControllerAnimated(false, completion: nil)
+        if window.rootViewController != nil {
+            window.rootViewController!.dismiss(animated: false, completion: nil)
         }
         
         window.rootViewController = controller
-        self.switchTopMost(controller)
+        self.switchTopMost(controller: controller)
     }
 
     func pushViewController(controller : UIViewController, animated : Bool) {
         var controllerToPushFrom = self.topMostViewController
-        if (controllerToPushFrom.isKindOfClass(UITabBarController)) {
+        if (controllerToPushFrom?.isKind(of: UITabBarController.self))! {
             controllerToPushFrom = (controllerToPushFrom as! UITabBarController).selectedViewController
         }
 
-        if (!controllerToPushFrom.isKindOfClass(UINavigationController) && controllerToPushFrom.navigationController == nil) {
+        if !(controllerToPushFrom?.isKind(of: UINavigationController.self))! && controllerToPushFrom?.navigationController == nil {
             Logger.error("Cannot push, presented controller is not a UINavigationController")
             print (controllerToPushFrom)
             return
         }
 
-        if (controller.isEqual(controllerToPushFrom)) {
+        if controller.isEqual(controllerToPushFrom) {
             Logger.warning("Cannot push, presented controller is not a UINavigationController")
             return
         }
 
         let navigationController : UINavigationController
-        if (controllerToPushFrom.navigationController != nil) {
-            navigationController = controllerToPushFrom.navigationController!
+        if controllerToPushFrom?.navigationController != nil {
+            navigationController = (controllerToPushFrom?.navigationController!)!
         } else {
             navigationController = controllerToPushFrom as! UINavigationController
         }
         navigationController.pushViewController(controller, animated: animated)
 
-        self.switchTopMost(controller)
+        self.switchTopMost(controller: controller)
 
     }
 
     func pop(controller : UIViewController, animated : Bool, completion: (() -> Void)?) {
         let navigationController = controller.navigationController
-        controller.navigationController!.popViewControllerAnimated(animated)
-        self.switchTopMost(navigationController!.topViewController!)
+        controller.navigationController!.popViewController(animated: animated)
+        self.switchTopMost(controller: navigationController!.topViewController!)
     }
 
     func presentController(controller : UIViewController, animated : Bool, completion: (() -> Void)?) {
-        let window : UIWindow = UIApplication.sharedApplication().keyWindow!
+        let window : UIWindow = UIApplication.shared.keyWindow!
 
-        if (window.rootViewController!.presentedViewController != nil) {
-            window.rootViewController?.dismissViewControllerAnimated(animated, completion: { 
-                window.rootViewController?.presentViewController(controller, animated: animated, completion: completion)
+        if window.rootViewController!.presentedViewController != nil {
+            window.rootViewController?.dismiss(animated: animated, completion: { 
+                window.rootViewController?.present(controller, animated: animated, completion: completion)
             })
         } else {
-            window.rootViewController?.presentViewController(controller, animated: animated, completion: completion)
+            window.rootViewController?.present(controller, animated: animated, completion: completion)
         }
 
-        self.switchTopMost(controller)
+        self.switchTopMost(controller: controller)
     }
 
     func dismiss(controller : UIViewController, animated : Bool, completion: (() -> Void)?) {
         let presentingViewController = controller.presentingViewController
-        presentingViewController!.dismissViewControllerAnimated(animated, completion: completion)
-        self.switchTopMost(presentingViewController!)
+        presentingViewController!.dismiss(animated: animated, completion: completion)
+        self.switchTopMost(controller: presentingViewController!)
     }
 
     func switchTopMost(controller : UIViewController) {
         self.topMostViewController = controller
 
-        if (controller.isKindOfClass(UINavigationController)) {
+        if controller.isKind(of: UINavigationController.self) {
             let navigationController = controller as! UINavigationController
             navigationController.delegate = self
-            self.switchTopMost(navigationController.topViewController!)
-        } else if (controller.isKindOfClass(UITabBarController)) {
+            self.switchTopMost(controller: navigationController.topViewController!)
+        } else if controller.isKind(of: UITabBarController.self) {
             let tabBarController = controller as! UITabBarController
             tabBarController.delegate = self
-            self.switchTopMost(tabBarController.selectedViewController!)
+            self.switchTopMost(controller: tabBarController.selectedViewController!)
         }
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - UINavigationControllerDelegate
     //-------------------------------------------------------------------------------------------
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
-        self.switchTopMost(viewController)
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        self.switchTopMost(controller: viewController)
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - UITabBarControllerDelegate
     //-------------------------------------------------------------------------------------------
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        self.switchTopMost(viewController)
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        self.switchTopMost(controller: viewController)
     }
 
 }

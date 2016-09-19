@@ -9,16 +9,16 @@
 import Foundation
 import Alamofire
 
-extension Manager {
+extension SessionManager {
     
-    static func getManagerWithAuthenticationHeader(header : String, token : String) -> Manager {
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.HTTPAdditionalHeaders = [
+    static func getManagerWithAuthenticationHeader(header : String, token : String) -> SessionManager {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = [
             header: token,
             "Accept": "application/json"
         ]
         
-        return Alamofire.Manager(configuration: configuration)
+        return Alamofire.SessionManager(configuration: configuration)
     }
     
 }

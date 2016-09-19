@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 
 class SettingsViewController : UIViewController {
 
@@ -39,25 +39,25 @@ class SettingsViewController : UIViewController {
         self.addCustomViews()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.setConstraints()
     }
 
     private func addCustomViews() {
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
 
         logoutButton = UIButton()
-        logoutButton.setTitle("Logout", forState: UIControlState.Normal)
+        logoutButton.setTitle("Logout", for: UIControlState())
         logoutButton.titleLabel!.font = UIFont.gftHeader1Font()
-        logoutButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
+        logoutButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
         logoutButton.backgroundColor = UIColor.gftAzureColor()
-        logoutButton.addTarget(self, action: #selector(SettingsViewController.didTapLogout(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        logoutButton.addTarget(self, action: #selector(SettingsViewController.didTapLogout(sender:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(logoutButton)
     }
 
     private func setConstraints() {
-        constrain(logoutButton) { logoutButton in
-            logoutButton.center == logoutButton.superview!.center
+        logoutButton.snp.makeConstraints { (make) in
+            make.center.equalTo(logoutButton.superview!)
         }
     }
 

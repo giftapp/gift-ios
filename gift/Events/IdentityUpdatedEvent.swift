@@ -7,6 +7,6 @@ import Foundation
 
 class IdentityUpdatedEvent: NSObject {
 
-    static let name = String(IdentityUpdatedEvent)
+    static let name = String(describing: IdentityUpdatedEvent.self)
 
 }

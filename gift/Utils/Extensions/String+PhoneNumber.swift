@@ -7,14 +7,14 @@ import Foundation
 
 extension String {
     var formateAsPhoneNumber: String {
-        return self.insert("-", atIndex: 3)
+        return self.insert(string: "-", atIndex: 3)
     }
 }
 
 extension String {
     func phoneNumberAsRawString() -> String {
         var foramttedString = self
-        foramttedString.removeAtIndex(self.startIndex.advancedBy(3))
+        foramttedString.remove(at: self.characters.index(self.startIndex, offsetBy: 3))
         return foramttedString
     }
 }

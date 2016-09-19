@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 
 protocol WelcomeViewDelegate{
     func didTapContinue()
@@ -50,36 +50,41 @@ class WelcomeView : UIView {
 
         slogenLabel = UILabel()
         slogenLabel.text = "WelcomeView.Gift slogan".localized
-        slogenLabel.textAlignment = NSTextAlignment.Center
+        slogenLabel.textAlignment = NSTextAlignment.center
         slogenLabel.font = UIFont.gftHeader1Font()
         slogenLabel.textColor = UIColor.gftWaterBlueColor()
         self.addSubview(slogenLabel)
 
         continueButton = UIButton()
-        continueButton.setTitle("WelcomeView.Continue Button".localized, forState: UIControlState.Normal)
+        continueButton.setTitle("WelcomeView.Continue Button".localized, for: UIControlState())
         continueButton.titleLabel!.font = UIFont.gftHeader1Font()
-        continueButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
+        continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
         continueButton.backgroundColor = UIColor.gftAzureColor()
-        continueButton.addTarget(self, action: #selector(WelcomeView.didTapContinue(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        continueButton.addTarget(self, action: #selector(WelcomeView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
         self.addSubview(continueButton)
     }
 
     private func setConstraints() {
-        constrain(backgroundImage, giftLogoImage, slogenLabel, continueButton) { backgroundImage, giftLogoImage, slogenLabel, continueButton in
-            backgroundImage.left == backgroundImage.superview!.left
-            backgroundImage.top == backgroundImage.superview!.top
-
-            giftLogoImage.centerX == giftLogoImage.superview!.centerX
-            giftLogoImage.top == giftLogoImage.superview!.top + 60
-
-            slogenLabel.centerX == slogenLabel.superview!.centerX
-            slogenLabel.top == giftLogoImage.bottom + 10
-
-            continueButton.centerX == continueButton.superview!.centerX
-            continueButton.height == 53
-            continueButton.bottom == continueButton.superview!.bottom
-            continueButton.left == continueButton.superview!.left
-            continueButton.right == continueButton.superview!.right
+        backgroundImage.snp.makeConstraints { (make) in
+            make.top.equalTo(backgroundImage.snp.top)
+            make.centerX.equalTo(backgroundImage.superview!)
+        }
+        
+        giftLogoImage.snp.makeConstraints { (make) in
+            make.centerX.equalTo(giftLogoImage.superview!)
+            make.top.equalTo(giftLogoImage.superview!).offset(60)
+        }
+        
+        slogenLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(slogenLabel.superview!)
+            make.top.equalTo(giftLogoImage.snp.bottom).offset(10)
+        }
+        
+        continueButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(continueButton.superview!)
+            make.height.equalTo(53)
+            make.bottom.equalTo(continueButton.superview!)
+            make.width.equalTo(continueButton.superview!)
         }
     }
 

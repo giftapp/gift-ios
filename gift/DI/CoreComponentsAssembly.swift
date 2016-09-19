@@ -14,68 +14,68 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         Logger.configureLog()
     }
 
-    public dynamic func authenticator() -> AnyObject {
+    public dynamic func authenticator() -> Any {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in
-            definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(Authenticator.init(giftServiceCoreClient:identity:))) {
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(Authenticator.init(giftServiceCoreClient:identity:))) {
                 (initializer) in
-                initializer.injectParameterWith(self.giftServiceCoreClient())
-                initializer.injectParameterWith(self.identity())
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.identity())
             }
         }
     }
     
-    public dynamic func facebookClient() -> AnyObject {
+    public dynamic func facebookClient() -> Any {
         return TyphoonDefinition.withClass(FacebookClient.self) {
             (definition) in
-            definition.scope = TyphoonScope.Singleton
+            definition!.scope = TyphoonScope.singleton
         }
     }
 
-    public dynamic func giftServiceCoreClient() -> AnyObject {
+    public dynamic func giftServiceCoreClient() -> Any {
         return TyphoonDefinition.withClass(GiftServiceCoreClient.self) {
             (definition) in
-            definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(GiftServiceCoreClient.init(identity:))) {
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(GiftServiceCoreClient.init(identity:))) {
                 (initializer) in
-                initializer.injectParameterWith(self.identity())
+                initializer?.injectParameter(with: self.identity())
             }
         }
     }
 
-    public dynamic func appRoute() -> AnyObject {
+    public dynamic func appRoute() -> Any {
         return TyphoonDefinition.withClass(AppRoute.self) {
             (definition) in
-            definition.scope = TyphoonScope.Singleton
+            definition!.scope = TyphoonScope.singleton
         }
     }
     
-    public dynamic func launcher() -> AnyObject {
+    public dynamic func launcher() -> Any {
         return TyphoonDefinition.withClass(Launcher.self) {
             (definition) in
-            definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(Launcher.init(appRoute:welcomeViewController:loginViewController:editProfileViewController:mainTabViewController:identity:))) {
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(Launcher.init(appRoute:welcomeViewController:loginViewController:editProfileViewController:mainTabViewController:identity:))) {
                 (initializer) in
-                initializer.injectParameterWith(self.appRoute())
-                initializer.injectParameterWith(self.viewControllersAssembly.welcomeViewController())
-                initializer.injectParameterWith(self.viewControllersAssembly.loginViewController())
-                initializer.injectParameterWith(self.viewControllersAssembly.editProfileViewController())
-                initializer.injectParameterWith(self.viewControllersAssembly.mainTabViewController())
-                initializer.injectParameterWith(self.identity())
+                initializer?.injectParameter(with: self.appRoute())
+                initializer?.injectParameter(with: self.viewControllersAssembly.welcomeViewController())
+                initializer?.injectParameter(with: self.viewControllersAssembly.loginViewController())
+                initializer?.injectParameter(with: self.viewControllersAssembly.editProfileViewController())
+                initializer?.injectParameter(with: self.viewControllersAssembly.mainTabViewController())
+                initializer?.injectParameter(with: self.identity())
             }
         }
     }
     
-    public dynamic func identity() -> AnyObject {
+    public dynamic func identity() -> Any {
         return TyphoonDefinition.withClass(Identity.self) {
             (definition) in
-            definition.scope = TyphoonScope.Singleton
-            definition.useInitializer(#selector(Identity.init(launcher:))) {
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(Identity.init(launcher:))) {
                 (initializer) in
-                initializer.injectParameterWith(nil) // Property injected
+                initializer?.injectParameter(with: nil) // Property injected
             }
-            definition.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.launcher())
+            definition?.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.launcher())
         }
     }
 

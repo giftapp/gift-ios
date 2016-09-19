@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 
 struct LoginViewConstants{
     static let PHONE_NUMBER_DIGITS = 10
@@ -26,7 +26,7 @@ class LoginView : UIView, UITextFieldDelegate {
     private var continueButton: UIButton!
 
     //Private Properties
-    private var continueButtonConstraintsGroup: ConstraintGroup!
+    var continueButtonBottomConstraint: Constraint? = nil
 
     //Public Properties
     var delegate: LoginViewDelegate!
@@ -49,12 +49,12 @@ class LoginView : UIView, UITextFieldDelegate {
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     private func observerNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
     }
 
     private func addCustomViews() {
@@ -65,7 +65,7 @@ class LoginView : UIView, UITextFieldDelegate {
 
         welcomeLabel = UILabel()
         welcomeLabel.text = "LoginView.Welcome".localized
-        welcomeLabel.textAlignment = NSTextAlignment.Center
+        welcomeLabel.textAlignment = NSTextAlignment.center
         welcomeLabel.font = UIFont.gftHeader1Font()
         welcomeLabel.textColor = UIColor.gftWaterBlueColor()
         self.addSubview(welcomeLabel)
@@ -76,89 +76,85 @@ class LoginView : UIView, UITextFieldDelegate {
         phoneNumberTextField = UITextField()
         phoneNumberTextField.backgroundColor = UIColor.gftWhiteColor()
         phoneNumberTextField.placeholder = "LoginView.Phone number place holder".localized
-        phoneNumberTextField.textAlignment = NSTextAlignment.Center
+        phoneNumberTextField.textAlignment = NSTextAlignment.center
         phoneNumberTextField.font = UIFont.gftText1Font()
-        phoneNumberTextField.keyboardType = UIKeyboardType.PhonePad
-        phoneNumberTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        phoneNumberTextField.keyboardType = UIKeyboardType.phonePad
+        phoneNumberTextField.clearButtonMode = UITextFieldViewMode.whileEditing
         phoneNumberTextField.delegate = self
         self.addSubview(phoneNumberTextField)
 
         phoneNumberDisclaimerLabel = UILabel()
         phoneNumberDisclaimerLabel.text = "LoginView.Phone number disclaimer".localized
-        phoneNumberDisclaimerLabel.textAlignment = NSTextAlignment.Center
+        phoneNumberDisclaimerLabel.textAlignment = NSTextAlignment.center
         phoneNumberDisclaimerLabel.numberOfLines = 0
         phoneNumberDisclaimerLabel.font = UIFont.gftText1Font()
         phoneNumberDisclaimerLabel.textColor = UIColor.gftBlackColor()
         self.addSubview(phoneNumberDisclaimerLabel)
 
         continueButton = UIButton()
-        continueButton.setTitle("LoginView.Continue Button".localized, forState: UIControlState.Normal)
+        continueButton.setTitle("LoginView.Continue Button".localized, for: UIControlState())
         continueButton.titleLabel!.font = UIFont.gftHeader1Font()
-        continueButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
+        continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
         continueButton.backgroundColor = UIColor.gftAzureColor()
-        continueButton.addTarget(self, action: #selector(LoginView.didTapContinue(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        enableContinueButton(false)
+        continueButton.addTarget(self, action: #selector(LoginView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
+        enableContinueButton(enabled: false)
         self.addSubview(continueButton)
     }
 
     private func setConstraints() {
-        constrain(giftTextualLogoImage, welcomeLabel, boxesImage, phoneNumberTextField, phoneNumberDisclaimerLabel) { giftTextualLogoImage, welcomeLabel, boxesImage, phoneNumberTextField, phoneNumberDisclaimerLabel in
-            giftTextualLogoImage.centerX == giftTextualLogoImage.superview!.centerX
-            giftTextualLogoImage.top == giftTextualLogoImage.superview!.top + 35
-
-            welcomeLabel.centerX == welcomeLabel.superview!.centerX
-            welcomeLabel.top == giftTextualLogoImage.bottom + 10
-
-            boxesImage.centerX == boxesImage.superview!.centerX
-            boxesImage.top == welcomeLabel.bottom + 25
-
-            phoneNumberTextField.centerX == phoneNumberTextField.superview!.centerX
-            phoneNumberTextField.top == boxesImage.bottom + 20
-            phoneNumberTextField.height == 44
-            phoneNumberTextField.left == phoneNumberTextField.superview!.left
-            phoneNumberTextField.right == phoneNumberTextField.superview!.right
-
-            phoneNumberDisclaimerLabel.centerX == phoneNumberDisclaimerLabel.superview!.centerX
-            phoneNumberDisclaimerLabel.top == phoneNumberTextField.bottom + 10
+        giftTextualLogoImage.snp.makeConstraints { (make) in
+            make.top.equalTo(giftTextualLogoImage.superview!).offset(35)
+            make.centerX.equalTo(giftTextualLogoImage.superview!)
         }
-
-        self.continueButtonConstraintsGroup = constrain(continueButton) { continueButton in
-            continueButton.centerX == continueButton.superview!.centerX
-            continueButton.height == 53
-            continueButton.bottom == continueButton.superview!.bottom
-            continueButton.left == continueButton.superview!.left
-            continueButton.right == continueButton.superview!.right
+        
+        welcomeLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(giftTextualLogoImage.snp.bottom).offset(10)
+            make.centerX.equalTo(welcomeLabel.superview!)
+        }
+        
+        boxesImage.snp.makeConstraints { (make) in
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(25)
+            make.centerX.equalTo(boxesImage.superview!)
+        }
+        
+        phoneNumberTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(boxesImage.snp.bottom).offset(20)
+            make.centerX.equalTo(phoneNumberTextField.superview!)
+            make.height.equalTo(44)
+            make.width.equalTo(phoneNumberTextField.superview!)
+        }
+        
+        phoneNumberDisclaimerLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(phoneNumberTextField.snp.bottom).offset(10)
+            make.centerX.equalTo(phoneNumberDisclaimerLabel.superview!)
+        }
+        
+        continueButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(continueButton.superview!)
+            make.height.equalTo(53)
+            make.width.equalTo(continueButton.superview!)
+            continueButtonBottomConstraint = make.bottom.equalTo(continueButton.superview!).constraint
         }
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - NSNotificationCenter
     //-------------------------------------------------------------------------------------------
-    func keyboardWillShow(notification: NSNotification) {
-        var info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-
-        constrain(continueButton, replace: self.continueButtonConstraintsGroup) { continueButton in
-            continueButton.centerX == continueButton.superview!.centerX
-            continueButton.height == 53
-            continueButton.bottom == continueButton.superview!.bottom - keyboardFrame.size.height
-            continueButton.left == continueButton.superview!.left
-            continueButton.right == continueButton.superview!.right
+    func keyboardWillShow(notification: Notification) {
+        var info = (notification as NSNotification).userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        continueButtonBottomConstraint?.update(offset: -1 * keyboardFrame.size.height)
+        UIView.animate(withDuration: 1.0) {
+            self.layoutIfNeeded()
         }
-
-        UIView.animateWithDuration(1.0, animations: continueButton.layoutIfNeeded)
     }
 
-    func keyboardWillHide(notification: NSNotification) {
-        constrain(continueButton, replace: self.continueButtonConstraintsGroup) { continueButton in
-            continueButton.centerX == continueButton.superview!.centerX
-            continueButton.height == 53
-            continueButton.bottom == continueButton.superview!.bottom
-            continueButton.left == continueButton.superview!.left
-            continueButton.right == continueButton.superview!.right
+    func keyboardWillHide(notification: Notification) {
+        continueButtonBottomConstraint?.update(offset: 0)
+        UIView.animate(withDuration: 1.0) {
+            self.layoutIfNeeded()
         }
-
-        UIView.animateWithDuration(1.0, animations: continueButton.layoutIfNeeded)
     }
 
     //-------------------------------------------------------------------------------------------
@@ -174,10 +170,10 @@ class LoginView : UIView, UITextFieldDelegate {
 
     private func enableContinueButton(enabled: Bool) {
         if (enabled) {
-            continueButton.enabled = true
+            continueButton.isEnabled = true
             continueButton.alpha = 1
         } else {
-            continueButton.enabled = false
+            continueButton.isEnabled = false
             continueButton.alpha = 0.5
         }
     }
@@ -185,7 +181,7 @@ class LoginView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
-    internal func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let currentCharacterCount = textField.text?.characters.count ?? 0
 
@@ -209,7 +205,7 @@ class LoginView : UIView, UITextFieldDelegate {
         }
 
         //Enable continue button
-        enableContinueButton(newLength >= LoginViewConstants.PHONE_NUMBER_DIGITS + 1)
+        enableContinueButton(enabled: newLength >= LoginViewConstants.PHONE_NUMBER_DIGITS + 1)
 
         return newLength <= LoginViewConstants.PHONE_NUMBER_DIGITS + 1
     }

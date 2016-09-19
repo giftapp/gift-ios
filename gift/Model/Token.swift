@@ -20,15 +20,15 @@ class Token : ModelBase, NSCoding {
         super.init()
     }
     
-    required init?(_ map: Map){
-        super.init(map)
+    required init?(map: Map){
+        super.init(map: map)
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Mappable
     //-------------------------------------------------------------------------------------------
     override func mapping(map: Map) {
-        super.mapping(map)
+        super.mapping(map: map)
         
         accessToken <- map["accessToken"]
         user <- map["user"]
@@ -39,18 +39,18 @@ class Token : ModelBase, NSCoding {
     //-------------------------------------------------------------------------------------------
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        self.id = aDecoder.decodeObjectForKey("id") as! String?
-        self.createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate?
-        self.updatedAt = aDecoder.decodeObjectForKey("updatedAt") as! NSDate?
-        self.accessToken = aDecoder.decodeObjectForKey("accessToken") as! String?
-        self.user = aDecoder.decodeObjectForKey("user") as! User?
+        self.id = aDecoder.decodeObject(forKey: "id") as! String?
+        self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! Date?
+        self.updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! Date?
+        self.accessToken = aDecoder.decodeObject(forKey: "accessToken") as! String?
+        self.user = aDecoder.decodeObject(forKey: "user") as! User?
     }
 
-    @objc func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.id, forKey: "id")
-        aCoder.encodeObject(self.createdAt, forKey: "createdAt")
-        aCoder.encodeObject(self.updatedAt, forKey: "updatedAt")
-        aCoder.encodeObject(self.accessToken, forKey: "accessToken")
-        aCoder.encodeObject(self.user, forKey: "user")
+    @objc func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.createdAt, forKey: "createdAt")
+        aCoder.encode(self.updatedAt, forKey: "updatedAt")
+        aCoder.encode(self.accessToken, forKey: "accessToken")
+        aCoder.encode(self.user, forKey: "user")
     }
 }

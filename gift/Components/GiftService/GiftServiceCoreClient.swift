@@ -17,7 +17,7 @@ public class GiftServiceCoreClient : NSObject {
     //Injected
     var identity : Identity
     
-    var manager : Manager!
+    var manager : SessionManager!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -34,17 +34,17 @@ public class GiftServiceCoreClient : NSObject {
     }
 
     func observeNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GiftServiceCoreClient.onIdentityUpdatedEvent(_:)), name: IdentityUpdatedEvent.name, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GiftServiceCoreClient.onIdentityUpdatedEvent(notification:)), name: NSNotification.Name(rawValue: IdentityUpdatedEvent.name), object: nil)
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    @objc private func onIdentityUpdatedEvent(notification: NSNotification) {
+    @objc private func onIdentityUpdatedEvent(notification: Notification) {
         self.updateAuthenticationHeaderFromIdentity()
     }
     
@@ -55,7 +55,7 @@ public class GiftServiceCoreClient : NSObject {
                 return
             }
         
-        self.manager = Manager.getManagerWithAuthenticationHeader(GiftServiceCoreClientConstants.AUTHORIZATION_KEY, token: accessToken)
+        self.manager = SessionManager.getManagerWithAuthenticationHeader(header: GiftServiceCoreClientConstants.AUTHORIZATION_KEY, token: accessToken)
         
         self.manager.allowUnsecureConnection()
     }
@@ -64,31 +64,37 @@ public class GiftServiceCoreClient : NSObject {
     // MARK: - Unauthorized
     //-------------------------------------------------------------------------------------------
     func verifyPhoneNumber(phoneNumber : String,
-                           success: () -> Void,
-                           failure: (error: ErrorType) -> Void)  {
-        Alamofire.request(.POST, GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/phoneNumberChallenge", parameters: ["phoneNumber": phoneNumber], encoding: .JSON).validate().responseData{ response in
+                           success: @escaping () -> Void,
+                           failure: @escaping (_ error: Error) -> Void)  {
+        
+        let urlString = GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/phoneNumberChallenge"
+        let parameters: Parameters = ["phoneNumber": phoneNumber]
+        
+        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData{ response in
             switch response.result {
-            case .Success:
+            case .success:
                 success()
-            case .Failure(let error):
-                failure(error: error)
+            case .failure(let error):
+                failure(error)
             }
         }
     }
     
     func getToken(phoneNumber : String,
                   verificationCode : Int,
-                  success: (token : Token) -> Void,
-                  failure: (error: ErrorType) -> Void)  {
+                  success: @escaping (_ token : Token) -> Void,
+                  failure: @escaping (_ error: Error) -> Void)  {
         
-        Alamofire.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/token",
-            parameters: ["phoneNumber": phoneNumber, "verificationCode" : verificationCode]).validate().responseObject { (response: Response<Token, NSError>) in
+        let urlString = GiftServiceCoreClientConstants.BASE_URL_PATH+"/authorize/token"
+        let parameters: Parameters = ["phoneNumber": phoneNumber, "verificationCode" : verificationCode]
+        
+        Alamofire.request(urlString, method: .get, parameters: parameters).validate().responseObject { (response: DataResponse<Token>) in
             switch response.result {
-            case .Success:
+            case .success:
                 let token = response.result.value
-                success(token: token!)
-            case .Failure(let error):
-                failure(error: error)
+                success(token!)
+            case .failure(let error):
+                failure(error)
             }
         }
     }
@@ -97,25 +103,25 @@ public class GiftServiceCoreClient : NSObject {
     // MARK: - Get
     //-------------------------------------------------------------------------------------------
     func ping() {
-        manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping").validate().responseJSON { response in
+        manager.request(GiftServiceCoreClientConstants.BASE_URL_PATH+"/ping", method: .get).validate().responseJSON { response in
             switch response.result {
-            case .Success:
+            case .success:
                 debugPrint(response)
-            case .Failure(let error):
+            case .failure(let error):
                 print(error)
             }
         }
     }
 
-    func getMe(success: (user : User) -> Void,
-               failure: (error: ErrorType) -> Void) {
-        manager.request(.GET, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/").validate().responseObject { (response: Response<User, NSError>) in
+    func getMe(success: @escaping (_ user : User) -> Void,
+               failure: @escaping (_ error: Error) -> Void) {
+        manager.request(GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/", method: .get).validate().responseObject { (response: DataResponse<User>) in
             switch response.result {
-            case .Success:
+            case .success:
                 let user = response.result.value
-                success(user: user!)
-            case .Failure(let error):
-                failure(error: error)
+                success(user!)
+            case .failure(let error):
+                failure(error)
             }
         }
     }
@@ -124,15 +130,19 @@ public class GiftServiceCoreClient : NSObject {
     // MARK: - Post
     //-------------------------------------------------------------------------------------------
     func setFacebookAccount(facebookAccessToken :String,
-                            success: (user : User) -> Void,
-                            failure: (error: ErrorType) -> Void) {
-        manager.request(.POST, GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/facebook", parameters: ["facebookAccessToken": facebookAccessToken], encoding: .JSON).validate().responseObject { (response: Response<User, NSError>) in
+                            success: @escaping (_ user : User) -> Void,
+                            failure: @escaping (_ error: Error) -> Void) {
+        
+        let urlString = GiftServiceCoreClientConstants.BASE_URL_PATH+"/user/facebook"
+        let parameters: Parameters = ["facebookAccessToken": facebookAccessToken]
+        
+        manager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseObject { (response: DataResponse<User>) in
             switch response.result {
-            case .Success:
+            case .success:
                 let user = response.result.value
-                success(user: user!)
-            case .Failure(let error):
-                failure(error: error)
+                success(user!)
+            case .failure(let error):
+                failure(error)
             }
         }
     }

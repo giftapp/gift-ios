@@ -1,93 +1,86 @@
 PODS:
-  - Alamofire (3.5.0)
-  - AlamofireObjectMapper (3.0.2):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
+  - Alamofire (4.0.0)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Cartography (0.7.0)
   - FBSDKCoreKit (4.15.1):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.15.1):
     - FBSDKCoreKit
   - FBSDKShareKit (4.15.1):
     - FBSDKCoreKit
-  - ImagePicker (1.4.0)
-  - Kingfisher (2.6.0)
-  - Locksmith (2.0.8)
+  - Kingfisher (3.0.1)
+  - Locksmith (3.0.0)
   - NVActivityIndicatorView (2.12)
-  - ObjectMapper (1.4.0)
-  - PMAlertController (1.1.0)
-  - SwiftDate (3.0.8)
-  - TextAttributes (0.3.1)
+  - ObjectMapper (2.0.0)
+  - PMAlertController (2.0.0)
+  - SnapKit (3.0.0)
+  - SwiftDate (3.0.9)
   - Typhoon (3.5.1):
     - Typhoon/no-arc (= 3.5.1)
   - Typhoon/no-arc (3.5.1)
-  - XCGLogger (3.6.0)
+  - XCGLogger (4.0.0-beta.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.5.0)
-  - AlamofireObjectMapper (~> 3.0.0)
+  - Alamofire (~> 4.0.0)
+  - AlamofireObjectMapper (~> 4.0.0)
   - Bolts (~> 1.8.4)
-  - Cartography (~> 0.7.0)
   - FBSDKCoreKit (~> 4.15.1)
   - FBSDKLoginKit (~> 4.15.1)
   - FBSDKShareKit (~> 4.15.1)
-  - ImagePicker (~> 1.4.0)
-  - Kingfisher (from `https://github.com/onevcat/Kingfisher.git`, branch `swift2.3`)
-  - Locksmith (from `https://github.com/matthewpalmer/Locksmith.git`, branch `swift-2.3`)
-  - NVActivityIndicatorView (~> 2.7)
-  - PMAlertController (~> 1.1.0)
-  - SwiftDate (~> 3.0.8)
-  - TextAttributes (~> 0.3.1)
+  - Kingfisher (~> 3.0.1)
+  - Locksmith (~> 3.0.0)
+  - NVActivityIndicatorView (from `https://github.com/ninjaprox/NVActivityIndicatorView.git`)
+  - PMAlertController (~> 2.0.0)
+  - SnapKit (~> 3.0.0)
+  - SwiftDate (from `https://github.com/malcommac/SwiftDate.git`, branch `feature/swift-3.0`)
   - Typhoon (~> 3.5.1)
-  - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_2.3`)
+  - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_3.0`)
 
 EXTERNAL SOURCES:
-  Kingfisher:
-    :branch: swift2.3
-    :git: https://github.com/onevcat/Kingfisher.git
-  Locksmith:
-    :branch: swift-2.3
-    :git: https://github.com/matthewpalmer/Locksmith.git
+  NVActivityIndicatorView:
+    :git: https://github.com/ninjaprox/NVActivityIndicatorView.git
+  SwiftDate:
+    :branch: feature/swift-3.0
+    :git: https://github.com/malcommac/SwiftDate.git
   XCGLogger:
-    :branch: swift_2.3
+    :branch: swift_3.0
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 CHECKOUT OPTIONS:
-  Kingfisher:
-    :commit: 96bd951b2e252225f75436c54a4bf0528888c500
-    :git: https://github.com/onevcat/Kingfisher.git
-  Locksmith:
-    :commit: 8d59a42f5247189ff1f7eab6f1b212889ea48764
-    :git: https://github.com/matthewpalmer/Locksmith.git
+  NVActivityIndicatorView:
+    :commit: 748e785ed08c1a30f674a7da2ca3ba342b121287
+    :git: https://github.com/ninjaprox/NVActivityIndicatorView.git
+  SwiftDate:
+    :commit: 644a4615c77dc70d7861ddadb2c59f5c45f4c235
+    :git: https://github.com/malcommac/SwiftDate.git
   XCGLogger:
-    :commit: 19b6b14b6f8bc8d8fec12fa3c8ef1fa88099a7df
+    :commit: f7d6bea1924424157d70cb78b120cb576d5f99a8
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 SPEC CHECKSUMS:
-  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
-  AlamofireObjectMapper: 70f97cbf45c01c48d26aa07a1a7059a60ed7411d
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Cartography: dd6044b6fe352252f68b648df5bff47841e591cc
   FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
   FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
   FBSDKShareKit: 11cbb5a4d7b5fda8143cc95b76188147e6725736
-  ImagePicker: 6659ccdd4737bfa14ed3b4aa7ffe18b193d92a0c
-  Kingfisher: d84c5fd176ea86cc7b8aac65fd55feda6f70f130
-  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  Kingfisher: d5a491b45ea453d90a31bd2c0831d5243e73a73f
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   NVActivityIndicatorView: de8be03826726ad99cdfacf7fe09e88cbfeef911
-  ObjectMapper: a07ad0462c5adf014adc0f89ef04c29b626e855e
-  PMAlertController: e876fa0d8f2975d4905dfaabfac13b65f4f32590
-  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
-  TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  PMAlertController: edd2ae1f2a31ec77db72103a2dd81a77d6b5de95
+  SnapKit: 98af0a4e9369d3c58f758967518081dbdc7eb1d9
+  SwiftDate: fa487d9b7d8c3070ea2553486902494f4915465d
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
-  XCGLogger: 53a3efe22e228e8b25ed8184bc074c2b06d48490
+  XCGLogger: dca27c8c2a218a9c176917680d891c8fdf9d4484
 
-PODFILE CHECKSUM: 97499a29c17418d0759ecb506a11a1f9d58ad1c0
+PODFILE CHECKSUM: efed536ffad772e74af83c89b5bd6e8d4bb68700
 
 COCOAPODS: 1.0.1

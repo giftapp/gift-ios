@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 
 class HomeViewController : UIViewController {
 
@@ -46,12 +46,12 @@ class HomeViewController : UIViewController {
         self.addCustomViews()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.setConstraints()
     }
 
     private func addCustomViews() {
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         self.logoLabel = UILabel()
         self.logoLabel.text = "Gift".localized
@@ -63,10 +63,13 @@ class HomeViewController : UIViewController {
     }
 
     private func setConstraints() {
-        constrain(logoLabel, slogenLabel) { logoLabel, slogenLabel in
-            logoLabel.center == logoLabel.superview!.center
-            slogenLabel.centerX == logoLabel.centerX
-            slogenLabel.top == logoLabel.bottom + 15
+        logoLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(logoLabel.superview!)
+        }
+        
+        slogenLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(slogenLabel.superview!)
+            make.top.equalTo(logoLabel.snp.bottom).offset(15)
         }
     }
 

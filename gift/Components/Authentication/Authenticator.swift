@@ -25,19 +25,19 @@ class Authenticator : NSObject {
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func verifyPhoneNumber(phoneNumber : String,
-                           success: () -> Void,
-                           failure: (error: ErrorType) -> Void)  {
-        self.giftServiceCoreClient.verifyPhoneNumber(phoneNumber, success: success, failure: failure)
+                           success: @escaping () -> Void,
+                           failure: @escaping (_ error: Error) -> Void)  {
+        self.giftServiceCoreClient.verifyPhoneNumber(phoneNumber: phoneNumber, success: success, failure: failure)
     }
     
     func authenticate(phoneNumber : String,
                       verificationCode : Int,
-                      success: () -> Void,
-                      failure: (error: ErrorType) -> Void)  {
+                      success: @escaping () -> Void,
+                      failure: @escaping (_ error: Error) -> Void)  {
         
-        self.giftServiceCoreClient.getToken(phoneNumber, verificationCode: verificationCode, success: {(token) in
+        self.giftServiceCoreClient.getToken(phoneNumber: phoneNumber, verificationCode: verificationCode, success: {(token) in
             //Create Identity
-            self.identity.setIdentity(token.user!, token: token)
+            self.identity.setIdentity(user: token.user!, token: token)
             
             success()
             }

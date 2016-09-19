@@ -37,7 +37,7 @@ class Identity : NSObject {
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func loadIdentityFromKeychain() {
-        let keyChainDictionaryOpt = Locksmith.loadDataForUserAccount(IdentityConsts.account)
+        let keyChainDictionaryOpt = Locksmith.loadDataForUserAccount(userAccount: IdentityConsts.account)
         if let keyChainDictionary = keyChainDictionaryOpt {
             self.user = keyChainDictionary[IdentityConsts.userKey] as? User
             self.token = keyChainDictionary[IdentityConsts.tokenKey] as? Token
@@ -63,11 +63,12 @@ class Identity : NSObject {
             }
         
         do {
-            try Locksmith.updateData([IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account)
+            //todo: put back updateData once issue is fixed: https://github.com/matthewpalmer/Locksmith/issues/147
+            try Locksmith.saveData(data: [IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account, inService: IdentityConsts.service)
             Logger.debug("Successfully stored account in keychain")
 
             //Broadcast event
-            NSNotificationCenter.defaultCenter().postNotificationName(IdentityUpdatedEvent.name, object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: IdentityUpdatedEvent.name), object: nil)
         } catch {
             Logger.severe("Failed to store account in keychain")
         }
@@ -75,7 +76,7 @@ class Identity : NSObject {
 
     private func deleteIdentityFromKeyChain() {
         do {
-            try Locksmith.deleteDataForUserAccount(IdentityConsts.account)
+            try Locksmith.deleteDataForUserAccount(userAccount: IdentityConsts.account)
             Logger.debug("Successfully delete account from keychain")
         } catch {
             Logger.severe("Failed to delete account from keychain")
@@ -108,7 +109,7 @@ class Identity : NSObject {
         Logger.info("Loging out...")
         self.deleteIdentityFromKeyChain()
         self.loadIdentityFromKeychain()
-        self.launcher.launch(nil)
+        self.launcher.launch()
     }
 
     func isLoggedIn() -> Bool {

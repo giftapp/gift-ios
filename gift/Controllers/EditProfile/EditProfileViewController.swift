@@ -42,7 +42,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         super.viewDidLoad()
 
         self.title = "EditProfileViewController.Title".localized
-        self.navigationController!.navigationBar.barStyle = .Black
+        self.navigationController!.navigationBar.barStyle = .black
         self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
 
@@ -70,7 +70,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             !(editProfileView.lastName ?? "").isEmpty &&
             (editProfileView.email ?? "").isValidEmail
 
-        editProfileView.enableDoneButton(shouldEnableDoneButton)
+        editProfileView.enableDoneButton(enabled: shouldEnableDoneButton)
     }
 
     func didTapLoginWithFaceBook() {
@@ -78,10 +78,10 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             if (error) {
                 Logger.error("error while login with facebook")
             } else {
-                self.giftServiceCoreClient.setFacebookAccount(facebookToken!, success: { (user) in
+                self.giftServiceCoreClient.setFacebookAccount(facebookAccessToken: facebookToken!, success: { (user) in
                     Logger.debug("Successfully got user from facebook")
-                    self.identity.updateUser(user)
-                    self.appRoute.dismiss(self, animated: true, completion: nil)
+                    self.identity.updateUser(user: user)
+                    self.appRoute.dismiss(controller: self, animated: true, completion: nil)
                 }, failure: { (error) in
                     Logger.error("error while updating user account with facebook account: \(error)")
                 })
@@ -90,6 +90,6 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     func didTapDone() {
-        self.appRoute.dismiss(self, animated: true, completion: nil)
+        self.appRoute.dismiss(controller: self, animated: true, completion: nil)
     }
 }

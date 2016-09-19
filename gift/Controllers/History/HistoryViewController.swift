@@ -37,12 +37,12 @@ class HistoryViewController : UIViewController {
         self.addCustomViews()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.setConstraints()
     }
 
     private func addCustomViews() {
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
     }
 
     private func setConstraints() {

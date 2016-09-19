@@ -20,21 +20,21 @@ class User : ModelBase, NSCoding {
         super.init()
     }
     
-    required init?(_ map: Map){
-        super.init(map)
+    required init?(map: Map){
+        super.init(map: map)
     }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Mappable
     //-------------------------------------------------------------------------------------------
     override func mapping(map: Map) {
-        super.mapping(map)
+        super.mapping(map: map)
 
-        firstName <- map["firstName"]
-        lastName <- map["lastName"]
-        email <- map["email"]
-        avatarURL <- map["avatarURL"]
-        needsEdit <- map["needsEdit"]
+        firstName   <- map["firstName"]
+        lastName    <- map["lastName"]
+        email       <- map["email"]
+        avatarURL   <- map["avatarURL"]
+        needsEdit   <- map["needsEdit"]
     }
 
     //-------------------------------------------------------------------------------------------
@@ -42,24 +42,24 @@ class User : ModelBase, NSCoding {
     //-------------------------------------------------------------------------------------------
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        self.id = aDecoder.decodeObjectForKey("id") as! String?
-        self.createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate?
-        self.updatedAt = aDecoder.decodeObjectForKey("updatedAt") as! NSDate?
-        self.firstName = aDecoder.decodeObjectForKey("firstName") as! String?
-        self.lastName = aDecoder.decodeObjectForKey("lastName") as! String?
-        self.email = aDecoder.decodeObjectForKey("email") as! String?
-        self.avatarURL = aDecoder.decodeObjectForKey("avatarURL") as! String?
-        self.needsEdit = aDecoder.decodeObjectForKey("needsEdit") as! Bool?
+        self.id = aDecoder.decodeObject(forKey: "id") as! String?
+        self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! Date?
+        self.updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! Date?
+        self.firstName = aDecoder.decodeObject(forKey: "firstName") as! String?
+        self.lastName = aDecoder.decodeObject(forKey: "lastName") as! String?
+        self.email = aDecoder.decodeObject(forKey: "email") as! String?
+        self.avatarURL = aDecoder.decodeObject(forKey: "avatarURL") as! String?
+        self.needsEdit = aDecoder.decodeObject(forKey: "needsEdit") as! Bool?
     }
 
-    @objc func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.id, forKey: "id")
-        aCoder.encodeObject(self.createdAt, forKey: "createdAt")
-        aCoder.encodeObject(self.updatedAt, forKey: "updatedAt")
-        aCoder.encodeObject(self.firstName, forKey: "firstName")
-        aCoder.encodeObject(self.lastName, forKey: "lastName")
-        aCoder.encodeObject(self.email, forKey: "email")
-        aCoder.encodeObject(self.avatarURL, forKey: "avatarURL")
-        aCoder.encodeObject(self.needsEdit, forKey: "needsEdit")
+    @objc func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.createdAt, forKey: "createdAt")
+        aCoder.encode(self.updatedAt, forKey: "updatedAt")
+        aCoder.encode(self.firstName, forKey: "firstName")
+        aCoder.encode(self.lastName, forKey: "lastName")
+        aCoder.encode(self.email, forKey: "email")
+        aCoder.encode(self.avatarURL, forKey: "avatarURL")
+        aCoder.encode(self.needsEdit, forKey: "needsEdit")
     }
 }

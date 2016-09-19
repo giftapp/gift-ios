@@ -10,33 +10,33 @@ class Logger {
 
     private init() {} //This prevents others from using the default '()' initializer for this class.
 
-    static private let log = XCGLogger.defaultInstance()
+    static private let log = XCGLogger.default
 
-    static func debug(@autoclosure closure: () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-        log.debug(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    static func debug(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
+        log.logln(closure, level: .debug, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
-    static func info(@autoclosure closure: () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-        log.info(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    static func info(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
+        log.logln(closure, level: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
-    static func warning(@autoclosure closure: () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-        log.warning(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    static func warning(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
+        log.logln(closure, level: .warning, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
-    static func error(@autoclosure closure: () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-        log.error(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    static func error(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
+        log.logln(closure, level: .error, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
-    static func severe(@autoclosure closure: () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-        log.severe(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    static func severe(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
+        log.logln(closure, level: .severe, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     static func configureLog() {
-        log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "log", fileLogLevel: .Debug)
+        log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
     }
 
 }

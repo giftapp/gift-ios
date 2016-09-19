@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import Cartography
+import SnapKit
 import NVActivityIndicatorView
 
 struct ActivityIndicatorSize{
@@ -31,15 +31,14 @@ class ActivityIndicatorView: UIView {
     }
 
     private func addCustomViews() {
-        self.activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .LineScale, color: UIColor.gftAzureColor(), padding: nil)
+        self.activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScale, color: UIColor.gftAzureColor(), padding: nil)
         self.addSubview(activityIndicatorView)
     }
 
     private func setConstraints() {
-        constrain(activityIndicatorView) { activityIndicatorView in
-            activityIndicatorView.center == activityIndicatorView.superview!.center
-            activityIndicatorView.height == activityIndicatorView.superview!.height
-            activityIndicatorView.width == activityIndicatorView.superview!.width
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.center.equalTo(activityIndicatorView.superview!)
+            make.height.width.equalTo(activityIndicatorView.superview!)
         }
     }
 

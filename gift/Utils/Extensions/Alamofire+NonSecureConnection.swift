@@ -11,24 +11,24 @@
 import Foundation
 import Alamofire
 
-extension Manager {
+extension SessionManager {
     
     func allowUnsecureConnection() {
         self.delegate.sessionDidReceiveChallenge = { session, challenge in
-            var disposition: NSURLSessionAuthChallengeDisposition = .PerformDefaultHandling
-            var credential: NSURLCredential?
+            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
+            var credential: URLCredential?
             
             if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-                disposition = NSURLSessionAuthChallengeDisposition.UseCredential
-                credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
+                disposition = URLSession.AuthChallengeDisposition.useCredential
+                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
             } else {
                 if challenge.previousFailureCount > 0 {
-                    disposition = .CancelAuthenticationChallenge
+                    disposition = .cancelAuthenticationChallenge
                 } else {
-                    credential = self.session.configuration.URLCredentialStorage?.defaultCredentialForProtectionSpace(challenge.protectionSpace)
+                    credential = self.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
                     
                     if credential != nil {
-                        disposition = .UseCredential
+                        disposition = .useCredential
                     }
                 }
             }

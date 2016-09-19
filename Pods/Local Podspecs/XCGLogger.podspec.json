@@ -1,6 +1,6 @@
 {
   "name": "XCGLogger",
-  "version": "3.6.0",
+  "version": "4.0.0-beta.4",
   "summary": "A debug log module for use in Swift projects.",
   "description": "Allows you to log details to the console (and optionally a file), just like you would have with NSLog() or print(), but with additional information, such as the date, function name, filename and line number.",
   "homepage": "https://github.com/DaveWoodCom/XCGLogger",
@@ -16,13 +16,13 @@
     "ios": "8.0",
     "watchos": "2.0",
     "tvos": "9.0",
-    "osx": "10.9"
+    "osx": "10.10"
   },
   "source": {
     "git": "https://github.com/DaveWoodCom/XCGLogger.git",
-    "tag": "Version_3.6.0"
+    "tag": "Version_4.0.0-beta.4"
   },
-  "source_files": "XCGLogger/Library/XCGLogger/**/*.{swift,h,m}",
+  "source_files": "Sources/XCGLogger/**/*.{swift,h,m}",
   "frameworks": "Foundation",
   "requires_arc": true
 }

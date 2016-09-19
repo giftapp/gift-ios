@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 
 struct VerificationCodeViewConstants{
     static let VERIFICATION_CODE_DIGITS = 5
@@ -53,14 +53,14 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
 
         inseretPasscodeLabel = UILabel()
         inseretPasscodeLabel.text = "VerificationCodeView.Insert verification code".localized
-        inseretPasscodeLabel.textAlignment = NSTextAlignment.Center
+        inseretPasscodeLabel.textAlignment = NSTextAlignment.center
         inseretPasscodeLabel.font = UIFont.gftHeader1Font()
         inseretPasscodeLabel.textColor = UIColor.gftWaterBlueColor()
         self.addSubview(inseretPasscodeLabel)
 
         //Text of this label is beeing set from self.phoneNumber didSet
         descriptionLabel = UILabel()
-        descriptionLabel.textAlignment = NSTextAlignment.Center
+        descriptionLabel.textAlignment = NSTextAlignment.center
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = UIFont.gftText1Font()
         descriptionLabel.textColor = UIColor.gftBlackColor()
@@ -72,9 +72,9 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         verificationCodeTextField = UITextField()
         verificationCodeTextField.backgroundColor = UIColor.gftWhiteColor()
         verificationCodeTextField.placeholder = "VerificationCodeView.VerificationCode placeholder".localized
-        verificationCodeTextField.textAlignment = NSTextAlignment.Center
+        verificationCodeTextField.textAlignment = NSTextAlignment.center
         verificationCodeTextField.font = UIFont.gftText1Font()
-        verificationCodeTextField.keyboardType = UIKeyboardType.NumberPad
+        verificationCodeTextField.keyboardType = UIKeyboardType.numberPad
         verificationCodeTextField.delegate = self
         self.addSubview(verificationCodeTextField)
 
@@ -82,31 +82,38 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         let attributedButtonTitle = NSMutableAttributedString(string: "VerificationCodeView.Retry Button".localized)
         attributedButtonTitle.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: NSMakeRange(0, attributedButtonTitle.length))
         attributedButtonTitle.addAttribute(NSFontAttributeName, value: UIFont.gftLinkFont()!, range: NSMakeRange(0, attributedButtonTitle.length))
-        retryButton.setAttributedTitle(attributedButtonTitle, forState: UIControlState.Normal)
+        retryButton.setAttributedTitle(attributedButtonTitle, for: UIControlState())
 
-        retryButton.addTarget(self, action: #selector(VerificationCodeView.didTapRetry(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        retryButton.addTarget(self, action: #selector(VerificationCodeView.didTapRetry(sender:)), for: UIControlEvents.touchUpInside)
         self.addSubview(retryButton)
     }
     
     private func setConstraints() {
-        constrain(inseretPasscodeLabel, descriptionLabel, envelopImage, verificationCodeTextField, retryButton) { verificationCodeLabel, descriptionLabel, envelopImage, verificationCodeTextField, retryButton in
-            verificationCodeLabel.centerX == verificationCodeLabel.superview!.centerX
-            verificationCodeLabel.top == verificationCodeLabel.superview!.top + 50
-
-            descriptionLabel.centerX == descriptionLabel.superview!.centerX
-            descriptionLabel.top == verificationCodeLabel.bottom + 25
-
-            envelopImage.centerX == envelopImage.superview!.centerX
-            envelopImage.top == descriptionLabel.bottom + 40
-            
-            verificationCodeTextField.centerX == verificationCodeTextField.superview!.centerX
-            verificationCodeTextField.top == envelopImage.bottom + 50
-            verificationCodeTextField.height == 44
-            verificationCodeTextField.left == verificationCodeTextField.superview!.left
-            verificationCodeTextField.right == verificationCodeTextField.superview!.right
-
-            retryButton.centerX == retryButton.superview!.centerX
-            retryButton.top == verificationCodeTextField.bottom + 20
+        inseretPasscodeLabel.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(inseretPasscodeLabel.superview!)
+            make.width.top.equalTo(inseretPasscodeLabel.superview!).offset(50)
+        }
+        
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(descriptionLabel.superview!)
+            make.top.equalTo(inseretPasscodeLabel.snp.bottom).offset(25)
+        }
+        
+        envelopImage.snp.makeConstraints { (make) in
+            make.centerX.equalTo(envelopImage.superview!)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(40)
+        }
+        
+        verificationCodeTextField.snp.makeConstraints { (make) in
+            make.centerX.equalTo(verificationCodeTextField.superview!)
+            make.top.equalTo(envelopImage.snp.bottom).offset(50)
+            make.height.equalTo(44)
+            make.width.equalTo(verificationCodeTextField.superview!)
+        }
+        
+        retryButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(retryButton.superview!)
+            make.top.equalTo(verificationCodeTextField.snp.bottom).offset(20)
         }
     }
 
@@ -127,7 +134,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
-    internal func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if (!string.isEmpty && Int(string) == nil) {
             return false
@@ -141,7 +148,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         let newLength = currentCharacterCount + string.characters.count - range.length
         
         if (newLength == VerificationCodeViewConstants.VERIFICATION_CODE_DIGITS) {
-            delegate!.didEnteredVerificationCode(Int(textField.text! + string)!)
+            delegate!.didEnteredVerificationCode(verificationCode: Int(textField.text! + string)!)
         }
         
         return newLength <= VerificationCodeViewConstants.VERIFICATION_CODE_DIGITS

@@ -16,7 +16,7 @@ class Launcher : NSObject {
     var mainTabViewController : MainTabViewController
     var identity : Identity
     
-    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let userDefaults = UserDefaults.standard
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -39,28 +39,28 @@ class Launcher : NSObject {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
-    func launch(launchOptions: [NSObject: AnyObject]?) {
+    func launch(launchOptions: [AnyHashable: Any]? = nil) {
 
         if (!self.identity.isLoggedIn()) {
             //Show login
-            appRoute.showController(self.loginViewController)
+            appRoute.showController(controller: self.loginViewController)
         } else {
             //Show main tab
-            appRoute.showController(self.mainTabViewController)
+            appRoute.showController(controller: self.mainTabViewController)
             
             //Show edit if needed
             if (self.identity.user!.needsEdit!) {
                 let navigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
-                navigationViewController.navigationBar.translucent = false;
-                self.appRoute.presentController(navigationViewController, animated: true, completion: nil)
+                navigationViewController.navigationBar.isTranslucent = false;
+                self.appRoute.presentController(controller: navigationViewController, animated: true, completion: nil)
             }
         }
 
         //Show welcome if needed
-        let didDismissWelcomeViewController = self.userDefaults.boolForKey(WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController)
+        let didDismissWelcomeViewController = self.userDefaults.bool(forKey: WelcomeViewControllerUserDefaultKeys.didDismissWelcomeViewController)
 
         if (!didDismissWelcomeViewController) {
-            self.appRoute.presentController(self.welcomeViewController, animated: false, completion: nil)
+            self.appRoute.presentController(controller: self.welcomeViewController, animated: false, completion: nil)
         }
     }
 }

@@ -34,8 +34,8 @@ class MainTabViewController : UITabBarController{
     }
 
     private func setup() {
-        self.tabBar.translucent = false
-        UINavigationBar.appearance().translucent = false
+        self.tabBar.isTranslucent = false
+        UINavigationBar.appearance().isTranslucent = false
 
         //TODO: add observer for badge count
     }
@@ -44,23 +44,23 @@ class MainTabViewController : UITabBarController{
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func getHomeTab() -> UIViewController {
-        self.homeViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.Main Tab".localized, image: UIImage(named: "giftTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "giftTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
+        self.homeViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.Main Tab".localized, image: UIImage(named: "giftTabIcon")!.withRenderingMode(.alwaysOriginal), selectedImage:UIImage(named: "giftTabIconActive")!.withRenderingMode(.alwaysOriginal))
         return self.homeViewController
     }
 
     private func getHistoryTab() -> UIViewController {
-        self.historyViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.History Tab".localized, image: UIImage(named: "historyTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "historyTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
-        return self.embedInNavigationController(self.historyViewController)
+        self.historyViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.History Tab".localized, image: UIImage(named: "historyTabIcon")!.withRenderingMode(.alwaysOriginal), selectedImage:UIImage(named: "historyTabIconActive")!.withRenderingMode(.alwaysOriginal))
+        return self.embedInNavigationController(controller: self.historyViewController)
     }
 
     private func getSettingsTab() -> UIViewController {
-        self.settingsViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.Settings Tab".localized, image: UIImage(named: "profileTabIcon")!.imageWithRenderingMode(.AlwaysOriginal), selectedImage:UIImage(named: "profileTabIconActive")!.imageWithRenderingMode(.AlwaysOriginal))
-        return self.embedInNavigationController(self.settingsViewController)
+        self.settingsViewController.tabBarItem = UITabBarItem(title: "MainTabViewController.Settings Tab".localized, image: UIImage(named: "profileTabIcon")!.withRenderingMode(.alwaysOriginal), selectedImage:UIImage(named: "profileTabIconActive")!.withRenderingMode(.alwaysOriginal))
+        return self.embedInNavigationController(controller: self.settingsViewController)
     }
 
     private func embedInNavigationController(controller: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: controller)
-        navigationController.navigationBar.translucent = false
+        navigationController.navigationBar.isTranslucent = false
         return navigationController
     }
 }

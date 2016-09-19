@@ -52,11 +52,11 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func sendPhoneNumberForVerification(phoneNumber : String) {
-        authenticator.verifyPhoneNumber(phoneNumber, success: {
+        authenticator.verifyPhoneNumber(phoneNumber: phoneNumber, success: {
             Logger.debug("Verification code sent")
             //Prepare & Present verificationCodeViewController
             self.verificationCodeViewController.phoneNumber = phoneNumber
-            self.presentViewController(self.verificationCodeViewController, animated: true, completion: nil)
+            self.present(self.verificationCodeViewController, animated: true, completion: nil)
         }) { (error) in
             Logger.error("Failed sending verification code: \(error)")
             self.alertFailedSendingVerificationCode()
@@ -64,22 +64,22 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     }
 
     private func alertFailedSendingVerificationCode() {
-        let alertVC = PMAlertController(title: "LoginViewController.Alert failed sending verification code.Title".localized, description: "LoginViewController.Alert failed sending verification code.Description".localized, image: nil, style: .Alert)
-        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .Cancel, action: nil))
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        let alertVC = PMAlertController(title: "LoginViewController.Alert failed sending verification code.Title".localized, description: "LoginViewController.Alert failed sending verification code.Description".localized, image: nil, style: .alert)
+        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .cancel, action: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 
     private func alertCheckNumberBeforeSendingSendingVerificationCode() {
         //TODO: validate input
         let phoneNumber = self.loginView.phoneNumber
 
-        let alertVC = PMAlertController(title: String.localizedStringWithFormat("LoginViewController.Alert check number before sending verification code.Title".localized, phoneNumber.formateAsPhoneNumber), description: "LoginViewController.Alert check number before sending verification code.Description".localized, image: nil, style: .Alert)
-        alertVC.addAction(PMAlertAction(title: "Global.Cancel".localized, style: .Cancel, action: nil))
-        alertVC.addAction(PMAlertAction(title: "LoginViewController.Send".localized, style: .Default, action: { () in
-            self.sendPhoneNumberForVerification(phoneNumber)
+        let alertVC = PMAlertController(title: String.localizedStringWithFormat("LoginViewController.Alert check number before sending verification code.Title".localized, phoneNumber.formateAsPhoneNumber), description: "LoginViewController.Alert check number before sending verification code.Description".localized, image: nil, style: .alert)
+        alertVC.addAction(PMAlertAction(title: "Global.Cancel".localized, style: .cancel, action: nil))
+        alertVC.addAction(PMAlertAction(title: "LoginViewController.Send".localized, style: .default, action: { () in
+            self.sendPhoneNumberForVerification(phoneNumber: phoneNumber)
         }))
 
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
     }
 
     //-------------------------------------------------------------------------------------------

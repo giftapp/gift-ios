@@ -13,8 +13,8 @@ extension UITextField {
 
         let border = CALayer()
         let borderWidth = CGFloat(1.0)
-        border.borderColor = UIColor.gftGreyishColor().CGColor
-        border.frame = CGRectMake(0, self.frame.size.height - borderWidth, self.frame.size.width, self.frame.size.height)
+        border.borderColor = UIColor.gftGreyishColor().cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
         border.borderWidth = borderWidth
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
@@ -24,8 +24,8 @@ extension UITextField {
 
         let border = CALayer()
         let borderWidth = CGFloat(1.0)
-        border.borderColor = UIColor.gftGreyishColor().CGColor
-        border.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+        border.borderColor = UIColor.gftGreyishColor().cgColor
+        border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         border.borderWidth = borderWidth
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true

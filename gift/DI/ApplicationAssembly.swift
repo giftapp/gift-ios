@@ -13,12 +13,12 @@ public class ApplicationAssembly : TyphoonAssembly {
     public var coreComponentsAssembly: CoreComponentsAssembly!
     public var viewControllersAssembly: ViewControllersAssembly!
     
-    public dynamic func appDelegate() -> AnyObject {
+    public dynamic func appDelegate() -> Any {
         return TyphoonDefinition.withClass(AppDelegate.self) {
             (definition) in
             
-            definition.injectProperty(#selector(CoreComponentsAssembly.appRoute), with: self.coreComponentsAssembly.appRoute())
-            definition.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
+            definition?.injectProperty(#selector(CoreComponentsAssembly.appRoute), with: self.coreComponentsAssembly.appRoute())
+            definition?.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
             
         }
     }

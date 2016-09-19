@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Cartography
+import SnapKit
 
 protocol EditProfileViewDelegate {
     func didUpdateForm()
@@ -59,7 +59,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
             descriptionLabel = UILabel()
             descriptionLabel.text = "EditProfileViewController.Description text".localized
             descriptionLabel.numberOfLines = 0
-            descriptionLabel.textAlignment = NSTextAlignment.Center
+            descriptionLabel.textAlignment = NSTextAlignment.center
             descriptionLabel.font = UIFont.gftText1Font()
             descriptionLabel.textColor = UIColor.gftBlackColor()
             self.addSubview(descriptionLabel)
@@ -69,9 +69,9 @@ class EditProfileView: UIView, UITextFieldDelegate {
             firstNameTextField = PaddedTextField()
             firstNameTextField.backgroundColor = UIColor.gftWhiteColor()
             firstNameTextField.placeholder = "EditProfileView.First Name".localized
-            firstNameTextField.textAlignment = .Right
+            firstNameTextField.textAlignment = .right
             firstNameTextField.font = UIFont.gftText1Font()
-            firstNameTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+            firstNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             firstNameTextField.delegate = self
             self.addSubview(firstNameTextField)
         }
@@ -80,9 +80,9 @@ class EditProfileView: UIView, UITextFieldDelegate {
             lastNameTextField = PaddedTextField()
             lastNameTextField.backgroundColor = UIColor.gftWhiteColor()
             lastNameTextField.placeholder = "EditProfileView.Last Name".localized
-            lastNameTextField.textAlignment = .Right
+            lastNameTextField.textAlignment = .right
             lastNameTextField.font = UIFont.gftText1Font()
-            lastNameTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+            lastNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             lastNameTextField.delegate = self
             self.addSubview(lastNameTextField)
         }
@@ -91,10 +91,10 @@ class EditProfileView: UIView, UITextFieldDelegate {
             emailTextField = PaddedTextField()
             emailTextField.backgroundColor = UIColor.gftWhiteColor()
             emailTextField.placeholder = "EditProfileView.Email address".localized
-            emailTextField.textAlignment = .Center
+            emailTextField.textAlignment = .center
             emailTextField.font = UIFont.gftText1Font()
-            emailTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
-            emailTextField.keyboardType = .EmailAddress
+            emailTextField.clearButtonMode = UITextFieldViewMode.whileEditing
+            emailTextField.keyboardType = .emailAddress
             emailTextField.delegate = self
             self.addSubview(emailTextField)
         }
@@ -103,7 +103,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
             loginWithFacebookDescriptionLabel = UILabel()
             loginWithFacebookDescriptionLabel.text = "EditProfileViewController.Login with facebook description text".localized
             loginWithFacebookDescriptionLabel.numberOfLines = 1
-            loginWithFacebookDescriptionLabel.textAlignment = NSTextAlignment.Center
+            loginWithFacebookDescriptionLabel.textAlignment = NSTextAlignment.center
             loginWithFacebookDescriptionLabel.font = UIFont.gftText1Font()
             loginWithFacebookDescriptionLabel.textColor = UIColor.gftBlackColor()
             self.addSubview(loginWithFacebookDescriptionLabel)
@@ -112,78 +112,80 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if loginWithFaceBookButton == nil {
             loginWithFaceBookButton = UIButton()
 
-            loginWithFaceBookButton.setTitle("EditProfileViewController.Login with Facebook".localized, forState: UIControlState.Normal)
+            loginWithFaceBookButton.setTitle("EditProfileViewController.Login with Facebook".localized, for: UIControlState())
             loginWithFaceBookButton.titleLabel!.font = UIFont.gftHeader1Font()
-            loginWithFaceBookButton.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
+            loginWithFaceBookButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
 
-            loginWithFaceBookButton.setImage(UIImage(named:"facebookLogo"), forState: UIControlState.Normal)
+            loginWithFaceBookButton.setImage(UIImage(named:"facebookLogo"), for: UIControlState())
             loginWithFaceBookButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
 
             loginWithFaceBookButton.backgroundColor = UIColor.gftFacebookBlueColor()
-            loginWithFaceBookButton.addTarget(self, action: #selector(didTapLoginWithFaceBook(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            loginWithFaceBookButton.addTarget(self, action: #selector(didTapLoginWithFaceBook(sender:)), for: UIControlEvents.touchUpInside)
 
             self.addSubview(self.loginWithFaceBookButton)
         }
 
         if doneButton == nil {
             doneButton = BigButton()
-            doneButton.setTitle("EditProfileViewController.Done Button".localized, forState: UIControlState.Normal)
-            doneButton.addTarget(self, action: #selector(didTapDone(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            doneButton.enable(false)
+            doneButton.setTitle("EditProfileViewController.Done Button".localized, for: UIControlState())
+            doneButton.addTarget(self, action: #selector(didTapDone(sender:)), for: UIControlEvents.touchUpInside)
+            doneButton.enable(enabled: false)
             self.addSubview(doneButton)
         }
     }
 
     private func setConstraints() {
-        constrain(descriptionLabel, firstNameTextField, lastNameTextField, emailTextField) { descriptionText, firstNameTextField, lastNameTextField, emailTextField in
-
-            descriptionText.top == descriptionText.superview!.top + 40
-            descriptionText.centerX == descriptionText.superview!.centerX
-
-            firstNameTextField.centerX == firstNameTextField.superview!.centerX
-            firstNameTextField.top == descriptionText.bottom + 50
-            firstNameTextField.height == 44
-            firstNameTextField.left == firstNameTextField.superview!.left
-            firstNameTextField.right == firstNameTextField.superview!.right
-
-            lastNameTextField.centerX == lastNameTextField.superview!.centerX
-            lastNameTextField.top == firstNameTextField.bottom
-            lastNameTextField.height == 44
-            lastNameTextField.left == lastNameTextField.superview!.left
-            lastNameTextField.right == lastNameTextField.superview!.right
-
-            emailTextField.centerX == emailTextField.superview!.centerX
-            emailTextField.top == lastNameTextField.bottom + 55
-            emailTextField.height == 44
-            emailTextField.left == emailTextField.superview!.left
-            emailTextField.right == emailTextField.superview!.right
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(descriptionLabel.superview!).offset(40)
+            make.centerX.equalTo(descriptionLabel.superview!)
         }
-
-        constrain(emailTextField, loginWithFacebookDescriptionLabel, loginWithFaceBookButton, doneButton) { emailTextField, loginWithFacebookDescriptionLabel, loginWithFaceBookButton, doneButton in
-
-            loginWithFacebookDescriptionLabel.top == emailTextField.bottom + 55
-            loginWithFacebookDescriptionLabel.centerX == loginWithFacebookDescriptionLabel.superview!.centerX
-
-            loginWithFaceBookButton.top == loginWithFacebookDescriptionLabel.bottom + 12
-            loginWithFaceBookButton.centerX == loginWithFaceBookButton.superview!.centerX
-            loginWithFaceBookButton.height == 44
-            loginWithFaceBookButton.left == loginWithFaceBookButton.superview!.left
-            loginWithFaceBookButton.right == loginWithFaceBookButton.superview!.right
-
-            doneButton.centerX == doneButton.superview!.centerX
-            doneButton.height == 53
-            doneButton.bottom == doneButton.superview!.bottom
-            doneButton.left == doneButton.superview!.left
-            doneButton.right == doneButton.superview!.right
+        
+        firstNameTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(50)
+            make.centerX.equalTo(firstNameTextField.superview!)
+            make.height.equalTo(44)
+            make.width.equalTo(firstNameTextField.superview!)
         }
-
+        
+        lastNameTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(firstNameTextField.snp.bottom)
+            make.centerX.equalTo(lastNameTextField.superview!)
+            make.height.equalTo(44)
+            make.width.equalTo(lastNameTextField.superview!)
+        }
+        
+        emailTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(lastNameTextField.snp.bottom).offset(55)
+            make.centerX.equalTo(emailTextField.superview!)
+            make.height.equalTo(44)
+            make.width.equalTo(emailTextField.superview!)
+        }
+        
+        loginWithFacebookDescriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(emailTextField.snp.bottom).offset(55)
+            make.centerX.equalTo(loginWithFacebookDescriptionLabel.superview!)
+        }
+        
+        loginWithFaceBookButton.snp.makeConstraints { (make) in
+            make.top.equalTo(loginWithFacebookDescriptionLabel.snp.bottom).offset(12)
+            make.centerX.equalTo(loginWithFaceBookButton.superview!)
+            make.height.equalTo(44)
+            make.width.equalTo(loginWithFaceBookButton.superview!)
+        }
+        
+        doneButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(doneButton.superview!)
+            make.height.equalTo(53)
+            make.bottom.equalTo(doneButton.superview!)
+            make.width.equalTo(doneButton.superview!)
+        }
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func enableDoneButton(enabled: Bool) {
-        doneButton.enable(enabled)
+        doneButton.enable(enabled: enabled)
     }
 
     //-------------------------------------------------------------------------------------------
@@ -212,7 +214,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
-    internal func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //Update delegate
         delegate.didUpdateForm()
 

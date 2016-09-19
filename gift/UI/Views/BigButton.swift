@@ -15,7 +15,7 @@ class BigButton: UIButton {
         super.init(frame: frame)
 
         self.titleLabel!.font = UIFont.gftHeader1Font()
-        self.setTitleColor(UIColor.gftWhiteColor(), forState: UIControlState.Normal)
+        self.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
         self.backgroundColor = UIColor.gftAzureColor()
     }
 
@@ -28,10 +28,10 @@ class BigButton: UIButton {
     //-------------------------------------------------------------------------------------------
     func enable(enabled: Bool) {
         if (enabled) {
-            self.enabled = true
+            self.isEnabled = true
             self.alpha = 1
         } else {
-            self.enabled = false
+            self.isEnabled = false
             self.alpha = 0.5
         }
     }
