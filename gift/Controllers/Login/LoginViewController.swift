@@ -5,7 +5,6 @@
 
 import Foundation
 import UIKit
-import PMAlertController
 
 class LoginViewController : UIViewController, LoginViewDelegate {
 
@@ -66,22 +65,22 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     }
 
     private func alertFailedSendingVerificationCode() {
-        let alertVC = PMAlertController(title: "LoginViewController.Alert failed sending verification code.Title".localized, description: "LoginViewController.Alert failed sending verification code.Description".localized, image: nil, style: .alert)
-        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .cancel, action: nil))
-        self.present(alertVC, animated: true, completion: nil)
+        let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "LoginViewController.Alert failed sending verification code.Title".localized, description: "LoginViewController.Alert failed sending verification code.Description".localized, image: nil, actions: [tryAgainAction])
+        self.present(alertViewController, animated: true, completion: nil)
     }
 
     private func alertCheckNumberBeforeSendingSendingVerificationCode() {
         //TODO: validate input
         let phoneNumber = self.loginView.phoneNumber
-
-        let alertVC = PMAlertController(title: String.localizedStringWithFormat("LoginViewController.Alert check number before sending verification code.Title".localized, phoneNumber.formateAsPhoneNumber), description: "LoginViewController.Alert check number before sending verification code.Description".localized, image: nil, style: .alert)
-        alertVC.addAction(PMAlertAction(title: "Global.Cancel".localized, style: .cancel, action: nil))
-        alertVC.addAction(PMAlertAction(title: "LoginViewController.Send".localized, style: .default, action: { () in
+        
+        let cancelAction = AlertViewAction(title: "Global.Cancel".localized, style: .cancel, action: nil)
+        let sendAction = AlertViewAction(title: "LoginViewController.Send".localized, style: .regular, action: { () in
             self.sendPhoneNumberForVerification(phoneNumber: phoneNumber)
-        }))
+        })
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: String.localizedStringWithFormat("LoginViewController.Alert check number before sending verification code.Title".localized, phoneNumber.formateAsPhoneNumber), description: "LoginViewController.Alert check number before sending verification code.Description".localized, image: nil, actions: [cancelAction, sendAction])
 
-        self.present(alertVC, animated: true, completion: nil)
+        self.present(alertViewController, animated: true, completion: nil)
     }
 
     //-------------------------------------------------------------------------------------------

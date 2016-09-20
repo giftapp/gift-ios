@@ -10,6 +10,7 @@
 		06B6CB863DC33BE1453207B8 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF99795085D1F08F70CC0EB /* Pods_gift.framework */; };
 		62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */; };
 		62DD91354D2603DA3924174F /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */; };
+		62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */; };
 		62DD91CFB34634B33901D0C2 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D267EA10AC549902D2F /* Authenticator.swift */; };
 		62DD91E5290BC19B93DF9E2D /* FacebookClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */; };
 		62DD91E9EF61979664F984C3 /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F8F34EE1BCA6206134E /* String+Email.swift */; };
@@ -69,6 +70,7 @@
 		62DD90A09C89F00141448B01 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		62DD90AAEB142790B7CE0DB7 /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
 		62DD90E975F6E00F64BB05A8 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewControllerFactory.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
 		62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		62DD934BCCD9BD7D22422E01 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		62DD9397360AF03736644421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +406,7 @@
 				62DD9094D01EB0A3BC318D86 /* History */,
 				62DD9499322AFDEB38BB2712 /* Settings */,
 				62DD9552B56D3889065666E6 /* Welcome */,
+				62DD934BCCD9BD7D22422E01 /* Alert */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -638,6 +649,7 @@
 				62DD984472AE2FC295352D57 /* PaddedTextField.swift in Sources */,
 				62DD91E9EF61979664F984C3 /* String+Email.swift in Sources */,
 				62DD9E31674C3FBDCE59C2E8 /* Logger.swift in Sources */,
+				62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

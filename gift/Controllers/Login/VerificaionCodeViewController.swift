@@ -6,7 +6,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import PMAlertController
 
 class VerificationCodeViewController : UIViewController, VerificationCodeViewDelegate {
 
@@ -67,9 +66,9 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func alertFailedVerifyingCode() {
-        let alertVC = PMAlertController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, style: .alert)
-        alertVC.addAction(PMAlertAction(title: "Global.Try again".localized, style: .cancel, action: nil))
-        self.present(alertVC, animated: true, completion: { () in
+        let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, actions: [tryAgainAction])
+        self.present(alertViewController, animated: true, completion: { () in
             self.verificationCodeView.clearVerificationCode()
         })
     }
