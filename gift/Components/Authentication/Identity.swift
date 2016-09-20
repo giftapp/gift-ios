@@ -75,7 +75,7 @@ class Identity : NSObject {
 
     private func deleteIdentityFromKeyChain() {
         do {
-            try Locksmith.deleteDataForUserAccount(userAccount: IdentityConsts.account)
+            try Locksmith.deleteDataForUserAccount(userAccount: IdentityConsts.account, inService: IdentityConsts.service)
             Logger.debug("Successfully delete account from keychain")
         } catch {
             Logger.severe("Failed to delete account from keychain")
