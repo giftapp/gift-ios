@@ -63,8 +63,7 @@ class Identity : NSObject {
             }
         
         do {
-            //todo: put back updateData once issue is fixed: https://github.com/matthewpalmer/Locksmith/issues/147
-            try Locksmith.saveData(data: [IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account, inService: IdentityConsts.service)
+            try Locksmith.updateData(data: [IdentityConsts.userKey: user, IdentityConsts.tokenKey : token], forUserAccount: IdentityConsts.account, inService: IdentityConsts.service)
             Logger.debug("Successfully stored account in keychain")
 
             //Broadcast event

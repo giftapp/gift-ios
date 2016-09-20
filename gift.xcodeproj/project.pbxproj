@@ -120,6 +120,7 @@
 		90CFE5901D0FE409005818AA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90E050EB1CF856D400A60581 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		90E050ED1CF8579800A60581 /* ViewControllersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllersAssembly.swift; sourceTree = "<group>"; };
+		90ED0EC31D91DECA0070D27C /* gift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gift.entitlements; sourceTree = "<group>"; };
 		BEF99795085D1F08F70CC0EB /* Pods_gift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -456,6 +457,7 @@
 		90C97D601CF39555002D1EB2 /* gift */ = {
 			isa = PBXGroup;
 			children = (
+				90ED0EC31D91DECA0070D27C /* gift.entitlements */,
 				90C97D611CF39555002D1EB2 /* AppDelegate.swift */,
 				90CFE5901D0FE409005818AA /* LaunchScreen.storyboard */,
 				62DD9BEA5EAA58B8D36CB414 /* SupportingFiles */,
@@ -513,7 +515,13 @@
 				TargetAttributes = {
 					90C97D5D1CF39555002D1EB2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GB34WCGQZD;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -764,6 +772,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = gift/gift.entitlements;
+				DEVELOPMENT_TEAM = GB34WCGQZD;
 				INFOPLIST_FILE = gift/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.giftapp.gift;
@@ -778,6 +788,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = gift/gift.entitlements;
+				DEVELOPMENT_TEAM = GB34WCGQZD;
 				INFOPLIST_FILE = gift/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.giftapp.gift;
