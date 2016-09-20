@@ -73,8 +73,8 @@ class WelcomeView : UIView {
 
     private func setConstraints() {
         backgroundImage.snp.makeConstraints { (make) in
-            make.top.equalTo(backgroundImage.snp.top)
-            make.centerX.equalTo(backgroundImage.superview!)
+            make.top.equalTo(backgroundImage.superview!)
+            make.left.equalTo(backgroundImage.superview!)
         }
         
         giftLogoImage.snp.makeConstraints { (make) in
