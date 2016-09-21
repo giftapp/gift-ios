@@ -39,13 +39,15 @@
 
 //EditProfileViewController
 "EditProfileViewController.Title" = "Profile";
-"EditProfileViewController.Description text" ="Edit your personal info and add a profile image\nSo you can start giving gifts";
 "EditProfileView.First Name" = "First Name";
 "EditProfileView.Last Name" = "Last Name";
 "EditProfileView.Email address" = "Email Address";
 "EditProfileViewController.Login with facebook description text" = "Frustrating? Import your profile from Facebook";
 "EditProfileViewController.Login with Facebook" = "Login";
 "EditProfileViewController.Done Button" = "Done";
+
+//AvatarView
+"AvatarView.Edit" = "Edit";
 
 //MainTabViewController
 "MainTabViewController.Main Tab" = "gift";

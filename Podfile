@@ -37,6 +37,7 @@ target 'gift' do
 
   # Image picker
   # pod 'ImagePicker', '~> 1.4.0'                                     # not used yet
+  pod 'ImagePicker', :git => 'https://github.com/hyperoslo/ImagePicker.git', :branch => 'swift-3'
 
   # Image cache
   pod 'Kingfisher', '~> 3.0.1'                                      # not used yet

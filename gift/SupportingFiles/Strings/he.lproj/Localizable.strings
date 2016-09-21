@@ -39,13 +39,15 @@
 
 //EditProfileViewController
 "EditProfileViewController.Title" = "פרופיל משתמש";
-"EditProfileViewController.Description text" = "ערוך את פרטיך האישיים והוסף תמונת פרופיל\nעבור יצירת קשר והענקת מתנות";
 "EditProfileView.First Name" = "שם פרטי";
 "EditProfileView.Last Name" = "שם משפחה";
 "EditProfileView.Email address" = "כתובת דוא\"ל";
 "EditProfileViewController.Login with facebook description text" = "מעייף? ייבא את פרטיך מפייסבוק";
 "EditProfileViewController.Login with Facebook" = "התחבר";
 "EditProfileViewController.Done Button" = "סיום";
+
+//AvatarView
+"AvatarView.Edit" = "ערוך";
 
 //MainTabViewController
 "MainTabViewController.Main Tab" = "מתנה";

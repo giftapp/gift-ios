@@ -17,6 +17,9 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //Views
     private var editProfileView: EditProfileView!
 
+    //Controllers
+    private var avatarViewController: AvatarViewController!
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
@@ -50,8 +53,16 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     private func addCustomViews() {
+        if avatarViewController == nil {
+            avatarViewController = AvatarViewController()
+            avatarViewController.isEditable = true
+            avatarViewController.emptyState = .image(image: UIImage(named: "emptyAvatarPlaceHolder"))
+            self.addChildViewController(avatarViewController)
+            avatarViewController.didMove(toParentViewController: self)
+        }
+
         if editProfileView == nil {
-            editProfileView = EditProfileView()
+            editProfileView = EditProfileView(avatarView: avatarViewController.view)
             editProfileView.delegate = self
             self.view = editProfileView
         }

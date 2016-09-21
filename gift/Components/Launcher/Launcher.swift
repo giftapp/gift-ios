@@ -42,6 +42,12 @@ class Launcher : NSObject {
     //-------------------------------------------------------------------------------------------
     func launch(launchOptions: [AnyHashable: Any]? = nil) {
 
+        //remove
+        let navigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
+        navigationViewController.navigationBar.isTranslucent = false;
+        appRoute.showController(controller: navigationViewController)
+        return
+
         if (!self.identity.isLoggedIn()) {
             //Show login
             appRoute.showController(controller: self.loginViewController)

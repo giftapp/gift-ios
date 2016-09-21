@@ -32,11 +32,13 @@
 		62DD984472AE2FC295352D57 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9601F44EE34943E71B96 /* PaddedTextField.swift */; };
 		62DD98B2E9FB4FF2D8B4AF7A /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
+		62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
 		62DD99C46939549472F8C011 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */; };
 		62DD9AC8B209CAD8CFDB1F31 /* UIFont+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */; };
 		62DD9B8C394A43F0E55CE29E /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */; };
 		62DD9BBBCA0904A5C08A268D /* CoreComponentsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */; };
+		62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92DA6FFC16A8259A5068 /* AvatarView.swift */; };
 		62DD9C657A4D9B4D33844951 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9900EBB0861053EA469F /* HomeViewController.swift */; };
 		62DD9C6DDD2A27A965AA0C31 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD995503C45636206650A9 /* Rubik-Regular.ttf */; };
 		62DD9C7666D58695272470D7 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9826702EABC276EC9D84 /* Rubik-BlackItalic.ttf */; };
@@ -72,6 +74,7 @@
 		62DD90E975F6E00F64BB05A8 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewControllerFactory.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
+		62DD92DA6FFC16A8259A5068 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		62DD94070F713CE65554320E /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+PhoneNumber.swift"; sourceTree = "<group>"; };
@@ -293,6 +297,15 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		62DD957C40192F22AAE22677 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */,
+				62DD92DA6FFC16A8259A5068 /* AvatarView.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
 		62DD966148FE0A4AEF6FDCFB /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +388,7 @@
 			children = (
 				62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */,
 				62DD9345A856973CC27AB42A /* Views */,
+				62DD957C40192F22AAE22677 /* Avatar */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -658,6 +672,8 @@
 				62DD91E9EF61979664F984C3 /* String+Email.swift in Sources */,
 				62DD9E31674C3FBDCE59C2E8 /* Logger.swift in Sources */,
 				62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */,
+				62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */,
+				62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
