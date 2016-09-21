@@ -35,6 +35,10 @@ extension UIColor {
 	class func gftGreyishColor() -> UIColor {
 		return UIColor(white: 182.0 / 255.0, alpha: 1.0)
 	}
+    
+    class func gftSaperatorColor() -> UIColor {
+        return UIColor(red: 200.0 / 255.0, green: 199.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
+    }
 
 	class func gftAzureColor() -> UIColor {
 		return UIColor(red: 33.0 / 255.0, green: 150.0 / 255.0, blue: 243.0 / 255.0, alpha: 1.0)

@@ -78,6 +78,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         if verificationCodeTextField == nil {
             verificationCodeTextField = UITextField()
             verificationCodeTextField.backgroundColor = UIColor.gftWhiteColor()
+            verificationCodeTextField.addTopBottomBorders()
             verificationCodeTextField.placeholder = "VerificationCodeView.VerificationCode placeholder".localized
             verificationCodeTextField.textAlignment = NSTextAlignment.center
             verificationCodeTextField.font = UIFont.gftText1Font()

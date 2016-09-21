@@ -46,7 +46,7 @@
 		62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */; };
 		62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
-		62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */; };
+		62DD9DB15C6C0B60C4E6FA37 /* UIView+Boarders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
 		62DD9DEE3EBC9E9F4F12B748 /* UIColor+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */; };
 		62DD9E26144A328F3B6D9871 /* String+PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */; };
@@ -82,7 +82,7 @@
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD95571033DF4534E17B9C /* EditProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+GFTAdditions.swift"; sourceTree = "<group>"; };
-		62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Boarders.swift"; sourceTree = "<group>"; };
+		62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Boarders.swift"; sourceTree = "<group>"; };
 		62DD9601F44EE34943E71B96 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
@@ -367,7 +367,7 @@
 				9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */,
 				906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */,
 				62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */,
-				62DD957BEEC00C857F366CD6 /* UITextField+Boarders.swift */,
+				62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */,
 				62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */,
 				62DD9F8F34EE1BCA6206134E /* String+Email.swift */,
 			);
@@ -661,7 +661,7 @@
 				62DD94BBD10FB559F8D4A924 /* String+Localized.swift in Sources */,
 				62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */,
 				62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */,
-				62DD9DB15C6C0B60C4E6FA37 /* UITextField+Boarders.swift in Sources */,
+				62DD9DB15C6C0B60C4E6FA37 /* UIView+Boarders.swift in Sources */,
 				62DD9E26144A328F3B6D9871 /* String+PhoneNumber.swift in Sources */,
 				62DD9733C7C0536F2E4586AE /* EditProfileView.swift in Sources */,
 				62DD9AC8B209CAD8CFDB1F31 /* UIFont+GFTAdditions.swift in Sources */,

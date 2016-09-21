@@ -56,7 +56,7 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+Email.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/Alamofire+NonSecureConnection.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+Localized.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/UITextField+Boarders.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/UIView+Boarders.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Utils/Extensions/String+PhoneNumber.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/AppDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />

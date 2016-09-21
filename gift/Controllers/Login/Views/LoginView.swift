@@ -83,6 +83,7 @@ class LoginView : UIView, UITextFieldDelegate {
         if phoneNumberTextField == nil {
             phoneNumberTextField = UITextField()
             phoneNumberTextField.backgroundColor = UIColor.gftWhiteColor()
+            phoneNumberTextField.addTopBottomBorders()
             phoneNumberTextField.placeholder = "LoginView.Phone number place holder".localized
             phoneNumberTextField.textAlignment = NSTextAlignment.center
             phoneNumberTextField.font = UIFont.gftText1Font()

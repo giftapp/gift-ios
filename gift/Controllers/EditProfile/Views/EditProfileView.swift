@@ -62,6 +62,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if firstNameTextField == nil {
             firstNameTextField = PaddedTextField()
             firstNameTextField.backgroundColor = UIColor.gftWhiteColor()
+            firstNameTextField.addTopBottomBorders()
             firstNameTextField.placeholder = "EditProfileView.First Name".localized
             firstNameTextField.textAlignment = .right
             firstNameTextField.font = UIFont.gftText1Font()
@@ -73,6 +74,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if lastNameTextField == nil {
             lastNameTextField = PaddedTextField()
             lastNameTextField.backgroundColor = UIColor.gftWhiteColor()
+            lastNameTextField.addTopBottomBorders()
             lastNameTextField.placeholder = "EditProfileView.Last Name".localized
             lastNameTextField.textAlignment = .right
             lastNameTextField.font = UIFont.gftText1Font()
@@ -84,6 +86,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if emailTextField == nil {
             emailTextField = PaddedTextField()
             emailTextField.backgroundColor = UIColor.gftWhiteColor()
+            emailTextField.addTopBottomBorders()
             emailTextField.placeholder = "EditProfileView.Email address".localized
             emailTextField.textAlignment = .right
             emailTextField.font = UIFont.gftText1Font()
@@ -114,6 +117,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
             loginWithFaceBookButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
 
             loginWithFaceBookButton.backgroundColor = UIColor.gftWhiteColor()
+            loginWithFaceBookButton.addTopBottomBorders()
             loginWithFaceBookButton.addTarget(self, action: #selector(didTapLoginWithFaceBook(sender:)), for: UIControlEvents.touchUpInside)
 
             self.addSubview(self.loginWithFaceBookButton)
