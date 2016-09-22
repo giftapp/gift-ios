@@ -62,7 +62,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if firstNameTextField == nil {
             firstNameTextField = PaddedTextField()
             firstNameTextField.backgroundColor = UIColor.gftWhiteColor()
-            firstNameTextField.addTopBottomBorders()
+            firstNameTextField.addTopBorder()
             firstNameTextField.placeholder = "EditProfileView.First Name".localized
             firstNameTextField.textAlignment = .right
             firstNameTextField.font = UIFont.gftText1Font()
@@ -74,7 +74,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if lastNameTextField == nil {
             lastNameTextField = PaddedTextField()
             lastNameTextField.backgroundColor = UIColor.gftWhiteColor()
-            lastNameTextField.addTopBottomBorders()
+            lastNameTextField.addTopBorder(padded: true)
             lastNameTextField.placeholder = "EditProfileView.Last Name".localized
             lastNameTextField.textAlignment = .right
             lastNameTextField.font = UIFont.gftText1Font()
@@ -86,7 +86,8 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if emailTextField == nil {
             emailTextField = PaddedTextField()
             emailTextField.backgroundColor = UIColor.gftWhiteColor()
-            emailTextField.addTopBottomBorders()
+            emailTextField.addTopBorder(padded: true)
+            emailTextField.addBottomBorder()
             emailTextField.placeholder = "EditProfileView.Email address".localized
             emailTextField.textAlignment = .right
             emailTextField.font = UIFont.gftText1Font()

@@ -82,7 +82,7 @@
 		62DD94C064D7F82B98C369EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DD95571033DF4534E17B9C /* EditProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+GFTAdditions.swift"; sourceTree = "<group>"; };
-		62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Boarders.swift"; sourceTree = "<group>"; };
+		62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Boarders.swift"; path = "../../Utils/Extensions/UIView+Boarders.swift"; sourceTree = "<group>"; };
 		62DD9601F44EE34943E71B96 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
@@ -162,6 +162,7 @@
 			children = (
 				62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */,
 				62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */,
+				62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,7 +368,6 @@
 				9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */,
 				906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */,
 				62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */,
-				62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */,
 				62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */,
 				62DD9F8F34EE1BCA6206134E /* String+Email.swift */,
 			);

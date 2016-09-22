@@ -9,26 +9,26 @@ import SnapKit
 
 extension UIView {
 
-    func addTopBorder() {
+    func addTopBorder(padded: Bool = false) {
         let border = UIView()
         self.addSubview(border)
         border.backgroundColor = UIColor.gftSaperatorColor()
         border.snp.makeConstraints { (make) in
             make.top.equalTo(border.superview!)
             make.left.equalTo(border.superview!)
-            make.width.equalTo(border.superview!)
+            make.width.equalTo(border.superview!).offset(-1 * (padded ? 10 : 0))
             make.height.equalTo(0.5)
         }
     }
     
-    func addBottomBorder() {
+    func addBottomBorder(padded: Bool = false) {
         let border = UIView()
         self.addSubview(border)
         border.backgroundColor = UIColor.gftSaperatorColor()
         border.snp.makeConstraints { (make) in
             make.bottom.equalTo(border.superview!)
             make.left.equalTo(border.superview!)
-            make.width.equalTo(border.superview!)
+            make.width.equalTo(border.superview!).offset(-1 * (padded ? 10 : 0))
             make.height.equalTo(0.5)
         }
     }
