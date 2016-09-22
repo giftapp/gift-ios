@@ -7,33 +7,26 @@
 //
 
 import Foundation
-import ObjectMapper
+import SwiftyJSON
 
 class Token : ModelBase, NSCoding {
     var accessToken : String?
     var user : User?
-    
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     override init() {
         super.init()
     }
+
+    required init(json: JSON) {
+        accessToken   = json["accessToken"].string
+        user    = User(json: json["user"])
+
+        super.init(json: json)
+    }
     
-    required init?(map: Map){
-        super.init(map: map)
-    }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - Mappable
-    //-------------------------------------------------------------------------------------------
-    override func mapping(map: Map) {
-        super.mapping(map: map)
-        
-        accessToken <- map["accessToken"]
-        user <- map["user"]
-    }
-
     //-------------------------------------------------------------------------------------------
     // MARK: - NSCoding
     //-------------------------------------------------------------------------------------------
@@ -45,7 +38,7 @@ class Token : ModelBase, NSCoding {
         self.accessToken = aDecoder.decodeObject(forKey: "accessToken") as! String?
         self.user = aDecoder.decodeObject(forKey: "user") as! User?
     }
-
+    
     @objc func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.createdAt, forKey: "createdAt")

@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (4.0.0)
-  - AlamofireObjectMapper (4.0.0):
-    - Alamofire (~> 4.0)
-    - ObjectMapper (~> 2.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -19,10 +16,10 @@ PODS:
   - Kingfisher (3.0.1)
   - Locksmith (3.0.0)
   - NVActivityIndicatorView (2.12)
-  - ObjectMapper (2.0.0)
   - PMAlertController (2.0.0)
   - SnapKit (3.0.0)
   - SwiftDate (3.0.9)
+  - SwiftyJSON (3.0.0)
   - Typhoon (3.5.1):
     - Typhoon/no-arc (= 3.5.1)
   - Typhoon/no-arc (3.5.1)
@@ -30,7 +27,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
-  - AlamofireObjectMapper (~> 4.0.0)
   - Bolts (~> 1.8.4)
   - FBSDKCoreKit (~> 4.15.1)
   - FBSDKLoginKit (~> 4.15.1)
@@ -42,6 +38,7 @@ DEPENDENCIES:
   - PMAlertController (~> 2.0.0)
   - SnapKit (~> 3.0.0)
   - SwiftDate (from `https://github.com/malcommac/SwiftDate.git`, branch `feature/swift-3.0`)
+  - SwiftyJSON (from `https://github.com/appsailor/SwiftyJSON.git`, branch `swift3`)
   - Typhoon (~> 3.5.1)
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_3.0`)
 
@@ -54,6 +51,9 @@ EXTERNAL SOURCES:
   SwiftDate:
     :branch: feature/swift-3.0
     :git: https://github.com/malcommac/SwiftDate.git
+  SwiftyJSON:
+    :branch: swift3
+    :git: https://github.com/appsailor/SwiftyJSON.git
   XCGLogger:
     :branch: swift_3.0
     :git: https://github.com/DaveWoodCom/XCGLogger.git
@@ -68,13 +68,15 @@ CHECKOUT OPTIONS:
   SwiftDate:
     :commit: 644a4615c77dc70d7861ddadb2c59f5c45f4c235
     :git: https://github.com/malcommac/SwiftDate.git
+  SwiftyJSON:
+    :commit: de73429b38b8994f614fb27c5ec094bb8a4833f2
+    :git: https://github.com/appsailor/SwiftyJSON.git
   XCGLogger:
     :commit: f7d6bea1924424157d70cb78b120cb576d5f99a8
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
-  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
   FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
@@ -83,13 +85,13 @@ SPEC CHECKSUMS:
   Kingfisher: d5a491b45ea453d90a31bd2c0831d5243e73a73f
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   NVActivityIndicatorView: de8be03826726ad99cdfacf7fe09e88cbfeef911
-  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   PMAlertController: edd2ae1f2a31ec77db72103a2dd81a77d6b5de95
   SnapKit: 98af0a4e9369d3c58f758967518081dbdc7eb1d9
   SwiftDate: fa487d9b7d8c3070ea2553486902494f4915465d
+  SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
   XCGLogger: dca27c8c2a218a9c176917680d891c8fdf9d4484
 
-PODFILE CHECKSUM: 93fe6f92c889d2b626de57cb86eb8e24d4474889
+PODFILE CHECKSUM: 0b9f3b4b48dfa8b4f67ab27221cc219f960879bb
 
 COCOAPODS: 1.0.1

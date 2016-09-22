@@ -5,7 +5,7 @@
 
 import Foundation
 import Alamofire
-import AlamofireObjectMapper
+import SwiftyJSON
 
 private struct GiftServiceCoreClientConstants{
     static let baseUrlPath = "http://localhost:8080/api"
@@ -89,11 +89,11 @@ public class GiftServiceCoreClient : NSObject {
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/token"
         let parameters: Parameters = ["phoneNumber": phoneNumber, "verificationCode" : verificationCode]
         
-        Alamofire.request(urlString, method: .get, parameters: parameters).validate().responseObject { (response: DataResponse<Token>) in
+        Alamofire.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
             switch response.result {
-            case .success:
-                let token = response.result.value
-                success(token!)
+            case .success(let value):
+                let token = Token(json: JSON(value))
+                success(token)
             case .failure(let error):
                 failure(error)
             }
@@ -116,11 +116,11 @@ public class GiftServiceCoreClient : NSObject {
 
     func getMe(success: @escaping (_ user : User) -> Void,
                failure: @escaping (_ error: Error) -> Void) {
-        manager.request(GiftServiceCoreClientConstants.baseUrlPath+"/user/", method: .get).validate().responseObject { (response: DataResponse<User>) in
+        manager.request(GiftServiceCoreClientConstants.baseUrlPath+"/user/", method: .get).validate().responseJSON { response in
             switch response.result {
-            case .success:
-                let user = response.result.value
-                success(user!)
+            case .success(let value):
+                let user = User(json: JSON(value))
+                success(user)
             case .failure(let error):
                 failure(error)
             }
@@ -137,14 +137,44 @@ public class GiftServiceCoreClient : NSObject {
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/user/facebook"
         let parameters: Parameters = ["facebookAccessToken": facebookAccessToken]
         
-        manager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseObject { (response: DataResponse<User>) in
+        manager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
             switch response.result {
-            case .success:
-                let user = response.result.value
-                success(user!)
+            case .success(let value):
+                let user = User(json: JSON(value))
+                success(user)
             case .failure(let error):
                 failure(error)
             }
         }
     }
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Put
+    //-------------------------------------------------------------------------------------------
+    func updateUserProfile(firstName: String?,
+                           lastName: String?,
+                           email: String?,
+                           avatarUrl: String?,
+                            success: @escaping (_ user : User) -> Void,
+                            failure: @escaping (_ error: Error) -> Void) {
+        
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/user"
+        let parameters: Parameters = ["firstName": firstName,
+                                      "lastName": lastName,
+                                      "email": email,
+                                      "avatarUrl": avatarUrl]
+        
+        manager.request(urlString, method: .put, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                Logger.debug("Successfully updated user profile")
+                let user = User(json: JSON(value))
+                success(user)
+            case .failure(let error):
+                Logger.error("Failed to update user profile \(error)")
+                failure(error)
+            }
+        }
+    }
+
 }

@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import SwiftyJSON
 
 class User : ModelBase, NSCoding {
     var firstName : String?
@@ -19,24 +19,17 @@ class User : ModelBase, NSCoding {
     override init() {
         super.init()
     }
-    
-    required init?(map: Map){
-        super.init(map: map)
+
+    required init(json: JSON) {
+        firstName   = json["firstName"].string
+        lastName    = json["lastName"].string
+        email       = json["email"].string
+        avatarURL   = json["avatarURL"].string
+        needsEdit   = json["needsEdit"].bool
+        
+        super.init(json: json)
     }
     
-    //-------------------------------------------------------------------------------------------
-    // MARK: - Mappable
-    //-------------------------------------------------------------------------------------------
-    override func mapping(map: Map) {
-        super.mapping(map: map)
-
-        firstName   <- map["firstName"]
-        lastName    <- map["lastName"]
-        email       <- map["email"]
-        avatarURL   <- map["avatarURL"]
-        needsEdit   <- map["needsEdit"]
-    }
-
     //-------------------------------------------------------------------------------------------
     // MARK: - NSCoding
     //-------------------------------------------------------------------------------------------
@@ -51,7 +44,7 @@ class User : ModelBase, NSCoding {
         self.avatarURL = aDecoder.decodeObject(forKey: "avatarURL") as! String?
         self.needsEdit = aDecoder.decodeObject(forKey: "needsEdit") as! Bool?
     }
-
+    
     @objc func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.createdAt, forKey: "createdAt")

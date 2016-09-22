@@ -17,7 +17,7 @@ target 'gift' do
   pod 'Alamofire', '~> 4.0.0'
 
   # JSON mapping
-  pod 'AlamofireObjectMapper', '~> 4.0.0'
+  pod 'SwiftyJSON', :git => 'https://github.com/appsailor/SwiftyJSON.git', :branch => 'swift3'
 
   # Layout
   pod 'SnapKit', '~> 3.0.0'

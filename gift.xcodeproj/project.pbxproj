@@ -25,6 +25,7 @@
 		62DD955DB26FBE3003D598A0 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD906D8C4506EE9DE566A4 /* Rubik-LightItalic.ttf */; };
 		62DD95670B946382752186DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DCA03503B4293DAD836 /* LoginViewController.swift */; };
 		62DD95B0E0899D5E87785BD9 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF77C898E54A0867FFB /* Launcher.swift */; };
+		62DD963C0B7B8A90B110AC44 /* JSON+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD9733C7C0536F2E4586AE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95571033DF4534E17B9C /* EditProfileView.swift */; };
 		62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */; };
@@ -111,6 +112,7 @@
 		62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificaionCodeViewController.swift; sourceTree = "<group>"; };
 		62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		62DD9F0225584711E507EE8E /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Date.swift"; sourceTree = "<group>"; };
 		62DD9F8F34EE1BCA6206134E /* String+Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		62DD9FA43BF8507919CDF443 /* BigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		7BF5A3F31FFCAB998931CCB4 /* Pods-gift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */,
 				62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */,
 				62DD9F8F34EE1BCA6206134E /* String+Email.swift */,
+				62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */,
 				62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */,
 				62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */,
+				62DD963C0B7B8A90B110AC44 /* JSON+Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,9 +4,9 @@
 //
 
 import Foundation
-import ObjectMapper
+import SwiftyJSON
 
-class ModelBase : NSObject, Mappable {
+class ModelBase: NSObject {
     var id: String?
     var createdAt: Date?
     var updatedAt: Date?
@@ -16,16 +16,9 @@ class ModelBase : NSObject, Mappable {
     //-------------------------------------------------------------------------------------------
     override init() {}
     
-    required init?(map: Map) {
-        
-    }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - Mappable
-    //-------------------------------------------------------------------------------------------
-    func mapping(map: Map) {
-        id          <- map["id"]
-        createdAt   <- (map["createdAt"], DateTransform())
-        updatedAt   <- (map["updatedAt"], DateTransform())
+    required init(json: JSON) {
+        id          = json["id"].string
+        createdAt   = json["createdAt"].date
+        updatedAt   = json["updatedAt"].date
     }
 }
