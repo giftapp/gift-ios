@@ -101,7 +101,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     func didTapDone() {
-        giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName!, lastName: editProfileView.lastName!, email: editProfileView.email!, avatarUrl: "", success: { (user) in
+        giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: nil, success: { (user) in
                 //TODO: save updated user
             self.appRoute.dismiss(controller: self, animated: true, completion: nil)
             }) { (error) in

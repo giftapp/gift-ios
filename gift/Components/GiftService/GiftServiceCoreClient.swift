@@ -69,8 +69,9 @@ public class GiftServiceCoreClient : NSObject {
                            failure: @escaping (_ error: Error) -> Void)  {
         
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/phoneNumberChallenge"
-        let parameters: Parameters = ["phoneNumber": phoneNumber]
-        
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "phoneNumber", value: phoneNumber)
+
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData{ response in
             switch response.result {
             case .success:
@@ -87,8 +88,10 @@ public class GiftServiceCoreClient : NSObject {
                   failure: @escaping (_ error: Error) -> Void)  {
         
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/token"
-        let parameters: Parameters = ["phoneNumber": phoneNumber, "verificationCode" : verificationCode]
-        
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "phoneNumber", value: phoneNumber)
+        parameters.addIfNotOptional(key: "verificationCode", value: verificationCode)
+
         Alamofire.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -135,8 +138,9 @@ public class GiftServiceCoreClient : NSObject {
                             failure: @escaping (_ error: Error) -> Void) {
         
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/user/facebook"
-        let parameters: Parameters = ["facebookAccessToken": facebookAccessToken]
-        
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "facebookAccessToken", value: facebookAccessToken)
+
         manager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -159,11 +163,12 @@ public class GiftServiceCoreClient : NSObject {
                             failure: @escaping (_ error: Error) -> Void) {
         
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/user"
-        let parameters: Parameters = ["firstName": firstName,
-                                      "lastName": lastName,
-                                      "email": email,
-                                      "avatarUrl": avatarUrl]
-        
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "firstName", value: firstName)
+        parameters.addIfNotOptional(key: "lastName", value: lastName)
+        parameters.addIfNotOptional(key: "email", value: email)
+        parameters.addIfNotOptional(key: "avatarUrl", value: avatarUrl)
+
         manager.request(urlString, method: .put, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
             switch response.result {
             case .success(let value):

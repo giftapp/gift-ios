@@ -33,6 +33,7 @@
 		62DD984472AE2FC295352D57 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9601F44EE34943E71B96 /* PaddedTextField.swift */; };
 		62DD98B2E9FB4FF2D8B4AF7A /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
+		62DD9927C252D2D5679E3E4E /* Alamofire+OptionalParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */; };
 		62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
 		62DD99C46939549472F8C011 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */; };
@@ -88,6 +89,7 @@
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+OptionalParameter.swift"; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62DD9826702EABC276EC9D84 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			children = (
 				9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */,
 				906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */,
+				62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */,
 				62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */,
 				62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */,
 				62DD9F8F34EE1BCA6206134E /* String+Email.swift */,
@@ -678,6 +681,7 @@
 				62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */,
 				62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */,
 				62DD963C0B7B8A90B110AC44 /* JSON+Date.swift in Sources */,
+				62DD9927C252D2D5679E3E4E /* Alamofire+OptionalParameter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
