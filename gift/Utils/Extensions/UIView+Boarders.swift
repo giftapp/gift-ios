@@ -12,7 +12,7 @@ extension UIView {
     func addTopBorder(padded: Bool = false) {
         let border = UIView()
         self.addSubview(border)
-        border.backgroundColor = UIColor.gftSaperatorColor()
+        border.backgroundColor = UIColor.gftSeparatorColor()
         border.snp.makeConstraints { (make) in
             make.top.equalTo(border.superview!)
             make.left.equalTo(border.superview!)
@@ -24,7 +24,7 @@ extension UIView {
     func addBottomBorder(padded: Bool = false) {
         let border = UIView()
         self.addSubview(border)
-        border.backgroundColor = UIColor.gftSaperatorColor()
+        border.backgroundColor = UIColor.gftSeparatorColor()
         border.snp.makeConstraints { (make) in
             make.bottom.equalTo(border.superview!)
             make.left.equalTo(border.superview!)

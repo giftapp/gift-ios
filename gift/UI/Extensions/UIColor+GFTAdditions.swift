@@ -36,7 +36,7 @@ extension UIColor {
 		return UIColor(white: 182.0 / 255.0, alpha: 1.0)
 	}
     
-    class func gftSaperatorColor() -> UIColor {
+    class func gftSeparatorColor() -> UIColor {
         return UIColor(red: 200.0 / 255.0, green: 199.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
     }
 

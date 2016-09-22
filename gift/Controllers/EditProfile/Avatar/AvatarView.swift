@@ -36,8 +36,10 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
     }
 
     private func addCustomViews() {
-        self.layer.cornerRadius = 15;
-        self.layer.masksToBounds = true;
+        self.layer.cornerRadius = 15
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.gftSeparatorColor().cgColor
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(AvatarView.didTap))
         tap.delegate = self
