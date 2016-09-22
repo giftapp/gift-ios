@@ -16,9 +16,6 @@ private struct IdentityConsts {
 
 class Identity : NSObject {
 
-    //Injected
-    var launcher : Launcher //Property injected
-    
     //Public properties
     var user : User?
     var token : Token?
@@ -26,8 +23,7 @@ class Identity : NSObject {
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(launcher : Launcher) {
-        self.launcher = launcher
+    internal dynamic override init() {
         super.init()
         
         self.loadIdentityFromKeychain()
@@ -105,10 +101,12 @@ class Identity : NSObject {
     }
 
     func logout() {
-        Logger.info("Loging out...")
+        Logger.info("Logging out...")
         self.deleteIdentityFromKeyChain()
         self.loadIdentityFromKeychain()
-        self.launcher.launch()
+        
+        //Broadcast event
+        NotificationCenter.default.post(name: Notification.Name(rawValue: didLoggedOutEvent.name), object: nil)
     }
 
     func isLoggedIn() -> Bool {
