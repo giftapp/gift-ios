@@ -24,11 +24,15 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
         didSet {
             switch emptyState {
             case let .image(image):
-                avatarView.useEmptyImagePlaceholder(image: image)
+                avatarView.emptyImagePlaceholder = image
             case let .initials(fromString):
-                avatarView.useInitialsPlaceHolder(initials: fromString)
+                avatarView.initialsPlaceHolder = fromString
             }
         }
+    }
+    
+    var image: UIImage? {
+        return avatarView.image
     }
 
 
@@ -111,7 +115,7 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
     //-------------------------------------------------------------------------------------------
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            avatarView.setImage(image: pickedImage)
+            avatarView.image = pickedImage
         }
         self.dismiss(animated: true, completion: nil)
     }

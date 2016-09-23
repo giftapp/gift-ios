@@ -152,6 +152,38 @@ public class GiftServiceCoreClient : NSObject {
         }
     }
     
+    func uploadImage(image :UIImage,
+                      success: @escaping (_ imageUrl : String) -> Void,
+                      failure: @escaping (_ error: Error) -> Void) {
+        
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/file"
+        let imageData = UIImagePNGRepresentation(image.resizeWith(width: 128)!)!
+        
+        manager.upload(multipartFormData:{ multipartFormData in
+            multipartFormData.append(imageData, withName: "file", fileName: "file.png", mimeType: "image/png")},
+                         usingThreshold:UInt64.init(),
+                         to:urlString,
+                         method:.post,
+                         encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.responseJSON { response in
+                                    switch response.result {
+                                    case .success(let value):
+                                        let json = JSON(value)
+                                        success(json["filePath"].stringValue)
+                                    case .failure(let error):
+                                        failure(error)
+                                    }
+                                }
+                            case .failure(let encodingError):
+                                failure(encodingError)
+                            }
+        })
+        
+    }
+
+    
     //-------------------------------------------------------------------------------------------
     // MARK: - Put
     //-------------------------------------------------------------------------------------------
@@ -167,7 +199,7 @@ public class GiftServiceCoreClient : NSObject {
         parameters.addIfNotOptional(key: "firstName", value: firstName)
         parameters.addIfNotOptional(key: "lastName", value: lastName)
         parameters.addIfNotOptional(key: "email", value: email)
-        parameters.addIfNotOptional(key: "avatarUrl", value: avatarUrl)
+        parameters.addIfNotOptional(key: "avatarURL", value: avatarUrl)
 
         manager.request(urlString, method: .put, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
             switch response.result {

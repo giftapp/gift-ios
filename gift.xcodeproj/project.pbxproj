@@ -38,6 +38,7 @@
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
 		62DD99C46939549472F8C011 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */; };
 		62DD9AC8B209CAD8CFDB1F31 /* UIFont+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */; };
+		62DD9B323058476B073EF0D9 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9011430B13BE13086750 /* UIImage+Resize.swift */; };
 		62DD9B8C394A43F0E55CE29E /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */; };
 		62DD9BBBCA0904A5C08A268D /* CoreComponentsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */; };
 		62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92DA6FFC16A8259A5068 /* AvatarView.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		5D79C2D5F638CC61B512D0C2 /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
+		62DD9011430B13BE13086750 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
 		62DD906D8C4506EE9DE566A4 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+GFTAdditions.swift"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */,
 				62DD9F8F34EE1BCA6206134E /* String+Email.swift */,
 				62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */,
+				62DD9011430B13BE13086750 /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				62DD963C0B7B8A90B110AC44 /* JSON+Date.swift in Sources */,
 				62DD9927C252D2D5679E3E4E /* Alamofire+OptionalParameter.swift in Sources */,
 				62DD9BD664CDF986B4D67DC9 /* didLoggedOutEvent.swift in Sources */,
+				62DD9B323058476B073EF0D9 /* UIImage+Resize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

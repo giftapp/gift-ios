@@ -21,6 +21,42 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
 
     //Public Properties
     var delegate: AvatarViewDelegate!
+    
+    var image: UIImage? {
+        get {
+            return imageView.image
+        }
+        set {
+            imageView.image = newValue
+            imageView.isHidden = false
+            emptyImageViewPlaceholder.isHidden = true
+            initialsPlaceHolderLabel.isHidden = true
+        }
+    }
+
+    var emptyImagePlaceholder: UIImage? {
+        get {
+            return emptyImageViewPlaceholder.image
+        }
+        set {
+            emptyImageViewPlaceholder.image = newValue
+            emptyImageViewPlaceholder.isHidden = false
+            initialsPlaceHolderLabel.isHidden = true
+            imageView.isHidden = true
+        }
+    }
+
+    var initialsPlaceHolder: String? {
+        get {
+            return initialsPlaceHolderLabel.text
+        }
+        set {
+            initialsPlaceHolderLabel.text = newValue
+            initialsPlaceHolderLabel.isHidden = false
+            emptyImageViewPlaceholder.isHidden = true
+            imageView.isHidden = true
+        }
+    }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -108,25 +144,4 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
-    func setImage(image: UIImage) {
-        imageView.image = image
-        imageView.isHidden = false
-        emptyImageViewPlaceholder.isHidden = true
-        initialsPlaceHolderLabel.isHidden = true
-    }
-
-    func useEmptyImagePlaceholder(image: UIImage?) {
-        emptyImageViewPlaceholder.image = image
-        emptyImageViewPlaceholder.isHidden = false
-        initialsPlaceHolderLabel.isHidden = true
-        imageView.isHidden = true
-    }
-    
-    
-    func useInitialsPlaceHolder(initials: String) {
-        initialsPlaceHolderLabel.text = initials
-        initialsPlaceHolderLabel.isHidden = false
-        emptyImageViewPlaceholder.isHidden = true
-        imageView.isHidden = true
-    }
 }

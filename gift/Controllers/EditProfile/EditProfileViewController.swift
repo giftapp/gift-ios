@@ -71,6 +71,37 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    func updateUserProfile(avatarUrl: String? = nil) {
+        giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: avatarUrl, success: { (user) in
+            Logger.debug("Successfully updated user profile")
+            self.identity.updateUser(user: user)
+            self.appRoute.dismiss(controller: self, animated: true, completion: nil)
+        }) { (error) in
+            Logger.error("error while updating user profile: \(error)")
+            self.showErrorUpdatingProfile()
+        }
+    }
+
+    func uploadAvatar(completion: @escaping (_ imageUrl : String?) -> Void) {
+        if avatarViewController.image == nil {
+            completion(nil)
+            return
+        }
+        
+        giftServiceCoreClient.uploadImage(image: avatarViewController.image!, success: { (avatarUrl) in
+            Logger.debug("Successfully uploaded avatar")
+            completion(avatarUrl)
+        }) { (error) in
+            Logger.error("error while uploading avatar: \(error)")
+            self.showErrorUpdatingProfile()
+        }
+    }
+
+    func showErrorUpdatingProfile() {
+        let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "EditProfileViewController.Alert failed updating user profile.Title".localized, description: "EditProfileViewController.Alert failed updating user profile.Description".localized, image: nil, actions: [tryAgainAction])
+        self.present(alertViewController, animated: true, completion: nil)
+    }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - EditProfileViewDelegate
@@ -101,15 +132,8 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     func didTapDone() {
-        giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: nil, success: { (user) in
-            Logger.debug("Successfully updated user profile")
-            self.identity.updateUser(user: user)
-            self.appRoute.dismiss(controller: self, animated: true, completion: nil)
-            }) { (error) in
-            Logger.error("error while updating user profile: \(error)")
-            let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
-            let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "EditProfileViewController.Alert failed updating user profile.Title".localized, description: "EditProfileViewController.Alert failed updating user profile.Description".localized, image: nil, actions: [tryAgainAction])
-            self.present(alertViewController, animated: true, completion: nil)
-        }
+        uploadAvatar(completion: { (avatarUrl) in
+            self.updateUserProfile(avatarUrl: avatarUrl)
+        })
     }
 }
