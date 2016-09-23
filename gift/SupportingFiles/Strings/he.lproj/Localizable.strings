@@ -45,9 +45,14 @@
 "EditProfileViewController.Login with facebook description text" = "מעייף? ייבא את פרטיך מפייסבוק";
 "EditProfileViewController.Login with Facebook" = "התחבר";
 "EditProfileViewController.Done Button" = "סיום";
+"EditProfileViewController.Alert failed updating user profile.Title" = "לא הצלחנו לעדכן את הפרופיל שלך";
+"EditProfileViewController.Alert failed updating user profile.Description" = "אנא וודא כי קיים חיבור לאינטרנט ונסה שנית";
 
 //AvatarView
 "AvatarView.Edit" = "ערוך";
+"AvatarViewController.Choose an image" = "בחר תמונה";
+"AvatarViewController.Camera" = "מצלמה";
+"AvatarViewController.Photo Library" = "אלבום תמונות";
 
 //MainTabViewController
 "MainTabViewController.Main Tab" = "מתנה";

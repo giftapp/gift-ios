@@ -5,14 +5,13 @@
 
 import Foundation
 import UIKit
-import ImagePicker
 
 enum AvatarViewControllerEmptyState {
     case image(image: UIImage?)
     case initials(fromString: String)
 }
 
-class AvatarViewController: UIViewController, AvatarViewDelegate, ImagePickerDelegate {
+class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     //Public Properties
     var isEditable: Bool = false {
@@ -35,6 +34,9 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, ImagePickerDel
 
     //Views
     private lazy var avatarView: AvatarView! = AvatarView()
+
+    //Controllers
+    private lazy var imagePicker: UIImagePickerController! = UIImagePickerController()
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -64,7 +66,35 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, ImagePickerDel
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    func showImagePickerActionSheet() {
+        let actionSheetController = UIAlertController(title: "AvatarViewController.Choose an image".localized, message: nil, preferredStyle: .actionSheet)
 
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Global.Cancel".localized, style: .cancel);
+        actionSheetController.addAction(cancelActionButton)
+
+        let saveActionButton: UIAlertAction = UIAlertAction(title: "AvatarViewController.Camera".localized, style: .default)
+        { action -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.cameraDevice = .front
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }
+        actionSheetController.addAction(saveActionButton)
+
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: "AvatarViewController.Photo Library".localized, style: .default)
+        { action -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .photoLibrary
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }
+        actionSheetController.addAction(deleteActionButton)
+
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
     //-------------------------------------------------------------------------------------------
     // MARK: - AvatarViewDelegate
     //-------------------------------------------------------------------------------------------
@@ -72,25 +102,23 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, ImagePickerDel
         if !isEditable {
             return
         }
-
-        Configuration.recordLocation = false
-
-        let imagePickerController = ImagePickerController()
-        imagePickerController.imageLimit = 1
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        
+        showImagePickerActionSheet()
     }
 
     //-------------------------------------------------------------------------------------------
-    // MARK: - ImagePickerDelegate
+    // MARK: - UIImagePickerControllerDelegate
     //-------------------------------------------------------------------------------------------
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            avatarView.setImage(image: pickedImage)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-    }
 
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

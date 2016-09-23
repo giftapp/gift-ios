@@ -12,7 +12,6 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.15.1):
     - FBSDKCoreKit
-  - ImagePicker (1.4.0)
   - Kingfisher (3.0.1)
   - Locksmith (3.0.0)
   - NVActivityIndicatorView (2.12)
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - FBSDKCoreKit (~> 4.15.1)
   - FBSDKLoginKit (~> 4.15.1)
   - FBSDKShareKit (~> 4.15.1)
-  - ImagePicker (from `https://github.com/hyperoslo/ImagePicker.git`, branch `swift-3`)
   - Kingfisher (~> 3.0.1)
   - Locksmith (~> 3.0.0)
   - NVActivityIndicatorView (from `https://github.com/ninjaprox/NVActivityIndicatorView.git`)
@@ -43,9 +41,6 @@ DEPENDENCIES:
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_3.0`)
 
 EXTERNAL SOURCES:
-  ImagePicker:
-    :branch: swift-3
-    :git: https://github.com/hyperoslo/ImagePicker.git
   NVActivityIndicatorView:
     :git: https://github.com/ninjaprox/NVActivityIndicatorView.git
   SwiftDate:
@@ -59,9 +54,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 CHECKOUT OPTIONS:
-  ImagePicker:
-    :commit: 456f703fa0a66f3dacb74dc3fa079f007e3ffe27
-    :git: https://github.com/hyperoslo/ImagePicker.git
   NVActivityIndicatorView:
     :commit: 748e785ed08c1a30f674a7da2ca3ba342b121287
     :git: https://github.com/ninjaprox/NVActivityIndicatorView.git
@@ -81,7 +73,6 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
   FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
   FBSDKShareKit: 11cbb5a4d7b5fda8143cc95b76188147e6725736
-  ImagePicker: 6659ccdd4737bfa14ed3b4aa7ffe18b193d92a0c
   Kingfisher: d5a491b45ea453d90a31bd2c0831d5243e73a73f
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   NVActivityIndicatorView: de8be03826726ad99cdfacf7fe09e88cbfeef911
@@ -92,6 +83,6 @@ SPEC CHECKSUMS:
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
   XCGLogger: dca27c8c2a218a9c176917680d891c8fdf9d4484
 
-PODFILE CHECKSUM: 0b9f3b4b48dfa8b4f67ab27221cc219f960879bb
+PODFILE CHECKSUM: 05b3bba0b162fe30de69b226ee3a4dcb5d93ac65
 
 COCOAPODS: 1.0.1

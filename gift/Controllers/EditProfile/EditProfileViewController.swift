@@ -102,10 +102,14 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
 
     func didTapDone() {
         giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: nil, success: { (user) in
-                //TODO: save updated user
+            Logger.debug("Successfully updated user profile")
+            self.identity.updateUser(user: user)
             self.appRoute.dismiss(controller: self, animated: true, completion: nil)
             }) { (error) in
-                //TODO: handle error
+            Logger.error("error while updating user profile: \(error)")
+            let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
+            let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "EditProfileViewController.Alert failed updating user profile.Title".localized, description: "EditProfileViewController.Alert failed updating user profile.Description".localized, image: nil, actions: [tryAgainAction])
+            self.present(alertViewController, animated: true, completion: nil)
         }
     }
 }

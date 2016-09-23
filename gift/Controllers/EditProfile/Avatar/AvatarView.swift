@@ -47,7 +47,7 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
 
         if imageView == nil {
             imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             self.addSubview(imageView)
         }
 
@@ -110,12 +110,16 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
     //-------------------------------------------------------------------------------------------
     func setImage(image: UIImage) {
         imageView.image = image
+        imageView.isHidden = false
+        emptyImageViewPlaceholder.isHidden = true
+        initialsPlaceHolderLabel.isHidden = true
     }
 
     func useEmptyImagePlaceholder(image: UIImage?) {
         emptyImageViewPlaceholder.image = image
         emptyImageViewPlaceholder.isHidden = false
         initialsPlaceHolderLabel.isHidden = true
+        imageView.isHidden = true
     }
     
     
@@ -123,5 +127,6 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
         initialsPlaceHolderLabel.text = initials
         initialsPlaceHolderLabel.isHidden = false
         emptyImageViewPlaceholder.isHidden = true
+        imageView.isHidden = true
     }
 }

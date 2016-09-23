@@ -137,6 +137,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         avatarView.snp.makeConstraints { (make) in
             make.top.equalTo(avatarView.superview!).offset(35)
             make.centerX.equalTo(avatarView.superview!)
+            make.size.equalTo(110)
         }
 
         firstNameTextField.snp.makeConstraints { (make) in

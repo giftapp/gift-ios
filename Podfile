@@ -35,10 +35,6 @@ target 'gift' do
   # pod 'SwiftDate', '~> 3.0.8'                                       # not used yet
   pod 'SwiftDate', :git => 'https://github.com/malcommac/SwiftDate.git', :branch => 'feature/swift-3.0'
 
-  # Image picker
-  # pod 'ImagePicker', '~> 1.4.0'                                     # not used yet
-  pod 'ImagePicker', :git => 'https://github.com/hyperoslo/ImagePicker.git', :branch => 'swift-3'
-
   # Image cache
   pod 'Kingfisher', '~> 3.0.1'                                      # not used yet
 

@@ -58,6 +58,7 @@
 		62DD9E721DF907942F60A02A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9B951D76394291709BEF /* SettingsViewController.swift */; };
 		62DD9EC14A6E0945A821201A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90A09C89F00141448B01 /* Identity.swift */; };
 		901A5F6E1CF78654008C5E52 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F6D1CF78654008C5E52 /* Token.swift */; };
+		9036AD081D953CC0007D6206 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9036AD0A1D953CC0007D6206 /* InfoPlist.strings */; };
 		9063255F1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */; };
 		906325611D06146C00064FC0 /* Alamofire+NonSecureConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */; };
 		90C97D621CF39555002D1EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C97D611CF39555002D1EB2 /* AppDelegate.swift */; };
@@ -121,6 +122,8 @@
 		62DD9FA43BF8507919CDF443 /* BigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		7BF5A3F31FFCAB998931CCB4 /* Pods-gift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.debug.xcconfig"; sourceTree = "<group>"; };
 		901A5F6D1CF78654008C5E52 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		9036AD091D953CC0007D6206 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9036AD0B1D953CC1007D6206 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9063255E1D06136100064FC0 /* Alamofire+AuthenticationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+AuthenticationHeader.swift"; sourceTree = "<group>"; };
 		906325601D06146C00064FC0 /* Alamofire+NonSecureConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+NonSecureConnection.swift"; sourceTree = "<group>"; };
 		90C97D5E1CF39555002D1EB2 /* gift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -498,6 +501,7 @@
 		90CFE58B1D0FE3F4005818AA /* Strings */ = {
 			isa = PBXGroup;
 			children = (
+				9036AD0A1D953CC0007D6206 /* InfoPlist.strings */,
 				90CFE58C1D0FE3F4005818AA /* Localizable.strings */,
 			);
 			path = Strings;
@@ -572,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CFE5911D0FE409005818AA /* LaunchScreen.storyboard in Resources */,
+				9036AD081D953CC0007D6206 /* InfoPlist.strings in Resources */,
 				90CFE58F1D0FE3F4005818AA /* Localizable.strings in Resources */,
 				62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */,
 				62DD9B8C394A43F0E55CE29E /* Rubik-Black.ttf in Resources */,
@@ -692,6 +697,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		9036AD0A1D953CC0007D6206 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9036AD091D953CC0007D6206 /* en */,
+				9036AD0B1D953CC1007D6206 /* he */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		90CFE58C1D0FE3F4005818AA /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

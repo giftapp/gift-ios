@@ -45,9 +45,14 @@
 "EditProfileViewController.Login with facebook description text" = "Frustrating? Import your profile from Facebook";
 "EditProfileViewController.Login with Facebook" = "Login";
 "EditProfileViewController.Done Button" = "Done";
+"EditProfileViewController.Alert failed updating user profile.Title" = "Failed to update your profile";
+"EditProfileViewController.Alert failed updating user profile.Description" = "Please check your internet connection and try again";
 
 //AvatarView
 "AvatarView.Edit" = "Edit";
+"AvatarViewController.Choose an image" = "Choose an image";
+"AvatarViewController.Camera" = "Camera";
+"AvatarViewController.Photo Library" = "Photo Library";
 
 //MainTabViewController
 "MainTabViewController.Main Tab" = "gift";
