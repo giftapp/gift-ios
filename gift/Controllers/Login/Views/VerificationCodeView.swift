@@ -131,6 +131,11 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
             make.centerX.equalTo(retryButton.superview!)
             make.top.equalTo(verificationCodeTextField.snp.bottom).offset(20)
         }
+
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.center.equalTo(activityIndicatorView.superview!)
+            make.size.equalTo(ActivityIndicatorSize.medium)
+        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -139,11 +144,13 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
     func clearVerificationCode() {
         self.verificationCodeTextField.text = ""
     }
-    
+
     func activityAnimation(shouldAnimate: Bool) {
         if shouldAnimate {
+            self.isUserInteractionEnabled = false
             activityIndicatorView.startAnimation()
         } else {
+            self.isUserInteractionEnabled = true
             activityIndicatorView.stopAnimation()
         }
     }

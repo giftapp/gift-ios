@@ -71,26 +71,28 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func updateUserProfile(avatarUrl: String? = nil) {
+    func updateUserProfile(avatarUrl: String? = nil, completion: @escaping () -> Void) {
         giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: avatarUrl, success: { (user) in
             Logger.debug("Successfully updated user profile")
+            completion()
             self.identity.updateUser(user: user)
             self.appRoute.dismiss(controller: self, animated: true, completion: nil)
         }) { (error) in
             Logger.error("error while updating user profile: \(error)")
+            completion()
             self.showErrorUpdatingProfile()
         }
     }
 
-    func uploadAvatar(completion: @escaping (_ imageUrl : String?) -> Void) {
+    func uploadAvatar(success: @escaping (_ imageUrl : String?) -> Void) {
         if avatarViewController.image == nil {
-            completion(nil)
+            success(nil)
             return
         }
         
         giftServiceCoreClient.uploadImage(image: avatarViewController.image!, success: { (avatarUrl) in
             Logger.debug("Successfully uploaded avatar")
-            completion(avatarUrl)
+            success(avatarUrl)
         }) { (error) in
             Logger.error("error while uploading avatar: \(error)")
             self.showErrorUpdatingProfile()
@@ -132,8 +134,11 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     func didTapDone() {
-        uploadAvatar(completion: { (avatarUrl) in
-            self.updateUserProfile(avatarUrl: avatarUrl)
+        editProfileView.activityAnimation(shouldAnimate: true)
+        uploadAvatar(success: { (avatarUrl) in
+            self.updateUserProfile(avatarUrl: avatarUrl, completion: { 
+                self.editProfileView.activityAnimation(shouldAnimate: false)
+            })
         })
     }
 }

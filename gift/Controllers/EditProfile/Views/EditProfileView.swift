@@ -22,6 +22,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
     private var loginWithFacebookDescriptionLabel: UILabel!
     private var loginWithFaceBookButton: UIButton!
     private var doneButton: BigButton!
+    private var activityIndicatorView: ActivityIndicatorView!
 
     private var avatarView: UIView
 
@@ -131,6 +132,11 @@ class EditProfileView: UIView, UITextFieldDelegate {
             doneButton.enable(enabled: false)
             self.addSubview(doneButton)
         }
+        
+        if activityIndicatorView == nil {
+            activityIndicatorView = ActivityIndicatorView()
+            self.addSubview(activityIndicatorView)
+        }
     }
 
     private func setConstraints() {
@@ -179,6 +185,11 @@ class EditProfileView: UIView, UITextFieldDelegate {
             make.bottom.equalTo(doneButton.superview!)
             make.width.equalTo(doneButton.superview!)
         }
+        
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.center.equalTo(activityIndicatorView.superview!)
+            make.size.equalTo(ActivityIndicatorSize.medium)
+        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -186,6 +197,16 @@ class EditProfileView: UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     func enableDoneButton(enabled: Bool) {
         doneButton.enable(enabled: enabled)
+    }
+    
+    func activityAnimation(shouldAnimate: Bool) {
+        if shouldAnimate {
+            self.isUserInteractionEnabled = false
+            activityIndicatorView.startAnimation()
+        } else {
+            self.isUserInteractionEnabled = true
+            activityIndicatorView.stopAnimation()
+        }
     }
 
     //-------------------------------------------------------------------------------------------

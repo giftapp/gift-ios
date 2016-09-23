@@ -8,7 +8,7 @@ import SnapKit
 import NVActivityIndicatorView
 
 struct ActivityIndicatorSize{
-    static let Medium: CGFloat = 35
+    static let medium: CGFloat = 35
 }
 
 class ActivityIndicatorView: UIView {
@@ -40,7 +40,7 @@ class ActivityIndicatorView: UIView {
     private func setConstraints() {
         activityIndicatorView.snp.makeConstraints { (make) in
             make.center.equalTo(activityIndicatorView.superview!)
-            make.height.width.equalTo(activityIndicatorView.superview!)
+            make.size.equalTo(activityIndicatorView.superview!)
         }
     }
 
