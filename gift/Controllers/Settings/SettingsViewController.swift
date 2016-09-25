@@ -113,7 +113,7 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
             avatarViewController = AvatarViewController()
             avatarViewController.isEditable = false
             avatarViewController.emptyState = .initials(fromString: identity.user?.fullName?.initials)
-//            TODO: avatarViewController.imageURL = identity.user?.avatarURL
+            avatarViewController.imageURL = identity.user?.avatarURL
             self.addChildViewController(avatarViewController)
             avatarViewController.didMove(toParentViewController: self)
         }

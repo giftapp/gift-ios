@@ -35,6 +35,11 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
         return avatarView.image
     }
 
+    var imageURL: String? {
+        didSet {
+            avatarView.imageURL = imageURL
+        }
+    }
 
     //Views
     private lazy var avatarView: AvatarView! = AvatarView()

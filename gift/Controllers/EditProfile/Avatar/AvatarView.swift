@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 protocol AvatarViewDelegate {
     func didTapEdit()
@@ -21,6 +22,18 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
 
     //Public Properties
     var delegate: AvatarViewDelegate!
+    
+    var imageURL: String? {
+        didSet {
+            if let imageURLNonOptional = imageURL {
+                let url = URL(string: imageURLNonOptional)
+                imageView.kf_setImage(with: url)
+                imageView.isHidden = false
+                emptyImageViewPlaceholder.isHidden = true
+                initialsPlaceHolderLabel.isHidden = true
+            }
+        }
+    }
     
     var image: UIImage? {
         get {
