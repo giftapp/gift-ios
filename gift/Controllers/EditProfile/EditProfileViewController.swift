@@ -118,7 +118,12 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     func didTapLoginWithFaceBook() {
+        editProfileView.activityAnimation(shouldAnimate: true)
         self.facebookClient.login(viewController: self) { (error, facebookToken) in
+            defer {
+                self.editProfileView.activityAnimation(shouldAnimate: false)
+            }
+
             if (error) {
                 Logger.error("error while login with facebook")
             } else {
