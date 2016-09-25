@@ -8,7 +8,7 @@ import UIKit
 
 enum AvatarViewControllerEmptyState {
     case image(image: UIImage?)
-    case initials(fromString: String)
+    case initials(fromString: String?)
 }
 
 class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {

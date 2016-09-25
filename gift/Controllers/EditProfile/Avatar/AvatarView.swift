@@ -97,8 +97,9 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
             initialsPlaceHolderLabel = UILabel()
             initialsPlaceHolderLabel.numberOfLines = 1
             initialsPlaceHolderLabel.textAlignment = .center
-            initialsPlaceHolderLabel.font = UIFont.gftText1Font()
-            initialsPlaceHolderLabel.textColor = UIColor.gftBlackColor()
+            initialsPlaceHolderLabel.font = UIFont.gftAvatarInitialsFont()
+            initialsPlaceHolderLabel.textColor = UIColor.gftAzureColor()
+            initialsPlaceHolderLabel.backgroundColor = UIColor.gftWhiteColor()
             self.addSubview(initialsPlaceHolderLabel)
         }
         
@@ -123,6 +124,11 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
         emptyImageViewPlaceholder.snp.makeConstraints { (make) in
             make.center.equalTo(emptyImageViewPlaceholder.superview!)
             make.size.equalTo(emptyImageViewPlaceholder.superview!)
+        }
+
+        initialsPlaceHolderLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(initialsPlaceHolderLabel.superview!)
+            make.size.equalTo(initialsPlaceHolderLabel.superview!)
         }
         
         editLabel.snp.makeConstraints { (make) in

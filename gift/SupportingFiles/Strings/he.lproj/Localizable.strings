@@ -57,7 +57,14 @@
 //MainTabViewController
 "MainTabViewController.Main Tab" = "מתנה";
 "MainTabViewController.History Tab" = "היסטוריה";
-"MainTabViewController.Settings Tab" = "הגדרות";
+"MainTabViewController.Settings Tab" = "פרופיל";
 
 //HomeViewController
 "HomeViewController.Send a gift" = "שלח מתנה";
+
+//SettingsViewController
+"SettingsViewController.Title" = "פרופיל";
+"SettingsViewController.Payments" = "פרטי תשלום";
+"SettingsViewController.Feedback" = "שלח חוות דעת";
+"SettingsViewController.Terms and conditions" = "תנאי שימוש";
+"SettingsViewController.Logout" = "התנתק";

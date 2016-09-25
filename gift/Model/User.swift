@@ -9,9 +9,15 @@ import SwiftyJSON
 class User : ModelBase, NSCoding {
     var firstName : String?
     var lastName : String?
+    var phoneNumber : String?
     var email : String?
     var avatarURL : String?
     var needsEdit : Bool?
+
+    //Computed Properties
+    var fullName: String? {
+        return "\(firstName ?? "") \(lastName ?? "")"
+    }
     
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -23,6 +29,7 @@ class User : ModelBase, NSCoding {
     required init(json: JSON) {
         firstName   = json["firstName"].string
         lastName    = json["lastName"].string
+        phoneNumber = json["phoneNumber"].string
         email       = json["email"].string
         avatarURL   = json["avatarURL"].string
         needsEdit   = json["needsEdit"].bool
@@ -35,14 +42,15 @@ class User : ModelBase, NSCoding {
     //-------------------------------------------------------------------------------------------
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
-        self.id = aDecoder.decodeObject(forKey: "id") as! String?
-        self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! Date?
-        self.updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! Date?
-        self.firstName = aDecoder.decodeObject(forKey: "firstName") as! String?
-        self.lastName = aDecoder.decodeObject(forKey: "lastName") as! String?
-        self.email = aDecoder.decodeObject(forKey: "email") as! String?
-        self.avatarURL = aDecoder.decodeObject(forKey: "avatarURL") as! String?
-        self.needsEdit = aDecoder.decodeObject(forKey: "needsEdit") as! Bool?
+        self.id             = aDecoder.decodeObject(forKey: "id") as! String?
+        self.createdAt      = aDecoder.decodeObject(forKey: "createdAt") as! Date?
+        self.updatedAt      = aDecoder.decodeObject(forKey: "updatedAt") as! Date?
+        self.firstName      = aDecoder.decodeObject(forKey: "firstName") as! String?
+        self.lastName       = aDecoder.decodeObject(forKey: "lastName") as! String?
+        self.phoneNumber    = aDecoder.decodeObject(forKey: "phoneNumber") as! String?
+        self.email          = aDecoder.decodeObject(forKey: "email") as! String?
+        self.avatarURL      = aDecoder.decodeObject(forKey: "avatarURL") as! String?
+        self.needsEdit      = aDecoder.decodeObject(forKey: "needsEdit") as! Bool?
     }
     
     @objc func encode(with aCoder: NSCoder) {
@@ -51,6 +59,7 @@ class User : ModelBase, NSCoding {
         aCoder.encode(self.updatedAt, forKey: "updatedAt")
         aCoder.encode(self.firstName, forKey: "firstName")
         aCoder.encode(self.lastName, forKey: "lastName")
+        aCoder.encode(self.phoneNumber, forKey: "phoneNumber")
         aCoder.encode(self.email, forKey: "email")
         aCoder.encode(self.avatarURL, forKey: "avatarURL")
         aCoder.encode(self.needsEdit, forKey: "needsEdit")

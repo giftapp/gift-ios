@@ -57,7 +57,14 @@
 //MainTabViewController
 "MainTabViewController.Main Tab" = "gift";
 "MainTabViewController.History Tab" = "History";
-"MainTabViewController.Settings Tab" = "Settings";
+"MainTabViewController.Settings Tab" = "Profile";
 
 //HomeViewController
 "HomeViewController.Send a gift" = "Send a gift";
+
+//SettingsViewController
+"SettingsViewController.Title" = "Profile";
+"SettingsViewController.Payments" = "Payment details";
+"SettingsViewController.Feedback" = "Send Feedback";
+"SettingsViewController.Terms and conditions" = "Terms and conditions";
+"SettingsViewController.Logout" = "Logout";

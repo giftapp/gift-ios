@@ -41,4 +41,15 @@ extension UIFont {
 		return UIFont(name: "Rubik-Light", size: 15.0)
 	}
 
+	class func gftPushButtonFont() -> UIFont? {
+		return UIFont(name: "Rubik-Regular", size: 20.0)
+	}
+
+	class func gftModalButtonFont() -> UIFont? {
+		return UIFont(name: "Rubik-Regular", size: 20.0)
+	}
+    
+    class func gftAvatarInitialsFont() -> UIFont? {
+        return UIFont(name: "Rubik-Regular", size: 40.0)
+    }
 }
