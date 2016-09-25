@@ -120,19 +120,18 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     func didTapLoginWithFaceBook() {
         editProfileView.activityAnimation(shouldAnimate: true)
         self.facebookClient.login(viewController: self) { (error, facebookToken) in
-            defer {
-                self.editProfileView.activityAnimation(shouldAnimate: false)
-            }
-
             if (error) {
                 Logger.error("error while login with facebook")
+                self.editProfileView.activityAnimation(shouldAnimate: false)
             } else {
                 self.giftServiceCoreClient.setFacebookAccount(facebookAccessToken: facebookToken!, success: { (user) in
                     Logger.debug("Successfully got user from facebook")
+                    self.editProfileView.activityAnimation(shouldAnimate: false)
                     self.identity.updateUser(user: user)
                     self.appRoute.dismiss(controller: self, animated: true, completion: nil)
                 }, failure: { (error) in
                     Logger.error("error while updating user account with facebook account: \(error)")
+                    self.editProfileView.activityAnimation(shouldAnimate: false)
                 })
             }
         }
