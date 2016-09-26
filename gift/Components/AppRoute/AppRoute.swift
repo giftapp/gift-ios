@@ -60,7 +60,7 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
         self.switchTopMost(controller: navigationController!.topViewController!)
     }
 
-    func presentController(controller : UIViewController, animated : Bool, completion: (() -> Void)?) {
+    func presentController(controller : UIViewController, animated : Bool, completion: (() -> Void)? = nil) {
         let window : UIWindow = UIApplication.shared.keyWindow!
 
         if window.rootViewController!.presentedViewController != nil {
@@ -74,7 +74,7 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
         self.switchTopMost(controller: controller)
     }
 
-    func dismiss(controller : UIViewController, animated : Bool, completion: (() -> Void)?) {
+    func dismiss(controller : UIViewController, animated : Bool, completion: (() -> Void)? = nil) {
         let presentingViewController = controller.presentingViewController
         presentingViewController!.dismiss(animated: animated, completion: completion)
         self.switchTopMost(controller: presentingViewController!)

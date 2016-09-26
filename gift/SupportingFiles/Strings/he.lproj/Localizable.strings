@@ -39,6 +39,7 @@
 
 //EditProfileViewController
 "EditProfileViewController.Title" = "פרופיל משתמש";
+"EditProfileViewController.Cancel" = "ביטול";
 "EditProfileView.First Name" = "שם פרטי";
 "EditProfileView.Last Name" = "שם משפחה";
 "EditProfileView.Email address" = "כתובת דוא\"ל";
@@ -64,6 +65,7 @@
 
 //SettingsViewController
 "SettingsViewController.Title" = "פרופיל";
+"SettingsViewController.Edit" = "ערוך";
 "SettingsViewController.Payments" = "פרטי תשלום";
 "SettingsViewController.Feedback" = "שלח חוות דעת";
 "SettingsViewController.Terms and conditions" = "תנאי שימוש";

@@ -20,6 +20,9 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //Controllers
     private var avatarViewController: AvatarViewController!
 
+    //Public Properties
+    var cancelEnabled: Bool = false
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
@@ -44,12 +47,28 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.addCustomViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.setupNavigationBar()
+    }
+
+    private func setupNavigationBar() {
         self.title = "EditProfileViewController.Title".localized
+
         self.navigationController!.navigationBar.barStyle = .black
         self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
 
-        self.addCustomViews()
+        let cancelBarButtonItem = UIBarButtonItem(title: "EditProfileViewController.Cancel".localized, style: .plain, target: self, action: #selector(didTapCancel))
+        cancelBarButtonItem.tintColor = UIColor.gftWhiteColor()
+        cancelBarButtonItem.setTitleTextAttributes([NSFontAttributeName: UIFont.gftNavigationItemFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()], for: .normal)
+        if cancelEnabled {
+            self.navigationItem.rightBarButtonItem = cancelBarButtonItem
+        }
     }
 
     private func addCustomViews() {
@@ -57,6 +76,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             avatarViewController = AvatarViewController()
             avatarViewController.isEditable = true
             avatarViewController.emptyState = .image(image: UIImage(named: "emptyAvatarPlaceHolder"))
+            avatarViewController.imageURL = identity.user?.avatarURL
             self.addChildViewController(avatarViewController)
             avatarViewController.didMove(toParentViewController: self)
         }
@@ -64,6 +84,9 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         if editProfileView == nil {
             editProfileView = EditProfileView(avatarView: avatarViewController.view)
             editProfileView.delegate = self
+            editProfileView.firstName = identity.user?.firstName
+            editProfileView.lastName = identity.user?.lastName
+            editProfileView.email = identity.user?.email
             self.view = editProfileView
         }
     }
@@ -76,7 +99,6 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             Logger.debug("Successfully updated user profile")
             completion()
             self.identity.updateUser(user: user)
-            self.appRoute.dismiss(controller: self, animated: true, completion: nil)
         }) { (error) in
             Logger.error("error while updating user profile: \(error)")
             completion()
@@ -103,6 +125,10 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
         let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "EditProfileViewController.Alert failed updating user profile.Title".localized, description: "EditProfileViewController.Alert failed updating user profile.Description".localized, image: nil, actions: [tryAgainAction])
         self.present(alertViewController, animated: true, completion: nil)
+    }
+
+    func didTapCancel() {
+        self.appRoute.dismiss(controller: self, animated: true)
     }
 
     //-------------------------------------------------------------------------------------------
@@ -142,6 +168,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         uploadAvatar(success: { (avatarUrl) in
             self.updateUserProfile(avatarUrl: avatarUrl, completion: { 
                 self.editProfileView.activityAnimation(shouldAnimate: false)
+                self.appRoute.dismiss(controller: self, animated: true)
             })
         })
     }

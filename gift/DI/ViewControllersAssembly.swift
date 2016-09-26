@@ -106,10 +106,11 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(SettingsViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(SettingsViewController.init(appRoute:identity:))) {
+            definition!.useInitializer(#selector(SettingsViewController.init(appRoute:identity:editProfileViewController:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.identity())
+                initializer?.injectParameter(with: self.editProfileViewController())
             }
         }
     }

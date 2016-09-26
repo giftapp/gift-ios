@@ -122,7 +122,7 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
             editLabel.numberOfLines = 1
             editLabel.textAlignment = .center
             editLabel.font = UIFont.gftText1Font()
-            editLabel.textColor = UIColor.gftGreyishColor()
+            editLabel.textColor = UIColor.gftWarmGreyColor()
             editLabel.backgroundColor = UIColor(red: 200.0 / 255.0, green: 199.0 / 255.0, blue: 204.0 / 255.0, alpha: 0.5)
             self.addSubview(editLabel)
         }

@@ -69,8 +69,9 @@ private struct SettingsTableViewDataSourceConsts{
 class SettingsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Injections
-    private var appRoute : AppRoute
-    private var identity : Identity
+    private var appRoute: AppRoute
+    private var identity: Identity
+    private var editProfileViewController: EditProfileViewController
 
     //Views
     private var settingsView: SettingsView!
@@ -82,9 +83,11 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute : AppRoute,
-                          identity : Identity) {
+                          identity : Identity,
+                          editProfileViewController: EditProfileViewController) {
         self.appRoute = appRoute
         self.identity = identity
+        self.editProfileViewController = editProfileViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -98,16 +101,28 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
+        addCustomViews()
+    }
+
+    private func setupNavigationBar() {
         self.title = "SettingsViewController.Title".localized
+
         self.navigationController!.navigationBar.isTranslucent = true
         self.navigationController!.navigationBar.barStyle = .black
         self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
-
-        self.addCustomViews()
+        
+        let rightBarButtonItem = UIBarButtonItem(title: "SettingsViewController.Edit".localized, style: .plain, target: self, action: #selector(didTapEdit))
+        rightBarButtonItem.tintColor = UIColor.gftWhiteColor()
+        rightBarButtonItem.setTitleTextAttributes([NSFontAttributeName: UIFont.gftNavigationItemFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()], for: .normal)
+        self.navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+        
     }
-
+    
     private func addCustomViews() {
+
+        editProfileViewController.cancelEnabled = true
 
         if avatarViewController == nil {
             avatarViewController = AvatarViewController()
@@ -133,10 +148,6 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         //This is done in order to fix tableview header height autolayout bug: http://stackoverflow.com/questions/5581116/how-to-set-the-height-of-table-header-in-uitableview
         settingsView.updateTableViewHeaderSize()
     }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - SettingsViewDelegate
-    //-------------------------------------------------------------------------------------------
 
     //-------------------------------------------------------------------------------------------
     // MARK: - UITableViewDataSource
@@ -267,10 +278,17 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
-
+    
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    func didTapEdit() {
+        let editProfileNavigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
+        editProfileNavigationViewController.navigationBar.isTranslucent = false;
+        editProfileNavigationViewController.modalTransitionStyle = .crossDissolve
+        self.appRoute.presentController(controller: editProfileNavigationViewController, animated: true, completion: nil)
+    }
+    
     func didTapLogout() {
         self.identity.logout()
     }

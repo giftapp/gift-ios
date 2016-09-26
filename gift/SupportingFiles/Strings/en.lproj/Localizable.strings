@@ -39,6 +39,7 @@
 
 //EditProfileViewController
 "EditProfileViewController.Title" = "Profile";
+"EditProfileViewController.Cancel" = "Cancel";
 "EditProfileView.First Name" = "First Name";
 "EditProfileView.Last Name" = "Last Name";
 "EditProfileView.Email address" = "Email Address";
@@ -64,6 +65,7 @@
 
 //SettingsViewController
 "SettingsViewController.Title" = "Profile";
+"SettingsViewController.Edit" = "Edit";
 "SettingsViewController.Payments" = "Payment details";
 "SettingsViewController.Feedback" = "Send Feedback";
 "SettingsViewController.Terms and conditions" = "Terms and conditions";

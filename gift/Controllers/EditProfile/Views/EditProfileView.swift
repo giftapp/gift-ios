@@ -30,15 +30,30 @@ class EditProfileView: UIView, UITextFieldDelegate {
     var delegate: EditProfileViewDelegate!
 
     var firstName: String? {
-        return firstNameTextField.text
+        get {
+            return firstNameTextField.text
+        }
+        set {
+            firstNameTextField.text = newValue
+        }
     }
 
     var lastName: String? {
-        return lastNameTextField.text
+        get {
+            return lastNameTextField.text
+        }
+        set {
+            lastNameTextField.text = newValue
+        }
     }
 
     var email: String? {
-        return emailTextField.text
+        get {
+            return emailTextField.text
+        }
+        set {
+            emailTextField.text = newValue
+        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -141,13 +156,13 @@ class EditProfileView: UIView, UITextFieldDelegate {
 
     private func setConstraints() {
         avatarView.snp.makeConstraints { (make) in
-            make.top.equalTo(avatarView.superview!).offset(35)
+            make.top.equalTo(avatarView.superview!).offset(20)
             make.centerX.equalTo(avatarView.superview!)
             make.size.equalTo(110)
         }
 
         firstNameTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(avatarView.snp.bottom).offset(36)
+            make.top.equalTo(avatarView.snp.bottom).offset(20)
             make.centerX.equalTo(firstNameTextField.superview!)
             make.height.equalTo(44)
             make.width.equalTo(firstNameTextField.superview!)
