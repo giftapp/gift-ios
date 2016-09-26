@@ -70,3 +70,4 @@
 "SettingsViewController.Feedback" = "שלח חוות דעת";
 "SettingsViewController.Terms and conditions" = "תנאי שימוש";
 "SettingsViewController.Logout" = "התנתק";
+"SettingsViewController.Alert logout.Title" = "האם אתה בטוח שברצונך להתנתק?";

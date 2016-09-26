@@ -31,8 +31,8 @@ struct AlertViewControllerFactory {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
-    static func createAlertViewController(title: String, description: String, image: UIImage?, actions: [AlertViewAction]) -> UIViewController {
-        let alertViewController = PMAlertController(title: title, description: description, image: image, style: .alert)
+    static func createAlertViewController(title: String, description: String?, image: UIImage?, actions: [AlertViewAction]) -> UIViewController {
+        let alertViewController = PMAlertController(title: title, description: description ?? "", image: image, style: .alert)
         for alertViewAction in actions {
             alertViewController.addAction(PMAlertAction(title: alertViewAction.title, style: alertViewAction.style.getPMAlertActionStyle(), action: alertViewAction.action))
         }

@@ -290,6 +290,12 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func didTapLogout() {
-        self.identity.logout()
+        let logoutAction = AlertViewAction(title: "SettingsViewController.Logout".localized, style: .regular) {
+            self.identity.logout()
+        }
+        let cancelAction = AlertViewAction(title: "Global.Cancel".localized, style: .cancel, action: nil)
+
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "SettingsViewController.Alert logout.Title".localized, description: nil, image: nil, actions: [logoutAction, cancelAction])
+        appRoute.presentController(controller: alertViewController, animated: true)
     }
 }
