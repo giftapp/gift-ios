@@ -44,6 +44,8 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
             imageView.isHidden = false
             emptyImageViewPlaceholder.isHidden = true
             initialsPlaceHolderLabel.isHidden = true
+            
+            imageURL = nil
         }
     }
 

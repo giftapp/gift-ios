@@ -127,15 +127,12 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         if avatarViewController == nil {
             avatarViewController = AvatarViewController()
             avatarViewController.isEditable = false
-            avatarViewController.emptyState = .initials(fromString: identity.user?.fullName?.initials)
-            avatarViewController.imageURL = identity.user?.avatarURL
             self.addChildViewController(avatarViewController)
             avatarViewController.didMove(toParentViewController: self)
         }
         
         if settingsView == nil {
             settingsView = SettingsView(avatarView: avatarViewController.view)
-            settingsView.name = identity.user?.fullName
             settingsView.tableViewDataSource = self
             settingsView.tableViewDelegate = self
             self.view = settingsView
@@ -149,6 +146,12 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         settingsView.updateTableViewHeaderSize()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateViewData()
+    }
+    
     //-------------------------------------------------------------------------------------------
     // MARK: - UITableViewDataSource
     //-------------------------------------------------------------------------------------------
@@ -282,8 +285,20 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    func updateViewData() {
+        avatarViewController.emptyState = .initials(fromString: identity.user?.fullName?.initials)
+        avatarViewController.imageURL = identity.user?.avatarURL
+        settingsView.name = identity.user?.fullName
+        settingsView.updateTableData()
+    }
+    
     func didTapEdit() {
-        let editProfileNavigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
+        editProfileViewController.avatarURL = identity.user?.avatarURL
+        editProfileViewController.firstName = identity.user?.firstName
+        editProfileViewController.lastName = identity.user?.lastName
+        editProfileViewController.email = identity.user?.email
+
+        let editProfileNavigationViewController = UINavigationController(rootViewController: editProfileViewController)
         editProfileNavigationViewController.navigationBar.isTranslucent = false;
         editProfileNavigationViewController.modalTransitionStyle = .crossDissolve
         self.appRoute.presentController(controller: editProfileNavigationViewController, animated: true, completion: nil)

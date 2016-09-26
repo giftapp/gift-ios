@@ -23,6 +23,11 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //Public Properties
     var cancelEnabled: Bool = false
 
+    var avatarURL: String?
+    var firstName: String?
+    var lastName:String?
+    var email: String?
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
@@ -76,7 +81,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             avatarViewController = AvatarViewController()
             avatarViewController.isEditable = true
             avatarViewController.emptyState = .image(image: UIImage(named: "emptyAvatarPlaceHolder"))
-            avatarViewController.imageURL = identity.user?.avatarURL
+            avatarViewController.imageURL = avatarURL
             self.addChildViewController(avatarViewController)
             avatarViewController.didMove(toParentViewController: self)
         }
@@ -84,9 +89,9 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         if editProfileView == nil {
             editProfileView = EditProfileView(avatarView: avatarViewController.view)
             editProfileView.delegate = self
-            editProfileView.firstName = identity.user?.firstName
-            editProfileView.lastName = identity.user?.lastName
-            editProfileView.email = identity.user?.email
+            editProfileView.firstName = firstName
+            editProfileView.lastName = lastName
+            editProfileView.email = email
             self.view = editProfileView
         }
     }
@@ -106,9 +111,14 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         }
     }
 
-    func uploadAvatar(success: @escaping (_ imageUrl : String?) -> Void) {
+    func uploadAvatarIfNeeded(success: @escaping (_ imageUrl : String?) -> Void) {
         if avatarViewController.image == nil {
             success(nil)
+            return
+        }
+        
+        if avatarViewController.imageURL != nil {
+            success(avatarViewController.imageURL)
             return
         }
         
@@ -165,7 +175,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
 
     func didTapDone() {
         editProfileView.activityAnimation(shouldAnimate: true)
-        uploadAvatar(success: { (avatarUrl) in
+        uploadAvatarIfNeeded(success: { (avatarUrl) in
             self.updateUserProfile(avatarUrl: avatarUrl, completion: { 
                 self.editProfileView.activityAnimation(shouldAnimate: false)
                 self.appRoute.dismiss(controller: self, animated: true)
