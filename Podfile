@@ -48,6 +48,10 @@ target 'gift' do
   pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git' # Activity indicator
   # pod 'MZTimerLabel', '~> 0.5.4' # Countdown UILabel                # not used yet
 
+  # Crash report
+  pod 'Fabric'
+  pod 'Crashlytics'
+
 end
 
 post_install do |installer|
