@@ -67,7 +67,7 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     private func alertFailedSendingVerificationCode() {
         let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
         let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "LoginViewController.Alert failed sending verification code.Title".localized, description: "LoginViewController.Alert failed sending verification code.Description".localized, image: nil, actions: [tryAgainAction])
-        appRoute.presentController(controller: alertViewController, animated: true)
+        self.present(alertViewController, animated: true, completion: nil)
     }
 
     private func alertCheckNumberBeforeSendingSendingVerificationCode() {
@@ -79,7 +79,7 @@ class LoginViewController : UIViewController, LoginViewDelegate {
             self.sendPhoneNumberForVerification(phoneNumber: phoneNumber)
         })
         let alertViewController = AlertViewControllerFactory.createAlertViewController(title: String.localizedStringWithFormat("LoginViewController.Alert check number before sending verification code.Title".localized, phoneNumber.formateAsPhoneNumber), description: "LoginViewController.Alert check number before sending verification code.Description".localized, image: nil, actions: [cancelAction, sendAction])
-        appRoute.presentController(controller: alertViewController, animated: true)
+        self.present(alertViewController, animated: true, completion: nil)
     }
 
     //-------------------------------------------------------------------------------------------

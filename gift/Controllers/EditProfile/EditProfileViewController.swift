@@ -134,7 +134,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     func showErrorUpdatingProfile() {
         let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
         let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "EditProfileViewController.Alert failed updating user profile.Title".localized, description: "EditProfileViewController.Alert failed updating user profile.Description".localized, image: nil, actions: [tryAgainAction])
-        appRoute.presentController(controller: alertViewController, animated: true)
+        self.present(alertViewController, animated: true, completion: nil)
     }
 
     func didTapCancel() {
