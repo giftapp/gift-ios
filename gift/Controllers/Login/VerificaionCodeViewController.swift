@@ -68,10 +68,9 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     private func alertFailedVerifyingCode() {
         let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
         let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "VerificationCodeViewController.Alert failed verifying code.Title".localized, description: "", image: nil, actions: [tryAgainAction])
-        appRoute.presentController(controller: alertViewController, animated: true) { 
+        self.present(alertViewController, animated: true, completion: { () in
             self.verificationCodeView.clearVerificationCode()
-
-        }
+        })
     }
 
     //-------------------------------------------------------------------------------------------
