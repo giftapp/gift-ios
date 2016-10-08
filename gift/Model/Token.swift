@@ -21,8 +21,8 @@ class Token : ModelBase, NSCoding {
     }
 
     required init(json: JSON) {
-        accessToken   = json["accessToken"].string
-        user    = User(json: json["user"])
+        accessToken     = json["token"]["accessToken"].string
+        user            = User(json: json["token"]["user"])
 
         super.init(json: json)
     }

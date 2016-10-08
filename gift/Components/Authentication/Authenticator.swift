@@ -31,7 +31,7 @@ class Authenticator : NSObject {
     }
     
     func authenticate(phoneNumber : String,
-                      verificationCode : Int,
+                      verificationCode : String,
                       success: @escaping () -> Void,
                       failure: @escaping (_ error: Error) -> Void)  {
         

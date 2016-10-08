@@ -12,7 +12,7 @@ private struct VerificationCodeViewConstants{
 }
 
 protocol VerificationCodeViewDelegate{
-    func didEnteredVerificationCode(verificationCode : Int)
+    func didEnteredVerificationCode(verificationCode : String)
     func didTapRetry()
 }
 
@@ -179,7 +179,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         let newLength = currentCharacterCount + string.characters.count - range.length
         
         if (newLength == VerificationCodeViewConstants.VERIFICATION_CODE_DIGITS) {
-            delegate!.didEnteredVerificationCode(verificationCode: Int(textField.text! + string)!)
+            delegate!.didEnteredVerificationCode(verificationCode: textField.text! + string)
         }
         
         return newLength <= VerificationCodeViewConstants.VERIFICATION_CODE_DIGITS

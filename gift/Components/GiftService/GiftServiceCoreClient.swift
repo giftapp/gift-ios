@@ -1,4 +1,4 @@
-//
+    //
 // Created by Matan Lachmish on 24/05/2016.
 // Copyright (c) 2016 GiftApp. All rights reserved.
 //
@@ -8,8 +8,10 @@ import Alamofire
 import SwiftyJSON
 
 private struct GiftServiceCoreClientConstants{
-    static let baseUrlPath = "http://localhost:8080/api"
-    static let authorizationKey = "api_key"
+    static let baseUrlPath = "https://localhost:8443/api/v1"
+    static let authorizationKey = "Authorization"
+    static let tokenPrefix = "bearer"
+
 }
 
 public class GiftServiceCoreClient : NSObject {
@@ -32,6 +34,9 @@ public class GiftServiceCoreClient : NSObject {
         if (self.identity.isLoggedIn()) {
             self.updateAuthenticationHeaderFromIdentity()
         }
+
+        //TODO: remove once have real ssl cert
+        Alamofire.SessionManager.default.acceptInvalidSSLCerts()
     }
 
     func observeNotification() {
@@ -56,9 +61,11 @@ public class GiftServiceCoreClient : NSObject {
                 return
             }
         
-        self.manager = SessionManager.getManagerWithAuthenticationHeader(header: GiftServiceCoreClientConstants.authorizationKey, token: accessToken)
-        
-        self.manager.allowUnsecureConnection()
+        manager = SessionManager.getManagerWithAuthenticationHeader(header: GiftServiceCoreClientConstants.authorizationKey, token: GiftServiceCoreClientConstants.tokenPrefix + accessToken)
+
+        //TODO: remove once have real ssl cert
+        manager.allowUnsecureConnection()
+        manager.acceptInvalidSSLCerts()
     }
 
     //-------------------------------------------------------------------------------------------
@@ -68,7 +75,7 @@ public class GiftServiceCoreClient : NSObject {
                            success: @escaping () -> Void,
                            failure: @escaping (_ error: Error) -> Void)  {
         
-        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/phoneNumberChallenge"
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authentication/phoneNumberChallenge"
         var parameters = Parameters()
         parameters.addIfNotOptional(key: "phoneNumber", value: phoneNumber)
 
@@ -83,16 +90,16 @@ public class GiftServiceCoreClient : NSObject {
     }
     
     func getToken(phoneNumber : String,
-                  verificationCode : Int,
+                  verificationCode : String,
                   success: @escaping (_ token : Token) -> Void,
                   failure: @escaping (_ error: Error) -> Void)  {
         
-        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authorize/token"
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/authentication/token"
         var parameters = Parameters()
         parameters.addIfNotOptional(key: "phoneNumber", value: phoneNumber)
         parameters.addIfNotOptional(key: "verificationCode", value: verificationCode)
 
-        Alamofire.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
+        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let token = Token(json: JSON(value))

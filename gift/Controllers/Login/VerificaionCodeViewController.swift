@@ -77,7 +77,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //-------------------------------------------------------------------------------------------
     // MARK: - VerificationCodeViewDelegate
     //-------------------------------------------------------------------------------------------
-    internal func didEnteredVerificationCode(verificationCode: Int) {
+    internal func didEnteredVerificationCode(verificationCode: String) {
         verificationCodeView.activityAnimation(shouldAnimate: true)
 
         authenticator.authenticate(phoneNumber: self.phoneNumber, verificationCode: verificationCode, success: {
