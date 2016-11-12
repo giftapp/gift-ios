@@ -8,7 +8,7 @@ import Alamofire
 import SwiftyJSON
 
 private struct GiftServiceCoreClientConstants{
-    static let baseUrlPath = "https://localhost:8443/api/v1"
+    static let baseUrlPath = Configuration.sharedInstance.apiEndpoint
     static let authorizationKey = "Authorization"
     static let tokenPrefix = "bearer"
 
