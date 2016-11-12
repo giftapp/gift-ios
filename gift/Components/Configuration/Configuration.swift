@@ -36,7 +36,7 @@ class Configuration {
 
     //Public Properties
     static let sharedInstance = Configuration()
-    public private(set) var configurationScheme: ConfigurationScheme!
+    public private(set) var configurationScheme: ConfigurationScheme
 
     //Private Properties
     private var configuration: NSDictionary!

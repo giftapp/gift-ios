@@ -39,7 +39,34 @@ class Logger {
     }
 
     static func configureLog() {
-        log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
+        let logLevel = getLogLevelFromString(fromString: Configuration.sharedInstance.loggingLevel)
+
+        switch Configuration.sharedInstance.configurationScheme {
+        case .development, .developmentLocal:
+            log.setup(level: logLevel, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
+        case .production:
+            //TODO: turn off extensive log writing before production release
+            log.setup(level: logLevel, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
+        }
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
+    private static func getLogLevelFromString(fromString: String) -> XCGLogger.Level {
+        switch fromString {
+        case "Debug":
+            return .debug
+        case "Info":
+            return .info
+        case "Error":
+            return .error
+        case "Warning":
+            return .warning
+        case "Severe":
+            return .severe
+        default:
+            return .info
+        }
+    }
 }
