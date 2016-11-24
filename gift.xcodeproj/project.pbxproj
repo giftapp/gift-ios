@@ -585,7 +585,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = GiftApp;
 				TargetAttributes = {
 					90C97D5D1CF39555002D1EB2 = {

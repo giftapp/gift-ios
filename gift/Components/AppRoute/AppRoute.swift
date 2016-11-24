@@ -33,7 +33,6 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
 
         if !(controllerToPushFrom?.isKind(of: UINavigationController.self))! && controllerToPushFrom?.navigationController == nil {
             Logger.error("Cannot push, presented controller is not a UINavigationController")
-            print (controllerToPushFrom)
             return
         }
 
