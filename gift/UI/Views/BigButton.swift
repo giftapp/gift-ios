@@ -29,10 +29,22 @@ class BigButton: UIButton {
     func enable(enabled: Bool) {
         if (enabled) {
             self.isEnabled = true
-            self.alpha = 1
+            UIView.animate(withDuration: 0.2,
+                           delay: 0,
+                           options: .curveEaseIn,
+                           animations: {
+                            self.alpha = 1
+            },
+                           completion: nil)
         } else {
             self.isEnabled = false
-            self.alpha = 0.5
+            UIView.animate(withDuration: 0.2,
+                           delay: 0,
+                           options: .curveEaseIn,
+                           animations: {
+                            self.alpha = 0.5
+            },
+                           completion: nil)
         }
     }
 }

@@ -23,7 +23,7 @@ class LoginView : UIView, UITextFieldDelegate {
     private var boxesImage : UIImageView!
     private var phoneNumberTextField : UITextField!
     private var phoneNumberDisclaimerLabel: UILabel!
-    private var continueButton: UIButton!
+    private var continueButton: BigButton!
 
     //Private Properties
     private var continueButtonBottomConstraint: Constraint? = nil
@@ -104,13 +104,10 @@ class LoginView : UIView, UITextFieldDelegate {
         }
         
         if continueButton == nil {
-            continueButton = UIButton()
+            continueButton = BigButton()
             continueButton.setTitle("LoginView.Continue Button".localized, for: UIControlState())
-            continueButton.titleLabel!.font = UIFont.gftHeader1Font()
-            continueButton.setTitleColor(UIColor.gftWhiteColor(), for: UIControlState())
-            continueButton.backgroundColor = UIColor.gftAzureColor()
             continueButton.addTarget(self, action: #selector(LoginView.didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
-            enableContinueButton(enabled: false)
+            continueButton.enable(enabled: false)
             self.addSubview(continueButton)
         }
     }
@@ -182,16 +179,6 @@ class LoginView : UIView, UITextFieldDelegate {
         delegate!.didTapContinue()
     }
 
-    private func enableContinueButton(enabled: Bool) {
-        if (enabled) {
-            continueButton.isEnabled = true
-            continueButton.alpha = 1
-        } else {
-            continueButton.isEnabled = false
-            continueButton.alpha = 0.5
-        }
-    }
-
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
@@ -219,7 +206,7 @@ class LoginView : UIView, UITextFieldDelegate {
         }
 
         //Enable continue button
-        enableContinueButton(enabled: newLength >= LoginViewConstants.phoneNumberDigitsLength + 1)
+        continueButton.enable(enabled: newLength >= LoginViewConstants.phoneNumberDigitsLength + 1)
 
         return newLength <= LoginViewConstants.phoneNumberDigitsLength + 1
     }
