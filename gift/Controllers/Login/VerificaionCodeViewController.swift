@@ -41,6 +41,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
         super.viewDidLoad()
         
         self.addCustomViews()
+        self.hideKeyboardWhenTappedAround()
     }
 
     private func addCustomViews() {

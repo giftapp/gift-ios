@@ -39,6 +39,7 @@ class LoginViewController : UIViewController, LoginViewDelegate {
         super.viewDidLoad()
 
         self.addCustomViews()
+        self.hideKeyboardWhenTappedAround()
     }
 
     private func addCustomViews() {
