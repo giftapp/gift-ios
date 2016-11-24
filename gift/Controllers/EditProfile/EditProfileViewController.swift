@@ -58,7 +58,8 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.setupNavigationBar()
+        setupNavigationBar()
+        updateCustomViews()
     }
 
     private func setupNavigationBar() {
@@ -81,7 +82,6 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             avatarViewController = AvatarViewController()
             avatarViewController.isEditable = true
             avatarViewController.emptyState = .image(image: UIImage(named: "emptyAvatarPlaceHolder"))
-            avatarViewController.imageURL = avatarURL
             self.addChildViewController(avatarViewController)
             avatarViewController.didMove(toParentViewController: self)
         }
@@ -89,29 +89,34 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         if editProfileView == nil {
             editProfileView = EditProfileView(avatarView: avatarViewController.view)
             editProfileView.delegate = self
-            editProfileView.firstName = firstName
-            editProfileView.lastName = lastName
-            editProfileView.email = email
             self.view = editProfileView
         }
+    }
+    
+    private func updateCustomViews() {
+        avatarViewController.imageURL = avatarURL
+
+        editProfileView.firstName = firstName
+        editProfileView.lastName = lastName
+        editProfileView.email = email
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func updateUserProfile(avatarUrl: String? = nil, completion: @escaping () -> Void) {
+    func updateUserProfile(avatarUrl: String? = nil, success: @escaping () -> Void, failure: @escaping () -> Void) {
         giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: avatarUrl, success: { (user) in
             Logger.debug("Successfully updated user profile")
-            completion()
             self.identity.updateUser(user: user)
+            success()
         }) { (error) in
             Logger.error("error while updating user profile: \(error)")
-            completion()
             self.showErrorUpdatingProfile()
+            failure()
         }
     }
 
-    func uploadAvatarIfNeeded(success: @escaping (_ imageUrl : String?) -> Void) {
+    func uploadAvatarIfNeeded(success: @escaping (_ imageUrl : String?) -> Void, failure: @escaping () -> Void) {
         if avatarViewController.image == nil {
             success(nil)
             return
@@ -127,7 +132,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             success(avatarUrl)
         }) { (error) in
             Logger.error("error while uploading avatar: \(error)")
-            self.showErrorUpdatingProfile()
+            failure()
         }
     }
 
@@ -175,11 +180,18 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
 
     func didTapDone() {
         editProfileView.activityAnimation(shouldAnimate: true)
+        
         uploadAvatarIfNeeded(success: { (avatarUrl) in
-            self.updateUserProfile(avatarUrl: avatarUrl, completion: { 
+            self.updateUserProfile(avatarUrl: avatarUrl, success: {
                 self.editProfileView.activityAnimation(shouldAnimate: false)
                 self.appRoute.dismiss(controller: self, animated: true)
+            }, failure: { 
+                self.editProfileView.activityAnimation(shouldAnimate: false)
+                self.showErrorUpdatingProfile()
             })
+        }, failure: {
+            self.editProfileView.activityAnimation(shouldAnimate: false)
+            self.showErrorUpdatingProfile()
         })
     }
 }
