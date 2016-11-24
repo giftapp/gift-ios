@@ -30,6 +30,7 @@
 		62DD963C0B7B8A90B110AC44 /* JSON+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD9733C7C0536F2E4586AE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95571033DF4534E17B9C /* EditProfileView.swift */; };
+		62DD976845ABAB3831D0B31D /* UIVIewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90697725EEECCFEB92CA /* UIVIewController+HideKeyboard.swift */; };
 		62DD97A1995E3B6296837177 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD927D423D336622BEF4E8 /* Configuration.swift */; };
 		62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */; };
 		62DD980F331211CC7A8BAE97 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */; };
@@ -82,6 +83,7 @@
 		5D79C2D5F638CC61B512D0C2 /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
 		62DD9011430B13BE13086750 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
+		62DD90697725EEECCFEB92CA /* UIVIewController+HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		62DD9069903E3335729CE80E /* String+Initials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Initials.swift"; sourceTree = "<group>"; };
 		62DD906D8C4506EE9DE566A4 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+GFTAdditions.swift"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */,
 				62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */,
 				62DD94280673A9DAA87A0427 /* UITableView+HeaderViewAutolayout.swift */,
+				62DD90697725EEECCFEB92CA /* UIVIewController+HideKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				62DD9BF8CED1575C0BFAF09E /* SettingsModalButtonCell.swift in Sources */,
 				62DD91CC97693CA350EDD261 /* String+Initials.swift in Sources */,
 				62DD97A1995E3B6296837177 /* Configuration.swift in Sources */,
+				62DD976845ABAB3831D0B31D /* UIVIewController+HideKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

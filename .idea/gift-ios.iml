@@ -31,6 +31,7 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/Extensions/UIFont+GFTAdditions.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/Extensions/UITableView+HeaderViewAutolayout.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/Extensions/UIColor+GFTAdditions.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Extensions/UIVIewController+HideKeyboard.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/Views/EditProfileView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/Avatar/AvatarView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/EditProfile/Avatar/AvatarViewController.swift" isTestSource="false" />
