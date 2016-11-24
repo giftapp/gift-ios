@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Configuration.plist
-   gift
-
-   Created by Matan Lachmish on 12/11/2016.
-   Copyright (c) 2016 GiftApp. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>DevelopmentLocal</key>
-        <dict>
-            <key>giftAPIEndpointURL</key>
-            <string>https://localhost/api/v1</string>
-            <key>loggingLevel</key>
-            <string>Debug</string>
-        </dict>
-        <key>Development</key>
-        <dict>
-            <key>giftAPIEndpointURL</key>
-            <string>https://ec2-52-58-72-97.eu-central-1.compute.amazonaws.com/api/v1</string>
-            <key>loggingLevel</key>
-            <string>Debug</string>
-        </dict>
-        <key>Production</key>
-        <dict>
-            <key>giftAPIEndpointURL</key>
-            <string>https://giftapp.co.il/api/v1</string>
-            <key>loggingLevel</key>
-            <string>Info</string>
-        </dict>
-    </dict>
+<dict>
+	<key>DevelopmentLocal</key>
+	<dict>
+		<key>giftAPIEndpointURL</key>
+		<string>https://localhost:8443/api/v1</string>
+		<key>loggingLevel</key>
+		<string>Debug</string>
+	</dict>
+	<key>Development</key>
+	<dict>
+		<key>giftAPIEndpointURL</key>
+		<string>https://ec2-52-58-72-97.eu-central-1.compute.amazonaws.com/api/v1</string>
+		<key>loggingLevel</key>
+		<string>Debug</string>
+	</dict>
+	<key>Production</key>
+	<dict>
+		<key>giftAPIEndpointURL</key>
+		<string>https://giftapp.co.il/api/v1</string>
+		<key>loggingLevel</key>
+		<string>Info</string>
+	</dict>
+</dict>
 </plist>
