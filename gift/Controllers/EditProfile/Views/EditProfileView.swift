@@ -16,9 +16,9 @@ protocol EditProfileViewDelegate {
 class EditProfileView: UIView, UITextFieldDelegate {
 
     //Views
-    private var firstNameTextField: PaddedTextField!
-    private var lastNameTextField: PaddedTextField!
-    private var emailTextField: PaddedTextField!
+    private var firstNameTextField: AnimatedTextField!
+    private var lastNameTextField: AnimatedTextField!
+    private var emailTextField: AnimatedTextField!
     private var loginWithFacebookDescriptionLabel: UILabel!
     private var loginWithFaceBookButton: UIButton!
     private var doneButton: BigButton!
@@ -76,37 +76,24 @@ class EditProfileView: UIView, UITextFieldDelegate {
         self.addSubview(avatarView)
 
         if firstNameTextField == nil {
-            firstNameTextField = PaddedTextField()
-            firstNameTextField.backgroundColor = UIColor.gftWhiteColor()
-            firstNameTextField.addTopBorder()
+            firstNameTextField = AnimatedTextField()
             firstNameTextField.placeholder = "EditProfileView.First Name".localized
-            firstNameTextField.textAlignment = .right
-            firstNameTextField.font = UIFont.gftText1Font()
             firstNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             firstNameTextField.delegate = self
             self.addSubview(firstNameTextField)
         }
 
         if lastNameTextField == nil {
-            lastNameTextField = PaddedTextField()
-            lastNameTextField.backgroundColor = UIColor.gftWhiteColor()
-            lastNameTextField.addTopBorder(padded: true)
+            lastNameTextField = AnimatedTextField()
             lastNameTextField.placeholder = "EditProfileView.Last Name".localized
-            lastNameTextField.textAlignment = .right
-            lastNameTextField.font = UIFont.gftText1Font()
             lastNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             lastNameTextField.delegate = self
             self.addSubview(lastNameTextField)
         }
 
         if emailTextField == nil {
-            emailTextField = PaddedTextField()
-            emailTextField.backgroundColor = UIColor.gftWhiteColor()
-            emailTextField.addTopBorder(padded: true)
-            emailTextField.addBottomBorder()
+            emailTextField = AnimatedTextField()
             emailTextField.placeholder = "EditProfileView.Email address".localized
-            emailTextField.textAlignment = .right
-            emailTextField.font = UIFont.gftText1Font()
             emailTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             emailTextField.keyboardType = .emailAddress
             emailTextField.delegate = self

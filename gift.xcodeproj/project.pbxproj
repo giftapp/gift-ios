@@ -41,6 +41,7 @@
 		62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
 		62DD99C46939549472F8C011 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */; };
+		62DD99F352BF3865BAFBFB13 /* AnimatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */; };
 		62DD9AC8B209CAD8CFDB1F31 /* UIFont+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */; };
 		62DD9B323058476B073EF0D9 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9011430B13BE13086750 /* UIImage+Resize.swift */; };
 		62DD9B5537156133D476A38C /* UITableView+HeaderViewAutolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD94280673A9DAA87A0427 /* UITableView+HeaderViewAutolayout.swift */; };
@@ -128,6 +129,7 @@
 		62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+PhoneNumber.swift"; sourceTree = "<group>"; };
 		62DD9CAB5B2E629F2856BFEF /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTextField.swift; sourceTree = "<group>"; };
 		62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		62DD9D267EA10AC549902D2F /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				62DD9FA43BF8507919CDF443 /* BigButton.swift */,
 				62DD94070F713CE65554320E /* ActivityIndicatorView.swift */,
 				62DD9601F44EE34943E71B96 /* PaddedTextField.swift */,
+				62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				62DD91CC97693CA350EDD261 /* String+Initials.swift in Sources */,
 				62DD97A1995E3B6296837177 /* Configuration.swift in Sources */,
 				62DD976845ABAB3831D0B31D /* UIVIewController+HideKeyboard.swift in Sources */,
+				62DD99F352BF3865BAFBFB13 /* AnimatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

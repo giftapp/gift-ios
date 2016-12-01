@@ -25,6 +25,7 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/AppRoute/AppRoute.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/GiftService/GiftServiceCoreClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Components/Configuration/Configuration.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/AnimatedTextField.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/PaddedTextField.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/ActivityIndicatorView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/UI/Views/BigButton.swift" isTestSource="false" />
