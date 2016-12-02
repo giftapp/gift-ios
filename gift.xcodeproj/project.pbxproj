@@ -21,6 +21,7 @@
 		62DD92CCD1D9C4A7B1F039D6 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */; };
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
+		62DD9448AEE9BAA5E0BA67AE /* SendGiftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D2877E6B94D4BD579FE /* SendGiftButton.swift */; };
 		62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */; };
 		62DD94BBD10FB559F8D4A924 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */; };
 		62DD955DB26FBE3003D598A0 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD906D8C4506EE9DE566A4 /* Rubik-LightItalic.ttf */; };
@@ -37,6 +38,7 @@
 		62DD984472AE2FC295352D57 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9601F44EE34943E71B96 /* PaddedTextField.swift */; };
 		62DD98B2E9FB4FF2D8B4AF7A /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
+		62DD990BF1D10B366F6E53BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D2FFB2E8A4F4986C0D3 /* HomeView.swift */; };
 		62DD9927C252D2D5679E3E4E /* Alamofire+OptionalParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */; };
 		62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
@@ -134,6 +136,8 @@
 		62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTextField.swift; sourceTree = "<group>"; };
 		62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		62DD9D267EA10AC549902D2F /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		62DD9D2877E6B94D4BD579FE /* SendGiftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendGiftButton.swift; sourceTree = "<group>"; };
+		62DD9D2FFB2E8A4F4986C0D3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		62DD9DCA03503B4293DAD836 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -460,6 +464,8 @@
 		62DD9BCC9C7A0EDEC556A508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				62DD9D2FFB2E8A4F4986C0D3 /* HomeView.swift */,
+				62DD9D2877E6B94D4BD579FE /* SendGiftButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -781,6 +787,8 @@
 				62DD976845ABAB3831D0B31D /* UIVIewController+HideKeyboard.swift in Sources */,
 				62DD99F352BF3865BAFBFB13 /* AnimatedTextField.swift in Sources */,
 				62DD9BC19D7706F463E9ABC0 /* DeveloperTools.swift in Sources */,
+				62DD990BF1D10B366F6E53BB /* HomeView.swift in Sources */,
+				62DD9448AEE9BAA5E0BA67AE /* SendGiftButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

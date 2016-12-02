@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   gift
 
@@ -71,3 +71,7 @@
 "SettingsViewController.Terms and conditions" = "תנאי שימוש";
 "SettingsViewController.Logout" = "התנתק";
 "SettingsViewController.Alert logout.Title" = "האם אתה בטוח שברצונך להתנתק?";
+
+//HomeViewController
+"HomeView.Slogan" = "המתנה שלך לחתונה";
+"HomeView.Gift button title" = "שלח מתנה";

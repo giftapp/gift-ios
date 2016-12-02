@@ -7,21 +7,14 @@ import Foundation
 import UIKit
 import SnapKit
 
-class HomeViewController : UIViewController {
+class HomeViewController : UIViewController, HomeViewDelegate {
 
     // Injections
     private var appRoute : AppRoute
     private var identity : Identity
 
     //Views
-    private var logoLabel : UILabel!
-    private var slogenLabel : UILabel!
-    private var descriptionLabel : UILabel!
-    private var separatorViewA : UILabel!
-    private var dayLabel : UILabel!
-    private var dateLabel : UILabel!
-    private var separatorViewB : UILabel!
-    private var sendGiftButton : UIButton!
+    private var homeView: HomeView!
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
@@ -46,35 +39,35 @@ class HomeViewController : UIViewController {
         self.addCustomViews()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        self.setConstraints()
-    }
-
     private func addCustomViews() {
-        self.view.backgroundColor = UIColor.white
-        
-        self.logoLabel = UILabel()
-        self.logoLabel.text = "Gift".localized
-        self.view.addSubview(self.logoLabel)
-        
-        self.slogenLabel = UILabel()
-        self.slogenLabel.text = "WelcomeView.Gift slogan".localized
-        self.view.addSubview(self.slogenLabel)
-    }
-
-    private func setConstraints() {
-        logoLabel.snp.makeConstraints { (make) in
-            make.center.equalTo(logoLabel.superview!)
-        }
-        
-        slogenLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(slogenLabel.superview!)
-            make.top.equalTo(logoLabel.snp.bottom).offset(15)
+        if homeView == nil {
+            homeView = HomeView()
+            homeView.delegate = self
+            self.view = homeView
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateCustomViews()
+    }
+
+    private func updateCustomViews() {
+        //TODO: update view with real details
+        homeView.welcomeText = "123"
+        homeView.descriptionText = "333"
+        //String.localizedStringWithFormat("HomeView.Description".localized, phoneNumber.formateAsPhoneNumber)
+    }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - LoginViewDelegate
+    //-------------------------------------------------------------------------------------------
+    func didTapSendGift() {
+        Logger.debug("User tapped send gift button")
+    }
 }

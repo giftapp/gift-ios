@@ -47,6 +47,8 @@
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Welcome/WelcomeViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Welcome/Views/WelcomeView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Tab/MainTabViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Home/Views/HomeView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Home/Views/SendGiftButton.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Home/HomeViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/History/HistoryViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gift/Controllers/Login/LoginViewController.swift" isTestSource="false" />

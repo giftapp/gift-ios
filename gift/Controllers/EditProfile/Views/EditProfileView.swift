@@ -113,11 +113,12 @@ class EditProfileView: UIView, UITextFieldDelegate {
         if loginWithFaceBookButton == nil {
             loginWithFaceBookButton = UIButton()
 
-            loginWithFaceBookButton.setTitle("EditProfileViewController.Login with Facebook".localized, for: UIControlState())
+            loginWithFaceBookButton.setTitle("EditProfileViewController.Login with Facebook".localized, for: .normal)
             loginWithFaceBookButton.titleLabel!.font = UIFont.gftHeader1Font()
-            loginWithFaceBookButton.setTitleColor(UIColor.gftFacebookBlueColor(), for: UIControlState())
+            loginWithFaceBookButton.setTitleColor(UIColor.gftFacebookBlueColor(), for: .normal)
 
-            loginWithFaceBookButton.setImage(UIImage(named:"facebookLogo"), for: UIControlState())
+            loginWithFaceBookButton.setImage(UIImage(named:"facebookLogo"), for: .normal)
+            loginWithFaceBookButton.setImage(UIImage(named:"facebookLogo"), for: .highlighted)
             loginWithFaceBookButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
 
             loginWithFaceBookButton.backgroundColor = UIColor.gftWhiteColor()

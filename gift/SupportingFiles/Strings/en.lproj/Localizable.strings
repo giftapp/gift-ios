@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   gift
 
@@ -71,3 +71,7 @@
 "SettingsViewController.Terms and conditions" = "Terms and conditions";
 "SettingsViewController.Logout" = "Logout";
 "SettingsViewController.Alert logout.Title" = "Are you sure you want to logout?";
+
+//HomeViewController
+"HomeView.Slogan" = "Your wedding partner";
+"HomeView.Gift button title" = "Send a gift";

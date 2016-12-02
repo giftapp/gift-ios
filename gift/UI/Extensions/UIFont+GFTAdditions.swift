@@ -52,4 +52,8 @@ extension UIFont {
     class func gftAvatarInitialsFont() -> UIFont? {
         return UIFont(name: "Rubik-Regular", size: 40.0)
     }
+
+	class func gftGiveGiftButtonFont() -> UIFont? {
+		return UIFont(name: "Rubik-Regular", size: 25.0)
+	}
 }
