@@ -14,6 +14,18 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         Logger.configureLog()
     }
 
+    public dynamic func developerTools() -> Any {
+        return TyphoonDefinition.withClass(DeveloperTools.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(DeveloperTools.init(appRoute:identity:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.appRoute())
+                initializer?.injectParameter(with: self.identity())
+            }
+        }
+    }
+
     public dynamic func authenticator() -> Any {
         return TyphoonDefinition.withClass(Authenticator.self) {
             (definition) in

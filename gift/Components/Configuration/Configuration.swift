@@ -25,7 +25,7 @@ private struct ConfigurationConstants{
     static let configurationFileName = "Configuration"
     static let giftAPIEndpointURLKey = "giftAPIEndpointURL"
     static let loggingLevelKey = "loggingLevel"
-
+    static let developmentToolsEnabledKey = "developmentToolsEnabled"
 }
 
 /**
@@ -61,5 +61,9 @@ class Configuration {
 
     var loggingLevel: String {
         return configuration.object(forKey: ConfigurationConstants.loggingLevelKey) as! String
+    }
+    
+    var developmentToolsEnabled: Bool {
+        return configuration.object(forKey: ConfigurationConstants.developmentToolsEnabledKey) as! Bool
     }
 }

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Injected
     var appRoute : AppRoute!
     var launcher : Launcher!
+    var developerTools: DeveloperTools!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.backgroundColor = UIColor.white
             window.makeKeyAndVisible()
         }
+        
+        developerTools.allowIfEnable()
         
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.onDidLoggedOutEvent(notification:)), name: NSNotification.Name(rawValue: didLoggedOutEvent.name), object: nil)
         

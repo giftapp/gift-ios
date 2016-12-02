@@ -19,6 +19,7 @@ public class ApplicationAssembly : TyphoonAssembly {
             
             definition?.injectProperty(#selector(CoreComponentsAssembly.appRoute), with: self.coreComponentsAssembly.appRoute())
             definition?.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
+            definition?.injectProperty(#selector(CoreComponentsAssembly.developerTools), with: self.coreComponentsAssembly.developerTools())
             
         }
     }

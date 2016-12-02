@@ -47,6 +47,7 @@
 		62DD9B5537156133D476A38C /* UITableView+HeaderViewAutolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD94280673A9DAA87A0427 /* UITableView+HeaderViewAutolayout.swift */; };
 		62DD9B8C394A43F0E55CE29E /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */; };
 		62DD9BBBCA0904A5C08A268D /* CoreComponentsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */; };
+		62DD9BC19D7706F463E9ABC0 /* DeveloperTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */; };
 		62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92DA6FFC16A8259A5068 /* AvatarView.swift */; };
 		62DD9BD664CDF986B4D67DC9 /* didLoggedOutEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD98E6DA7C6B77CD73BF8E /* didLoggedOutEvent.swift */; };
 		62DD9BF8CED1575C0BFAF09E /* SettingsModalButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9123A27B7DF24FA99CFF /* SettingsModalButtonCell.swift */; };
@@ -95,6 +96,7 @@
 		62DD9123A27B7DF24FA99CFF /* SettingsModalButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModalButtonCell.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
 		62DD927D423D336622BEF4E8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperTools.swift; sourceTree = "<group>"; };
 		62DD92DA6FFC16A8259A5068 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 				BEF99795085D1F08F70CC0EB /* Pods_gift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62DD90097E0E8DAFCC0CDD1F /* DeveloperTools */ = {
+			isa = PBXGroup;
+			children = (
+				62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */,
+			);
+			path = DeveloperTools;
 			sourceTree = "<group>";
 		};
 		62DD9029D8D9740C84A99A3E /* Extensions */ = {
@@ -399,6 +409,7 @@
 				62DD97B1C587EBF739B1064D /* Launcher */,
 				62DD9EF19992D2F658ADD2DA /* Log */,
 				62DD98120A5E16EA5FC5C0AE /* Configuration */,
+				62DD90097E0E8DAFCC0CDD1F /* DeveloperTools */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -769,6 +780,7 @@
 				62DD97A1995E3B6296837177 /* Configuration.swift in Sources */,
 				62DD976845ABAB3831D0B31D /* UIVIewController+HideKeyboard.swift in Sources */,
 				62DD99F352BF3865BAFBFB13 /* AnimatedTextField.swift in Sources */,
+				62DD9BC19D7706F463E9ABC0 /* DeveloperTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 		<string>https://localhost:8443/api/v1</string>
 		<key>loggingLevel</key>
 		<string>Debug</string>
+		<key>developmentToolsEnabled</key>
+		<true/>
 	</dict>
 	<key>Development</key>
 	<dict>
@@ -15,6 +17,8 @@
 		<string>https://ec2-52-58-72-97.eu-central-1.compute.amazonaws.com/api/v1</string>
 		<key>loggingLevel</key>
 		<string>Debug</string>
+		<key>developmentToolsEnabled</key>
+		<true/>
 	</dict>
 	<key>Production</key>
 	<dict>
@@ -22,6 +26,8 @@
 		<string>https://giftapp.co.il/api/v1</string>
 		<key>loggingLevel</key>
 		<string>Info</string>
+		<key>developmentToolsEnabled</key>
+		<false/>
 	</dict>
 </dict>
 </plist>
