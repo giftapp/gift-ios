@@ -31,6 +31,7 @@
 		62DD963C0B7B8A90B110AC44 /* JSON+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */; };
 		62DD972F5DAB092309A23944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DD94C064D7F82B98C369EA /* Assets.xcassets */; };
 		62DD9733C7C0536F2E4586AE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95571033DF4534E17B9C /* EditProfileView.swift */; };
+		62DD9735E71E428EFADFCE22 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD91DDABC7A451CEE55958 /* Date+String.swift */; };
 		62DD976845ABAB3831D0B31D /* UIVIewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD90697725EEECCFEB92CA /* UIVIewController+HideKeyboard.swift */; };
 		62DD97A1995E3B6296837177 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD927D423D336622BEF4E8 /* Configuration.swift */; };
 		62DD97E242B6113678B41107 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */; };
@@ -97,6 +98,7 @@
 		62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewControllerFactory.swift; sourceTree = "<group>"; };
 		62DD9123A27B7DF24FA99CFF /* SettingsModalButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModalButtonCell.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
+		62DD91DDABC7A451CEE55958 /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		62DD927D423D336622BEF4E8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperTools.swift; sourceTree = "<group>"; };
 		62DD92DA6FFC16A8259A5068 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */,
 				62DD9011430B13BE13086750 /* UIImage+Resize.swift */,
 				62DD9069903E3335729CE80E /* String+Initials.swift */,
+				62DD91DDABC7A451CEE55958 /* Date+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				62DD9BC19D7706F463E9ABC0 /* DeveloperTools.swift in Sources */,
 				62DD990BF1D10B366F6E53BB /* HomeView.swift in Sources */,
 				62DD9448AEE9BAA5E0BA67AE /* SendGiftButton.swift in Sources */,
+				62DD9735E71E428EFADFCE22 /* Date+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

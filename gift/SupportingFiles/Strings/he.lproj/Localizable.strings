@@ -72,6 +72,25 @@
 "SettingsViewController.Logout" = "התנתק";
 "SettingsViewController.Alert logout.Title" = "האם אתה בטוח שברצונך להתנתק?";
 
-//HomeViewController
+//HomeView
 "HomeView.Slogan" = "המתנה שלך לחתונה";
 "HomeView.Gift button title" = "שלח מתנה";
+
+//HomeViewController
+//1.Day (i.e Sunday) 2.Date (i.e May 29)
+"HomeViewController.Description" = "ניתן לשלוח מתנה לכל חתונה\n המתקיימת היום - %@, %@";
+
+//Date+String
+"Date+String.Day.Sunday" = "יום ראשון";
+"Date+String.Day.Monday" = "יום שני";
+"Date+String.Day.Tuesday" = "יום שלישי";
+"Date+String.Day.Wednesday" = "יום רביעי";
+"Date+String.Day.Thursday" = "יום חמישי";
+"Date+String.Day.Friday" = "יום שישי";
+"Date+String.Day.Saturday" = "יום שבת";
+
+"Date+String.Greeting.Morning" = "בוקר טוב";
+"Date+String.Greeting.Noon" = "צהריים טובים";
+"Date+String.Greeting.Afternoon" = "אחר הצהריים טובים";
+"Date+String.Greeting.Evening" = "ערב טוב";
+"Date+String.Greeting.Night" = "לילה טוב";

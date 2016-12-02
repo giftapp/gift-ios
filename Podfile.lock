@@ -20,7 +20,7 @@ PODS:
   - NVActivityIndicatorView (2.12)
   - PMAlertController (2.0.0)
   - SnapKit (3.0.0)
-  - SwiftDate (3.0.9)
+  - SwiftDate (4.0.8)
   - SwiftyJSON (3.0.0)
   - Typhoon (3.5.1):
     - Typhoon/no-arc (= 3.5.1)
@@ -40,7 +40,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView (from `https://github.com/ninjaprox/NVActivityIndicatorView.git`)
   - PMAlertController (~> 2.0.0)
   - SnapKit (~> 3.0.0)
-  - SwiftDate (from `https://github.com/malcommac/SwiftDate.git`, branch `feature/swift-3.0`)
+  - SwiftDate (~> 4.0)
   - SwiftyJSON (from `https://github.com/appsailor/SwiftyJSON.git`, branch `swift3`)
   - Typhoon (~> 3.5.1)
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_3.0`)
@@ -48,9 +48,6 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   NVActivityIndicatorView:
     :git: https://github.com/ninjaprox/NVActivityIndicatorView.git
-  SwiftDate:
-    :branch: feature/swift-3.0
-    :git: https://github.com/malcommac/SwiftDate.git
   SwiftyJSON:
     :branch: swift3
     :git: https://github.com/appsailor/SwiftyJSON.git
@@ -62,9 +59,6 @@ CHECKOUT OPTIONS:
   NVActivityIndicatorView:
     :commit: 748e785ed08c1a30f674a7da2ca3ba342b121287
     :git: https://github.com/ninjaprox/NVActivityIndicatorView.git
-  SwiftDate:
-    :commit: 644a4615c77dc70d7861ddadb2c59f5c45f4c235
-    :git: https://github.com/malcommac/SwiftDate.git
   SwiftyJSON:
     :commit: de73429b38b8994f614fb27c5ec094bb8a4833f2
     :git: https://github.com/appsailor/SwiftyJSON.git
@@ -85,11 +79,11 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: de8be03826726ad99cdfacf7fe09e88cbfeef911
   PMAlertController: edd2ae1f2a31ec77db72103a2dd81a77d6b5de95
   SnapKit: 98af0a4e9369d3c58f758967518081dbdc7eb1d9
-  SwiftDate: fa487d9b7d8c3070ea2553486902494f4915465d
+  SwiftDate: 9aa3259d8850d818bec02802f8f05aa9a8c26fdb
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
   XCGLogger: dca27c8c2a218a9c176917680d891c8fdf9d4484
 
-PODFILE CHECKSUM: f285b12d815eb06a9d49dfcb58b95b9c73a431fc
+PODFILE CHECKSUM: 71299f7379205697641c12e2137e37224e431456
 
 COCOAPODS: 1.0.1

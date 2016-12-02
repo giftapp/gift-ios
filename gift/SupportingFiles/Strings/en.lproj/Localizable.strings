@@ -72,6 +72,25 @@
 "SettingsViewController.Logout" = "Logout";
 "SettingsViewController.Alert logout.Title" = "Are you sure you want to logout?";
 
-//HomeViewController
+//HomeView
 "HomeView.Slogan" = "Your wedding partner";
 "HomeView.Gift button title" = "Send a gift";
+
+//HomeViewController
+//1.Day (i.e Sunday) 2.Date (i.e May 29)
+"HomeViewController.Description" = "You can send a gift to every wedding\n that accures today - %@, the %@";
+
+//Date+String
+"Date+String.Day.Sunday" = "Sunday";
+"Date+String.Day.Monday" = "Monday";
+"Date+String.Day.Tuesday" = "Tuesday";
+"Date+String.Day.Wednesday" = "Wednesday";
+"Date+String.Day.Thursday" = "Thursday";
+"Date+String.Day.Friday" = "Friday";
+"Date+String.Day.Saturday" = "Saturday";
+
+"Date+String.Greeting.Morning" = "Good Morning";
+"Date+String.Greeting.Noon" = "Hi there";
+"Date+String.Greeting.Afternoon" = "Good Afternoon";
+"Date+String.Greeting.Evening" = "Good Evening";
+"Date+String.Greeting.Night" = "Good Night";

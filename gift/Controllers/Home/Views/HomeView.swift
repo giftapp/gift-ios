@@ -81,6 +81,7 @@ class HomeView: UIView {
 
         if descriptionLabel == nil {
             descriptionLabel = UILabel()
+            descriptionLabel.numberOfLines = 0
             descriptionLabel.textAlignment = NSTextAlignment.center
             descriptionLabel.font = UIFont.gftHeader2Font()
             descriptionLabel.textColor = UIColor.gftBlackColor()

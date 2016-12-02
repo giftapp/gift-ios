@@ -32,8 +32,7 @@ target 'gift' do
   pod 'FBSDKLoginKit', '~> 4.15.1'
 
   # Date manipulations
-  # pod 'SwiftDate', '~> 3.0.8'                                       # not used yet
-  pod 'SwiftDate', :git => 'https://github.com/malcommac/SwiftDate.git', :branch => 'feature/swift-3.0'
+  pod 'SwiftDate', '~> 4.0.8'
 
   # Image cache
   pod 'Kingfisher', '~> 3.0.1'                                      # not used yet
