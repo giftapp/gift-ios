@@ -237,10 +237,18 @@ class EditProfileView: UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
+
+    //Dismiss keyboard on return
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return false
+    }
+
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //Update delegate
         delegate.didUpdateForm()
 
         return true
     }
+
 }
