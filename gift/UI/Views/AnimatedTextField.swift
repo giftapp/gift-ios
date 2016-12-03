@@ -80,12 +80,17 @@ class AnimatedTextField: UITextField {
     private func updatePlaceholder() {
         placeholderLabel.text = placeholder
         placeholderLabel.font = font
+        placeholderLabel.textColor = getPlaceholderColor()
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
 
         if isFirstResponder || !(text!.isEmpty) {
             animateViewsForTextEntry()
         }
+    }
+    
+    private func getPlaceholderColor() -> UIColor {
+        return self.isFirstResponder ? placeholderActiveColor : placeholderInActiveColor
     }
 
     private func layoutPlaceholderInTextRect() {
@@ -130,7 +135,7 @@ class AnimatedTextField: UITextField {
         }))
         
         //Paint placeholder label
-        self.placeholderLabel.textColor = self.placeholderActiveColor
+        self.placeholderLabel.textColor = getPlaceholderColor()
     }
     
     /**
@@ -156,7 +161,7 @@ class AnimatedTextField: UITextField {
         }
 
         //Paint placeholder label
-        self.placeholderLabel.textColor = self.placeholderInActiveColor
+        self.placeholderLabel.textColor = getPlaceholderColor()
     }
 
     //-------------------------------------------------------------------------------------------
