@@ -117,7 +117,7 @@ class HomeView: UIView {
         }
 
         descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(welcomeLabel.snp.bottom).offset(40)
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(35)
             make.centerX.equalTo(descriptionLabel.superview!)
         }
 
