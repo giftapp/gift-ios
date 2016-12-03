@@ -10,14 +10,13 @@ target 'gift' do
   # pod 'AsyncSwift', '~> 1.7.2'
 
   # Log
-  # pod 'XCGLogger', '~> 4.0.0'
-  pod 'XCGLogger', :git => 'https://github.com/DaveWoodCom/XCGLogger.git', :branch => 'swift_3.0'
+  pod 'XCGLogger', '~> 4.0.0'
 
   # Networking
   pod 'Alamofire', '~> 4.0.0'
 
   # JSON mapping
-  pod 'SwiftyJSON', :git => 'https://github.com/appsailor/SwiftyJSON.git', :branch => 'swift3'
+  pod 'SwiftyJSON', '~> 3.1.3'
 
   # Layout
   pod 'SnapKit', '~> 3.0.0'
@@ -44,7 +43,7 @@ target 'gift' do
   # pod 'TextAttributes', '~> 0.3.1' # Attributed strings             # not used yet
   # pod 'RAMAnimatedTabBarController', '~> 1.5.3' # Animated tab bar  # not used yet
   pod 'PMAlertController', '~> 2.0.0' # Alert controller
-  pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git' # Activity indicator
+  pod 'NVActivityIndicatorView', '~> 3.0' # Activity indicator
   # pod 'MZTimerLabel', '~> 0.5.4' # Countdown UILabel                # not used yet
 
   # Crash report

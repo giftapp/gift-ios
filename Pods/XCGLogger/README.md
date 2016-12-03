@@ -69,6 +69,10 @@ use_frameworks!
 pod 'XCGLogger', '~> 4.0.0'
 ```
 
+Specifying the pod `XCGLogger` on its own will include the core framework. We're starting to add subspecs to allow you to include optional components as well:
+
+`pod 'XCGLogger/UserInfoHelpers', '~> 4.0.0'`: Include some experimental code to help deal with using UserInfo dictionaries to tag log messages.
+
 Then run `pod install`. For details of the installation and usage of CocoaPods, visit [it's official web site][cocoapods].
 
 ###Backwards Compatibility
@@ -277,69 +281,37 @@ In large projects with multiple developers, you'll probably want to start taggin
 
 While extremely flexible, the `userInfo` dictionary can be a little cumbersome to use. There are a few possible methods you can use to simply things. I'm still testing these out myself so they're not officially part of the library yet (I'd love feedback or other suggestions).
 
-#####Option 1: Custom Operator
+I have created some experimental code to help create the UserInfo dictionaries. (Include the optional `UserInfoHelpers` subspec if using CocoaPods). Check the iOS Demo app to see it in use.
+
+There are two structs that conform to the `UserInfoTaggingProtocol` protocol. `Tag` and `Dev`.
+
+You can create an extension on each of these that suit your project. For example:
 
 ```Swift
-func +<Key: Hashable, Value> (lhs: Dictionary<Key, Value>, rhs: Dictionary<Key, Value>) -> Dictionary<Key, Value> {
-    var merged = lhs
-    rhs.forEach { key, value in
-        merged[key] = value
-    }
-    return merged
+extension Tag {
+    static let sensitive = Tag("sensitive")
+    static let ui = Tag("ui")
+    static let data = Tag("data")
+}
+
+extension Dev {
+    static let dave = Dev("dave")
+    static let sabby = Dev("sabby")
 }
 ```
 
-If you add the above code to your app, you can merge dictionaries together with the `+` operator, giving you the ability to do something like this:
-
-```Swift
-// Globally defined somewhere
-
-struct Tag {
-    static let sensitive = [XCGLogger.Constants.userInfoKeyTags: ["sensitive"]]
-    static let ui = [XCGLogger.Constants.userInfoKeyTags: ["ui"]]
-    static let data = [XCGLogger.Constants.userInfoKeyTags: ["data"]]
-}
-
-struct Dev {
-    static let dave = [XCGLogger.Constants.userInfoKeyDevs: ["dave"]]
-    static let sabby = [XCGLogger.Constants.userInfoKeyDevs: ["sabby"]]
-}
-```
+Along with these types, there's an overloaded operator `|` that can be used to merge them together into a dictionary compatible with the `UserInfo:` parameter of the logging calls.
 
 Then you can log messages like this:
 
 ```Swift
-log.debug("A tagged log message", userInfo: Tag.sensitive + Dev.dave)
+log.debug("A tagged log message", userInfo: Dev.dave | Tag.sensitive)
 ```
 
-I'm not quite satisfied with this solution yet for a couple of reasons. 
+There are some current issues I see with these `UserInfoHelpers`, which is why I've made it optional/experimental for now. I'd love to hear comments/suggestions for improvements.
 
-1. I'm not a fan of overloading operators, especially when there's a good chance the same operator could be added to the standard library.
-2. The `+` method above doesn't merge collections at the key level. `Tag.sensitive + Tag.data = Tag.data`, the sensitive tag is lost.
-
-#####Option 2: Short Variables
-
-Define your tags and devs using short, global variables:
-
-```Swift
-let tags = XCGLogger.Constants.userInfoKeyTags
-let devs = XCGLogger.Constants.userInfoKeyDevs
-
-let sensitive = "sensitive"
-let data = "data"
-let ui = "ui"
-
-let dave = "dave"
-let sabby = "sabby"
-```
-
-Then log your messages:
-
-```Swift
-log.debug("A tagged log message", userInfo: [tags: [sensitive, data], devs: [dave]])
-```
-
-Not a fan of this method either since it still feels like a lot of typing per log message. I'll be experimenting with more options here, please feel free to make a suggestion.
+1. The overloaded operator `|` merges dictionaries so long as there are no `Set`s. If one of the dictionaries contains a `Set`, it'll use one of them, without merging them. Preferring the left hand side if both sides have a set for the same key.
+2. Since the `userInfo:` parameter needs a dictionary, you can't pass in a single Dev or Tag object. You need to use at least two with the `|` operator to have it automatically convert to a compatible dictionary. If you only want one Tag for example, you must access the `.dictionary` parameter manually: `userInfo: Tag("Blah").dictionary`.
 
 ###Selectively Executing Code
 
@@ -480,8 +452,6 @@ You can also create custom filters or formatters. Take a look at the provided ve
 **Note**: These may not yet work with the Swift 3 version of XCGLogger.
 
 [**XCGLoggerNSLoggerConnector:**][XCGLoggerNSLoggerConnector] Send your logs to [NSLogger][NSLogger]
-<br />
-[**firelog:**][Firelog] Send your logs to [Firebase][Firebase]
 
 ##Xcode 8 Tips
 
@@ -564,9 +534,9 @@ The change log is now in it's own file: [CHANGELOG.md](CHANGELOG.md)
 [badge-platforms]: https://img.shields.io/badge/Platforms-OS%20X%20%7C%20iOS%20%7C%20tvOS%20%7C%20watchOS-lightgray.svg?style=flat
 [badge-license]: https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat
 [badge-travis]: https://img.shields.io/travis/DaveWoodCom/XCGLogger/swift_3.0.svg?style=flat
-[badge-swiftpm]: https://img.shields.io/badge/Swift_Package_Manager-v4.0.0--beta.4-64a6dd.svg?style=flat
+[badge-swiftpm]: https://img.shields.io/badge/Swift_Package_Manager-v4.0.0-64a6dd.svg?style=flat
 [badge-cocoapods]: https://img.shields.io/cocoapods/v/XCGLogger.svg?style=flat
-[badge-carthage]: https://img.shields.io/badge/Carthage-v4.0.0--beta.4-64a6dd.svg?style=flat
+[badge-carthage]: https://img.shields.io/badge/Carthage-v4.0.0-64a6dd.svg?style=flat
 
 [badge-sponsors]: https://img.shields.io/badge/Sponsors-Cerebral%20Gardens-orange.svg?style=flat
 [badge-twitter]: https://img.shields.io/twitter/follow/DaveWoodX.svg?style=social
@@ -578,7 +548,7 @@ The change log is now in it's own file: [CHANGELOG.md](CHANGELOG.md)
 [Firelog]: http://jogabo.github.io/firelog/
 [Firebase]: https://www.firebase.com/
 
-[xcglogger-4.0.0]: https://github.com/DaveWoodCom/XCGLogger/tree/swift_3.0
+[xcglogger-4.0.0]: https://github.com/DaveWoodCom/XCGLogger/releases/tag/Version_4.0.0
 [xcglogger-3.6.0]: https://github.com/DaveWoodCom/XCGLogger/releases/tag/Version_3.6.0
 [xcglogger-3.5.3]: https://github.com/DaveWoodCom/XCGLogger/releases/tag/Version_3.5.3
 [xcglogger-3.2]: https://github.com/DaveWoodCom/XCGLogger/releases/tag/Version_3.2

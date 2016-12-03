@@ -46,7 +46,7 @@ open class XCGLogger: CustomDebugStringConvertible {
         public static let userInfoKeyInternal = "\(baseIdentifier).internal"
 
         /// Library version number
-        public static let versionString = "4.0.0-beta.4"
+        public static let versionString = "4.0.0"
 
         /// Internal userInfo
         internal static let internalUserInfo: [String: Any] = [XCGLogger.Constants.userInfoKeyInternal: true]
@@ -111,6 +111,9 @@ open class XCGLogger: CustomDebugStringConvertible {
     /// Option: a closure to execute whenever a logging method is called without a log message
     open var noMessageClosure: () -> Any? = { return "" }
 
+    /// Option: override descriptions of log levels
+    open var levelDescriptions: [XCGLogger.Level: String] = [:]
+
     /// Array of log formatters to apply to messages before they're output
     open var formatters: [LogFormatterProtocol]? = nil
 
@@ -126,24 +129,24 @@ open class XCGLogger: CustomDebugStringConvertible {
         return Statics.logQueue
     }
 
-    /// The date formatter object to use when displaying the dates of log messages (internal storage)
-    internal var _dateFormatter: DateFormatter? = nil
+    /// A custom date formatter object to use when displaying the dates of log messages (internal storage)
+    internal var _customDateFormatter: DateFormatter? = nil
     /// The date formatter object to use when displaying the dates of log messages
     open var dateFormatter: DateFormatter? {
         get {
-            if _dateFormatter != nil {
-                return _dateFormatter
+            struct Statics {
+                static var dateFormatter: DateFormatter = {
+                    let defaultDateFormatter = DateFormatter()
+                    defaultDateFormatter.locale = NSLocale.current
+                    defaultDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                    return defaultDateFormatter
+                }()
             }
 
-            let defaultDateFormatter = DateFormatter()
-            defaultDateFormatter.locale = NSLocale.current
-            defaultDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-            _dateFormatter = defaultDateFormatter
-
-            return _dateFormatter
+            return _customDateFormatter ?? Statics.dateFormatter
         }
         set {
-            _dateFormatter = newValue
+            _customDateFormatter = newValue
         }
     }
 
@@ -377,23 +380,19 @@ open class XCGLogger: CustomDebugStringConvertible {
         var buildString = ""
         if let infoDictionary = Bundle.main.infoDictionary {
             if let CFBundleShortVersionString = infoDictionary["CFBundleShortVersionString"] as? String {
-                // buildString = "Version: \(CFBundleShortVersionString) " // Note: Leaks in Swift versions prior to Swift 3
-                buildString = "Version: " + CFBundleShortVersionString + " "
+                buildString = "Version: \(CFBundleShortVersionString) "
             }
             if let CFBundleVersion = infoDictionary["CFBundleVersion"] as? String {
-                // buildString += "Build: \(CFBundleVersion) " // Note: Leaks in Swift versions prior to Swift 3
-                buildString += "Build: " + CFBundleVersion + " "
+                buildString += "Build: \(CFBundleVersion) "
             }
         }
 
         let processInfo: ProcessInfo = ProcessInfo.processInfo
         let XCGLoggerVersionNumber = XCGLogger.Constants.versionString
 
-        // let logDetails: Array<LogDetails> = [LogDetails(level: .info, date: date, message: "\(processInfo.processName) \(buildString)PID: \(processInfo.processIdentifier)", functionName: "", fileName: "", lineNumber: 0),
-        //     LogDetails(level: .info, date: date, message: "XCGLogger Version: \(XCGLoggerVersionNumber) - Level: \(outputLevel)", functionName: "", fileName: "", lineNumber: 0)] // Note: Leaks in Swift versions prior to Swift 3
         var logDetails: [LogDetails] = []
-        logDetails.append(LogDetails(level: .info, date: date, message: processInfo.processName + " " + buildString + "PID: " + String(processInfo.processIdentifier), functionName: "", fileName: "", lineNumber: 0, userInfo: XCGLogger.Constants.internalUserInfo))
-        logDetails.append(LogDetails(level: .info, date: date, message: "XCGLogger Version: " + XCGLoggerVersionNumber + " - Level: " + outputLevel.description, functionName: "", fileName: "", lineNumber: 0, userInfo: XCGLogger.Constants.internalUserInfo))
+        logDetails.append(LogDetails(level: .info, date: date, message: "\(processInfo.processName) \(buildString)PID: \(processInfo.processIdentifier)", functionName: "", fileName: "", lineNumber: 0, userInfo: XCGLogger.Constants.internalUserInfo))
+        logDetails.append(LogDetails(level: .info, date: date, message: "XCGLogger Version: \(XCGLoggerVersionNumber) - Level: \(outputLevel)", functionName: "", fileName: "", lineNumber: 0, userInfo: XCGLogger.Constants.internalUserInfo))
 
         for var destination in (selectedDestination != nil ? [selectedDestination!] : destinations) where !destination.haveLoggedAppDetails {
             for logDetail in logDetails {
