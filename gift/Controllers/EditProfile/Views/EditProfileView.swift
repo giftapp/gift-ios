@@ -77,6 +77,8 @@ class EditProfileView: UIView, UITextFieldDelegate {
 
         if firstNameTextField == nil {
             firstNameTextField = AnimatedTextField()
+            firstNameTextField.addTopBorder()
+            firstNameTextField.addBottomBorder(padded: true)
             firstNameTextField.placeholder = "EditProfileView.First Name".localized
             firstNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             firstNameTextField.delegate = self
@@ -85,6 +87,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
 
         if lastNameTextField == nil {
             lastNameTextField = AnimatedTextField()
+            lastNameTextField.addBottomBorder(padded: true)
             lastNameTextField.placeholder = "EditProfileView.Last Name".localized
             lastNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             lastNameTextField.delegate = self
@@ -93,6 +96,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
 
         if emailTextField == nil {
             emailTextField = AnimatedTextField()
+            emailTextField.addBottomBorder(padded: false)
             emailTextField.placeholder = "EditProfileView.Email address".localized
             emailTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             emailTextField.keyboardType = .emailAddress
