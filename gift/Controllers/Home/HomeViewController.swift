@@ -56,7 +56,7 @@ class HomeViewController : UIViewController, HomeViewDelegate {
     private func updateCustomViews() {
         //TODO: get time from server
         let now = Date()
-        homeView.welcomeText = String(format: "%@ %@", arguments: [now.partOfDayGreetingString, (identity.user?.firstName)!])
+        homeView.welcomeText = String(format: "%@ %@", arguments: [now.partOfDayGreetingString, (identity.user?.firstName ?? "")])
         homeView.descriptionText = String.localizedStringWithFormat("HomeViewController.Description".localized, now.dayString, now.formattedDateString)
     }
 
