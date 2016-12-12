@@ -51,9 +51,7 @@ class Launcher : NSObject {
             
             //Show edit if needed
             if (self.identity.user!.needsEdit!) {
-                let navigationViewController = UINavigationController(rootViewController: self.editProfileViewController)
-                navigationViewController.navigationBar.isTranslucent = false;
-                self.appRoute.presentController(controller: navigationViewController, animated: true, completion: nil)
+                appRoute.presentNavigationViewController(controller: editProfileViewController, animated: true)
             }
         }
 

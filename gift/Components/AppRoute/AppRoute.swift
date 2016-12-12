@@ -73,6 +73,12 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
         self.switchTopMost(controller: controller)
     }
 
+    func presentNavigationViewController(controller : UIViewController, animated : Bool, completion: (() -> Void)? = nil) {
+        let navigationViewController = UINavigationController(rootViewController: controller)
+        navigationViewController.navigationBar.isTranslucent = false;
+        presentController(controller: navigationViewController, animated: animated)
+    }
+
     func dismiss(controller : UIViewController, animated : Bool, completion: (() -> Void)? = nil) {
         let presentingViewController = controller.presentingViewController
         presentingViewController!.dismiss(animated: animated, completion: completion)

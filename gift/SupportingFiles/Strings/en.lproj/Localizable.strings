@@ -11,6 +11,9 @@
 "Global.Cancel" = "Cancel";
 "Global.Try again" = "Try Again";
 
+//NavigationViewController
+"NavigationViewController.Cancel" = "Cancel";
+
 //WelcomeView
 "WelcomeView.Gift slogan" = "Your gift for the wedding";
 "WelcomeView.Continue Button" = "Start Now";
@@ -39,7 +42,6 @@
 
 //EditProfileViewController
 "EditProfileViewController.Title" = "Profile";
-"EditProfileViewController.Cancel" = "Cancel";
 "EditProfileView.First Name" = "First Name";
 "EditProfileView.Last Name" = "Last Name";
 "EditProfileView.Email address" = "Email Address";
@@ -94,3 +96,9 @@
 "Date+String.Greeting.Afternoon" = "Good Afternoon";
 "Date+String.Greeting.Evening" = "Good Evening";
 "Date+String.Greeting.Night" = "Good Night";
+
+//EventSearchViewController
+"EventSearchViewController.Title" = "Choose the couple";
+
+//EventSearchView
+"EventSearchView.Event is not in the list button" = "Can't find the couple?";

@@ -12,6 +12,7 @@ class HomeViewController : UIViewController, HomeViewDelegate {
     // Injections
     private var appRoute : AppRoute
     private var identity : Identity
+    private var eventSearchViewController : EventSearchViewController
 
     //Views
     private var homeView: HomeView!
@@ -20,9 +21,11 @@ class HomeViewController : UIViewController, HomeViewDelegate {
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute : AppRoute,
-                          identity : Identity) {
+                          identity : Identity,
+                          eventSearchViewController : EventSearchViewController) {
         self.appRoute = appRoute
         self.identity = identity
+        self.eventSearchViewController = eventSearchViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -69,5 +72,6 @@ class HomeViewController : UIViewController, HomeViewDelegate {
     //-------------------------------------------------------------------------------------------
     func didTapSendGift() {
         Logger.debug("User tapped send gift button")
+        appRoute.presentNavigationViewController(controller: eventSearchViewController, animated: true)
     }
 }

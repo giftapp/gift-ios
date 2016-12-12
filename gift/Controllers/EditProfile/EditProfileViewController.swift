@@ -70,7 +70,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
 
-        let cancelBarButtonItem = UIBarButtonItem(title: "EditProfileViewController.Cancel".localized, style: .plain, target: self, action: #selector(didTapCancel))
+        let cancelBarButtonItem = UIBarButtonItem(title: "NavigationViewController.Cancel".localized, style: .plain, target: self, action: #selector(didTapCancel))
         cancelBarButtonItem.tintColor = UIColor.gftWhiteColor()
         cancelBarButtonItem.setTitleTextAttributes([NSFontAttributeName: UIFont.gftNavigationItemFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()], for: .normal)
         if cancelEnabled {
