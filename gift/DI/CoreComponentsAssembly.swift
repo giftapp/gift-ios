@@ -85,5 +85,37 @@ public class CoreComponentsAssembly : TyphoonAssembly {
             definition?.scope = TyphoonScope.singleton
         }
     }
+    
+    public dynamic func locationManager() -> Any {
+        return TyphoonDefinition.withClass(LocationManager.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Services
+    //-------------------------------------------------------------------------------------------
+    public dynamic func venueService() -> Any {
+        return TyphoonDefinition.withClass(VenueService.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(VenueService.init(giftServiceCoreClient:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+            }
+        }
+    }
+
+    public dynamic func eventService() -> Any {
+        return TyphoonDefinition.withClass(EventService.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(EventService.init(giftServiceCoreClient:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+            }
+        }
+    }
 
 }

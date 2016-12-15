@@ -95,9 +95,11 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EventSearchViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:))) {
+            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.eventService())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.locationManager())
             }
         }
     }

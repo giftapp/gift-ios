@@ -10,6 +10,8 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
 
     //Injections
     private var appRoute: AppRoute
+    private var eventService: EventService
+    private var locationManager: LocationManager
 
     //Views
     private var eventSearchView: EventSearchView!
@@ -17,11 +19,19 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
     //Controllers
     private var searchController: UISearchController!
 
+    //Private Properties
+    private var events: Array<Event> = []
+    private var currentLocation: (lat: Double, lng: Double)!;
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute: AppRoute) {
+    internal dynamic init(appRoute: AppRoute,
+                          eventService: EventService,
+                          locationManager: LocationManager) {
         self.appRoute = appRoute
+        self.eventService = eventService
+        self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -76,8 +86,27 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
         self.navigationItem.rightBarButtonItem = cancelBarButtonItem
     }
 
-    //TODO: update based on location?
     private func updateCustomViews() {
+        locationManager.getCurrentLocation(
+                success: { (location) in
+                    self.currentLocation = (location.coordinate.latitude, location.coordinate.longitude)
+
+                    self.eventService.findEventsByLocation(
+                            lat: location.coordinate.latitude,
+                            lng: location.coordinate.longitude,
+                            success: { (events) in
+                                Logger.debug("Successfully got all events \(events)")
+                                self.events = events
+                                self.eventSearchView.update()
+                            },
+                            failure: { (error) in
+                                Logger.error("Failed to get event list \(error)")
+                            })
+            
+                }, failure: { (error) in
+            Logger.error("Failed to get location \(error)")
+        })
+        
     }
 
     //-------------------------------------------------------------------------------------------
@@ -105,17 +134,17 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
     // MARK: - UITableViewDataSource
     //-------------------------------------------------------------------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: remove stub
-        return 5
+        return events.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:EventCell = tableView.dequeueReusableCell(withIdentifier: EventCellConstants.reuseIdentifier, for: indexPath) as! EventCell
 
-        cell.eventName = "event"
-        cell.venueName = "venue"
-        cell.distanceAmount = "12"
-        cell.distanceUnit = "unit"
+        let event = events[indexPath.item];
+        cell.eventName = event.title
+        cell.venueName = event.venueId
+        cell.distanceAmount = LocationUtils.distanceBetween(lat1: currentLocation.lat, lng1: currentLocation.lng, lat2: 32.27039100, lng2: 34.83767800) // TODO: wire venue
+        cell.distanceUnit = EventCellDistanceUnit.kiloMeter
 
         return cell
     }

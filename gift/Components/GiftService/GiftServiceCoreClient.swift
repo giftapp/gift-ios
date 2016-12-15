@@ -14,7 +14,7 @@ private struct GiftServiceCoreClientConstants{
 
 }
 
-public class GiftServiceCoreClient : NSObject {
+public class GiftServiceCoreClient: NSObject {
 
     //Injected
     private var identity : Identity
@@ -219,6 +219,187 @@ public class GiftServiceCoreClient : NSObject {
                 failure(error)
             }
         }
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Event API
+    //-------------------------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Get
+    //-------------------------------------------------------------------------------------------
+    func getAllEvents(forTodayOnly: Bool,
+                      success: @escaping (_ events : Array<Event>) -> Void,
+                      failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/event"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "forToday", value: forTodayOnly)
+
+        manager.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let events = JSON(value).arrayValue.map({Event(json: $0)})
+                        success(events)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    func getEvent(eventId: String,
+                  success: @escaping (_ events : Event) -> Void,
+                  failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/event" + "/\(eventId)"
+
+        manager.request(urlString, method: .get).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let event = Event(json: JSON(value))
+                        success(event)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    func findEventsByLocation(lat: Double,
+                              lng: Double,
+                              rad: Double,
+                              success: @escaping (_ events : Array<Event>) -> Void,
+                              failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/event/today/nearbysearch"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "lat", value: lat)
+        parameters.addIfNotOptional(key: "lng", value: lng)
+        parameters.addIfNotOptional(key: "rad", value: rad)
+
+        manager.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let events = JSON(value).arrayValue.map({Event(json: $0)})
+                        success(events)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    func findEventsByKeyword(keyword: String,
+                             success: @escaping (_ events : Array<Event>) -> Void,
+                             failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/event/today/textsearch"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "keyword", value: keyword)
+
+        manager.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let events = JSON(value).arrayValue.map({Event(json: $0)})
+                        success(events)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - POST
+    //-------------------------------------------------------------------------------------------
+    func createEvent(contact1: String,
+                     contact2: String,
+                     date: Date,
+                     venueId: String,
+                     success: @escaping (_ events : Event) -> Void,
+                     failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/event"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "contact1", value: contact1)
+        parameters.addIfNotOptional(key: "contact2", value: contact2)
+        parameters.addIfNotOptional(key: "date", value: date)
+        parameters.addIfNotOptional(key: "venueId", value: venueId)
+
+        manager.request(urlString, method: .post, parameters: parameters).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let event = Event(json: JSON(value))
+                        success(event)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Venue API
+    //-------------------------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Get
+    //-------------------------------------------------------------------------------------------
+    func getAllVenues(success: @escaping (_ venues : Array<Venue>) -> Void,
+                      failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/venue"
+
+        manager.request(urlString, method: .get).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let venues = JSON(value).arrayValue.map({Venue(json: $0)})
+                        success(venues)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    func findVenuesByLocation(lat: Double,
+                              lng: Double,
+                              rad: Double,
+                              success: @escaping (_ venues : Array<Venue>) -> Void,
+                              failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/venue/nearbysearch"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "lat", value: lat)
+        parameters.addIfNotOptional(key: "lng", value: lng)
+        parameters.addIfNotOptional(key: "rad", value: rad)
+
+        manager.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let venues = JSON(value).arrayValue.map({Venue(json: $0)})
+                        success(venues)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
+    func getVenue(venueId: String,
+                  success: @escaping (_ venue: Venue) -> Void,
+                  failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/venue" + "/\(venueId)"
+
+        manager.request(urlString, method: .get).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let venue = Venue(json: JSON(value))
+                        success(venue)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
     }
 
 }

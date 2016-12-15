@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06B6CB863DC33BE1453207B8 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF99795085D1F08F70CC0EB /* Pods_gift.framework */; };
+		62DD9059680C758930A0154A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96B86362864AAAD81D97 /* LocationManager.swift */; };
 		62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */; };
 		62DD91354D2603DA3924174F /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */; };
 		62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */; };
@@ -19,6 +20,7 @@
 		62DD9229654B5ABFD4ACFFDD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */; };
 		62DD92B8DF265DEC0212B6EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F0225584711E507EE8E /* LoginView.swift */; };
 		62DD92CCD1D9C4A7B1F039D6 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */; };
+		62DD92F811605DC177794E90 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92750583B29A40E93C7B /* Event.swift */; };
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD936CF738D6209B33CD7D /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C359846AD68A469D2FB /* EventSearchViewController.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
@@ -47,8 +49,11 @@
 		62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
 		62DD99C46939549472F8C011 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */; };
+		62DD99E1B8D4084BC2964459 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D4790E2B87F2642BA5E /* VenueService.swift */; };
 		62DD99F352BF3865BAFBFB13 /* AnimatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */; };
+		62DD9A8F9D45F24891A9B048 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C9EEBBD233B9F8904F2 /* LocationUtils.swift */; };
 		62DD9AC8B209CAD8CFDB1F31 /* UIFont+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9079F00B243015EEAEC1 /* UIFont+GFTAdditions.swift */; };
+		62DD9AD8FB2091F361CF161D /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92E00DAC9FF1245367B6 /* EventService.swift */; };
 		62DD9B323058476B073EF0D9 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9011430B13BE13086750 /* UIImage+Resize.swift */; };
 		62DD9B5537156133D476A38C /* UITableView+HeaderViewAutolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD94280673A9DAA87A0427 /* UITableView+HeaderViewAutolayout.swift */; };
 		62DD9B8C394A43F0E55CE29E /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */; };
@@ -65,6 +70,7 @@
 		62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
 		62DD9D5E23E64B9A0EE9DD4F /* SettingsProfileDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9FDA56C9CA5D03D51112 /* SettingsProfileDetailsCell.swift */; };
+		62DD9D8AD08619FC99E2EB64 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FA3DF68A0F01C25E17 /* Venue.swift */; };
 		62DD9DB15C6C0B60C4E6FA37 /* UIView+Boarders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
 		62DD9DEE3EBC9E9F4F12B748 /* UIColor+GFTAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */; };
@@ -102,10 +108,13 @@
 		62DD9123A27B7DF24FA99CFF /* SettingsModalButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModalButtonCell.swift; sourceTree = "<group>"; };
 		62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityUpdatedEvent.swift; sourceTree = "<group>"; };
 		62DD91DDABC7A451CEE55958 /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		62DD92750583B29A40E93C7B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		62DD927D423D336622BEF4E8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperTools.swift; sourceTree = "<group>"; };
 		62DD92DA6FFC16A8259A5068 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
+		62DD92E00DAC9FF1245367B6 /* EventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		62DD92FA3DF68A0F01C25E17 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		62DD93DEA58E883920317F4E /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		62DD94070F713CE65554320E /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -118,6 +127,7 @@
 		62DD9601F44EE34943E71B96 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		62DD96B86362864AAAD81D97 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		62DD96F030DD1E9FD640F5C2 /* EventSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchView.swift; sourceTree = "<group>"; };
 		62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+OptionalParameter.swift"; sourceTree = "<group>"; };
@@ -139,6 +149,7 @@
 		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9C359846AD68A469D2FB /* EventSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
 		62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		62DD9C9EEBBD233B9F8904F2 /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
 		62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+PhoneNumber.swift"; sourceTree = "<group>"; };
 		62DD9CAB5B2E629F2856BFEF /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTextField.swift; sourceTree = "<group>"; };
@@ -146,6 +157,7 @@
 		62DD9D267EA10AC549902D2F /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62DD9D2877E6B94D4BD579FE /* SendGiftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendGiftButton.swift; sourceTree = "<group>"; };
 		62DD9D2FFB2E8A4F4986C0D3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		62DD9D4790E2B87F2642BA5E /* VenueService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		62DD9DCA03503B4293DAD836 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +329,8 @@
 				62DD981BFB745FF000A6EE9E /* User.swift */,
 				62DD9DA502C877CD334A3C0E /* ModelBase.swift */,
 				901A5F6D1CF78654008C5E52 /* Token.swift */,
+				62DD92750583B29A40E93C7B /* Event.swift */,
+				62DD92FA3DF68A0F01C25E17 /* Venue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				62DD989C6EC9782DDAF6D696 /* Extensions */,
+				62DD9C9EEBBD233B9F8904F2 /* LocationUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -422,6 +437,7 @@
 				62DD9EF19992D2F658ADD2DA /* Log */,
 				62DD98120A5E16EA5FC5C0AE /* Configuration */,
 				62DD90097E0E8DAFCC0CDD1F /* DeveloperTools */,
+				62DD9BAE4BE07E0563A57CB8 /* Location */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -470,6 +486,15 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
+		62DD9949F85D652391FF68F9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				62DD92E00DAC9FF1245367B6 /* EventService.swift */,
+				62DD9D4790E2B87F2642BA5E /* VenueService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		62DD99FDCB3E9A529E2923A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +502,14 @@
 				62DD93DEA58E883920317F4E /* EventCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		62DD9BAE4BE07E0563A57CB8 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				62DD96B86362864AAAD81D97 /* LocationManager.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		62DD9BCC9C7A0EDEC556A508 /* Views */ = {
@@ -592,6 +625,7 @@
 				62DD9D427D540E98FD4D243A /* Controllers */,
 				62DD96973C6D0E1F7CD55345 /* Utils */,
 				62DD98EF75F61EC746DE09E6 /* UI */,
+				62DD9949F85D652391FF68F9 /* Services */,
 			);
 			path = gift;
 			sourceTree = "<group>";
@@ -821,6 +855,12 @@
 				62DD936CF738D6209B33CD7D /* EventSearchViewController.swift in Sources */,
 				62DD97AC351F75E25753FFD5 /* EventSearchView.swift in Sources */,
 				62DD9668E95D1D23DFC8DBFA /* EventCell.swift in Sources */,
+				62DD9AD8FB2091F361CF161D /* EventService.swift in Sources */,
+				62DD92F811605DC177794E90 /* Event.swift in Sources */,
+				62DD9D8AD08619FC99E2EB64 /* Venue.swift in Sources */,
+				62DD99E1B8D4084BC2964459 /* VenueService.swift in Sources */,
+				62DD9059680C758930A0154A /* LocationManager.swift in Sources */,
+				62DD9A8F9D45F24891A9B048 /* LocationUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

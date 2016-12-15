@@ -12,6 +12,20 @@ struct EventCellConstants{
     static let height: CGFloat = 50
 }
 
+enum EventCellDistanceUnit {
+    case kiloMeter
+    case meter
+
+    func localizedDescriptor() -> String {
+        switch self {
+        case .meter:
+            return "EventCellDistanceUnit.meter".localized
+        case .kiloMeter:
+            return "EventCellDistanceUnit.kilo-meter".localized
+        }
+    }
+}
+
 class EventCell: UITableViewCell {
 
     //Views
@@ -33,15 +47,17 @@ class EventCell: UITableViewCell {
         }
     }
 
-    var distanceAmount: String? {
+    var distanceAmount: Double? {
         didSet {
-            distanceAmountLabel.text = distanceAmount
+            if let distanceAmount = distanceAmount {
+                distanceAmountLabel.text = String(format: "%.1f", distanceAmount)
+            }
         }
     }
 
-    var distanceUnit: String? {
+    var distanceUnit: EventCellDistanceUnit? {
         didSet {
-            distanceUnitLabel.text = distanceUnit
+            distanceUnitLabel.text = distanceUnit?.localizedDescriptor()
         }
     }
 
@@ -100,19 +116,19 @@ class EventCell: UITableViewCell {
             make.top.equalTo(eventNameLabel.superview!).offset(9)
             make.right.equalTo(eventNameLabel.superview!).offset(-16)
         }
-        
+
         venueNameLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(venueNameLabel.superview!).offset(-9)
             make.right.equalTo(eventNameLabel)
         }
-        
+
         distanceAmountLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(distanceAmountLabel.superview!)
-            make.left.equalTo(distanceUnitLabel.snp.right)
+            make.left.equalTo(distanceUnitLabel.snp.right).offset(2)
         }
-        
+
         distanceUnitLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(distanceAmountLabel)
+            make.bottom.equalTo(distanceAmountLabel).offset(-2)
             make.left.equalTo(distanceUnitLabel.superview!).offset(16)
         }
 

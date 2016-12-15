@@ -102,3 +102,7 @@
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
+
+//EventCell
+"EventCellDistanceUnit.meter" = "מטר";
+"EventCellDistanceUnit.kilo-meter" = "ק\"מ";

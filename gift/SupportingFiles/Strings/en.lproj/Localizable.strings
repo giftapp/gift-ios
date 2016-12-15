@@ -102,3 +102,7 @@
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "Can't find the couple?";
+
+//EventCell
+"EventCellDistanceUnit.meter" = "m";
+"EventCellDistanceUnit.kilo-meter" = "km";

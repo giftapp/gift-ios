@@ -1,6 +1,6 @@
-/* 
+/*
   InfoPlist.strings
-  
+
 
   Created by Matan Lachmish on 23/09/2016.
 
@@ -8,3 +8,4 @@
 
 "NSCameraUsageDescription" = "האפליקציה צריכה גישה למצלמה על מנת לצלם";
 "NSPhotoLibraryUsageDescription" = "האפליקציה צריכה גישה לאלבום התמונות על מנת לבחור תמונה";
+"NSLocationAlwaysUsageDescription" = "אנחנו צריכים להשתמש במיקום שלך בכדי לעזור לך למצוא את החתונה אליה הוזמנת";
