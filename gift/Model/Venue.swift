@@ -19,18 +19,30 @@ class Venue: ModelBase {
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    init(venueDTO: VenueDTO) {
-        googlePlaceId   = venueDTO.googlePlaceId
-        name            = venueDTO.name
-        address         = venueDTO.address
-        phoneNumber     = venueDTO.phoneNumber
-        latitude        = venueDTO.latitude
-        longitude       = venueDTO.longitude
-        googleMapsUrl   = venueDTO.googleMapsUrl
-        website         = venueDTO.website
-        imageUrl        = venueDTO.imageUrl
 
-        super.init(dtoBase: venueDTO)
+    init(googlePlaceId: String?,
+         name: String?,
+         address: String?,
+         phoneNumber: String?,
+         latitude: Double?,
+         longitude: Double?,
+         googleMapsUrl: String?,
+         website: String?,
+         imageUrl: String?,
+         id: String?,
+         createdAt: Date?,
+         updatedAt: Date?) {
+        self.googlePlaceId = googlePlaceId
+        self.name          = name
+        self.address       = address
+        self.phoneNumber   = phoneNumber
+        self.latitude      = latitude
+        self.longitude     = longitude
+        self.googleMapsUrl = googleMapsUrl
+        self.website       = website
+        self.imageUrl      = imageUrl
+
+        super.init(id: id, createdAt: createdAt, updatedAt: updatedAt)
     }
 
 }

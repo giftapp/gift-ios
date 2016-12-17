@@ -9,15 +9,18 @@ import UIKit
 class UserService: NSObject {
 
     //Injected
-    private var giftServiceCoreClient : GiftServiceCoreClient
+    private var giftServiceCoreClient: GiftServiceCoreClient
+    private var modelFactory: ModelFactory
 
     //Private Properties
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient) {
+    internal dynamic init(giftServiceCoreClient: GiftServiceCoreClient,
+                          modelFactory: ModelFactory) {
         self.giftServiceCoreClient = giftServiceCoreClient
+        self.modelFactory = modelFactory
         super.init()
     }
 
@@ -27,7 +30,7 @@ class UserService: NSObject {
     func getMe(success: @escaping (_ user : User) -> Void,
                failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.getMe(success: { (userDTO) in
-            let user = User(userDTO: userDTO)
+            let user = self.modelFactory.createUserFrom(userDTO: userDTO)
             success(user)
         }, failure: failure)
     }
@@ -37,7 +40,7 @@ class UserService: NSObject {
                             failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.setFacebookAccount(facebookAccessToken: facebookAccessToken,
                 success: { (userDTO) in
-                    let user = User(userDTO: userDTO)
+                    let user = self.modelFactory.createUserFrom(userDTO: userDTO)
                     success(user)
                 }, failure: failure)
     }
@@ -56,7 +59,7 @@ class UserService: NSObject {
                            failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.updateUserProfile(firstName: firstName, lastName: lastName, email: email, avatarUrl: avatarUrl,
                 success: { (userDTO) in
-                    let user = User(userDTO: userDTO)
+                    let user = self.modelFactory.createUserFrom(userDTO: userDTO)
                     success(user)
                 }, failure: failure)
     }

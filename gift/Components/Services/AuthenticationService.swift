@@ -9,13 +9,15 @@ class AuthenticationService: NSObject {
 
     //Injected
     private var giftServiceCoreClient : GiftServiceCoreClient
+    private var modelFactory : ModelFactory
     private var identity : Identity
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient, identity : Identity) {
+    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient, modelFactory : ModelFactory, identity : Identity) {
         self.giftServiceCoreClient = giftServiceCoreClient
+        self.modelFactory = modelFactory
         self.identity = identity
         super.init()
     }
@@ -37,7 +39,9 @@ class AuthenticationService: NSObject {
 
         giftServiceCoreClient.getToken(phoneNumber: phoneNumber, verificationCode: verificationCode,
                 success: { (tokenDTO) in
-                    let token = Token(tokenDTO: tokenDTO)
+                    let user = self.modelFactory.createUserFrom(userDTO: tokenDTO.userDTO!)
+                    let token = self.modelFactory.createTokenFrom(tokenDTO: tokenDTO, user: user)
+
                     //Create Identity
                     self.identity.setIdentity(user: token.user!, token: token)
                     success()

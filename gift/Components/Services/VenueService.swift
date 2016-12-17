@@ -13,14 +13,17 @@ class VenueService: NSObject {
 
     //Injected
     private var giftServiceCoreClient : GiftServiceCoreClient
+    private var modelFactory : ModelFactory
 
     //Private Properties
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient) {
+    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient,
+                          modelFactory: ModelFactory) {
         self.giftServiceCoreClient = giftServiceCoreClient
+        self.modelFactory = modelFactory
         super.init()
     }
 
@@ -30,7 +33,7 @@ class VenueService: NSObject {
     func getAllVenues(success: @escaping (_ venues : Array<Venue>) -> Void,
                       failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.getAllVenues(success: { (venuesDTO) in
-            let venues = venuesDTO.map({Venue(venueDTO: $0)})
+            let venues = venuesDTO.map({self.modelFactory.createVenueFrom(venueDTO: $0)})
             success(venues)
         }, failure: failure)
     }
@@ -41,7 +44,7 @@ class VenueService: NSObject {
                               failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.findVenuesByLocation(lat: lat, lng: lng, rad: VenueServiceConstants.nearbySearchRadius,
                 success: { (venuesDTO) in
-                    let venues = venuesDTO.map({Venue(venueDTO: $0)})
+                    let venues = venuesDTO.map({self.modelFactory.createVenueFrom(venueDTO: $0)})
                     success(venues)
                 }, failure: failure)
     }
@@ -51,8 +54,18 @@ class VenueService: NSObject {
                   failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.getVenue(venueId: venueId,
                 success: { (venueDTO) in
-                    let venue = Venue(venueDTO: venueDTO)
+                    let venue = self.modelFactory.createVenueFrom(venueDTO: venueDTO)
                     success(venue)
+                }, failure: failure)
+    }
+
+    func getVenues(venuesId: Array<String>,
+                  success: @escaping (_ venues: Array<Venue>) -> Void,
+                  failure: @escaping (_ error: Error) -> Void) {
+        giftServiceCoreClient.getVenues(venuesId: venuesId,
+                success: { (venuesDTO) in
+                    let venues = venuesDTO.map({self.modelFactory.createVenueFrom(venueDTO: $0)})
+                    success(venues)
                 }, failure: failure)
     }
 

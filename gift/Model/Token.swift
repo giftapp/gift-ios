@@ -18,12 +18,12 @@ class Token : ModelBase, NSCoding {
     override init() {
         super.init()
     }
-    
-    init(tokenDTO: TokenDTO) {
-        accessToken     = tokenDTO.accessToken
-        user            = User(userDTO: tokenDTO.userDTO!)
 
-        super.init(dtoBase: tokenDTO)
+    init(accessToken: String?, user: User?, id: String?, createdAt: Date?, updatedAt: Date?) {
+        self.accessToken = accessToken
+        self.user = user
+
+        super.init(id: id, createdAt: createdAt, updatedAt: updatedAt)
     }
 
     //-------------------------------------------------------------------------------------------

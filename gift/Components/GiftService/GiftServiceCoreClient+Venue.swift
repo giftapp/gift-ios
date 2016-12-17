@@ -70,4 +70,24 @@ extension GiftServiceCoreClient {
                 }
     }
 
+    func getVenues(venuesId: Array<String>,
+                  success: @escaping (_ venuesDTO: Array<VenueDTO>) -> Void,
+                  failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/venue/batch"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "venuesId", value: venuesId)
+        
+        manager.request(urlString, method: .get, parameters: parameters, encoding: CollectionRequestParamEncoding()).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let venuesDTO = JSON(value).arrayValue.map({VenueDTO(json: $0)})
+                        success(venuesDTO)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
 }

@@ -24,16 +24,16 @@ class User : ModelBase, NSCoding {
     override init() {
         super.init()
     }
-    
-    init(userDTO: UserDTO) {
-        firstName   = userDTO.firstName
-        lastName    = userDTO.lastName
-        phoneNumber = userDTO.phoneNumber
-        email       = userDTO.email
-        avatarURL   = userDTO.avatarURL
-        needsEdit   = userDTO.needsEdit
-        
-        super.init(dtoBase: userDTO)
+
+    init(firstName: String?, lastName: String?, phoneNumber: String?, email: String?, avatarURL: String?, needsEdit: Bool?, id: String?, createdAt: Date?, updatedAt: Date?) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.email = email
+        self.avatarURL = avatarURL
+        self.needsEdit = needsEdit
+
+        super.init(id: id, createdAt: createdAt, updatedAt: updatedAt)
     }
 
     //-------------------------------------------------------------------------------------------

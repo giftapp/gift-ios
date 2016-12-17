@@ -15,11 +15,11 @@ class ModelBase: NSObject {
     //-------------------------------------------------------------------------------------------
     override init() {
     }
-    
-    init(dtoBase: DTOBase) {
-        id          = dtoBase.id
-        createdAt   = dtoBase.createdAt
-        updatedAt   = dtoBase.updatedAt
+
+    init(id: String?, createdAt: Date?, updatedAt: Date?) {
+        self.id = id
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
     
 }

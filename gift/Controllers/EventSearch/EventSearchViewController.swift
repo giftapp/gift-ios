@@ -142,8 +142,8 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
 
         let event = events[indexPath.item];
         cell.eventName = event.title
-        cell.venueName = event.venueId
-        cell.distanceAmount = LocationUtils.distanceBetween(lat1: currentLocation.lat, lng1: currentLocation.lng, lat2: 32.27039100, lng2: 34.83767800) // TODO: wire venue
+        cell.venueName = event.venue?.name
+        cell.distanceAmount = LocationUtils.distanceBetween(lat1: currentLocation.lat, lng1: currentLocation.lng, lat2: (event.venue?.latitude)!, lng2: (event.venue?.longitude)!)
         cell.distanceUnit = EventCellDistanceUnit.kiloMeter
 
         return cell

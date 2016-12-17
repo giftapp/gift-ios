@@ -81,6 +81,13 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         }
     }
 
+    public dynamic func modelFactory() -> Any {
+        return TyphoonDefinition.withClass(ModelFactory.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+        }
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Services
     //-------------------------------------------------------------------------------------------
@@ -88,9 +95,10 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(AuthenticationService.self) {
             (definition) in
             definition?.scope = TyphoonScope.singleton
-            definition?.useInitializer(#selector(AuthenticationService.init(giftServiceCoreClient:identity:))) {
+            definition?.useInitializer(#selector(AuthenticationService.init(giftServiceCoreClient:modelFactory:identity:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.modelFactory())
                 initializer?.injectParameter(with: self.identity())
             }
         }
@@ -100,9 +108,10 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(UserService.self) {
             (definition) in
             definition?.scope = TyphoonScope.singleton
-            definition?.useInitializer(#selector(UserService.init(giftServiceCoreClient:))) {
+            definition?.useInitializer(#selector(UserService.init(giftServiceCoreClient:modelFactory:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.modelFactory())
             }
         }
     }
@@ -112,9 +121,10 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(VenueService.self) {
             (definition) in
             definition?.scope = TyphoonScope.singleton
-            definition?.useInitializer(#selector(VenueService.init(giftServiceCoreClient:))) {
+            definition?.useInitializer(#selector(VenueService.init(giftServiceCoreClient:modelFactory:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.modelFactory())
             }
         }
     }
@@ -123,9 +133,11 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EventService.self) {
             (definition) in
             definition?.scope = TyphoonScope.singleton
-            definition?.useInitializer(#selector(EventService.init(giftServiceCoreClient:))) {
+            definition?.useInitializer(#selector(EventService.init(giftServiceCoreClient:venueService:modelFactory:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.venueService())
+                initializer?.injectParameter(with: self.modelFactory())
             }
         }
     }

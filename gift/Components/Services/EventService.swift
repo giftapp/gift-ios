@@ -12,15 +12,21 @@ private struct EventServiceConstants{
 class EventService: NSObject {
 
     //Injected
-    private var giftServiceCoreClient : GiftServiceCoreClient
+    private var giftServiceCoreClient: GiftServiceCoreClient
+    private var venueService: VenueService
+    private var modelFactory: ModelFactory
 
     //Private Properties
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(giftServiceCoreClient : GiftServiceCoreClient) {
+    internal dynamic init(giftServiceCoreClient: GiftServiceCoreClient,
+                          venueService: VenueService,
+                          modelFactory: ModelFactory) {
         self.giftServiceCoreClient = giftServiceCoreClient
+        self.venueService = venueService
+        self.modelFactory = modelFactory
         super.init()
     }
 
@@ -32,8 +38,7 @@ class EventService: NSObject {
                       failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.getAllEvents(forTodayOnly: forToday,
                 success: { (eventsDTO) in
-                    let events = eventsDTO.map({Event(eventDTO: $0)})
-                    success(events)
+                    self.getEventsFrom(eventsDTO: eventsDTO, success: success, failure: failure)
                 }, failure: failure)
     }
 
@@ -42,9 +47,8 @@ class EventService: NSObject {
                   failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.getEvent(eventId: eventId,
                 success: { (eventDTO) in
-                    let event = Event(eventDTO: eventDTO)
-                    success(event)
-        }, failure: failure)
+                    self.getEventFrom(eventDTO: eventDTO, success: success, failure: failure)
+                }, failure: failure)
     }
 
     func findEventsByLocation(lat: Double,
@@ -53,8 +57,7 @@ class EventService: NSObject {
                               failure: @escaping (_ error: Error) -> Void) {
         giftServiceCoreClient.findEventsByLocation(lat: lat, lng: lng, rad: EventServiceConstants.nearbySearchRadius,
                 success: { (eventsDTO) in
-                    let events = eventsDTO.map({Event(eventDTO: $0)})
-                    success(events)
+                    self.getEventsFrom(eventsDTO: eventsDTO, success: success, failure: failure)
                 }, failure: failure)
     }
 
@@ -62,14 +65,38 @@ class EventService: NSObject {
                              success: @escaping (_ events : Array<Event>) -> Void,
                              failure: @escaping (_ error: Error) -> Void) {
 
-        giftServiceCoreClient.findEventsByKeyword(keyword: keyword, success: { (eventsDTO) in
-            let events = eventsDTO.map({Event(eventDTO: $0)})
-            success(events)
-        }, failure: failure)
+        giftServiceCoreClient.findEventsByKeyword(keyword: keyword,
+                success: { (eventsDTO) in
+                    self.getEventsFrom(eventsDTO: eventsDTO, success: success, failure: failure)
+                }, failure: failure)
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    func getEventFrom(eventDTO: EventDTO,
+                      success: @escaping (_ event : Event) -> Void,
+                      failure: @escaping (_ error: Error) -> Void) {
+        venueService.getVenue(venueId: eventDTO.venueId!,
+                success: { (venue) in
+                    let event = self.modelFactory.createEventFrom(eventDTO: eventDTO, venue: venue)
+                    success(event)
+                }, failure: failure)
+    }
 
+    func getEventsFrom(eventsDTO: Array<EventDTO>,
+                       success: @escaping (_ events : Array<Event>) -> Void,
+                       failure: @escaping (_ error: Error) -> Void) {
+        let venuesId = eventsDTO.map({$0.venueId!})
+        venueService.getVenues(venuesId: venuesId,
+                success: { (venues) in
+                    var events = [Event]()
+                    for eventDTO in eventsDTO {
+                        let venue = venues.filter({$0.id == eventDTO.venueId}).first
+                        let event = self.modelFactory.createEventFrom(eventDTO: eventDTO, venue: venue!)
+                        events.append(event)
+                    }
+                    success(events)
+                }, failure: failure)
+    }
 }
