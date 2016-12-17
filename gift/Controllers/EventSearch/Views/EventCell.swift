@@ -113,12 +113,12 @@ class EventCell: UITableViewCell {
 
     private func setConstraints() {
         eventNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(eventNameLabel.superview!).offset(9)
+            make.top.equalTo(eventNameLabel.superview!).offset(8)
             make.right.equalTo(eventNameLabel.superview!).offset(-16)
         }
 
         venueNameLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(venueNameLabel.superview!).offset(-9)
+            make.bottom.equalTo(venueNameLabel.superview!).offset(-8)
             make.right.equalTo(eventNameLabel)
         }
 
