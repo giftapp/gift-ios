@@ -27,11 +27,11 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(LoginViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(LoginViewController.init(appRoute:verificationCodeViewController:authenticator:))) {
+            definition!.useInitializer(#selector(LoginViewController.init(appRoute:verificationCodeViewController:authenticationService:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.verificationCodeViewController())
-                initializer?.injectParameter(with: self.coreComponentsAssembly.authenticator())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.authenticationService())
             }
         }
     }
@@ -40,10 +40,10 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(VerificationCodeViewController.self) {
             (definition) in
             
-            definition?.useInitializer(#selector(VerificationCodeViewController.init(appRoute:authenticator:launcher:))) {
+            definition?.useInitializer(#selector(VerificationCodeViewController.init(appRoute:authenticationService:launcher:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
-                initializer?.injectParameter(with: self.coreComponentsAssembly.authenticator())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.authenticationService())
                 initializer?.injectParameter(with: nil) // Property injected
             }
             definition?.injectProperty(#selector(CoreComponentsAssembly.launcher), with: self.coreComponentsAssembly.launcher())
@@ -55,12 +55,12 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EditProfileViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EditProfileViewController.init(appRoute:identity:facebookClient:giftServiceCoreClient:))) {
+            definition!.useInitializer(#selector(EditProfileViewController.init(appRoute:identity:facebookClient:userService:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.identity())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.facebookClient())
-                initializer?.injectParameter(with: self.coreComponentsAssembly.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.userService())
             }
         }
     }

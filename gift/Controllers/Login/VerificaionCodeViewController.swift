@@ -11,7 +11,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
 
     //Injected
     private var appRoute : AppRoute
-    private var authenticator : Authenticator
+    private var authenticationService : AuthenticationService
     var launcher : Launcher //Property injected
 
     //Views
@@ -23,9 +23,9 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute: AppRoute, authenticator: Authenticator, launcher : Launcher) {
+    internal dynamic init(appRoute: AppRoute, authenticationService: AuthenticationService, launcher : Launcher) {
         self.appRoute = appRoute
-        self.authenticator = authenticator
+        self.authenticationService = authenticationService
         self.launcher = launcher
         super.init(nibName: nil, bundle: nil)
     }
@@ -80,7 +80,7 @@ class VerificationCodeViewController : UIViewController, VerificationCodeViewDel
     internal func didEnteredVerificationCode(verificationCode: String) {
         verificationCodeView.activityAnimation(shouldAnimate: true)
 
-        authenticator.authenticate(phoneNumber: self.phoneNumber, verificationCode: verificationCode, success: {
+        authenticationService.authenticate(phoneNumber: self.phoneNumber, verificationCode: verificationCode, success: {
             Logger.debug("Successfully logged in")
             self.verificationCodeView.activityAnimation(shouldAnimate: false)
             self.launcher.launch()

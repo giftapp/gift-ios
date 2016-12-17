@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 class User : ModelBase, NSCoding {
     var firstName : String?
@@ -25,21 +24,22 @@ class User : ModelBase, NSCoding {
     override init() {
         super.init()
     }
-
-    required init(json: JSON) {
-        firstName   = json["firstName"].string
-        lastName    = json["lastName"].string
-        phoneNumber = json["phoneNumber"].string
-        email       = json["email"].string
-        avatarURL   = json["avatarURL"].string
-        needsEdit   = json["needsEdit"].bool
-        
-        super.init(json: json)
-    }
     
+    init(userDTO: UserDTO) {
+        firstName   = userDTO.firstName
+        lastName    = userDTO.lastName
+        phoneNumber = userDTO.phoneNumber
+        email       = userDTO.email
+        avatarURL   = userDTO.avatarURL
+        needsEdit   = userDTO.needsEdit
+        
+        super.init(dtoBase: userDTO)
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - NSCoding
     //-------------------------------------------------------------------------------------------
+    //NSCoding protocol is used when writing and reading from keychain
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
         self.id             = aDecoder.decodeObject(forKey: "id") as! String?
@@ -52,7 +52,7 @@ class User : ModelBase, NSCoding {
         self.avatarURL      = aDecoder.decodeObject(forKey: "avatarURL") as! String?
         self.needsEdit      = aDecoder.decodeObject(forKey: "needsEdit") as! Bool?
     }
-    
+
     @objc func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.createdAt, forKey: "createdAt")
@@ -64,4 +64,5 @@ class User : ModelBase, NSCoding {
         aCoder.encode(self.avatarURL, forKey: "avatarURL")
         aCoder.encode(self.needsEdit, forKey: "needsEdit")
     }
+    
 }

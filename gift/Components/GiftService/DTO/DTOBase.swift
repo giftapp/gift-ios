@@ -1,11 +1,11 @@
 //
-// Created by Matan Lachmish on 25/05/2016.
+// Created by Matan Lachmish on 16/12/2016.
 // Copyright (c) 2016 GiftApp. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
-class ModelBase: NSObject {
+class DTOBase: NSObject {
     var id: String?
     var createdAt: Date?
     var updatedAt: Date?
@@ -13,13 +13,11 @@ class ModelBase: NSObject {
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    override init() {
+    override init() {}
+
+    required init(json: JSON) {
+        id          = json["id"].string
+        createdAt   = json["createdAt"].date
+        updatedAt   = json["updatedAt"].date
     }
-    
-    init(dtoBase: DTOBase) {
-        id          = dtoBase.id
-        createdAt   = dtoBase.createdAt
-        updatedAt   = dtoBase.updatedAt
-    }
-    
 }

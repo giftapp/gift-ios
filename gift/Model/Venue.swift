@@ -4,9 +4,8 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-class Venue: ModelBase, NSCoding {
+class Venue: ModelBase {
     var googlePlaceId : String?
     var name : String?
     var address : String?
@@ -20,57 +19,18 @@ class Venue: ModelBase, NSCoding {
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    override init() {
-        super.init()
+    init(venueDTO: VenueDTO) {
+        googlePlaceId   = venueDTO.googlePlaceId
+        name            = venueDTO.name
+        address         = venueDTO.address
+        phoneNumber     = venueDTO.phoneNumber
+        latitude        = venueDTO.latitude
+        longitude       = venueDTO.longitude
+        googleMapsUrl   = venueDTO.googleMapsUrl
+        website         = venueDTO.website
+        imageUrl        = venueDTO.imageUrl
+
+        super.init(dtoBase: venueDTO)
     }
 
-    required init(json: JSON) {
-        googlePlaceId   = json["googlePlaceId"].string
-        name            = json["name"].string
-        address         = json["address"].string
-        phoneNumber     = json["phoneNumber"].string
-        latitude        = json["latitude"].double
-        longitude       = json["longitude"].double
-        googleMapsUrl   = json["googleMapsUrl"].string
-        website         = json["website"].string
-        imageUrl        = json["imageUrl"].string
-
-        super.init(json: json)
-    }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - NSCoding
-    //-------------------------------------------------------------------------------------------
-    @objc required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-        self.id             = aDecoder.decodeObject(forKey: "id") as! String?
-        self.createdAt      = aDecoder.decodeObject(forKey: "createdAt") as! Date?
-        self.updatedAt      = aDecoder.decodeObject(forKey: "updatedAt") as! Date?
-
-        self.googlePlaceId  = aDecoder.decodeObject(forKey: "googlePlaceId") as! String?
-        self.name           = aDecoder.decodeObject(forKey: "name") as! String?
-        self.address        = aDecoder.decodeObject(forKey: "address") as! String?
-        self.phoneNumber    = aDecoder.decodeObject(forKey: "phoneNumber") as! String?
-        self.latitude       = aDecoder.decodeObject(forKey: "latitude") as! Double?
-        self.longitude      = aDecoder.decodeObject(forKey: "longitude") as! Double?
-        self.googleMapsUrl  = aDecoder.decodeObject(forKey: "googleMapsUrl") as! String?
-        self.website        = aDecoder.decodeObject(forKey: "website") as! String?
-        self.imageUrl       = aDecoder.decodeObject(forKey: "imageUrl") as! String?
-    }
-
-    @objc func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.id, forKey: "id")
-        aCoder.encode(self.createdAt, forKey: "createdAt")
-        aCoder.encode(self.updatedAt, forKey: "updatedAt")
-
-        aCoder.encode(self.googlePlaceId, forKey: "googlePlaceId")
-        aCoder.encode(self.name, forKey: "name")
-        aCoder.encode(self.address, forKey: "address")
-        aCoder.encode(self.phoneNumber, forKey: "phoneNumber")
-        aCoder.encode(self.latitude, forKey: "latitude")
-        aCoder.encode(self.longitude, forKey: "longitude")
-        aCoder.encode(self.googleMapsUrl, forKey: "googleMapsUrl")
-        aCoder.encode(self.website, forKey: "website")
-        aCoder.encode(self.imageUrl, forKey: "imageUrl")
-    }
 }

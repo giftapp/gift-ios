@@ -12,7 +12,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     private var appRoute: AppRoute
     private var identity: Identity
     private var facebookClient: FacebookClient
-    private var giftServiceCoreClient: GiftServiceCoreClient
+    private var userService: UserService
 
     //Views
     private var editProfileView: EditProfileView!
@@ -34,11 +34,11 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     internal dynamic init(appRoute: AppRoute,
                           identity: Identity,
                           facebookClient: FacebookClient,
-                          giftServiceCoreClient: GiftServiceCoreClient) {
+                          userService: UserService) {
         self.appRoute = appRoute
         self.identity = identity
         self.facebookClient = facebookClient
-        self.giftServiceCoreClient = giftServiceCoreClient
+        self.userService = userService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -106,7 +106,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func updateUserProfile(avatarUrl: String? = nil, success: @escaping () -> Void, failure: @escaping () -> Void) {
-        giftServiceCoreClient.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: avatarUrl, success: { (user) in
+        userService.updateUserProfile(firstName: editProfileView.firstName, lastName: editProfileView.lastName, email: editProfileView.email, avatarUrl: avatarUrl, success: { (user) in
             Logger.debug("Successfully updated user profile")
             self.identity.updateUser(user: user)
             success()
@@ -128,7 +128,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             return
         }
         
-        giftServiceCoreClient.uploadImage(image: avatarViewController.image!, success: { (avatarUrl) in
+        userService.uploadImage(image: avatarViewController.image!, success: { (avatarUrl) in
             Logger.debug("Successfully uploaded avatar")
             success(avatarUrl)
         }) { (error) in
@@ -166,7 +166,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
                 Logger.error("error while login with facebook")
                 self.editProfileView.activityAnimation(shouldAnimate: false)
             } else {
-                self.giftServiceCoreClient.setFacebookAccount(facebookAccessToken: facebookToken!, success: { (user) in
+                self.userService.setFacebookAccount(facebookAccessToken: facebookToken!, success: { (user) in
                     Logger.debug("Successfully got user from facebook")
                     self.editProfileView.activityAnimation(shouldAnimate: false)
                     self.identity.updateUser(user: user)

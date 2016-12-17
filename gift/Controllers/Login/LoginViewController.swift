@@ -9,9 +9,9 @@ import UIKit
 class LoginViewController : UIViewController, LoginViewDelegate {
 
     // Inections
-    private var appRoute : AppRoute
-    private var verificationCodeViewController : VerificationCodeViewController
-    private var authenticator : Authenticator
+    private var appRoute: AppRoute
+    private var verificationCodeViewController: VerificationCodeViewController
+    private var authenticationService: AuthenticationService
 
     //Views
     private var loginView : LoginView!
@@ -19,12 +19,12 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute : AppRoute,
-                          verificationCodeViewController : VerificationCodeViewController,
-                          authenticator: Authenticator) {
+    internal dynamic init(appRoute: AppRoute,
+                          verificationCodeViewController: VerificationCodeViewController,
+                          authenticationService: AuthenticationService) {
         self.appRoute = appRoute
         self.verificationCodeViewController = verificationCodeViewController
-        self.authenticator = authenticator
+        self.authenticationService = authenticationService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -54,7 +54,7 @@ class LoginViewController : UIViewController, LoginViewDelegate {
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func sendPhoneNumberForVerification(phoneNumber : String) {
-        authenticator.verifyPhoneNumber(phoneNumber: phoneNumber, success: {
+        authenticationService.verifyPhoneNumber(phoneNumber: phoneNumber, success: {
             Logger.debug("Verification code sent")
             //Prepare & Present verificationCodeViewController
             self.verificationCodeViewController.phoneNumber = phoneNumber

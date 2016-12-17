@@ -25,18 +25,6 @@ public class CoreComponentsAssembly : TyphoonAssembly {
             }
         }
     }
-
-    public dynamic func authenticator() -> Any {
-        return TyphoonDefinition.withClass(Authenticator.self) {
-            (definition) in
-            definition?.scope = TyphoonScope.singleton
-            definition?.useInitializer(#selector(Authenticator.init(giftServiceCoreClient:identity:))) {
-                (initializer) in
-                initializer?.injectParameter(with: self.giftServiceCoreClient())
-                initializer?.injectParameter(with: self.identity())
-            }
-        }
-    }
     
     public dynamic func facebookClient() -> Any {
         return TyphoonDefinition.withClass(FacebookClient.self) {
@@ -96,6 +84,30 @@ public class CoreComponentsAssembly : TyphoonAssembly {
     //-------------------------------------------------------------------------------------------
     // MARK: - Services
     //-------------------------------------------------------------------------------------------
+    public dynamic func authenticationService() -> Any {
+        return TyphoonDefinition.withClass(AuthenticationService.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(AuthenticationService.init(giftServiceCoreClient:identity:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.identity())
+            }
+        }
+    }
+
+    public dynamic func userService() -> Any {
+        return TyphoonDefinition.withClass(UserService.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(UserService.init(giftServiceCoreClient:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+            }
+        }
+    }
+
+
     public dynamic func venueService() -> Any {
         return TyphoonDefinition.withClass(VenueService.self) {
             (definition) in

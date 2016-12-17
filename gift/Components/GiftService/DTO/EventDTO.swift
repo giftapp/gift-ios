@@ -1,33 +1,32 @@
 //
-// Created by Matan Lachmish on 12/12/2016.
+// Created by Matan Lachmish on 16/12/2016.
 // Copyright (c) 2016 GiftApp. All rights reserved.
 //
 
 import Foundation
+import SwiftyJSON
 
-class Event: ModelBase {
+class EventDTO: DTOBase {
     var date : Date?
     var contact1 : String?
     var contact2 : String?
     var venueId : String?
     var usersId : Array<String>?
 
-    //Computed Properties
-    var title: String? {
-        return "\(contact1 ?? "") & \(contact2 ?? "")"
-    }
-
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    required init(eventDTO: EventDTO) {
-        date        = eventDTO.date
-        contact1    = eventDTO.contact1
-        contact2    = eventDTO.contact2
-        venueId     = eventDTO.venueId
-        usersId     = eventDTO.usersId
-
-        super.init(dtoBase: eventDTO)
+    override init() {
+        super.init()
     }
 
+    required init(json: JSON) {
+        date        = json["date"].date
+        contact1    = json["contact1"].string
+        contact2    = json["contact2"].string
+        venueId     = json["venueId"].string
+        usersId     = json["usersId"].arrayValue.map{$0.string!}
+
+        super.init(json: json)
+    }
 }

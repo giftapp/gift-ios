@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 class Token : ModelBase, NSCoding {
     var accessToken : String?
@@ -19,17 +18,18 @@ class Token : ModelBase, NSCoding {
     override init() {
         super.init()
     }
-
-    required init(json: JSON) {
-        accessToken     = json["token"]["accessToken"].string
-        user            = User(json: json["token"]["user"])
-
-        super.init(json: json)
-    }
     
+    init(tokenDTO: TokenDTO) {
+        accessToken     = tokenDTO.accessToken
+        user            = User(userDTO: tokenDTO.userDTO!)
+
+        super.init(dtoBase: tokenDTO)
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - NSCoding
     //-------------------------------------------------------------------------------------------
+    //NSCoding protocol is used when writing and reading from keychain
     @objc required convenience init?(coder aDecoder: NSCoder) {
         self.init()
         self.id = aDecoder.decodeObject(forKey: "id") as! String?
@@ -38,7 +38,7 @@ class Token : ModelBase, NSCoding {
         self.accessToken = aDecoder.decodeObject(forKey: "accessToken") as! String?
         self.user = aDecoder.decodeObject(forKey: "user") as! User?
     }
-    
+
     @objc func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.createdAt, forKey: "createdAt")
@@ -46,4 +46,5 @@ class Token : ModelBase, NSCoding {
         aCoder.encode(self.accessToken, forKey: "accessToken")
         aCoder.encode(self.user, forKey: "user")
     }
+
 }
