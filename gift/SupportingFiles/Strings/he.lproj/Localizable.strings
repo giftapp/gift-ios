@@ -99,9 +99,13 @@
 
 //EventSearchViewController
 "EventSearchViewController.Title" = "בחירת הזוג";
+"NavigationViewController.Nearby" = "בקרבת מקום";
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
+
+//EventSearchResultsView
+"EventSearchResultsView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
 
 //EventCell
 "EventCellDistanceUnit.meter" = "מטר";

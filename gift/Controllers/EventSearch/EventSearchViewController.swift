@@ -6,12 +6,13 @@
 import Foundation
 import UIKit
 
-class EventSearchViewController : UIViewController, EventSearchViewDelegate, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
+class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
 
     //Injections
     private var appRoute: AppRoute
     private var eventService: EventService
     private var locationManager: LocationManager
+    private var eventSearchResultsViewController: EventSearchResultsViewController
 
     //Views
     private var eventSearchView: EventSearchView!
@@ -20,18 +21,31 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
     private var searchController: UISearchController!
 
     //Private Properties
-    private var events: Array<Event> = []
-    private var currentLocation: (lat: Double, lng: Double)!;
+    private var nearbyEvents: Array<Event> = [] {
+        didSet {
+            eventSearchView.update()
+        }
+    }
+
+    private var currentLocation: (lat: Double, lng: Double)! {
+        didSet {
+            eventSearchView.update()
+        }
+    }
+
+    private var searchPaceTimer: Timer?
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute: AppRoute,
                           eventService: EventService,
-                          locationManager: LocationManager) {
+                          locationManager: LocationManager,
+                          eventSearchResultsViewController: EventSearchResultsViewController) {
         self.appRoute = appRoute
         self.eventService = eventService
         self.locationManager = locationManager
+        self.eventSearchResultsViewController = eventSearchResultsViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,7 +64,7 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
 
     private func addCustomViews() {
         if searchController == nil {
-            searchController = UISearchController(searchResultsController: nil)
+            searchController = UISearchController(searchResultsController: eventSearchResultsViewController)
             searchController.searchResultsUpdater = self
             searchController.dimsBackgroundDuringPresentation = true
             definesPresentationContext = true
@@ -87,6 +101,17 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
     }
 
     private func updateCustomViews() {
+        getNearbyEvents()
+    }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
+    func didTapCancel() {
+        self.appRoute.dismiss(controller: self, animated: true)
+    }
+
+    func getNearbyEvents() {
         locationManager.getCurrentLocation(
                 success: { (location) in
                     self.currentLocation = (location.coordinate.latitude, location.coordinate.longitude)
@@ -95,25 +120,33 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
                             lat: location.coordinate.latitude,
                             lng: location.coordinate.longitude,
                             success: { (events) in
-                                Logger.debug("Successfully got all events \(events)")
-                                self.events = events
-                                self.eventSearchView.update()
+                                Logger.debug("Successfully got nearby events \(events)")
+                                self.nearbyEvents = events
                             },
                             failure: { (error) in
-                                Logger.error("Failed to get event list \(error)")
+                                Logger.error("Failed to get nearby event list \(error)")
                             })
-            
+
                 }, failure: { (error) in
             Logger.error("Failed to get location \(error)")
         })
-        
     }
 
-    //-------------------------------------------------------------------------------------------
-    // MARK: - Private
-    //-------------------------------------------------------------------------------------------
-    func didTapCancel() {
-        self.appRoute.dismiss(controller: self, animated: true)
+    func getSearchResultEvents() {
+        Logger.debug("Updating search results")
+        eventSearchResultsViewController.activityAnimation(shouldAnimate: true)
+
+        let keyword = searchController.searchBar.text!
+        eventService.findEventsByKeyword(keyword: keyword,
+                success: { (events) in
+                    Logger.debug("Successfully got searched events \(events)")
+                    self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
+                    self.eventSearchResultsViewController.searchResultEvents = events
+                    self.eventSearchResultsViewController.currentLocation = self.currentLocation
+                }, failure: { (error) in
+            Logger.error("Failed to search events \(error)")
+            self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
+        })
     }
 
     //-------------------------------------------------------------------------------------------
@@ -127,20 +160,30 @@ class EventSearchViewController : UIViewController, EventSearchViewDelegate, UIS
     // MARK: - UISearchResultsUpdating
     //-------------------------------------------------------------------------------------------
     func updateSearchResults(`for` searchController: UISearchController) {
-        Logger.debug("Updatind search results")
+        searchPaceTimer?.invalidate()
+        
+        if (searchController.searchBar.text?.isEmpty)! {
+            eventSearchResultsViewController.clearSearchResults()
+        } else {
+            searchPaceTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.getSearchResultEvents), userInfo: nil, repeats: false)
+        }
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - UITableViewDataSource
     //-------------------------------------------------------------------------------------------
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "NavigationViewController.Nearby".localized
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return nearbyEvents.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:EventCell = tableView.dequeueReusableCell(withIdentifier: EventCellConstants.reuseIdentifier, for: indexPath) as! EventCell
 
-        let event = events[indexPath.item];
+        let event = nearbyEvents[indexPath.item];
         cell.eventName = event.title
         cell.venueName = event.venue?.name
         cell.distanceAmount = LocationUtils.distanceBetween(lat1: currentLocation.lat, lng1: currentLocation.lng, lat2: (event.venue?.latitude)!, lng2: (event.venue?.longitude)!)

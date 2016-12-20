@@ -99,9 +99,13 @@
 
 //EventSearchViewController
 "EventSearchViewController.Title" = "Choose the couple";
+"NavigationViewController.Nearby" = "Nearby";
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "Can't find the couple?";
+
+//EventSearchResultsView
+"EventSearchResultsView.Event is not in the list button" = "Can't find the couple?";
 
 //EventCell
 "EventCellDistanceUnit.meter" = "m";

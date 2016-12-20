@@ -95,11 +95,23 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EventSearchViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:))) {
+            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:eventSearchResultsViewController:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.eventService())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.locationManager())
+                initializer?.injectParameter(with: self.eventSearchResultsViewController())
+            }
+        }
+    }
+    
+    public dynamic func eventSearchResultsViewController() -> Any {
+        return TyphoonDefinition.withClass(EventSearchResultsViewController.self) {
+            (definition) in
+            
+            definition!.useInitializer(#selector(EventSearchResultsViewController.init(appRoute:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
             }
         }
     }

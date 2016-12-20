@@ -87,6 +87,11 @@ class EventService: NSObject {
     func getEventsFrom(eventsDTO: Array<EventDTO>,
                        success: @escaping (_ events : Array<Event>) -> Void,
                        failure: @escaping (_ error: Error) -> Void) {
+        if eventsDTO.isEmpty {
+            success([])
+            return
+        }
+        
         let venuesId = eventsDTO.map({$0.venueId!})
         venueService.getVenues(venuesId: venuesId,
                 success: { (venues) in
