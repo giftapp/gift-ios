@@ -103,9 +103,11 @@
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "Can't find the couple?";
+"EventSearchView.Empty results placeholder" = "We could not find events near you";
 
 //EventSearchResultsView
 "EventSearchResultsView.Event is not in the list button" = "Can't find the couple?";
+"EventSearchResultsView.Empty results placeholder" = "No events found";
 
 //EventCell
 "EventCellDistanceUnit.meter" = "m";

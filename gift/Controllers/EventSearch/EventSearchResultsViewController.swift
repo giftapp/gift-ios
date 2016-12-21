@@ -63,10 +63,15 @@ class EventSearchResultsViewController: UIViewController, EventSearchResultsView
     //-------------------------------------------------------------------------------------------
     func clearSearchResults() {
         searchResultEvents.removeAll()
+        shouldPresentEmptyPlaceholder(shouldPresent: false)
     }
 
     func activityAnimation(shouldAnimate: Bool) {
         eventSearchResultsView.activityAnimation(shouldAnimate: shouldAnimate)
+    }
+
+    func shouldPresentEmptyPlaceholder(shouldPresent: Bool)  {
+        eventSearchResultsView.shouldPresentEmptyPlaceholder(shouldPresent: shouldPresent)
     }
 
     //-------------------------------------------------------------------------------------------

@@ -103,9 +103,11 @@
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
+"EventSearchView.Empty results placeholder" = "לא נמצאו אירועים בקרבתך";
 
 //EventSearchResultsView
 "EventSearchResultsView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
+"EventSearchResultsView.Empty results placeholder" = "לא נמצאו אירועים";
 
 //EventCell
 "EventCellDistanceUnit.meter" = "מטר";

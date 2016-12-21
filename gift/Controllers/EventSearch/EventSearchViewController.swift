@@ -122,13 +122,16 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
                             success: { (events) in
                                 Logger.debug("Successfully got nearby events \(events)")
                                 self.nearbyEvents = events
+                                self.eventSearchView.shouldPresentEmptyPlaceholder(shouldPresent: events.count == 0)
                             },
                             failure: { (error) in
                                 Logger.error("Failed to get nearby event list \(error)")
+                                self.eventSearchView.shouldPresentEmptyPlaceholder(shouldPresent: true)
                             })
 
                 }, failure: { (error) in
             Logger.error("Failed to get location \(error)")
+            self.eventSearchView.shouldPresentEmptyPlaceholder(shouldPresent: true)
         })
     }
 
@@ -143,9 +146,11 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
                     self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
                     self.eventSearchResultsViewController.searchResultEvents = events
                     self.eventSearchResultsViewController.currentLocation = self.currentLocation
+                    self.eventSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: events.count == 0)
                 }, failure: { (error) in
             Logger.error("Failed to search events \(error)")
             self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
+            self.eventSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: true)
         })
     }
 

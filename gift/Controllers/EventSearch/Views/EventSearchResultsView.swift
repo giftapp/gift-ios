@@ -14,6 +14,7 @@ class EventSearchResultsView: UIView {
 
     //Views
     private var eventsTableView: UITableView!
+    private var emptyTablePlaceholderView: EmptyTablePlaceholderView!
     private var eventIsNotInTheListButton: BigButton!
     private var activityIndicatorView: ActivityIndicatorView!
 
@@ -57,6 +58,14 @@ class EventSearchResultsView: UIView {
             eventsTableView.tableFooterView = UIView(frame: CGRect.zero)
         }
 
+        if emptyTablePlaceholderView == nil {
+            emptyTablePlaceholderView = EmptyTablePlaceholderView()
+            emptyTablePlaceholderView.image = UIImage(named: "heartBox")
+            emptyTablePlaceholderView.text = "EventSearchResultsView.Empty results placeholder".localized
+            emptyTablePlaceholderView.isHidden = true
+            self.addSubview(emptyTablePlaceholderView)
+        }
+
         if eventIsNotInTheListButton == nil {
             eventIsNotInTheListButton = BigButton()
             eventIsNotInTheListButton.setTitle("EventSearchResultsView.Event is not in the list button".localized, for: UIControlState())
@@ -79,6 +88,10 @@ class EventSearchResultsView: UIView {
             make.bottom.equalTo(eventIsNotInTheListButton.snp.top)
         }
 
+        emptyTablePlaceholderView.snp.makeConstraints { (make) in
+            make.center.equalTo(eventsTableView.snp.center)
+        }
+
         eventIsNotInTheListButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(eventIsNotInTheListButton.superview!)
             make.height.equalTo(53)
@@ -98,6 +111,10 @@ class EventSearchResultsView: UIView {
     //-------------------------------------------------------------------------------------------
     func update() {
         eventsTableView.reloadData()
+    }
+
+    func shouldPresentEmptyPlaceholder(shouldPresent: Bool)  {
+        emptyTablePlaceholderView.isHidden = !shouldPresent
     }
 
     func activityAnimation(shouldAnimate: Bool) {
