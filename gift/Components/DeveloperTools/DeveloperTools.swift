@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class DeveloperTools: NSObject {
 
@@ -45,7 +46,19 @@ class DeveloperTools: NSObject {
         let clearKeychainAction = AlertViewAction(title: "Clear Keychain", style: .regular, action: {
             self.identity.logout()
         })
-        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "Developer Tools", description: nil, image: nil, actions: [cancelAction, clearKeychainAction])
+        let clearPhotosCacheAction = AlertViewAction(title: "Clear photos cache", style: .regular, action: {
+            let cache = ImageCache.default;
+
+            // Clear memory cache right away.
+            cache.clearMemoryCache()
+
+            // Clear disk cache. This is an async operation.
+            cache.clearDiskCache()
+
+            // Clean expired or size exceeded disk cache. This is an async operation.
+            cache.cleanExpiredDiskCache()
+        })
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "Developer Tools", description: nil, image: nil, actions: [cancelAction, clearKeychainAction, clearPhotosCacheAction])
         appRoute.presentController(controller: alertViewController, animated: true)
     }
 }
