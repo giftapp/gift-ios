@@ -27,7 +27,7 @@ class AvatarView: UIView, UIGestureRecognizerDelegate {
         didSet {
             if let imageURLNonOptional = imageURL {
                 let url = URL(string: imageURLNonOptional)
-                imageView.kf_setImage(with: url)
+                imageView.kf.setImage(with: url)
                 imageView.isHidden = false
                 emptyImageViewPlaceholder.isHidden = true
                 initialsPlaceHolderLabel.isHidden = true

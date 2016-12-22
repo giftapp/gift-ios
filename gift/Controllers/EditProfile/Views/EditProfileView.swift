@@ -24,6 +24,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
     private var doneButton: BigButton!
     private var activityIndicatorView: ActivityIndicatorView!
 
+    //Injected
     private var avatarView: UIView
 
     //Public Properties
