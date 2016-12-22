@@ -49,6 +49,16 @@ class VenueService: NSObject {
                 }, failure: failure)
     }
 
+    func findVenuesByKeyword(keyword: String,
+                             success: @escaping (_ venues : Array<Venue>) -> Void,
+                             failure: @escaping (_ error: Error) -> Void) {
+        giftServiceCoreClient.findVenuesByKeyword(keyword: keyword,
+                success: { (venuesDTO) in
+                    let venues = venuesDTO.map({self.modelFactory.createVenueFrom(venueDTO: $0)})
+                    success(venues)
+                }, failure: failure)
+    }
+
     func getVenue(venueId: String,
                   success: @escaping (_ venue: Venue) -> Void,
                   failure: @escaping (_ error: Error) -> Void) {

@@ -53,6 +53,26 @@ extension GiftServiceCoreClient {
                 }
     }
 
+    func findVenuesByKeyword(keyword: String,
+                             success: @escaping (_ venuesDTO : Array<VenueDTO>) -> Void,
+                             failure: @escaping (_ error: Error) -> Void) {
+
+        let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/venue/textsearch"
+
+        var parameters = Parameters()
+        parameters.addIfNotOptional(key: "keyword", value: keyword)
+
+        manager.request(urlString, method: .get, parameters: parameters).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let venuesDTO = JSON(value).arrayValue.map({VenueDTO(json: $0)})
+                        success(venuesDTO)
+                    case .failure(let error):
+                        failure(error)
+                    }
+                }
+    }
+
     func getVenue(venueId: String,
                   success: @escaping (_ venueDTO: VenueDTO) -> Void,
                   failure: @escaping (_ error: Error) -> Void) {
