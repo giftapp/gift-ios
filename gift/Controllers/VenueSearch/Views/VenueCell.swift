@@ -1,35 +1,49 @@
 //
-// Created by Matan Lachmish on 10/12/2016.
+// Created by Matan Lachmish on 21/12/2016.
 // Copyright (c) 2016 GiftApp. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
-struct EventCellConstants{
-    static let reuseIdentifier = String(describing: EventCell.self)
-    static let height: CGFloat = 50
+struct VenueCellConstants{
+    static let reuseIdentifier = String(describing: VenueCell.self)
+    static let height: CGFloat = 70
+    static let imageDiameter: CGFloat = 45
 }
 
-class EventCell: UITableViewCell {
+class VenueCell: UITableViewCell {
 
     //Views
-    private var eventNameLabel: UILabel!
+    private var venueImageView: UIImageView!
     private var venueNameLabel: UILabel!
+    private var venueAddressLabel: UILabel!
     private var distanceAmountLabel: UILabel!
     private var distanceUnitLabel: UILabel!
 
     //Public Properties
-    var eventName: String? {
+    var venueImageUrl: String? {
         didSet {
-            eventNameLabel.text = eventName
+            if let venueImageUrl = venueImageUrl {
+                let url = URL(string: venueImageUrl)
+                venueImageView.kf.setImage(with: url,
+                                           placeholder: UIImage(named: "venuePlaceHolder"),
+                                           options: [.transition(.fade(0.2))])
+            }
         }
     }
 
     var venueName: String? {
         didSet {
             venueNameLabel.text = venueName
+        }
+    }
+
+    var venueAddress: String? {
+        didSet {
+            venueAddressLabel.text = venueAddress
         }
     }
 
@@ -63,20 +77,30 @@ class EventCell: UITableViewCell {
     private func addCustomViews() {
         self.backgroundColor = UIColor.white
 
-        if eventNameLabel == nil {
-            eventNameLabel = UILabel()
-            eventNameLabel.textAlignment = NSTextAlignment.right
-            eventNameLabel.font = UIFont(name: "Rubik-Regular", size: 15.0) //TODO move to fonts?
-            eventNameLabel.textColor = UIColor.gftBlackColor()
-            self.addSubview(eventNameLabel)
+        if venueImageView == nil {
+            venueImageView = UIImageView(image: nil) //Image is being set from public varaiable
+            venueImageView.layer.cornerRadius = VenueCellConstants.imageDiameter / 2
+            venueImageView.layer.masksToBounds = true
+            venueImageView.layer.borderWidth = 1.0
+            venueImageView.layer.borderColor = UIColor.gftSeparatorColor().cgColor
+            self.addSubview(venueImageView)
         }
+
 
         if venueNameLabel == nil {
             venueNameLabel = UILabel()
             venueNameLabel.textAlignment = NSTextAlignment.right
-            venueNameLabel.font = UIFont(name: "Rubik-Light", size: 13.0) //TODO move to fonts?
+            venueNameLabel.font = UIFont(name: "Rubik-Regular", size: 20.0) //TODO move to fonts?
             venueNameLabel.textColor = UIColor.gftBlackColor()
             self.addSubview(venueNameLabel)
+        }
+
+        if venueAddressLabel == nil {
+            venueAddressLabel = UILabel()
+            venueAddressLabel.textAlignment = NSTextAlignment.right
+            venueAddressLabel.font = UIFont(name: "Rubik-Light", size: 15.0) //TODO move to fonts?
+            venueAddressLabel.textColor = UIColor.gftBlackColor()
+            self.addSubview(venueAddressLabel)
         }
 
         if distanceAmountLabel == nil {
@@ -98,15 +122,21 @@ class EventCell: UITableViewCell {
     }
 
     private func setConstraints() {
-        eventNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(eventNameLabel.superview!).offset(8)
-            make.right.equalTo(eventNameLabel.superview!).offset(-16)
-            make.left.greaterThanOrEqualTo(distanceAmountLabel.snp.right).offset(10)
+        venueImageView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(venueImageView.superview!)
+            make.right.equalTo(venueImageView.superview!).offset(-10)
+            make.size.equalTo(VenueCellConstants.imageDiameter)
         }
 
         venueNameLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(venueNameLabel.superview!).offset(-8)
-            make.right.equalTo(eventNameLabel)
+            make.top.equalTo(venueNameLabel.superview!).offset(15)
+            make.right.equalTo(venueImageView.snp.left).offset(-14)
+            make.left.greaterThanOrEqualTo(distanceAmountLabel.snp.right).offset(10)
+        }
+
+        venueAddressLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(venueAddressLabel.superview!).offset(-14)
+            make.right.equalTo(venueNameLabel)
             make.left.greaterThanOrEqualTo(distanceAmountLabel.snp.right).offset(10)
         }
 

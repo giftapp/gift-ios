@@ -97,9 +97,13 @@
 "Date+String.Greeting.Evening" = "ערב טוב";
 "Date+String.Greeting.Night" = "לילה טוב";
 
+//DistanceUnit
+"DistanceUnit.meter" = "מטר";
+"DistanceUnit.kilo-meter" = "ק\"מ";
+
 //EventSearchViewController
 "EventSearchViewController.Title" = "בחירת הזוג";
-"NavigationViewController.Nearby" = "בקרבת מקום";
+"EventSearchViewController.Nearby" = "בקרבת מקום";
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
@@ -109,6 +113,12 @@
 "EventSearchResultsView.Event is not in the list button" = "הזוג אינו מופיע ברשימה?";
 "EventSearchResultsView.Empty results placeholder" = "לא נמצאו אירועים";
 
-//EventCell
-"EventCellDistanceUnit.meter" = "מטר";
-"EventCellDistanceUnit.kilo-meter" = "ק\"מ";
+//VenueSearchViewController
+"VenueSearchViewController.Title" = "בחירת האולם";
+"VenueSearchViewController.Nearby" = "בקרבת מקום";
+
+//VenueSearchView
+"VenueSearchView.Empty results placeholder" = "לא נמצאו אולמות בקרבתך";
+
+//VenueSearchResultsView
+"VenueSearchResultsView.Empty results placeholder" = "לא נמצאו אולמות";

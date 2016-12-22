@@ -95,12 +95,13 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EventSearchViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:eventSearchResultsViewController:))) {
+            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:eventSearchResultsViewController:venueSearchViewController:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.eventService())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.locationManager())
                 initializer?.injectParameter(with: self.eventSearchResultsViewController())
+                initializer?.injectParameter(with: self.venueSearchViewController())
             }
         }
     }
@@ -109,7 +110,33 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EventSearchResultsViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EventSearchResultsViewController.init(appRoute:))) {
+            definition!.useInitializer(#selector(EventSearchResultsViewController.init(appRoute:venueSearchViewController:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.venueSearchViewController())
+            }
+        }
+    }
+    
+    public dynamic func venueSearchViewController() -> Any {
+        return TyphoonDefinition.withClass(VenueSearchViewController.self) {
+            (definition) in
+            
+            definition!.useInitializer(#selector(VenueSearchViewController.init(appRoute:venueService:locationManager:venueSearchResultsViewController:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.venueService())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.locationManager())
+                initializer?.injectParameter(with: self.venueSearchResultsViewController())
+            }
+        }
+    }
+    
+    public dynamic func venueSearchResultsViewController() -> Any {
+        return TyphoonDefinition.withClass(VenueSearchResultsViewController.self) {
+            (definition) in
+            
+            definition!.useInitializer(#selector(VenueSearchResultsViewController.init(appRoute:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
             }

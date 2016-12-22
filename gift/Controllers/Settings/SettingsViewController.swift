@@ -111,6 +111,7 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         self.navigationController!.navigationBar.isTranslucent = true
         self.navigationController!.navigationBar.barStyle = .black
         self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
+        self.navigationController!.navigationBar.tintColor = UIColor.gftWhiteColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
         
         let rightBarButtonItem = UIBarButtonItem(title: "SettingsViewController.Edit".localized, style: .plain, target: self, action: #selector(didTapEdit))

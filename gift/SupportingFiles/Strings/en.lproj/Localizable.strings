@@ -97,9 +97,13 @@
 "Date+String.Greeting.Evening" = "Good Evening";
 "Date+String.Greeting.Night" = "Good Night";
 
+//DistanceUnit
+"DistanceUnit.meter" = "m";
+"DistanceUnit.kilo-meter" = "km";
+
 //EventSearchViewController
 "EventSearchViewController.Title" = "Choose the couple";
-"NavigationViewController.Nearby" = "Nearby";
+"EventSearchViewController.Nearby" = "Nearby";
 
 //EventSearchView
 "EventSearchView.Event is not in the list button" = "Can't find the couple?";
@@ -109,6 +113,12 @@
 "EventSearchResultsView.Event is not in the list button" = "Can't find the couple?";
 "EventSearchResultsView.Empty results placeholder" = "No events found";
 
-//EventCell
-"EventCellDistanceUnit.meter" = "m";
-"EventCellDistanceUnit.kilo-meter" = "km";
+//VenueSearchViewController
+"VenueSearchViewController.Title" = "Choose the venue";
+"VenueSearchViewController.Nearby" = "Nearby";
+
+//VenueSearchView
+"VenueSearchView.Empty results placeholder" = "We could not find venues near you";
+
+//VenueSearchResultsView
+"VenueSearchResultsView.Empty results placeholder" = "No venues found";

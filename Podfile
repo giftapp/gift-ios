@@ -34,7 +34,7 @@ target 'gift' do
   pod 'SwiftDate', '~> 4.0.8'
 
   # Image cache
-  pod 'Kingfisher', '~> 3.0.1'                                      # not used yet
+  pod 'Kingfisher', '~> 3.2.3'                                      # not used yet
 
   # Image processing
   # pod 'Toucan', '~> 0.5.0'                                          # not used yet

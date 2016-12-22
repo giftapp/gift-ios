@@ -1,40 +1,37 @@
 //
-// Created by Matan Lachmish on 18/12/2016.
+// Created by Matan Lachmish on 21/12/2016.
 // Copyright (c) 2016 GiftApp. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class EventSearchResultsViewController: UIViewController, EventSearchResultsViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class VenueSearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     //Injections
     private var appRoute: AppRoute
-    private var venueSearchViewController: VenueSearchViewController
 
     //Views
-    private var eventSearchResultsView: EventSearchResultsView!
+    private var venueSearchResultsView: VenueSearchResultsView!
 
     //Public Properties
-    public var searchResultEvents: Array<Event> = [] {
+    public var searchResultVenues: Array<Venue> = [] {
         didSet {
-            eventSearchResultsView.update()
+            venueSearchResultsView.update()
         }
     }
 
     public var currentLocation: (lat: Double, lng: Double)! {
         didSet {
-            eventSearchResultsView.update()
+            venueSearchResultsView.update()
         }
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute: AppRoute,
-                          venueSearchViewController: VenueSearchViewController) {
+    internal dynamic init(appRoute: AppRoute) {
         self.appRoute = appRoute
-        self.venueSearchViewController = venueSearchViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -52,54 +49,46 @@ class EventSearchResultsViewController: UIViewController, EventSearchResultsView
     }
 
     private func addCustomViews() {
-        if eventSearchResultsView == nil {
-            eventSearchResultsView = EventSearchResultsView()
-            eventSearchResultsView.delegate = self
-            eventSearchResultsView.tableViewDataSource = self
-            eventSearchResultsView.tableViewDelegate = self
-            self.view = eventSearchResultsView
+        if venueSearchResultsView == nil {
+            venueSearchResultsView = VenueSearchResultsView()
+            venueSearchResultsView.tableViewDataSource = self
+            venueSearchResultsView.tableViewDelegate = self
+            self.view = venueSearchResultsView
         }
     }
-    
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func clearSearchResults() {
-        searchResultEvents.removeAll()
+        searchResultVenues.removeAll()
         shouldPresentEmptyPlaceholder(shouldPresent: false)
     }
 
     func activityAnimation(shouldAnimate: Bool) {
-        eventSearchResultsView.activityAnimation(shouldAnimate: shouldAnimate)
+        venueSearchResultsView.activityAnimation(shouldAnimate: shouldAnimate)
     }
 
     func shouldPresentEmptyPlaceholder(shouldPresent: Bool)  {
-        eventSearchResultsView.shouldPresentEmptyPlaceholder(shouldPresent: shouldPresent)
-    }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - EventSearchResultViewDelegate
-    //-------------------------------------------------------------------------------------------
-    func didTapEventIsNotInTheList() {
-        Logger.debug("User tapped event is not in the list")
-        appRoute.pushViewController(controller: venueSearchViewController, animated: true)
+        venueSearchResultsView.shouldPresentEmptyPlaceholder(shouldPresent: shouldPresent)
     }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - UITableViewDataSource
     //-------------------------------------------------------------------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResultEvents.count
+        return searchResultVenues.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:EventCell = tableView.dequeueReusableCell(withIdentifier: EventCellConstants.reuseIdentifier, for: indexPath) as! EventCell
+        let cell:VenueCell = tableView.dequeueReusableCell(withIdentifier: VenueCellConstants.reuseIdentifier, for: indexPath) as! VenueCell
 
-        let event = searchResultEvents[indexPath.item]
+        let venue = searchResultVenues[indexPath.item]
 
-        cell.eventName = event.title
-        cell.venueName = event.venue?.name
-        cell.distanceAmount = LocationUtils.distanceBetween(lat1: currentLocation.lat, lng1: currentLocation.lng, lat2: (event.venue?.latitude)!, lng2: (event.venue?.longitude)!)
+        cell.venueName = venue.name
+        cell.venueAddress = venue.address
+        cell.venueImageUrl = venue.imageUrl
+        cell.distanceAmount = LocationUtils.distanceBetween(lat1: currentLocation.lat, lng1: currentLocation.lng, lat2: (venue.latitude)!, lng2: (venue.longitude)!)
         cell.distanceUnit = DistanceUnit.kiloMeter
 
         return cell
@@ -109,11 +98,11 @@ class EventSearchResultsViewController: UIViewController, EventSearchResultsView
     // MARK: - UITableViewDelegate
     //-------------------------------------------------------------------------------------------
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return EventCellConstants.height
+        return VenueCellConstants.height
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Logger.debug("User tapped on event")
+        Logger.debug("User tapped on venue")
     }
 
 }

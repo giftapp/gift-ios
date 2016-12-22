@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06B6CB863DC33BE1453207B8 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF99795085D1F08F70CC0EB /* Pods_gift.framework */; };
+		62DD90470870A5C2378DC4E8 /* VenueSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95C4729943F1F9F60930 /* VenueSearchView.swift */; };
 		62DD9059680C758930A0154A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96B86362864AAAD81D97 /* LocationManager.swift */; };
 		62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */; };
+		62DD90EAAF31F281943FCBAE /* VenueSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9AD0A6DBA69826DFDE1A /* VenueSearchResultsView.swift */; };
 		62DD91354D2603DA3924174F /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */; };
 		62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */; };
 		62DD91CC97693CA350EDD261 /* String+Initials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9069903E3335729CE80E /* String+Initials.swift */; };
@@ -26,10 +28,12 @@
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD9318D4342F59E3A492C7 /* TokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF7EAD739DE5EC8A9A3 /* TokenDTO.swift */; };
 		62DD936CF738D6209B33CD7D /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C359846AD68A469D2FB /* EventSearchViewController.swift */; };
+		62DD93E03668496594A71196 /* DistanceUnitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C4FB058E706239A19C0 /* DistanceUnitUtils.swift */; };
 		62DD93E4288DF9D87124734B /* GiftServiceCoreClient+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9999B81F2E3121557C89 /* GiftServiceCoreClient+Authentication.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
 		62DD9448AEE9BAA5E0BA67AE /* SendGiftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D2877E6B94D4BD579FE /* SendGiftButton.swift */; };
 		62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */; };
+		62DD947BC999D76B65C5C5D1 /* VenueSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD900F167BD9361B4A3CEB /* VenueSearchResultsViewController.swift */; };
 		62DD94BBD10FB559F8D4A924 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */; };
 		62DD955DB26FBE3003D598A0 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD906D8C4506EE9DE566A4 /* Rubik-LightItalic.ttf */; };
 		62DD95670B946382752186DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DCA03503B4293DAD836 /* LoginViewController.swift */; };
@@ -57,6 +61,7 @@
 		62DD9939495BB87EE8CFD2B6 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE7C6E1431E0790CA36 /* AvatarViewController.swift */; };
 		62DD994E0D14A5C284A358B1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A6D9B7E734EC492CBA2 /* UserService.swift */; };
 		62DD999176FE60B9080D7EAE /* VerificaionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */; };
+		62DD999F6932932AFC6DFB3B /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92A41039C73E275441DE /* VenueCell.swift */; };
 		62DD99C46939549472F8C011 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */; };
 		62DD99F352BF3865BAFBFB13 /* AnimatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9CB2555016D1A32A6455 /* AnimatedTextField.swift */; };
 		62DD9A2D09B0D5FA8AF7320F /* EventSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E697C2FC367B1CFFC03 /* EventSearchResultsViewController.swift */; };
@@ -83,6 +88,7 @@
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
 		62DD9D5E23E64B9A0EE9DD4F /* SettingsProfileDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9FDA56C9CA5D03D51112 /* SettingsProfileDetailsCell.swift */; };
 		62DD9D7E19A522EC9ACD82AD /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD904EF51D7753E194F161 /* EventDTO.swift */; };
+		62DD9D83B5251FDEDDD2A800 /* VenueSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92C83841E54D1C75F396 /* VenueSearchViewController.swift */; };
 		62DD9D8AD08619FC99E2EB64 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FA3DF68A0F01C25E17 /* Venue.swift */; };
 		62DD9DB15C6C0B60C4E6FA37 /* UIView+Boarders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */; };
 		62DD9DD112B4D183EC7255DC /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9E80633CF07DC9361AB8 /* VerificationCodeView.swift */; };
@@ -110,6 +116,7 @@
 /* Begin PBXFileReference section */
 		06672106674880108809560A /* Pods-gift.developmentlocal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.developmentlocal.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.developmentlocal.xcconfig"; sourceTree = "<group>"; };
 		5D79C2D5F638CC61B512D0C2 /* Pods-gift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.release.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.release.xcconfig"; sourceTree = "<group>"; };
+		62DD900F167BD9361B4A3CEB /* VenueSearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchResultsViewController.swift; sourceTree = "<group>"; };
 		62DD9011430B13BE13086750 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		62DD904EF51D7753E194F161 /* EventDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
 		62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftServiceCoreClient.swift; sourceTree = "<group>"; };
@@ -128,7 +135,9 @@
 		62DD91DDABC7A451CEE55958 /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		62DD92750583B29A40E93C7B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		62DD927D423D336622BEF4E8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		62DD92A41039C73E275441DE /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperTools.swift; sourceTree = "<group>"; };
+		62DD92C83841E54D1C75F396 /* VenueSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchViewController.swift; sourceTree = "<group>"; };
 		62DD92DA6FFC16A8259A5068 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		62DD92DB176B36DD2A1062A3 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		62DD92FA3DF68A0F01C25E17 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -144,6 +153,7 @@
 		62DD95571033DF4534E17B9C /* EditProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		62DD9564E93F17761B6F4AFC /* UIColor+GFTAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+GFTAdditions.swift"; sourceTree = "<group>"; };
 		62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Boarders.swift"; path = "../../Utils/Extensions/UIView+Boarders.swift"; sourceTree = "<group>"; };
+		62DD95C4729943F1F9F60930 /* VenueSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchView.swift; sourceTree = "<group>"; };
 		62DD9601F44EE34943E71B96 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 		62DD9A6D9B7E734EC492CBA2 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreComponentsAssembly.swift; sourceTree = "<group>"; };
 		62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
+		62DD9AD0A6DBA69826DFDE1A /* VenueSearchResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchResultsView.swift; sourceTree = "<group>"; };
 		62DD9AE52059F22CAED65099 /* VenueService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		62DD9B951D76394291709BEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -176,6 +187,7 @@
 		62DD9BF77C898E54A0867FFB /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		62DD9BF7EAD739DE5EC8A9A3 /* TokenDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenDTO.swift; sourceTree = "<group>"; };
 		62DD9C359846AD68A469D2FB /* EventSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
+		62DD9C4FB058E706239A19C0 /* DistanceUnitUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceUnitUtils.swift; sourceTree = "<group>"; };
 		62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		62DD9C9EEBBD233B9F8904F2 /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
 		62DD9CA30948BAAE79B33FB2 /* String+PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+PhoneNumber.swift"; sourceTree = "<group>"; };
@@ -426,6 +438,7 @@
 			children = (
 				62DD989C6EC9782DDAF6D696 /* Extensions */,
 				62DD9C9EEBBD233B9F8904F2 /* LocationUtils.swift */,
+				62DD9C4FB058E706239A19C0 /* DistanceUnitUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -552,6 +565,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		62DD9A371EDF67EF0E4A3478 /* VenueSearch */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9A6A376DADF0A7324786 /* Views */,
+				62DD92C83841E54D1C75F396 /* VenueSearchViewController.swift */,
+				62DD900F167BD9361B4A3CEB /* VenueSearchResultsViewController.swift */,
+			);
+			path = VenueSearch;
+			sourceTree = "<group>";
+		};
+		62DD9A6A376DADF0A7324786 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62DD95C4729943F1F9F60930 /* VenueSearchView.swift */,
+				62DD9AD0A6DBA69826DFDE1A /* VenueSearchResultsView.swift */,
+				62DD92A41039C73E275441DE /* VenueCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		62DD9A6C4B3AF4F53C301C88 /* ModelFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +655,7 @@
 				62DD9552B56D3889065666E6 /* Welcome */,
 				62DD934BCCD9BD7D22422E01 /* Alert */,
 				62DD9C121FC337B3D2B039CD /* EventSearch */,
+				62DD9A371EDF67EF0E4A3478 /* VenueSearch */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -937,6 +971,12 @@
 				62DD9A2D09B0D5FA8AF7320F /* EventSearchResultsViewController.swift in Sources */,
 				62DD9F81DB36304FF54E00D6 /* EventSearchResultsView.swift in Sources */,
 				62DD92509084F389BF23D725 /* EmptyTablePlaceholderView.swift in Sources */,
+				62DD9D83B5251FDEDDD2A800 /* VenueSearchViewController.swift in Sources */,
+				62DD947BC999D76B65C5C5D1 /* VenueSearchResultsViewController.swift in Sources */,
+				62DD90470870A5C2378DC4E8 /* VenueSearchView.swift in Sources */,
+				62DD90EAAF31F281943FCBAE /* VenueSearchResultsView.swift in Sources */,
+				62DD999F6932932AFC6DFB3B /* VenueCell.swift in Sources */,
+				62DD93E03668496594A71196 /* DistanceUnitUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
