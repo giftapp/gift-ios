@@ -120,7 +120,7 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
                             lat: location.coordinate.latitude,
                             lng: location.coordinate.longitude,
                             success: { (venues) in
-                                Logger.debug("Successfully got nearby venues \(venues)")
+                                Logger.debug("Successfully got \(venues.count) nearby venues")
                                 self.nearbyVenues = venues
                                 self.venueSearchView.shouldPresentEmptyPlaceholder(shouldPresent: venues.count == 0)
                             },
@@ -142,7 +142,7 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
         let keyword = searchController.searchBar.text!
         venueService.findVenuesByKeyword(keyword: keyword,
                 success: { (venues) in
-                    Logger.debug("Successfully got searched venues \(venues)")
+                    Logger.debug("Successfully got \(venues.count) searched venues")
                     self.venueSearchResultsViewController.activityAnimation(shouldAnimate: false)
                     self.venueSearchResultsViewController.searchResultVenues = venues
                     self.venueSearchResultsViewController.currentLocation = self.currentLocation

@@ -124,7 +124,7 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
                             lat: location.coordinate.latitude,
                             lng: location.coordinate.longitude,
                             success: { (events) in
-                                Logger.debug("Successfully got nearby events \(events)")
+                                Logger.debug("Successfully got \(events.count) nearby events")
                                 self.nearbyEvents = events
                                 self.eventSearchView.shouldPresentEmptyPlaceholder(shouldPresent: events.count == 0)
                             },
@@ -146,7 +146,7 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
         let keyword = searchController.searchBar.text!
         eventService.findEventsByKeyword(keyword: keyword,
                 success: { (events) in
-                    Logger.debug("Successfully got searched events \(events)")
+                    Logger.debug("Successfully got \(events.count) searched events")
                     self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
                     self.eventSearchResultsViewController.searchResultEvents = events
                     self.eventSearchResultsViewController.currentLocation = self.currentLocation
