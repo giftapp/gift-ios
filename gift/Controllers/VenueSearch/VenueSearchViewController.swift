@@ -88,11 +88,6 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
     //TODO: consider extension
     private func setupNavigationBar() {
         self.title = "VenueSearchViewController.Title".localized
-
-        self.navigationController!.navigationBar.barStyle = .black
-        self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
-        self.navigationController!.navigationBar.tintColor = UIColor.gftWhiteColor()
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
     }
 
     private func updateCustomViews() {
