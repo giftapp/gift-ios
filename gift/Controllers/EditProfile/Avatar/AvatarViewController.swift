@@ -81,7 +81,7 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Global.Cancel".localized, style: .cancel);
         actionSheetController.addAction(cancelActionButton)
 
-        let saveActionButton: UIAlertAction = UIAlertAction(title: "AvatarViewController.Camera".localized, style: .default)
+        let cameraButton: UIAlertAction = UIAlertAction(title: "AvatarViewController.Camera".localized, style: .default)
         { action -> Void in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
                 self.imagePicker.delegate = self
@@ -90,9 +90,9 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
         }
-        actionSheetController.addAction(saveActionButton)
+        actionSheetController.addAction(cameraButton)
 
-        let deleteActionButton: UIAlertAction = UIAlertAction(title: "AvatarViewController.Photo Library".localized, style: .default)
+        let photoLibraryButton: UIAlertAction = UIAlertAction(title: "AvatarViewController.Photo Library".localized, style: .default)
         { action -> Void in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
                 self.imagePicker.delegate = self
@@ -100,7 +100,7 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
         }
-        actionSheetController.addAction(deleteActionButton)
+        actionSheetController.addAction(photoLibraryButton)
 
         self.present(actionSheetController, animated: true, completion: nil)
     }
