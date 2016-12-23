@@ -107,11 +107,11 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func didTapCancel() {
+    @objc private func didTapCancel() {
         self.appRoute.dismiss(controller: self, animated: true)
     }
 
-    func getNearbyVenues() {
+    private func getNearbyVenues() {
         locationManager.getCurrentLocation(
                 success: { (location) in
                     self.currentLocation = (location.coordinate.latitude, location.coordinate.longitude)
@@ -121,8 +121,9 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
                             lng: location.coordinate.longitude,
                             success: { (venues) in
                                 Logger.debug("Successfully got \(venues.count) nearby venues")
-                                self.nearbyVenues = venues
-                                self.venueSearchView.shouldPresentEmptyPlaceholder(shouldPresent: venues.count == 0)
+                                let sortedVenues = self.sortVenuesByDistance(venues: venues, fromLat: self.currentLocation.lat, fromLng: self.currentLocation.lng)
+                                self.nearbyVenues = sortedVenues
+                                self.venueSearchView.shouldPresentEmptyPlaceholder(shouldPresent: sortedVenues.count == 0)
                             },
                             failure: { (error) in
                                 Logger.error("Failed to get nearby venues list \(error)")
@@ -135,7 +136,7 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
         })
     }
 
-    func getSearchResultVenues() {
+    @objc private func getSearchResultVenues() {
         Logger.debug("Updating search results")
         venueSearchResultsViewController.activityAnimation(shouldAnimate: true)
 
@@ -143,15 +144,24 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
         venueService.findVenuesByKeyword(keyword: keyword,
                 success: { (venues) in
                     Logger.debug("Successfully got \(venues.count) searched venues")
+                    let sortedVenues = self.sortVenuesByDistance(venues: venues, fromLat: self.currentLocation.lat, fromLng: self.currentLocation.lng)
                     self.venueSearchResultsViewController.activityAnimation(shouldAnimate: false)
-                    self.venueSearchResultsViewController.searchResultVenues = venues
+                    self.venueSearchResultsViewController.searchResultVenues = sortedVenues
                     self.venueSearchResultsViewController.currentLocation = self.currentLocation
-                    self.venueSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: venues.count == 0)
+                    self.venueSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: sortedVenues.count == 0)
                 }, failure: { (error) in
             Logger.error("Failed to search venues \(error)")
             self.venueSearchResultsViewController.activityAnimation(shouldAnimate: false)
             self.venueSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: true)
         })
+    }
+    
+    private func sortVenuesByDistance(venues: Array<Venue>, fromLat: Double, fromLng: Double) -> Array<Venue> {
+        return venues.sorted(by:) { (venue1, venue2) -> Bool in
+            let distanceFrom1 = LocationUtils.distanceBetween(lat1: fromLat, lng1: fromLng, lat2: (venue1.latitude)!, lng2: (venue1.longitude)!)
+            let distanceFrom2 = LocationUtils.distanceBetween(lat1: fromLat, lng1: fromLng, lat2: (venue2.latitude)!, lng2: (venue2.longitude)!)
+            return distanceFrom1 < distanceFrom2
+        }
     }
 
     //-------------------------------------------------------------------------------------------

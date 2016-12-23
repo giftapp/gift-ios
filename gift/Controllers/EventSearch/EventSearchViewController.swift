@@ -111,11 +111,11 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func didTapCancel() {
+    @objc private func didTapCancel() {
         self.appRoute.dismiss(controller: self, animated: true)
     }
 
-    func getNearbyEvents() {
+    private func getNearbyEvents() {
         locationManager.getCurrentLocation(
                 success: { (location) in
                     self.currentLocation = (location.coordinate.latitude, location.coordinate.longitude)
@@ -125,8 +125,9 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
                             lng: location.coordinate.longitude,
                             success: { (events) in
                                 Logger.debug("Successfully got \(events.count) nearby events")
-                                self.nearbyEvents = events
-                                self.eventSearchView.shouldPresentEmptyPlaceholder(shouldPresent: events.count == 0)
+                                let sortedEvents = self.sortEventsByDistance(events: events, fromLat: self.currentLocation.lat, fromLng: self.currentLocation.lng)
+                                self.nearbyEvents = sortedEvents
+                                self.eventSearchView.shouldPresentEmptyPlaceholder(shouldPresent: sortedEvents.count == 0)
                             },
                             failure: { (error) in
                                 Logger.error("Failed to get nearby event list \(error)")
@@ -139,7 +140,7 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
         })
     }
 
-    func getSearchResultEvents() {
+    @objc private func getSearchResultEvents() {
         Logger.debug("Updating search results")
         eventSearchResultsViewController.activityAnimation(shouldAnimate: true)
 
@@ -147,15 +148,24 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
         eventService.findEventsByKeyword(keyword: keyword,
                 success: { (events) in
                     Logger.debug("Successfully got \(events.count) searched events")
+                    let sortedEvents = self.sortEventsByDistance(events: events, fromLat: self.currentLocation.lat, fromLng: self.currentLocation.lng)
                     self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
-                    self.eventSearchResultsViewController.searchResultEvents = events
+                    self.eventSearchResultsViewController.searchResultEvents = sortedEvents
                     self.eventSearchResultsViewController.currentLocation = self.currentLocation
-                    self.eventSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: events.count == 0)
+                    self.eventSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: sortedEvents.count == 0)
                 }, failure: { (error) in
             Logger.error("Failed to search events \(error)")
             self.eventSearchResultsViewController.activityAnimation(shouldAnimate: false)
             self.eventSearchResultsViewController.shouldPresentEmptyPlaceholder(shouldPresent: true)
         })
+    }
+
+    private func sortEventsByDistance(events: Array<Event>, fromLat: Double, fromLng: Double) -> Array<Event> {
+        return events.sorted(by:) { (event1, event2) -> Bool in
+            let distanceFrom1 = LocationUtils.distanceBetween(lat1: fromLat, lng1: fromLng, lat2: (event1.venue?.latitude)!, lng2: (event1.venue?.longitude)!)
+            let distanceFrom2 = LocationUtils.distanceBetween(lat1: fromLat, lng1: fromLng, lat2: (event2.venue?.latitude)!, lng2: (event2.venue?.longitude)!)
+            return distanceFrom1 < distanceFrom2
+        }
     }
 
     //-------------------------------------------------------------------------------------------
