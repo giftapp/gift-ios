@@ -8,8 +8,10 @@ import SwiftyJSON
 
 class EventDTO: DTOBase {
     var date : Date?
-    var contact1 : String?
-    var contact2 : String?
+    var contact1FirstName : String?
+    var contact1LastName : String?
+    var contact2FirstName : String?
+    var contact2LastName : String?
     var venueId : String?
     var usersId : Array<String>?
 
@@ -21,11 +23,13 @@ class EventDTO: DTOBase {
     }
 
     required init(json: JSON) {
-        date        = json["date"].date
-        contact1    = json["contact1"].string
-        contact2    = json["contact2"].string
-        venueId     = json["venueId"].string
-        usersId     = json["usersId"].arrayValue.map{$0.string!}
+        date                = json["date"].date
+        contact1FirstName   = json["contact1FirstName"].string
+        contact1LastName    = json["contact1LastName"].string
+        contact2FirstName   = json["contact2FirstName"].string
+        contact2LastName    = json["contact2LastName"].string
+        venueId             = json["venueId"].string
+        usersId             = json["usersId"].arrayValue.map{$0.string!}
 
         super.init(json: json)
     }

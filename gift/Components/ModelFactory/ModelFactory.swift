@@ -52,8 +52,10 @@ class ModelFactory: NSObject {
     //-------------------------------------------------------------------------------------------
     func createEventFrom(eventDTO: EventDTO, venue: Venue) -> Event{
         let event = Event(date: eventDTO.date,
-                contact1: eventDTO.contact1,
-                contact2: eventDTO.contact2,
+                contact1FirstName: eventDTO.contact1FirstName,
+                contact1LastName: eventDTO.contact1LastName,
+                contact2FirstName: eventDTO.contact2FirstName,
+                contact2LastName: eventDTO.contact2LastName,
                 venue: venue,
                 id: eventDTO.id,
                 createdAt: eventDTO.createdAt,
