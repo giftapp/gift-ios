@@ -29,7 +29,7 @@
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD9318D4342F59E3A492C7 /* TokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF7EAD739DE5EC8A9A3 /* TokenDTO.swift */; };
 		62DD936CF738D6209B33CD7D /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C359846AD68A469D2FB /* EventSearchViewController.swift */; };
-		62DD93A2272FF588DBF396CF /* UIViewRoundedCorenersAndBaorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96C09206DE7F827740B9 /* UIViewRoundedCorenersAndBaorder.swift */; };
+		62DD93A2272FF588DBF396CF /* UIView+RoundedCorenersAndBaorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96C09206DE7F827740B9 /* UIView+RoundedCorenersAndBaorder.swift */; };
 		62DD93E03668496594A71196 /* DistanceUnitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C4FB058E706239A19C0 /* DistanceUnitUtils.swift */; };
 		62DD93E4288DF9D87124734B /* GiftServiceCoreClient+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9999B81F2E3121557C89 /* GiftServiceCoreClient+Authentication.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
@@ -165,7 +165,7 @@
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		62DD96B86362864AAAD81D97 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		62DD96C09206DE7F827740B9 /* UIViewRoundedCorenersAndBaorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRoundedCorenersAndBaorder.swift; sourceTree = "<group>"; };
+		62DD96C09206DE7F827740B9 /* UIView+RoundedCorenersAndBaorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorenersAndBaorder.swift"; sourceTree = "<group>"; };
 		62DD96F030DD1E9FD640F5C2 /* EventSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchView.swift; sourceTree = "<group>"; };
 		62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+OptionalParameter.swift"; sourceTree = "<group>"; };
 		62DD97AB2B4D309BA2241060 /* GiftServiceCoreClient+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GiftServiceCoreClient+Event.swift"; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 				62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */,
 				62DD94280673A9DAA87A0427 /* UITableView+HeaderViewAutolayout.swift */,
 				62DD90697725EEECCFEB92CA /* UIVIewController+HideKeyboard.swift */,
-				62DD96C09206DE7F827740B9 /* UIViewRoundedCorenersAndBaorder.swift */,
+				62DD96C09206DE7F827740B9 /* UIView+RoundedCorenersAndBaorder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1008,7 +1008,7 @@
 				62DD9BD7EF079D1E9F4DD468 /* CreateCoupleViewController.swift in Sources */,
 				62DD92B1988F46AB4ACDBCC7 /* CreateCoupleView.swift in Sources */,
 				62DD9544284E5BFDBD6A3C48 /* ContactDetailsView.swift in Sources */,
-				62DD93A2272FF588DBF396CF /* UIViewRoundedCorenersAndBaorder.swift in Sources */,
+				62DD93A2272FF588DBF396CF /* UIView+RoundedCorenersAndBaorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
