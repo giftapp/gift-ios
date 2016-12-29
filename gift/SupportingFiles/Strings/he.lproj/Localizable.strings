@@ -122,3 +122,18 @@
 
 //VenueSearchResultsView
 "VenueSearchResultsView.Empty results placeholder" = "לא נמצאו אולמות";
+
+//CreateCoupleViewController
+"CreateCoupleViewController.Title" = "פרטי הזוג";
+"CreateCoupleViewController.Add from address book" = "הוסף מאנשי קשר";
+"CreateCoupleViewController.Add manually" = "הוסף ידנית";
+
+//CreateCoupleView
+"CreateCoupleView.Description" = "בעזרת פרטי הזוג נוכל ליצור עימם קשר\nלצורך העברת המתנה";
+"CreateCoupleView.Add contact1 title" = "בן/בת זוג א’";
+"CreateCoupleView.Add contact2 title" = "בן/בת זוג ב’";
+"CreateCoupleView.Add details" = "הוסף פרטים";
+"ContactDetailsView.First name" = "שם פרטי";
+"ContactDetailsView.Last name" = "שם משפחה";
+"ContactDetailsView.Phone number" = "מספר טלפון";
+"CreateCoupleView.Continue button" = "המשך להענקת המתנה";

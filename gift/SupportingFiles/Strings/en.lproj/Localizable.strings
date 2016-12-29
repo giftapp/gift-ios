@@ -122,3 +122,18 @@
 
 //VenueSearchResultsView
 "VenueSearchResultsView.Empty results placeholder" = "No venues found";
+
+//CreateCoupleViewController
+"CreateCoupleViewController.Title" = "Couple details";
+"CreateCoupleViewController.Add from address book" = "Add from address book";
+"CreateCoupleViewController.Add manually" = "Add manually";
+
+//CreateCoupleView
+"CreateCoupleView.Description" = "Using the details you provide we can contact the couple\nin order to giving them the gift";
+"CreateCoupleView.Add contact1 title" = "Groom/Bride 1";
+"CreateCoupleView.Add contact2 title" = "Groom/Bride 2";
+"CreateCoupleView.Add details" = "Add details";
+"ContactDetailsView.First name" = "First name";
+"ContactDetailsView.Last name" = "Last name";
+"ContactDetailsView.Phone number" = "Phone number";
+"CreateCoupleView.Continue button" = "Continue to grant the gift";

@@ -13,6 +13,7 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
     private var venueService: VenueService
     private var locationManager: LocationManager
     private var venueSearchResultsViewController: VenueSearchResultsViewController
+    private var createCoupleViewController: CreateCoupleViewController
 
     //Views
     private var venueSearchView: VenueSearchView!
@@ -41,11 +42,13 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
     internal dynamic init(appRoute: AppRoute,
                           venueService: VenueService,
                           locationManager: LocationManager,
-                          venueSearchResultsViewController: VenueSearchResultsViewController) {
+                          venueSearchResultsViewController: VenueSearchResultsViewController,
+                          createCoupleViewController: CreateCoupleViewController) {
         self.appRoute = appRoute
         self.venueService = venueService
         self.locationManager = locationManager
         self.venueSearchResultsViewController = venueSearchResultsViewController
+        self.createCoupleViewController = createCoupleViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -199,6 +202,8 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Logger.debug("User tapped on venue")
+        appRoute.pushViewController(controller: createCoupleViewController, animated: true)
     }
 
 }

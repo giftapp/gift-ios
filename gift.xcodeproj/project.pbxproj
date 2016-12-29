@@ -21,6 +21,7 @@
 		62DD9227F285732C694E5FAD /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD94070F713CE65554320E /* ActivityIndicatorView.swift */; };
 		62DD9229654B5ABFD4ACFFDD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */; };
 		62DD92509084F389BF23D725 /* EmptyTablePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9102957007A013E86E7D /* EmptyTablePlaceholderView.swift */; };
+		62DD92B1988F46AB4ACDBCC7 /* CreateCoupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9683761B87D7F5524A59 /* CreateCoupleView.swift */; };
 		62DD92B8DF265DEC0212B6EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F0225584711E507EE8E /* LoginView.swift */; };
 		62DD92CCD1D9C4A7B1F039D6 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */; };
 		62DD92DDFA3CB54F352B1B32 /* DTOBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A6237ABF7971B32AD88 /* DTOBase.swift */; };
@@ -28,6 +29,7 @@
 		62DD930D91B519AFFF2EFA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD981BFB745FF000A6EE9E /* User.swift */; };
 		62DD9318D4342F59E3A492C7 /* TokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BF7EAD739DE5EC8A9A3 /* TokenDTO.swift */; };
 		62DD936CF738D6209B33CD7D /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C359846AD68A469D2FB /* EventSearchViewController.swift */; };
+		62DD93A2272FF588DBF396CF /* UIViewRoundedCorenersAndBaorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96C09206DE7F827740B9 /* UIViewRoundedCorenersAndBaorder.swift */; };
 		62DD93E03668496594A71196 /* DistanceUnitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C4FB058E706239A19C0 /* DistanceUnitUtils.swift */; };
 		62DD93E4288DF9D87124734B /* GiftServiceCoreClient+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9999B81F2E3121557C89 /* GiftServiceCoreClient+Authentication.swift */; };
 		62DD94107045542006F6A8EF /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DA502C877CD334A3C0E /* ModelBase.swift */; };
@@ -35,6 +37,7 @@
 		62DD94715E11F78F77EEB5D0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */; };
 		62DD947BC999D76B65C5C5D1 /* VenueSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD900F167BD9361B4A3CEB /* VenueSearchResultsViewController.swift */; };
 		62DD94BBD10FB559F8D4A924 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9C6200ED10C414BAC4E2 /* String+Localized.swift */; };
+		62DD9544284E5BFDBD6A3C48 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD98B5C1BE67CEC1521AE5 /* ContactDetailsView.swift */; };
 		62DD955DB26FBE3003D598A0 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD906D8C4506EE9DE566A4 /* Rubik-LightItalic.ttf */; };
 		62DD95670B946382752186DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DCA03503B4293DAD836 /* LoginViewController.swift */; };
 		62DD95927FF3A8D74B821578 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9CAB5B2E629F2856BFEF /* SettingsView.swift */; };
@@ -77,6 +80,7 @@
 		62DD9BC19D7706F463E9ABC0 /* DeveloperTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */; };
 		62DD9BCBA6DC7126BE3D620C /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92DA6FFC16A8259A5068 /* AvatarView.swift */; };
 		62DD9BD664CDF986B4D67DC9 /* didLoggedOutEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD98E6DA7C6B77CD73BF8E /* didLoggedOutEvent.swift */; };
+		62DD9BD7EF079D1E9F4DD468 /* CreateCoupleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD927680BFAF91DA0A1546 /* CreateCoupleViewController.swift */; };
 		62DD9BF8CED1575C0BFAF09E /* SettingsModalButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9123A27B7DF24FA99CFF /* SettingsModalButtonCell.swift */; };
 		62DD9C657A4D9B4D33844951 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9900EBB0861053EA469F /* HomeViewController.swift */; };
 		62DD9C6DDD2A27A965AA0C31 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD995503C45636206650A9 /* Rubik-Regular.ttf */; };
@@ -134,6 +138,7 @@
 		62DD916D9E7EBEDA22CE3FD0 /* ModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		62DD91DDABC7A451CEE55958 /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		62DD92750583B29A40E93C7B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		62DD927680BFAF91DA0A1546 /* CreateCoupleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCoupleViewController.swift; sourceTree = "<group>"; };
 		62DD927D423D336622BEF4E8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		62DD92A41039C73E275441DE /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		62DD92BFC4FDB443E2047229 /* DeveloperTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperTools.swift; sourceTree = "<group>"; };
@@ -155,15 +160,18 @@
 		62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Boarders.swift"; path = "../../Utils/Extensions/UIView+Boarders.swift"; sourceTree = "<group>"; };
 		62DD95C4729943F1F9F60930 /* VenueSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchView.swift; sourceTree = "<group>"; };
 		62DD9601F44EE34943E71B96 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		62DD9683761B87D7F5524A59 /* CreateCoupleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCoupleView.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		62DD96B86362864AAAD81D97 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		62DD96C09206DE7F827740B9 /* UIViewRoundedCorenersAndBaorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRoundedCorenersAndBaorder.swift; sourceTree = "<group>"; };
 		62DD96F030DD1E9FD640F5C2 /* EventSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchView.swift; sourceTree = "<group>"; };
 		62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+OptionalParameter.swift"; sourceTree = "<group>"; };
 		62DD97AB2B4D309BA2241060 /* GiftServiceCoreClient+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GiftServiceCoreClient+Event.swift"; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62DD9826702EABC276EC9D84 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		62DD98B5C1BE67CEC1521AE5 /* ContactDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
 		62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		62DD98E6DA7C6B77CD73BF8E /* didLoggedOutEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = didLoggedOutEvent.swift; sourceTree = "<group>"; };
 		62DD9900EBB0861053EA469F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +284,7 @@
 				62DD957BEEC00C857F366CD6 /* UIView+Boarders.swift */,
 				62DD94280673A9DAA87A0427 /* UITableView+HeaderViewAutolayout.swift */,
 				62DD90697725EEECCFEB92CA /* UIVIewController+HideKeyboard.swift */,
+				62DD96C09206DE7F827740B9 /* UIViewRoundedCorenersAndBaorder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -395,6 +404,15 @@
 				62DD9C5E666DA0C59F5F3529 /* Views */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		62DD951E346FE376AAF63BF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9683761B87D7F5524A59 /* CreateCoupleView.swift */,
+				62DD98B5C1BE67CEC1521AE5 /* ContactDetailsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		62DD9547D1A13053D5C91CB4 /* Views */ = {
@@ -593,6 +611,15 @@
 			path = ModelFactory;
 			sourceTree = "<group>";
 		};
+		62DD9B5AC2C287C4DA25016D /* CreateCouple */ = {
+			isa = PBXGroup;
+			children = (
+				62DD927680BFAF91DA0A1546 /* CreateCoupleViewController.swift */,
+				62DD951E346FE376AAF63BF4 /* Views */,
+			);
+			path = CreateCouple;
+			sourceTree = "<group>";
+		};
 		62DD9BAE4BE07E0563A57CB8 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +683,7 @@
 				62DD934BCCD9BD7D22422E01 /* Alert */,
 				62DD9C121FC337B3D2B039CD /* EventSearch */,
 				62DD9A371EDF67EF0E4A3478 /* VenueSearch */,
+				62DD9B5AC2C287C4DA25016D /* CreateCouple */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -977,6 +1005,10 @@
 				62DD90EAAF31F281943FCBAE /* VenueSearchResultsView.swift in Sources */,
 				62DD999F6932932AFC6DFB3B /* VenueCell.swift in Sources */,
 				62DD93E03668496594A71196 /* DistanceUnitUtils.swift in Sources */,
+				62DD9BD7EF079D1E9F4DD468 /* CreateCoupleViewController.swift in Sources */,
+				62DD92B1988F46AB4ACDBCC7 /* CreateCoupleView.swift in Sources */,
+				62DD9544284E5BFDBD6A3C48 /* ContactDetailsView.swift in Sources */,
+				62DD93A2272FF588DBF396CF /* UIViewRoundedCorenersAndBaorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

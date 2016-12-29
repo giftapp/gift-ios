@@ -122,12 +122,13 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(VenueSearchViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(VenueSearchViewController.init(appRoute:venueService:locationManager:venueSearchResultsViewController:))) {
+            definition!.useInitializer(#selector(VenueSearchViewController.init(appRoute:venueService:locationManager:venueSearchResultsViewController:createCoupleViewController:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.venueService())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.locationManager())
                 initializer?.injectParameter(with: self.venueSearchResultsViewController())
+                initializer?.injectParameter(with: self.createCoupleViewController())
             }
         }
     }
@@ -136,7 +137,19 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(VenueSearchResultsViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(VenueSearchResultsViewController.init(appRoute:))) {
+            definition!.useInitializer(#selector(VenueSearchResultsViewController.init(appRoute:createCoupleViewController:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.createCoupleViewController())
+            }
+        }
+    }
+    
+    public dynamic func createCoupleViewController() -> Any {
+        return TyphoonDefinition.withClass(CreateCoupleViewController.self) {
+            (definition) in
+            
+            definition!.useInitializer(#selector(CreateCoupleViewController.init(appRoute:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
             }

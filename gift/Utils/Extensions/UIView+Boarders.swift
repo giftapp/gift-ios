@@ -33,6 +33,19 @@ extension UIView {
         }
     }
 
+
+    func addLeftBorder() {
+        let border = UIView()
+        self.addSubview(border)
+        border.backgroundColor = UIColor.gftSeparatorColor()
+        border.snp.makeConstraints { (make) in
+            make.bottom.equalTo(border.superview!)
+            make.left.equalTo(border.superview!)
+            make.width.equalTo(0.5)
+            make.height.equalTo(border.superview!)
+        }
+    }
+
     func addTopBottomBorders() {
         addTopBorder()
         addBottomBorder()

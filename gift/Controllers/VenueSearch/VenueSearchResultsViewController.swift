@@ -10,6 +10,7 @@ class VenueSearchResultsViewController: UIViewController, UITableViewDataSource,
 
     //Injections
     private var appRoute: AppRoute
+    private var createCoupleViewController: CreateCoupleViewController
 
     //Views
     private var venueSearchResultsView: VenueSearchResultsView!
@@ -30,8 +31,10 @@ class VenueSearchResultsViewController: UIViewController, UITableViewDataSource,
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute: AppRoute) {
+    internal dynamic init(appRoute: AppRoute,
+                          createCoupleViewController: CreateCoupleViewController) {
         self.appRoute = appRoute
+        self.createCoupleViewController = createCoupleViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -103,6 +106,7 @@ class VenueSearchResultsViewController: UIViewController, UITableViewDataSource,
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Logger.debug("User tapped on venue")
+        appRoute.pushViewController(controller: createCoupleViewController, animated: true)
     }
 
 }
