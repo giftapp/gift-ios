@@ -25,3 +25,12 @@ extension String {
         return  String(self.characters.prefix(atIndex)) + string + String(self.characters.suffix(self.characters.count-atIndex))
     }
 }
+
+extension String {
+    var isValidPhoneNumber: Bool {
+        let phoneRegEx = "^\\d{3}-\\d{3}-\\d{4}$"
+
+        let predicate = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+        return predicate.evaluate(with: self)
+    }
+}
