@@ -62,6 +62,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             phoneNumberNameTextField = AnimatedTextField()
             phoneNumberNameTextField.addTopBorder(padded: true)
             phoneNumberNameTextField.placeholder = "ContactDetailsView.Phone number".localized
+            phoneNumberNameTextField.keyboardType = .phonePad
             phoneNumberNameTextField.delegate = self
             self.addSubview(phoneNumberNameTextField)
         }
