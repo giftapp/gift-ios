@@ -125,7 +125,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             contact1DetailsView.isHidden = true
             contentView.addSubview(contact1DetailsView)
         }
-        
+
         if deleteContact1Button == nil {
             deleteContact1Button = UIButton()
             deleteContact1Button.setImage(UIImage(named: "trash"), for: .normal)
@@ -160,7 +160,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             contact2DetailsView.isHidden = true
             contentView.addSubview(contact2DetailsView)
         }
-        
+
         if deleteContact2Button == nil {
             deleteContact2Button = UIButton()
             deleteContact2Button.setImage(UIImage(named: "trash"), for: .normal)
@@ -188,7 +188,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             make.edges.equalTo(scrollView)
             make.size.equalToSuperview()
         }
-        
+
         coupleIcon.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
@@ -198,7 +198,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             make.top.equalTo(coupleIcon.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
         }
-        
+
         addContact1Title.snp.makeConstraints { (make) in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(30)
             make.right.equalTo(-15)
@@ -228,7 +228,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             make.top.equalTo(addContact1Button.snp.bottom).offset(75)
             make.right.equalTo(-15)
         }
-        
+
         addContact2Button.snp.makeConstraints { (make) in
             make.top.equalTo(addContact2Title.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
@@ -242,7 +242,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             make.right.equalToSuperview()
             make.left.equalTo(deleteContact2Button.snp.right).offset(15)
         }
-        
+
         deleteContact2Button.snp.makeConstraints { (make) in
             make.centerY.equalTo(contact2DetailsView)
             make.left.equalToSuperview().offset(15)
@@ -284,10 +284,22 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             addContact1Button.isHidden = shouldShowContactDetails
             contact1DetailsView.isHidden = !shouldShowContactDetails
             deleteContact1Button.isHidden = !shouldShowContactDetails
+
+            if shouldShowContactDetails {
+                contact1DetailsView.focus()
+            } else {
+                self.endEditing(true)
+            }
         case .b:
             addContact2Button.isHidden = shouldShowContactDetails
             contact2DetailsView.isHidden = !shouldShowContactDetails
             deleteContact2Button.isHidden = !shouldShowContactDetails
+
+            if shouldShowContactDetails {
+                contact2DetailsView.focus()
+            } else {
+                self.endEditing(true)
+            }
         }
     }
 

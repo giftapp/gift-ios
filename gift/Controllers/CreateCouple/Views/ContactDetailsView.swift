@@ -149,6 +149,9 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
         firstName = ""
         lastName = ""
         phoneNumber = ""
-        self.endEditing(true)
+    }
+
+    func focus() {
+        firstNameTextField.becomeFirstResponder()
     }
 }
