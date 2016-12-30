@@ -27,8 +27,8 @@ extension String {
 }
 
 extension String {
-    var isValidPhoneNumber: Bool {
-        let phoneRegEx = "^\\d{3}-\\d{3}-\\d{4}$"
+    var isValidPhoneNumber: Bool { //TODO: this is israel only regex decide if we need to generalize this
+        let phoneRegEx = "^\\+?(972|0)(\\-)?0?(([23489]{1}\\d{7})|[5]{1}\\d{8})$" //Israel only
 
         let predicate = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         return predicate.evaluate(with: self)

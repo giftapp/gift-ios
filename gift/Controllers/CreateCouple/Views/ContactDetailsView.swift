@@ -6,6 +6,10 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol ContactDetailsViewDelegate{
+    func didUpdate()
+}
+
 class ContactDetailsView: UIView, UITextFieldDelegate {
 
     //Views
@@ -15,11 +19,40 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
 
 
     //Public Properties
+    var delegate: ContactDetailsViewDelegate!
+
     var textFieldDelegate: UITextFieldDelegate! {
         didSet {
             firstNameTextField.delegate = self.textFieldDelegate
             lastNameTextField.delegate = self.textFieldDelegate
             phoneNumberNameTextField.delegate = self.textFieldDelegate
+        }
+    }
+
+    var firstName: String? {
+        get {
+            return firstNameTextField.text
+        }
+        set {
+            firstNameTextField.text = newValue
+        }
+    }
+
+    var lastName: String? {
+        get {
+            return lastNameTextField.text
+        }
+        set {
+            lastNameTextField.text = newValue
+        }
+    }
+
+    var phoneNumber: String? {
+        get {
+            return phoneNumberNameTextField.text
+        }
+        set {
+            phoneNumberNameTextField.text = newValue
         }
     }
 
@@ -48,6 +81,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             firstNameTextField.placeholder = "ContactDetailsView.First name".localized
             firstNameTextField.delegate = self
             firstNameTextField.addLeftBorder()
+            firstNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
             self.addSubview(firstNameTextField)
         }
 
@@ -55,6 +89,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             lastNameTextField = AnimatedTextField()
             lastNameTextField.placeholder = "ContactDetailsView.Last name".localized
             lastNameTextField.delegate = self
+            lastNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
             self.addSubview(lastNameTextField)
         }
 
@@ -64,6 +99,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             phoneNumberNameTextField.placeholder = "ContactDetailsView.Phone number".localized
             phoneNumberNameTextField.keyboardType = .phonePad
             phoneNumberNameTextField.delegate = self
+            phoneNumberNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
             self.addSubview(phoneNumberNameTextField)
         }
 
@@ -93,4 +129,16 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
 
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Private
+    //-------------------------------------------------------------------------------------------
+    @objc private func textFieldDidChange(sender: UITextField!) {
+        guard let delegate = self.delegate
+                else {
+            Logger.error("Delegate not set")
+            return
+        }
+
+        delegate.didUpdate()
+    }
 }

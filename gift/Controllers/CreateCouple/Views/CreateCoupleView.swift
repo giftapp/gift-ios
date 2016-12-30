@@ -28,12 +28,12 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
 
     private var addContact1Title: UILabel!
     private var addContact1Button: UIButton!
-    private var contact1DetailsView: ContactDetailsView!
+    var contact1DetailsView: ContactDetailsView!
     private var deleteContact1Button: UIButton!
 
     private var addContact2Title: UILabel!
     private var addContact2Button: UIButton!
-    private var contact2DetailsView: ContactDetailsView!
+    var contact2DetailsView: ContactDetailsView!
     private var deleteContact2Button: UIButton!
 
     private var continueButton: BigButton!

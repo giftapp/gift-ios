@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, UITextFieldDelegate {
+class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, ContactDetailsViewDelegate, UITextFieldDelegate {
 
     // Injections
     private var appRoute: AppRoute
@@ -50,6 +50,8 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, UI
         if createCoupleView == nil {
             createCoupleView = CreateCoupleView()
             createCoupleView.delegate = self
+            createCoupleView.contact1DetailsView.delegate = self
+            createCoupleView.contact2DetailsView.delegate = self
             createCoupleView.textFieldDelegate = self
             self.view = createCoupleView
         }
@@ -58,7 +60,7 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, UI
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    func showContactDetailSourceActionSheet(contactIndex: ContactIndex) {
+    private func showContactDetailSourceActionSheet(contactIndex: ContactIndex) {
         let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Global.Cancel".localized, style: .cancel);
@@ -79,6 +81,21 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, UI
         self.present(actionSheetController, animated: true, completion: nil)
     }
 
+    private func validateContactDetails() -> Bool {
+        return !createCoupleView.contact1DetailsView.lastName!.isEmpty &&
+                !createCoupleView.contact1DetailsView.firstName!.isEmpty &&
+                !createCoupleView.contact1DetailsView.phoneNumber!.isEmpty &&
+                createCoupleView.contact1DetailsView.phoneNumber!.isValidPhoneNumber
+                &&
+                !createCoupleView.contact2DetailsView.lastName!.isEmpty &&
+                !createCoupleView.contact2DetailsView.firstName!.isEmpty &&
+                !createCoupleView.contact2DetailsView.phoneNumber!.isEmpty &&
+                createCoupleView.contact2DetailsView.phoneNumber!.isValidPhoneNumber
+                &&
+                !createCoupleView.contact1DetailsView.phoneNumber! == createCoupleView.contact2DetailsView.phoneNumber!
+
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - CreateCoupleViewDelegate
     //-------------------------------------------------------------------------------------------
@@ -96,6 +113,15 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, UI
     }
 
     //-------------------------------------------------------------------------------------------
+    // MARK: - ContactDetailsViewDelegate
+    //-------------------------------------------------------------------------------------------
+    func didUpdate() {
+        let shouldEnableContinueButton = validateContactDetails()
+        createCoupleView.enableContinueButton(enabled: shouldEnableContinueButton)
+    }
+
+
+    //-------------------------------------------------------------------------------------------
     // MARK: - UITextFieldDelegate
     //-------------------------------------------------------------------------------------------
 
@@ -104,13 +130,5 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, UI
         textField.endEditing(true)
         return false
     }
-
-    //TODO: remove if unesasery
-//    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        //Update delegate
-//        didUpdateForm()
-//
-//        return true
-//    }
 
 }
