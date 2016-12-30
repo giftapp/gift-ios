@@ -101,7 +101,7 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
         let cancelBarButtonItem = UIBarButtonItem(title: "NavigationViewController.Cancel".localized, style: .plain, target: self, action: #selector(didTapCancel))
         cancelBarButtonItem.tintColor = UIColor.gftWhiteColor()
         cancelBarButtonItem.setTitleTextAttributes([NSFontAttributeName: UIFont.gftNavigationItemFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()], for: .normal)
-        self.navigationItem.rightBarButtonItem = cancelBarButtonItem
+        self.navigationItem.leftBarButtonItem = cancelBarButtonItem
     }
 
     private func updateCustomViews() {
