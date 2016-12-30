@@ -63,9 +63,7 @@ class AppRoute : NSObject, UITabBarControllerDelegate, UINavigationControllerDel
         let window : UIWindow = UIApplication.shared.keyWindow!
 
         if window.rootViewController!.presentedViewController != nil {
-            window.rootViewController?.dismiss(animated: animated, completion: { 
-                window.rootViewController?.present(controller, animated: animated, completion: completion)
-            })
+            window.rootViewController?.presentedViewController?.present(controller, animated: animated, completion: completion)
         } else {
             window.rootViewController?.present(controller, animated: animated, completion: completion)
         }
