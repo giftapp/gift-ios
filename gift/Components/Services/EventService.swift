@@ -71,6 +71,28 @@ class EventService: NSObject {
                 }, failure: failure)
     }
 
+    func createEvent(contact1FirstName: String,
+                     contact1LastName: String,
+                     contact1PhoneNumber: String,
+                     contact2FirstName: String,
+                     contact2LastName: String,
+                     contact2PhoneNumber: String,
+                     venueId: String,
+                     success: @escaping (_ event : Event) -> Void,
+                     failure: @escaping (_ error: Error) -> Void) {
+
+        giftServiceCoreClient.createEvent(contact1FirstName: contact1FirstName,
+                contact1LastName: contact1LastName,
+                contact1PhoneNumber: contact1PhoneNumber,
+                contact2FirstName: contact2FirstName,
+                contact2LastName: contact2LastName,
+                contact2PhoneNumber: contact2PhoneNumber,
+                venueId: venueId,
+                success: { (eventDTO) in
+                    self.getEventFrom(eventDTO: eventDTO, success: success, failure: failure)
+                }, failure: failure)
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------

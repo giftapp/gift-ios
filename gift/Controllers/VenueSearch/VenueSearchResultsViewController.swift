@@ -106,6 +106,8 @@ class VenueSearchResultsViewController: UIViewController, UITableViewDataSource,
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Logger.debug("User tapped on venue")
+        let venue = searchResultVenues[indexPath.item];
+        createCoupleViewController.selectedVenue = venue
         appRoute.pushViewController(controller: createCoupleViewController, animated: true)
     }
 

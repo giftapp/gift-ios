@@ -10,15 +10,21 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
     // Injections
     private var appRoute: AppRoute
+    private var eventService: EventService
 
     //Views
     private var createCoupleView: CreateCoupleView!
 
+    //Public Properties
+    var selectedVenue: Venue?
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
-    internal dynamic init(appRoute: AppRoute) {
+    internal dynamic init(appRoute: AppRoute,
+                          eventService: EventService) {
         self.appRoute = appRoute
+        self.eventService = eventService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -113,9 +119,24 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
         }
     }
 
-
     func didTapContinue() {
         Logger.debug("User tapped to continue")
+        eventService.createEvent(contact1FirstName: createCoupleView.contact1DetailsView.firstName!,
+                contact1LastName: createCoupleView.contact1DetailsView.lastName!,
+                contact1PhoneNumber: createCoupleView.contact1DetailsView.phoneNumber!,
+                contact2FirstName: createCoupleView.contact2DetailsView.firstName!,
+                contact2LastName: createCoupleView.contact2DetailsView.lastName!,
+                contact2PhoneNumber: createCoupleView.contact2DetailsView.phoneNumber!,
+                venueId: (selectedVenue?.id)!,
+                success: { (event) in
+                    Logger.debug("Successfully created event")
+                    self.appRoute.dismiss(controller: self, animated: true)
+                    //TODO: offer similar events
+                },
+                failure: { (error) in
+                    Logger.error("Failed to create event")
+                    //TODO: error handling
+                })
     }
 
     //-------------------------------------------------------------------------------------------

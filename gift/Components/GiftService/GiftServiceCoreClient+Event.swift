@@ -97,9 +97,12 @@ extension GiftServiceCoreClient {
     //-------------------------------------------------------------------------------------------
     // MARK: - POST
     //-------------------------------------------------------------------------------------------
-    func createEvent(contact1: String,
-                     contact2: String,
-                     date: Date,
+    func createEvent(contact1FirstName: String,
+                     contact1LastName: String,
+                     contact1PhoneNumber: String,
+                     contact2FirstName: String,
+                     contact2LastName: String,
+                     contact2PhoneNumber: String,
                      venueId: String,
                      success: @escaping (_ eventDTO : EventDTO) -> Void,
                      failure: @escaping (_ error: Error) -> Void) {
@@ -107,12 +110,15 @@ extension GiftServiceCoreClient {
         let urlString = GiftServiceCoreClientConstants.baseUrlPath+"/event"
 
         var parameters = Parameters()
-        parameters.addIfNotOptional(key: "contact1", value: contact1)
-        parameters.addIfNotOptional(key: "contact2", value: contact2)
-        parameters.addIfNotOptional(key: "date", value: date)
+        parameters.addIfNotOptional(key: "contact1FirstName", value: contact1FirstName)
+        parameters.addIfNotOptional(key: "contact1LastName", value: contact1LastName)
+        parameters.addIfNotOptional(key: "contact1PhoneNumber", value: contact1PhoneNumber)
+        parameters.addIfNotOptional(key: "contact2FirstName", value: contact2FirstName)
+        parameters.addIfNotOptional(key: "contact2LastName", value: contact2LastName)
+        parameters.addIfNotOptional(key: "contact2PhoneNumber", value: contact2PhoneNumber)
         parameters.addIfNotOptional(key: "venueId", value: venueId)
 
-        manager.request(urlString, method: .post, parameters: parameters).validate().responseJSON { response in
+        manager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
                     switch response.result {
                     case .success(let value):
                         let eventDTO = EventDTO(json: JSON(value))

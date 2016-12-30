@@ -213,6 +213,8 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Logger.debug("User tapped on venue")
+        let venue = nearbyVenues[indexPath.item];
+        createCoupleViewController.selectedVenue = venue
         appRoute.pushViewController(controller: createCoupleViewController, animated: true)
     }
 

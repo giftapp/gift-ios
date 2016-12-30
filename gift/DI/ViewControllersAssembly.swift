@@ -149,9 +149,10 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(CreateCoupleViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(CreateCoupleViewController.init(appRoute:))) {
+            definition!.useInitializer(#selector(CreateCoupleViewController.init(appRoute:eventService:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.eventService())
             }
         }
     }
