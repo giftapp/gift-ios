@@ -141,4 +141,14 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
 
         delegate.didUpdate()
     }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
+    func clearData() {
+        firstName = ""
+        lastName = ""
+        phoneNumber = ""
+        self.endEditing(true)
+    }
 }

@@ -92,7 +92,7 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
                 !createCoupleView.contact2DetailsView.phoneNumber!.isEmpty &&
                 createCoupleView.contact2DetailsView.phoneNumber!.isValidPhoneNumber
                 &&
-                !createCoupleView.contact1DetailsView.phoneNumber! == createCoupleView.contact2DetailsView.phoneNumber!
+                !(createCoupleView.contact1DetailsView.phoneNumber! == createCoupleView.contact2DetailsView.phoneNumber!)
 
     }
 
@@ -105,6 +105,12 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
     func didTapDeleteDetails(contactIndex: ContactIndex) {
         createCoupleView.shouldShowContactDetails(shouldShowContactDetails: false, forContactIndex: contactIndex)
+        switch contactIndex {
+        case .a:
+            createCoupleView.contact1DetailsView.clearData()
+        case .b:
+            createCoupleView.contact2DetailsView.clearData()
+        }
     }
 
 
