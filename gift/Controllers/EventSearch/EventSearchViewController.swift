@@ -173,7 +173,7 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
     //-------------------------------------------------------------------------------------------
     func didTapEventIsNotInTheList() {
         Logger.debug("User tapped event is not in the list")
-        appRoute.pushViewController(controller: venueSearchViewController, animated: true)
+        appRoute.presentNavigationViewController(controller: venueSearchViewController, animated: true)
     }
 
     //-------------------------------------------------------------------------------------------
