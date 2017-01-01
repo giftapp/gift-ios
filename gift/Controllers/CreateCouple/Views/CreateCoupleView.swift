@@ -38,6 +38,8 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
 
     private var continueButton: BigButton!
 
+    private var activityIndicatorView: ActivityIndicatorView!
+
     //Public Properties
     var delegate: CreateCoupleViewDelegate!
 
@@ -177,6 +179,11 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             continueButton.enable(enabled: false)
             contentView.addSubview(continueButton)
         }
+
+        if activityIndicatorView == nil {
+            activityIndicatorView = ActivityIndicatorView()
+            self.addSubview(activityIndicatorView)
+        }
     }
 
     private func setConstraints() {
@@ -255,6 +262,11 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }
+
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.center.equalTo(activityIndicatorView.superview!)
+            make.size.equalTo(ActivityIndicatorSize.medium)
+        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -306,6 +318,17 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
     func enableContinueButton(enabled: Bool) {
         continueButton.enable(enabled: enabled)
     }
+
+    func activityAnimation(shouldAnimate: Bool) {
+        if shouldAnimate {
+            self.isUserInteractionEnabled = false
+            activityIndicatorView.startAnimation()
+        } else {
+            self.isUserInteractionEnabled = true
+            activityIndicatorView.stopAnimation()
+        }
+    }
+
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private

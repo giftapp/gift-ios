@@ -142,6 +142,7 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
     func didTapContinue() {
         Logger.debug("User tapped to continue")
+        createCoupleView.activityAnimation(shouldAnimate: true)
         eventService.createEvent(contact1FirstName: createCoupleView.contact1DetailsView.firstName!,
                 contact1LastName: createCoupleView.contact1DetailsView.lastName!,
                 contact1PhoneNumber: createCoupleView.contact1DetailsView.phoneNumber!,
@@ -151,11 +152,13 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
                 venueId: (selectedVenue?.id)!,
                 success: { (event) in
                     Logger.debug("Successfully created event")
+                    self.createCoupleView.activityAnimation(shouldAnimate: false)
                     self.appRoute.dismiss(controller: self, animated: true)
                     //TODO: offer similar events
                 },
                 failure: { (error) in
                     Logger.error("Failed to create event")
+                    self.createCoupleView.activityAnimation(shouldAnimate: false)
                     //TODO: error handling
                 })
     }
