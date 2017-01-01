@@ -82,6 +82,24 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    private func getContactDetailView(for contactIndex: ContactIndex) -> ContactDetailsView {
+        switch contactIndex {
+        case .a:
+            return createCoupleView.contact1DetailsView
+        case .b:
+            return createCoupleView.contact2DetailsView
+        }
+    }
+
+    private func getContactPicker(for contactIndex: ContactIndex) -> CNContactPickerViewController {
+        switch contactIndex {
+        case .a:
+            return contact1Picker
+        case .b:
+            return contact2Picker
+        }
+    }
+
     private func showContactDetailSourceActionSheet(contactIndex: ContactIndex) {
         let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
@@ -90,12 +108,8 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
         let addressBookButton: UIAlertAction = UIAlertAction(title: "CreateCoupleViewController.Add from address book".localized, style: .default)
         { action -> Void in
-            switch contactIndex {
-            case .a:
-                self.present(self.contact1Picker, animated: true, completion: nil)
-            case .b:
-                self.present(self.contact2Picker, animated: true, completion: nil)
-            }
+            let contactPicker = self.getContactPicker(for: contactIndex)
+            self.present(contactPicker, animated: true, completion: nil)
         }
         actionSheetController.addAction(addressBookButton)
 
@@ -123,6 +137,21 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
     }
 
+    private func alertDeletingContactInfo(contactIndex: ContactIndex) {
+        let deleteAction = AlertViewAction(title: "CreateCoupleViewController.Delete contact alert.Delete".localized, style: .regular, action: {
+            self.deleteContactDetails(contactIndex: contactIndex)
+        })
+        let cancelAction = AlertViewAction(title: "Global.Cancel".localized, style: .cancel, action: nil)
+        let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "CreateCoupleViewController.Delete contact alert.Title".localized, description: "CreateCoupleViewController.Delete contact alert.Description".localized, image: nil, actions: [deleteAction, cancelAction])
+        self.present(alertViewController, animated: true, completion: nil) //TODO: should this be using appRoute?
+    }
+
+    private func deleteContactDetails(contactIndex: ContactIndex) {
+        let contactDetailsView = getContactDetailView(for: contactIndex)
+        createCoupleView.shouldShowContactDetails(shouldShowContactDetails: false, forContactIndex: contactIndex)
+        contactDetailsView.clearData()
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - CreateCoupleViewDelegate
     //-------------------------------------------------------------------------------------------
@@ -131,12 +160,11 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
     }
 
     func didTapDeleteDetails(contactIndex: ContactIndex) {
-        createCoupleView.shouldShowContactDetails(shouldShowContactDetails: false, forContactIndex: contactIndex)
-        switch contactIndex {
-        case .a:
-            createCoupleView.contact1DetailsView.clearData()
-        case .b:
-            createCoupleView.contact2DetailsView.clearData()
+        let contactDetailsView = getContactDetailView(for: contactIndex)
+        if contactDetailsView.isNotEmpty() {
+            alertDeletingContactInfo(contactIndex: contactIndex)
+        } else {
+            deleteContactDetails(contactIndex: contactIndex)
         }
     }
 

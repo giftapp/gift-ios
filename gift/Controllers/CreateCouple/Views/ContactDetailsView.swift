@@ -148,6 +148,10 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
+    func isNotEmpty() -> Bool {
+        return firstName != "" && lastName != "" && phoneNumber != ""
+    }
+
     func clearData() {
         firstName = ""
         lastName = ""

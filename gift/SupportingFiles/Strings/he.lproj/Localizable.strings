@@ -127,6 +127,9 @@
 "CreateCoupleViewController.Title" = "פרטי הזוג";
 "CreateCoupleViewController.Add from address book" = "הוסף מאנשי קשר";
 "CreateCoupleViewController.Add manually" = "הוסף ידנית";
+"CreateCoupleViewController.Delete contact alert.Title" = "האם אתה בטוח?";
+"CreateCoupleViewController.Delete contact alert.Description" = "מחיקת פרטי הקשר תגרום לאובדן המידע שהכנסת לשדות";
+"CreateCoupleViewController.Delete contact alert.Delete" = "מחק";
 
 //CreateCoupleView
 "CreateCoupleView.Description" = "בעזרת פרטי הזוג נוכל ליצור עימם קשר\nלצורך העברת המתנה";

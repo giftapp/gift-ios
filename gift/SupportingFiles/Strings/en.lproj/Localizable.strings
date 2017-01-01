@@ -127,6 +127,9 @@
 "CreateCoupleViewController.Title" = "Couple details";
 "CreateCoupleViewController.Add from address book" = "Add from address book";
 "CreateCoupleViewController.Add manually" = "Add manually";
+"CreateCoupleViewController.Delete contact alert.Title" = "Are you sure?";
+"CreateCoupleViewController.Delete contact alert.Description" = "Deleting contact will cause you to lose any input you made for this contact";
+"CreateCoupleViewController.Delete contact alert.Delete" = "Delete";
 
 //CreateCoupleView
 "CreateCoupleView.Description" = "Using the details you provide we can contact the couple\nin order to giving them the gift";
