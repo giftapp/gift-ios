@@ -89,7 +89,6 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
         updateCustomViews()
     }
 
-    //TODO: consider extension
     private func setupNavigationBar() {
         self.title = "EventSearchViewController.Title".localized
 

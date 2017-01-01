@@ -88,7 +88,6 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
         updateCustomViews()
     }
 
-    //TODO: consider extension
     private func setupNavigationBar() {
         self.title = "VenueSearchViewController.Title".localized
 
