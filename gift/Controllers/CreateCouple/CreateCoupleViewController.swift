@@ -5,8 +5,10 @@
 
 import Foundation
 import UIKit
+import Contacts
+import ContactsUI
 
-class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, ContactDetailsViewDelegate, UITextFieldDelegate {
+class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, ContactDetailsViewDelegate, UITextFieldDelegate, CNContactPickerDelegate {
 
     // Injections
     private var appRoute: AppRoute
@@ -14,6 +16,10 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
     //Views
     private var createCoupleView: CreateCoupleView!
+
+    //Controllers
+    private var contact1Picker: CNContactPickerViewController!
+    private var contact2Picker: CNContactPickerViewController!
 
     //Public Properties
     var selectedVenue: Venue?
@@ -61,6 +67,16 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
             createCoupleView.textFieldDelegate = self
             self.view = createCoupleView
         }
+
+        if contact1Picker == nil {
+            contact1Picker = CNContactPickerViewController()
+            contact1Picker.delegate = self
+        }
+
+        if contact2Picker == nil {
+            contact2Picker = CNContactPickerViewController()
+            contact2Picker.delegate = self
+        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -74,7 +90,12 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
         let addressBookButton: UIAlertAction = UIAlertAction(title: "CreateCoupleViewController.Add from address book".localized, style: .default)
         { action -> Void in
-            //TODO: add from AB
+            switch contactIndex {
+            case .a:
+                self.present(self.contact1Picker, animated: true, completion: nil)
+            case .b:
+                self.present(self.contact2Picker, animated: true, completion: nil)
+            }
         }
         actionSheetController.addAction(addressBookButton)
 
@@ -157,5 +178,34 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
         textField.endEditing(true)
         return false
     }
+    
+    //-------------------------------------------------------------------------------------------
+    // MARK: - CNContactPickerDelegate
+    //-------------------------------------------------------------------------------------------
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        Logger.debug("Did select contact from picker")
+        //TODO: choose which phone number in case of multiple options
+        picker.dismiss(animated: true, completion: nil)
+
+        let firstName = contact.givenName
+        let lastName = contact.familyName
+        var phoneNumber = ""
+        if contact.phoneNumbers.first != nil {
+            phoneNumber = contact.phoneNumbers.first!.value.stringValue.plainPhoneNumber()
+        }
+
+        if picker == contact1Picker {
+            createCoupleView.shouldShowContactDetails(shouldShowContactDetails: true, forContactIndex: .a)
+            createCoupleView.contact1DetailsView.firstName = firstName
+            createCoupleView.contact1DetailsView.lastName = lastName
+            createCoupleView.contact1DetailsView.phoneNumber = phoneNumber
+        } else {
+            createCoupleView.shouldShowContactDetails(shouldShowContactDetails: true, forContactIndex: .b)
+            createCoupleView.contact2DetailsView.firstName = firstName
+            createCoupleView.contact2DetailsView.lastName = lastName
+            createCoupleView.contact2DetailsView.phoneNumber = phoneNumber
+        }
+    }
+
 
 }

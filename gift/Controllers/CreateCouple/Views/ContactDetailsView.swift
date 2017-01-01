@@ -35,6 +35,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
         }
         set {
             firstNameTextField.text = newValue
+            textFieldDidChange(sender: firstNameTextField)
         }
     }
 
@@ -44,6 +45,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
         }
         set {
             lastNameTextField.text = newValue
+            textFieldDidChange(sender: lastNameTextField)
         }
     }
 
@@ -53,6 +55,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
         }
         set {
             phoneNumberNameTextField.text = newValue
+            textFieldDidChange(sender: phoneNumberNameTextField)
         }
     }
 

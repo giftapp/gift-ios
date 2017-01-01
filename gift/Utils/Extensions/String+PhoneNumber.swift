@@ -34,3 +34,16 @@ extension String {
         return predicate.evaluate(with: self)
     }
 }
+
+extension String {
+    //Remove all occurrences of non digit characters i.e:
+    //"-","‑"," "," ","(",")"
+    func plainPhoneNumber() -> String {
+        return self.replacingOccurrences(of: "-", with: "")
+                .replacingOccurrences(of: "‑", with: "")
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: "(", with: "")
+                .replacingOccurrences(of: ")", with: "")
+    }
+}
