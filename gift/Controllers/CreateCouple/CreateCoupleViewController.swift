@@ -139,14 +139,14 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
 
     private func alertDeletingContactInfo(contactIndex: ContactIndex) {
         let deleteAction = AlertViewAction(title: "CreateCoupleViewController.Delete contact alert.Delete".localized, style: .regular, action: {
-            self.deleteContactDetails(contactIndex: contactIndex)
+            self.clearContactDetailsAndShowAddDetailsButton(contactIndex: contactIndex)
         })
         let cancelAction = AlertViewAction(title: "Global.Cancel".localized, style: .cancel, action: nil)
         let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "CreateCoupleViewController.Delete contact alert.Title".localized, description: "CreateCoupleViewController.Delete contact alert.Description".localized, image: nil, actions: [deleteAction, cancelAction])
         self.present(alertViewController, animated: true, completion: nil) //TODO: should this be using appRoute?
     }
 
-    private func deleteContactDetails(contactIndex: ContactIndex) {
+    private func clearContactDetailsAndShowAddDetailsButton(contactIndex: ContactIndex) {
         let contactDetailsView = getContactDetailView(for: contactIndex)
         createCoupleView.shouldShowContactDetails(shouldShowContactDetails: false, forContactIndex: contactIndex)
         contactDetailsView.clearData()
@@ -164,7 +164,7 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
         if contactDetailsView.isNotEmpty() {
             alertDeletingContactInfo(contactIndex: contactIndex)
         } else {
-            deleteContactDetails(contactIndex: contactIndex)
+            clearContactDetailsAndShowAddDetailsButton(contactIndex: contactIndex)
         }
     }
 
@@ -182,6 +182,8 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
                     Logger.debug("Successfully created event")
                     self.createCoupleView.activityAnimation(shouldAnimate: false)
                     self.appRoute.dismiss(controller: self, animated: true)
+                    self.clearContactDetailsAndShowAddDetailsButton(contactIndex: .a)
+                    self.clearContactDetailsAndShowAddDetailsButton(contactIndex: .b)
                     //TODO: offer similar events
                 },
                 failure: { (error) in
