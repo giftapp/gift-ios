@@ -94,7 +94,7 @@ class EventSearchResultsView: UIView {
 
         eventIsNotInTheListButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(eventIsNotInTheListButton.superview!)
-            make.height.equalTo(53)
+            make.height.equalTo(UIComponentConstants.bigButtonHeight)
             make.bottom.equalTo(eventIsNotInTheListButton.superview!)
             make.width.equalTo(eventIsNotInTheListButton.superview!)
         }

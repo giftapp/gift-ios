@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-struct AnimatedTextFieldConstants {
+private struct AnimatedTextFieldConstants {
     static let sidePadding: CGFloat = 10
     static let activePlaceholderInsets = CGPoint(x: sidePadding, y: 6)
     static let textFieldPadding = UIEdgeInsets(top: 22, left: sidePadding, bottom: 0, right: sidePadding)

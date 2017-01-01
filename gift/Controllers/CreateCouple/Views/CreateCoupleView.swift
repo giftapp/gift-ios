@@ -214,7 +214,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
         addContact1Button.snp.makeConstraints { (make) in
             make.top.equalTo(addContact1Title.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.height.equalTo(44) //todo: const
+            make.height.equalTo(UIComponentConstants.smallButtonHeight)
             make.width.equalToSuperview()
         }
 
@@ -239,7 +239,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
         addContact2Button.snp.makeConstraints { (make) in
             make.top.equalTo(addContact2Title.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.smallButtonHeight)
             make.width.equalToSuperview()
         }
 
@@ -258,7 +258,7 @@ class CreateCoupleView: UIView, UITextFieldDelegate {
 
         continueButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.height.equalTo(53) //todo: const
+            make.height.equalTo(UIComponentConstants.bigButtonHeight)
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }

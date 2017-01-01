@@ -131,7 +131,7 @@ class LoginView : UIView, UITextFieldDelegate {
         phoneNumberTextField.snp.makeConstraints { (make) in
             make.top.equalTo(boxesImage.snp.bottom).offset(20)
             make.centerX.equalTo(phoneNumberTextField.superview!)
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalTo(phoneNumberTextField.superview!)
         }
 
@@ -142,7 +142,7 @@ class LoginView : UIView, UITextFieldDelegate {
 
         continueButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(continueButton.superview!)
-            make.height.equalTo(53)
+            make.height.equalTo(UIComponentConstants.bigButtonHeight)
             make.width.equalTo(continueButton.superview!)
             continueButtonBottomConstraint = make.bottom.equalTo(continueButton.superview!).constraint
         }

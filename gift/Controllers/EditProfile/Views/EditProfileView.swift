@@ -157,21 +157,21 @@ class EditProfileView: UIView, UITextFieldDelegate {
         firstNameTextField.snp.makeConstraints { (make) in
             make.top.equalTo(avatarView.snp.bottom).offset(20)
             make.centerX.equalTo(firstNameTextField.superview!)
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalTo(firstNameTextField.superview!)
         }
 
         lastNameTextField.snp.makeConstraints { (make) in
             make.top.equalTo(firstNameTextField.snp.bottom)
             make.centerX.equalTo(lastNameTextField.superview!)
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalTo(lastNameTextField.superview!)
         }
 
         emailTextField.snp.makeConstraints { (make) in
             make.top.equalTo(lastNameTextField.snp.bottom)
             make.centerX.equalTo(emailTextField.superview!)
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalTo(emailTextField.superview!)
         }
 
@@ -183,13 +183,13 @@ class EditProfileView: UIView, UITextFieldDelegate {
         loginWithFaceBookButton.snp.makeConstraints { (make) in
             make.top.equalTo(loginWithFacebookDescriptionLabel.snp.bottom).offset(12)
             make.centerX.equalTo(loginWithFaceBookButton.superview!)
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.smallButtonHeight)
             make.width.equalTo(loginWithFaceBookButton.superview!)
         }
 
         doneButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(doneButton.superview!)
-            make.height.equalTo(53)
+            make.height.equalTo(UIComponentConstants.bigButtonHeight)
             make.bottom.equalTo(doneButton.superview!)
             make.width.equalTo(doneButton.superview!)
         }

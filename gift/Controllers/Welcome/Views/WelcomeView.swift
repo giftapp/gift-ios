@@ -89,7 +89,7 @@ class WelcomeView : UIView {
         
         continueButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(continueButton.superview!)
-            make.height.equalTo(53)
+            make.height.equalTo(UIComponentConstants.bigButtonHeight)
             make.bottom.equalTo(continueButton.superview!)
             make.width.equalTo(continueButton.superview!)
         }

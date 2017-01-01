@@ -19,7 +19,7 @@ class BigButton: UIButton {
     //Public Varaiables
     var style: BigButtonStyle = .centered {
         didSet {
-            updateApearence()
+            updateAppearance()
         }
     }
 
@@ -31,7 +31,7 @@ class BigButton: UIButton {
 
         self.addCustomViews()
         self.setConstraints()
-        self.updateApearence()
+        self.updateAppearance()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -84,7 +84,7 @@ class BigButton: UIButton {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
-    private func updateApearence() {
+    private func updateAppearance() {
         switch style {
         case .centered:
             self.contentHorizontalAlignment = .center

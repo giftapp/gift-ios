@@ -123,7 +123,7 @@ class VerificationCodeView : UIView, UITextFieldDelegate {
         verificationCodeTextField.snp.makeConstraints { (make) in
             make.centerX.equalTo(verificationCodeTextField.superview!)
             make.top.equalTo(envelopImage.snp.bottom).offset(50)
-            make.height.equalTo(44)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalTo(verificationCodeTextField.superview!)
         }
         

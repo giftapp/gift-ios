@@ -112,21 +112,21 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
         firstNameTextField.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.right.equalToSuperview().offset(-10)
-            make.height.equalTo(45) //TODO: const
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalToSuperview().dividedBy(2)
         }
         
         lastNameTextField.snp.makeConstraints { (make) in
             make.top.equalTo(firstNameTextField)
             make.right.equalTo(firstNameTextField.snp.left)
-            make.height.equalTo(45)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalToSuperview().dividedBy(2)
         }
         
         phoneNumberNameTextField.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview()
             make.right.equalToSuperview().offset(-10)
-            make.height.equalTo(45)
+            make.height.equalTo(UIComponentConstants.textFieldHeight)
             make.width.equalToSuperview()
         }
 
