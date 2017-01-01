@@ -45,7 +45,6 @@ class Logger {
         case .development, .developmentLocal:
             log.setup(level: logLevel, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
         case .production:
-            //TODO: turn off extensive log writing before production release
             log.setup(level: logLevel, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "log", fileLevel: .error)
         }
     }
