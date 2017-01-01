@@ -92,10 +92,7 @@ class VenueSearchViewController: UIViewController, UISearchResultsUpdating, UITa
     private func setupNavigationBar() {
         self.title = "VenueSearchViewController.Title".localized
 
-        self.navigationController!.navigationBar.barStyle = .black
-        self.navigationController!.navigationBar.barTintColor = UIColor.gftWaterBlueColor()
-        self.navigationController!.navigationBar.tintColor = UIColor.gftWhiteColor()
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.gftNavigationTitleFont()!, NSForegroundColorAttributeName: UIColor.gftWhiteColor()]
+        self.setupNavigationBarStyle()
 
         let cancelBarButtonItem = UIBarButtonItem(title: "NavigationViewController.Cancel".localized, style: .plain, target: self, action: #selector(didTapCancel))
         cancelBarButtonItem.tintColor = UIColor.gftWhiteColor()
