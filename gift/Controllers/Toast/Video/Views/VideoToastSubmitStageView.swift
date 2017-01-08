@@ -39,6 +39,15 @@ class VideoToastSubmitStageView: UIView {
     //Public Properties
     var delegate: VideoToastSubmitStageViewDelegate!
 
+    var presenterName: String? {
+        get {
+            return presenterNameTextField.text
+        }
+        set {
+            presenterNameTextField.text = newValue
+        }
+    }
+
     var videoPreviewLayer: AVPlayerLayer! {
         didSet {
             toastPreviewView.layer.addSublayer(videoPreviewLayer)

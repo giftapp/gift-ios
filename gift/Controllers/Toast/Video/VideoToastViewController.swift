@@ -19,6 +19,7 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
 
     // Injections
     private var appRoute: AppRoute
+    private var identity: Identity
     private var toastService: ToastService
     private var fileService: FileService
 
@@ -48,9 +49,11 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute: AppRoute,
+                          identity: Identity,
                           toastService: ToastService,
                           fileService: FileService) {
         self.appRoute = appRoute
+        self.identity = identity
         self.toastService = toastService
         self.fileService = fileService
         super.init(nibName: nil, bundle: nil)
@@ -114,6 +117,7 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
 
     private func updateCustomViews() {
         videoToastMasterView.videoPreviewLayer = videoPreviewLayer
+        videoToastMasterView.videoToastSubmitStageView.presenterName = identity.user?.fullName
     }
 
     override var prefersStatusBarHidden: Bool {
