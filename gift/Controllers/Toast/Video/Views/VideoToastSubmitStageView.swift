@@ -302,7 +302,11 @@ class VideoToastSubmitStageView: UIView {
             return
         }
 
-        delegate.didLongPressedTintBackground(began: sender.state == .began)
+        if sender.state == .began {
+            delegate.didLongPressedTintBackground(began: true)
+        } else if sender.state == .ended {
+            delegate.didLongPressedTintBackground(began: false)
+        }
     }
 
     @objc private func didUpdatePresenterName(sender: UITextField!) {
