@@ -10,6 +10,7 @@ import AVFoundation
 
 protocol VideoToastSubmitStageViewDelegate {
     func didLongPressedTintBackground(began: Bool)
+    func didUpdatePresenterName()
     func didTapShareViaFacebook()
     func didTapShareViaInstagram()
     func didTapDidntLikeSwitchToTextualToastAnyway()
@@ -37,6 +38,8 @@ class VideoToastSubmitStageView: UIView {
     private var didntLikeSwitchToTextualToastAnywayButton: UIButton!
     private var continueButton: BigButton!
 
+    private var activityIndicatorView: ActivityIndicatorView!
+
     //Public Properties
     var delegate: VideoToastSubmitStageViewDelegate!
 
@@ -46,6 +49,7 @@ class VideoToastSubmitStageView: UIView {
         }
         set {
             presenterNameTextField.text = newValue
+            didUpdatePresenterName(sender: presenterNameTextField)
         }
     }
 
@@ -110,6 +114,7 @@ class VideoToastSubmitStageView: UIView {
             presenterNameTextField.textAlignment = NSTextAlignment.center
             presenterNameTextField.font = UIFont(name: "Rubik-Light", size: 25.0)
             presenterNameTextField.textColor = UIColor.gftWhiteColor()
+            presenterNameTextField.addTarget(self, action: #selector(didUpdatePresenterName(sender:)), for: .editingChanged)
             tintLayer.addSubview(presenterNameTextField)
         }
 
@@ -181,6 +186,10 @@ class VideoToastSubmitStageView: UIView {
             tintLayer.addSubview(continueButton)
         }
 
+        if activityIndicatorView == nil {
+            activityIndicatorView = ActivityIndicatorView()
+            self.addSubview(activityIndicatorView)
+        }
     }
 
     private func setConstraints() {
@@ -246,6 +255,11 @@ class VideoToastSubmitStageView: UIView {
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }
+
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.center.equalTo(activityIndicatorView.superview!)
+            make.size.equalTo(ActivityIndicatorSize.medium)
+        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -264,6 +278,20 @@ class VideoToastSubmitStageView: UIView {
 
     }
 
+    func enableContinueButton(enabled: Bool) {
+        continueButton.enable(enabled: enabled)
+    }
+
+    func activityAnimation(shouldAnimate: Bool) {
+        if shouldAnimate {
+            self.isUserInteractionEnabled = false
+            activityIndicatorView.startAnimation()
+        } else {
+            self.isUserInteractionEnabled = true
+            activityIndicatorView.stopAnimation()
+        }
+    }
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
@@ -277,13 +305,23 @@ class VideoToastSubmitStageView: UIView {
         delegate.didLongPressedTintBackground(began: sender.state == .began)
     }
 
-    @objc private func didTapShareViaFacebook(sender: UIButton!) {
+    @objc private func didUpdatePresenterName(sender: UITextField!) {
         guard let delegate = self.delegate
             else {
                 Logger.error("Delegate not set")
                 return
         }
         
+        delegate.didUpdatePresenterName()
+    }
+
+    @objc private func didTapShareViaFacebook(sender: UIButton!) {
+        guard let delegate = self.delegate
+            else {
+                Logger.error("Delegate not set")
+                return
+        }
+
         delegate.didTapShareViaFacebook()
     }
     

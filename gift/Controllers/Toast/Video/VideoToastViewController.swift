@@ -341,6 +341,11 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
         player?.isMuted = !began
     }
 
+    func didUpdatePresenterName() {
+        Logger.debug("Did update presenter name")
+        let shouldEnableContinueButton = !(videoToastMasterView.videoToastSubmitStageView.presenterName?.isEmpty)!
+        videoToastMasterView.videoToastSubmitStageView.enableContinueButton(enabled: shouldEnableContinueButton)
+    }
 
     func didTapShareViaFacebook() {
         Logger.debug("Did tapped share via facebook")
@@ -363,11 +368,14 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
 
         do {
             let videoData = try Data(contentsOf: capturedVideoUrl!)
-            
+
+            videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: true)
             fileService.uploadVideo(videoData: videoData, success: { (videoUrl) in
                 Logger.debug("Successfully uploaded toast video")
+                self.videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: false)
             }, failure: { (error) in
                 Logger.error("Failed to upload toast video \(error)")
+                self.videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: false)
             })
         } catch let error as NSError {
             Logger.error("Failed to get data of video: \(error)")
