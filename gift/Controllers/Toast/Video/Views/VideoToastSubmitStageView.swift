@@ -9,6 +9,7 @@ import SnapKit
 import AVFoundation
 
 protocol VideoToastSubmitStageViewDelegate {
+    func didLongPressedTintBackground(began: Bool)
     func didTapShareViaFacebook()
     func didTapShareViaInstagram()
     func didTapDidntLikeSwitchToTextualToastAnyway()
@@ -85,6 +86,11 @@ class VideoToastSubmitStageView: UIView {
         if tintLayer == nil {
             tintLayer = UIView()
             tintLayer.backgroundColor = UIColor.gftTintViewColor()
+
+            let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressedTintBackground(sender:)))
+            longPressRecognizer.minimumPressDuration = 0.5
+            tintLayer.addGestureRecognizer(longPressRecognizer)
+
             self.addSubview(tintLayer)
         }
 
@@ -94,7 +100,7 @@ class VideoToastSubmitStageView: UIView {
             presenterNameLabel.textAlignment = NSTextAlignment.center
             presenterNameLabel.font = UIFont.gftHeader2Font()
             presenterNameLabel.textColor = UIColor.gftWaterBlueColor()
-            self.addSubview(presenterNameLabel)
+            tintLayer.addSubview(presenterNameLabel)
         }
 
         if presenterNameTextField == nil {
@@ -104,7 +110,7 @@ class VideoToastSubmitStageView: UIView {
             presenterNameTextField.textAlignment = NSTextAlignment.center
             presenterNameTextField.font = UIFont(name: "Rubik-Light", size: 25.0)
             presenterNameTextField.textColor = UIColor.gftWhiteColor()
-            self.addSubview(presenterNameTextField)
+            tintLayer.addSubview(presenterNameTextField)
         }
 
         if shareTitleLabel == nil {
@@ -113,7 +119,7 @@ class VideoToastSubmitStageView: UIView {
             shareTitleLabel.textAlignment = NSTextAlignment.center
             shareTitleLabel.font = UIFont.gftHeader2Font()
             shareTitleLabel.textColor = UIColor.gftWaterBlueColor()
-            self.addSubview(shareTitleLabel)
+            tintLayer.addSubview(shareTitleLabel)
         }
 
         if shareDescriptionLabel == nil {
@@ -122,14 +128,14 @@ class VideoToastSubmitStageView: UIView {
             shareDescriptionLabel.textAlignment = NSTextAlignment.center
             shareDescriptionLabel.font = UIFont.gftText1Font()
             shareDescriptionLabel.textColor = UIColor.gftWhiteColor()
-            self.addSubview(shareDescriptionLabel)
+            tintLayer.addSubview(shareDescriptionLabel)
         }
 
         if shareViaFacebookButton == nil {
             shareViaFacebookButton = UIButton()
             shareViaFacebookButton.setImage(UIImage(named: "shareViaFacebook"), for: .normal)
             shareViaFacebookButton.addTarget(self, action: #selector(didTapShareViaFacebook(sender:)), for: UIControlEvents.touchUpInside)
-            self.addSubview(shareViaFacebookButton)
+            tintLayer.addSubview(shareViaFacebookButton)
         }
 
         if shareViaFacebookLabel == nil {
@@ -138,14 +144,14 @@ class VideoToastSubmitStageView: UIView {
             shareViaFacebookLabel.textAlignment = NSTextAlignment.center
             shareViaFacebookLabel.font = UIFont.gftText1Font()
             shareViaFacebookLabel.textColor = UIColor.gftWhiteColor()
-            self.addSubview(shareViaFacebookLabel)
+            tintLayer.addSubview(shareViaFacebookLabel)
         }
 
         if shareViaInstagramButton == nil {
             shareViaInstagramButton = UIButton()
             shareViaInstagramButton.setImage(UIImage(named: "shareViaInstagram"), for: .normal)
             shareViaInstagramButton.addTarget(self, action: #selector(didTapShareViaInstagram(sender:)), for: UIControlEvents.touchUpInside)
-            self.addSubview(shareViaInstagramButton)
+            tintLayer.addSubview(shareViaInstagramButton)
         }
 
         if shareViaInstagramLabel == nil {
@@ -154,7 +160,7 @@ class VideoToastSubmitStageView: UIView {
             shareViaInstagramLabel.textAlignment = NSTextAlignment.center
             shareViaInstagramLabel.font = UIFont.gftText1Font()
             shareViaInstagramLabel.textColor = UIColor.gftWhiteColor()
-            self.addSubview(shareViaInstagramLabel)
+            tintLayer.addSubview(shareViaInstagramLabel)
         }
 
         if didntLikeSwitchToTextualToastAnywayButton == nil {
@@ -164,7 +170,7 @@ class VideoToastSubmitStageView: UIView {
             didntLikeSwitchToTextualToastAnywayButton.setTitleColor(UIColor.gftAzureColor(), for: .normal)
             didntLikeSwitchToTextualToastAnywayButton.backgroundColor = UIColor.gftWhiteColor()
             didntLikeSwitchToTextualToastAnywayButton.addTarget(self, action: #selector(didTapDidntLikeSwitchToTextualToastAnyway(sender:)), for: UIControlEvents.touchUpInside)
-            self.addSubview(didntLikeSwitchToTextualToastAnywayButton)
+            tintLayer.addSubview(didntLikeSwitchToTextualToastAnywayButton)
         }
 
         if continueButton == nil {
@@ -172,7 +178,7 @@ class VideoToastSubmitStageView: UIView {
             continueButton.style = .rightAlignedWithChevron
             continueButton.setTitle("VideoToastSubmitStageView.Save and continue".localized, for: UIControlState())
             continueButton.addTarget(self, action: #selector(didTapContinue(sender:)), for: UIControlEvents.touchUpInside)
-            self.addSubview(continueButton)
+            tintLayer.addSubview(continueButton)
         }
 
     }
@@ -245,10 +251,32 @@ class VideoToastSubmitStageView: UIView {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
+    func shouldHideEverythingButVideo(shouldHide: Bool) {
+        if shouldHide {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                self.tintLayer.alpha = 0.0
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                self.tintLayer.alpha = 1.0
+            }, completion: nil)
+        }
+
+    }
 
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    @objc private func didLongPressedTintBackground(sender: UILongPressGestureRecognizer) {
+        guard let delegate = self.delegate
+                else {
+            Logger.error("Delegate not set")
+            return
+        }
+
+        delegate.didLongPressedTintBackground(began: sender.state == .began)
+    }
+
     @objc private func didTapShareViaFacebook(sender: UIButton!) {
         guard let delegate = self.delegate
             else {

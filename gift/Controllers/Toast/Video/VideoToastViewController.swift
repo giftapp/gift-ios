@@ -274,6 +274,7 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
         videoToastMasterView.videoToastSubmitStageView.videoPreviewLayer = playerLayer
 
         //Play video in endless loop
+        player?.isMuted = true
         player?.play()
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
             self.player?.seek(to: kCMTimeZero)
@@ -333,6 +334,14 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
     //-------------------------------------------------------------------------------------------
     // MARK: - VideoToastSubmitStageViewDelegate
     //-------------------------------------------------------------------------------------------
+    func didLongPressedTintBackground(began: Bool) {
+        Logger.debug("Did long pressed tint background")
+
+        videoToastMasterView.videoToastSubmitStageView.shouldHideEverythingButVideo(shouldHide: began)
+        player?.isMuted = !began
+    }
+
+
     func didTapShareViaFacebook() {
         Logger.debug("Did tapped share via facebook")
         //TODO: implement
