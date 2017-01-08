@@ -142,4 +142,27 @@ public class CoreComponentsAssembly : TyphoonAssembly {
         }
     }
 
+    public dynamic func toastService() -> Any {
+        return TyphoonDefinition.withClass(ToastService.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(ToastService.init(giftServiceCoreClient:modelFactory:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+                initializer?.injectParameter(with: self.modelFactory())
+            }
+        }
+    }
+
+    public dynamic func fileService() -> Any {
+        return TyphoonDefinition.withClass(FileService.self) {
+            (definition) in
+            definition?.scope = TyphoonScope.singleton
+            definition?.useInitializer(#selector(FileService.init(giftServiceCoreClient:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.giftServiceCoreClient())
+            }
+        }
+    }
+    
 }

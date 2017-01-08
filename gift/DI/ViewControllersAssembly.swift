@@ -95,13 +95,14 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EventSearchViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:eventSearchResultsViewController:venueSearchViewController:))) {
+            definition!.useInitializer(#selector(EventSearchViewController.init(appRoute:eventService:locationManager:eventSearchResultsViewController:venueSearchViewController:videoToastViewController:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.eventService())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.locationManager())
                 initializer?.injectParameter(with: self.eventSearchResultsViewController())
                 initializer?.injectParameter(with: self.venueSearchViewController())
+                initializer?.injectParameter(with: self.videoToastViewController())
             }
         }
     }
@@ -153,6 +154,19 @@ public class ViewControllersAssembly : TyphoonAssembly {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.eventService())
+            }
+        }
+    }
+    
+    public dynamic func videoToastViewController() -> Any {
+        return TyphoonDefinition.withClass(VideoToastViewController.self) {
+            (definition) in
+            
+            definition!.useInitializer(#selector(VideoToastViewController.init(appRoute:toastService:fileService:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.toastService())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.fileService())
             }
         }
     }

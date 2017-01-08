@@ -14,6 +14,7 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
     private var locationManager: LocationManager
     private var eventSearchResultsViewController: EventSearchResultsViewController
     private var venueSearchViewController: VenueSearchViewController
+    private var videoToastViewController: VideoToastViewController
 
     //Views
     private var eventSearchView: EventSearchView!
@@ -43,12 +44,14 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
                           eventService: EventService,
                           locationManager: LocationManager,
                           eventSearchResultsViewController: EventSearchResultsViewController,
-                          venueSearchViewController: VenueSearchViewController) {
+                          venueSearchViewController: VenueSearchViewController,
+                          videoToastViewController:VideoToastViewController) {
         self.appRoute = appRoute
         self.eventService = eventService
         self.locationManager = locationManager
         self.eventSearchResultsViewController = eventSearchResultsViewController
         self.venueSearchViewController = venueSearchViewController
+        self.videoToastViewController = videoToastViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -216,6 +219,9 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Logger.debug("Did select event")
+        //TODO: pass parameters + add push to search results
+        appRoute.pushViewController(controller: videoToastViewController, animated: true)
     }
 
 }

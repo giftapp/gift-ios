@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.0)
+  - AsyncSwift (2.0.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
+  - AsyncSwift (~> 2.0.1)
   - Bolts (~> 1.8.4)
   - Crashlytics
   - Fabric
@@ -49,6 +51,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
@@ -65,6 +68,6 @@ SPEC CHECKSUMS:
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 0c4abcb3d1198c7470e1a1e94324c3f30d00eb21
+PODFILE CHECKSUM: c95fc1b78287e71a27673f7afe536a8179f130c5
 
 COCOAPODS: 1.0.1

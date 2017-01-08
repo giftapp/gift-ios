@@ -5,7 +5,7 @@
 	<key>DevelopmentLocal</key>
 	<dict>
 		<key>giftAPIEndpointURL</key>
-		<string>https://localhost:8443/api/v1</string>
+		<string>https://172.20.10.2:8443/api/v1</string>
 		<key>loggingLevel</key>
 		<string>Debug</string>
 		<key>developmentToolsEnabled</key>

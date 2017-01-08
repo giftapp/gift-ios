@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		06B6CB863DC33BE1453207B8 /* Pods_gift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF99795085D1F08F70CC0EB /* Pods_gift.framework */; };
+		62DD901B70EC95D4C55829A6 /* VideoToastCaptureStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9DD28BB7DB04150316D4 /* VideoToastCaptureStageView.swift */; };
 		62DD90470870A5C2378DC4E8 /* VenueSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD95C4729943F1F9F60930 /* VenueSearchView.swift */; };
 		62DD9059680C758930A0154A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96B86362864AAAD81D97 /* LocationManager.swift */; };
 		62DD906E0E594F11216F3AC4 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D1A2DCF726EAD0D7127 /* AppRoute.swift */; };
+		62DD9076D52A3BFE782A267E /* GiftServiceCoreClient+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A47FF5F318251066B72 /* GiftServiceCoreClient+Toast.swift */; };
 		62DD90EAAF31F281943FCBAE /* VenueSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9AD0A6DBA69826DFDE1A /* VenueSearchResultsView.swift */; };
 		62DD91354D2603DA3924174F /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD98CC1772A641A37459C2 /* Rubik-Bold.ttf */; };
 		62DD917138B9DBA0B1B53769 /* AlertViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD911ABF431BFA2AE4093F /* AlertViewControllerFactory.swift */; };
@@ -21,6 +23,7 @@
 		62DD9227F285732C694E5FAD /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD94070F713CE65554320E /* ActivityIndicatorView.swift */; };
 		62DD9229654B5ABFD4ACFFDD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BD12B68127AE765C9A5 /* EditProfileViewController.swift */; };
 		62DD92509084F389BF23D725 /* EmptyTablePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9102957007A013E86E7D /* EmptyTablePlaceholderView.swift */; };
+		62DD92AE1E9F18E795F10EAE /* VideoToastMasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD937221477FB0B7A44E6B /* VideoToastMasterView.swift */; };
 		62DD92B1988F46AB4ACDBCC7 /* CreateCoupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9683761B87D7F5524A59 /* CreateCoupleView.swift */; };
 		62DD92B8DF265DEC0212B6EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9F0225584711E507EE8E /* LoginView.swift */; };
 		62DD92CCD1D9C4A7B1F039D6 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */; };
@@ -56,7 +59,10 @@
 		62DD980F331211CC7A8BAE97 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */; };
 		62DD984472AE2FC295352D57 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9601F44EE34943E71B96 /* PaddedTextField.swift */; };
 		62DD989029E372C21C2DECB6 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD933F9FD7A8D365CDA251 /* UserDTO.swift */; };
+		62DD98A0ECAC6A37DF4D286D /* ToastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9FAEB31761C5367EA02E /* ToastService.swift */; };
+		62DD98AB36A54AAC7FD1BB53 /* VideoToastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9712AB02CFEC3335EF61 /* VideoToastViewController.swift */; };
 		62DD98B2E9FB4FF2D8B4AF7A /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */; };
+		62DD98C3F8E9271C3E0AA6D4 /* GiftServiceCoreClient+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9A6220C0931CCACDA825 /* GiftServiceCoreClient+File.swift */; };
 		62DD98D522EBF951B3848F41 /* GiftServiceCoreClient+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD97AB2B4D309BA2241060 /* GiftServiceCoreClient+Event.swift */; };
 		62DD98D87B040262AFDC4313 /* GiftServiceCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD905D5180771CAF5C115E /* GiftServiceCoreClient.swift */; };
 		62DD990BF1D10B366F6E53BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9D2FFB2E8A4F4986C0D3 /* HomeView.swift */; };
@@ -86,12 +92,15 @@
 		62DD9C657A4D9B4D33844951 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9900EBB0861053EA469F /* HomeViewController.swift */; };
 		62DD9C6DDD2A27A965AA0C31 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD995503C45636206650A9 /* Rubik-Regular.ttf */; };
 		62DD9C7666D58695272470D7 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD9826702EABC276EC9D84 /* Rubik-BlackItalic.ttf */; };
+		62DD9C83D72BBA57D9CF8443 /* VideoToastStartStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9ADFE06A6D7A71711CF2 /* VideoToastStartStageView.swift */; };
 		62DD9CC079B66F74B25ED2C5 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DD90AAEB142790B7CE0DB7 /* Rubik-Light.ttf */; };
 		62DD9CD0C410605E4929B6BD /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9BE5D4499260BCC9B035 /* WelcomeView.swift */; };
+		62DD9CDD5BD00A3D4F1DD20A /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD924DFCBC8554C46BE92A /* FileService.swift */; };
 		62DD9CF888974D2484E933A5 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9AE52059F22CAED65099 /* VenueService.swift */; };
 		62DD9CFB192E7058F3F0922E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9926D28B99D8926DBF31 /* MainTabViewController.swift */; };
 		62DD9D35D2BBEBDF2F2B436F /* IdentityUpdatedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9130C3CAEF4EC0C40A80 /* IdentityUpdatedEvent.swift */; };
 		62DD9D5E23E64B9A0EE9DD4F /* SettingsProfileDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD9FDA56C9CA5D03D51112 /* SettingsProfileDetailsCell.swift */; };
+		62DD9D791E7FA563FC91FDBF /* VideoToastSubmitStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD96AA36844CC87E6BA737 /* VideoToastSubmitStageView.swift */; };
 		62DD9D7E19A522EC9ACD82AD /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD904EF51D7753E194F161 /* EventDTO.swift */; };
 		62DD9D83B5251FDEDDD2A800 /* VenueSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92C83841E54D1C75F396 /* VenueSearchViewController.swift */; };
 		62DD9D8AD08619FC99E2EB64 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD92FA3DF68A0F01C25E17 /* Venue.swift */; };
@@ -140,6 +149,7 @@
 		62DD916D9E7EBEDA22CE3FD0 /* ModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		62DD91D3516DED9C33C06633 /* UIComponentConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIComponentConstants.swift; sourceTree = "<group>"; };
 		62DD91DDABC7A451CEE55958 /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		62DD924DFCBC8554C46BE92A /* FileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		62DD92750583B29A40E93C7B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		62DD927680BFAF91DA0A1546 /* CreateCoupleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCoupleViewController.swift; sourceTree = "<group>"; };
 		62DD927D423D336622BEF4E8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -152,6 +162,7 @@
 		62DD92FF0AACAFE0E94393D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		62DD9321CD82D9E653815FF1 /* EventSearchResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchResultsView.swift; sourceTree = "<group>"; };
 		62DD933F9FD7A8D365CDA251 /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		62DD937221477FB0B7A44E6B /* VideoToastMasterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToastMasterView.swift; sourceTree = "<group>"; };
 		62DD93DEA58E883920317F4E /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		62DD94070F713CE65554320E /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		62DD940E9839BA2CD2BAC75E /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -165,11 +176,13 @@
 		62DD9601F44EE34943E71B96 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		62DD9683761B87D7F5524A59 /* CreateCoupleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCoupleView.swift; sourceTree = "<group>"; };
 		62DD968E1B266F84D407708A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		62DD96AA36844CC87E6BA737 /* VideoToastSubmitStageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToastSubmitStageView.swift; sourceTree = "<group>"; };
 		62DD96AE359135B835F65F77 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		62DD96B86362864AAAD81D97 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DD96BEFA4C03B19339F95F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		62DD96C09206DE7F827740B9 /* UIView+RoundedCorenersAndBaorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorenersAndBaorder.swift"; sourceTree = "<group>"; };
 		62DD96F030DD1E9FD640F5C2 /* EventSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchView.swift; sourceTree = "<group>"; };
+		62DD9712AB02CFEC3335EF61 /* VideoToastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToastViewController.swift; sourceTree = "<group>"; };
 		62DD97A07AF78A3FAB5D9D85 /* Alamofire+OptionalParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+OptionalParameter.swift"; sourceTree = "<group>"; };
 		62DD97AB2B4D309BA2241060 /* GiftServiceCoreClient+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GiftServiceCoreClient+Event.swift"; sourceTree = "<group>"; };
 		62DD981BFB745FF000A6EE9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -182,11 +195,14 @@
 		62DD9930482A4AA9CFCA8758 /* SettingsPushButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPushButtonCell.swift; sourceTree = "<group>"; };
 		62DD995503C45636206650A9 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		62DD9999B81F2E3121557C89 /* GiftServiceCoreClient+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GiftServiceCoreClient+Authentication.swift"; sourceTree = "<group>"; };
+		62DD9A47FF5F318251066B72 /* GiftServiceCoreClient+Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GiftServiceCoreClient+Toast.swift"; sourceTree = "<group>"; };
+		62DD9A6220C0931CCACDA825 /* GiftServiceCoreClient+File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GiftServiceCoreClient+File.swift"; sourceTree = "<group>"; };
 		62DD9A6237ABF7971B32AD88 /* DTOBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTOBase.swift; sourceTree = "<group>"; };
 		62DD9A6D9B7E734EC492CBA2 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		62DD9A7A25123C4F971FB553 /* CoreComponentsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreComponentsAssembly.swift; sourceTree = "<group>"; };
 		62DD9AAF92BB5D7CEBA634B3 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
 		62DD9AD0A6DBA69826DFDE1A /* VenueSearchResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchResultsView.swift; sourceTree = "<group>"; };
+		62DD9ADFE06A6D7A71711CF2 /* VideoToastStartStageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToastStartStageView.swift; sourceTree = "<group>"; };
 		62DD9AE52059F22CAED65099 /* VenueService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		62DD9B951D76394291709BEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		62DD9B97A036A205663A075C /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -212,6 +228,7 @@
 		62DD9D5D2F61AD9658FD7343 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		62DD9DA502C877CD334A3C0E /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		62DD9DCA03503B4293DAD836 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		62DD9DD28BB7DB04150316D4 /* VideoToastCaptureStageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToastCaptureStageView.swift; sourceTree = "<group>"; };
 		62DD9DDA4189BDA4BA4C6F9C /* VerificaionCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificaionCodeViewController.swift; sourceTree = "<group>"; };
 		62DD9E5D14E612ACF6F08E58 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		62DD9E697C2FC367B1CFFC03 /* EventSearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +237,7 @@
 		62DD9F6FFC8BB226EE49CA93 /* JSON+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Date.swift"; sourceTree = "<group>"; };
 		62DD9F8F34EE1BCA6206134E /* String+Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		62DD9FA43BF8507919CDF443 /* BigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		62DD9FAEB31761C5367EA02E /* ToastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastService.swift; sourceTree = "<group>"; };
 		62DD9FB5EA692A64F3E1D05F /* UIViewController+NavigationBarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBarStyle.swift"; sourceTree = "<group>"; };
 		62DD9FDA56C9CA5D03D51112 /* SettingsProfileDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProfileDetailsCell.swift; sourceTree = "<group>"; };
 		7BF5A3F31FFCAB998931CCB4 /* Pods-gift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gift/Pods-gift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -543,6 +561,8 @@
 				62DD9AE52059F22CAED65099 /* VenueService.swift */,
 				62DD9E5D14E612ACF6F08E58 /* AuthenticationService.swift */,
 				62DD9A6D9B7E734EC492CBA2 /* UserService.swift */,
+				62DD9FAEB31761C5367EA02E /* ToastService.swift */,
+				62DD924DFCBC8554C46BE92A /* FileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -555,6 +575,17 @@
 				62DD91D3516DED9C33C06633 /* UIComponentConstants.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		62DD993161096FD18DE08307 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9ADFE06A6D7A71711CF2 /* VideoToastStartStageView.swift */,
+				62DD9DD28BB7DB04150316D4 /* VideoToastCaptureStageView.swift */,
+				62DD937221477FB0B7A44E6B /* VideoToastMasterView.swift */,
+				62DD96AA36844CC87E6BA737 /* VideoToastSubmitStageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		62DD993D16D479E728016116 /* EditProfile */ = {
@@ -676,6 +707,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		62DD9CE663031BA2F4B6112D /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9712AB02CFEC3335EF61 /* VideoToastViewController.swift */,
+				62DD993161096FD18DE08307 /* Views */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		62DD9D427D540E98FD4D243A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +730,7 @@
 				62DD9C121FC337B3D2B039CD /* EventSearch */,
 				62DD9A371EDF67EF0E4A3478 /* VenueSearch */,
 				62DD9B5AC2C287C4DA25016D /* CreateCouple */,
+				62DD9E83CBDC2EB6BA03B69E /* Toast */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -703,8 +744,18 @@
 				62DD9BDE9C543FC466124348 /* GiftServiceCoreClient+User.swift */,
 				62DD97AB2B4D309BA2241060 /* GiftServiceCoreClient+Event.swift */,
 				62DD945F8DE0880E9CA83583 /* GiftServiceCoreClient+Venue.swift */,
+				62DD9A47FF5F318251066B72 /* GiftServiceCoreClient+Toast.swift */,
+				62DD9A6220C0931CCACDA825 /* GiftServiceCoreClient+File.swift */,
 			);
 			path = GiftService;
+			sourceTree = "<group>";
+		};
+		62DD9E83CBDC2EB6BA03B69E /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				62DD9CE663031BA2F4B6112D /* Video */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		62DD9EF19992D2F658ADD2DA /* Log */ = {
@@ -1017,6 +1068,15 @@
 				62DD93A2272FF588DBF396CF /* UIView+RoundedCorenersAndBaorder.swift in Sources */,
 				62DD945E54ED09215CA43866 /* UIComponentConstants.swift in Sources */,
 				62DD9E1B28DBF335BAA1CF34 /* UIViewController+NavigationBarStyle.swift in Sources */,
+				62DD98AB36A54AAC7FD1BB53 /* VideoToastViewController.swift in Sources */,
+				62DD9C83D72BBA57D9CF8443 /* VideoToastStartStageView.swift in Sources */,
+				62DD901B70EC95D4C55829A6 /* VideoToastCaptureStageView.swift in Sources */,
+				62DD92AE1E9F18E795F10EAE /* VideoToastMasterView.swift in Sources */,
+				62DD9D791E7FA563FC91FDBF /* VideoToastSubmitStageView.swift in Sources */,
+				62DD9076D52A3BFE782A267E /* GiftServiceCoreClient+Toast.swift in Sources */,
+				62DD98A0ECAC6A37DF4D286D /* ToastService.swift in Sources */,
+				62DD98C3F8E9271C3E0AA6D4 /* GiftServiceCoreClient+File.swift in Sources */,
+				62DD9CDD5BD00A3D4F1DD20A /* FileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,7 +1159,7 @@
 				CODE_SIGN_ENTITLEMENTS = gift/gift.entitlements;
 				DEVELOPMENT_TEAM = GB34WCGQZD;
 				INFOPLIST_FILE = gift/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.giftapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1206,7 +1266,7 @@
 				CODE_SIGN_ENTITLEMENTS = gift/gift.entitlements;
 				DEVELOPMENT_TEAM = GB34WCGQZD;
 				INFOPLIST_FILE = gift/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.giftapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1223,7 +1283,7 @@
 				CODE_SIGN_ENTITLEMENTS = gift/gift.entitlements;
 				DEVELOPMENT_TEAM = GB34WCGQZD;
 				INFOPLIST_FILE = gift/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.giftapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

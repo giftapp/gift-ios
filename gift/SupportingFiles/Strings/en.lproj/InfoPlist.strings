@@ -7,5 +7,6 @@
 */
 
 "NSCameraUsageDescription" = "This app needs access to the camera to take photos";
+"NSMicrophoneUsageDescription" = "This app needs access to the microphone in order to record a toast";
 "NSPhotoLibraryUsageDescription" = "This app needs access to photos";
 "NSLocationAlwaysUsageDescription" = "We need to use your location in order to help you find your wedding";

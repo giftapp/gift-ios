@@ -140,3 +140,26 @@
 "ContactDetailsView.Last name" = "שם משפחה";
 "ContactDetailsView.Phone number" = "מספר טלפון";
 "CreateCoupleView.Continue button" = "המשך להענקת המתנה";
+
+//VideoToastViewController
+"VideoToastViewController.Title.Toast" = "ברכה";
+"VideoToastViewController.Title.Edit and share" = "ערוך ושתף";
+"VideoToastViewController.Recapture" = "צילום מחדש";
+
+//VideoToastStartStageViewDelegate
+"VideoToastStartStageViewDelegate.Title" = "מתנות יש הרבה, ברכה יש אחת";
+"VideoToastStartStageViewDelegate.Description" = "הזמן קצר ורחבת הריקודים מחכה\nהחליפו ברכה משעממת בסרטון קצר ומגניב";
+"VideoToastStartStageViewDelegate.Take video now" = "צילום סרטון כעת";
+"VideoToastStartStageViewDelegate.Skip to textual toast" = "דילוג לשליחת ברכה פשוטה";
+
+//VideoToastCaptureStageViewDelegate
+"VideoToastCaptureStageViewDelegate.Description" = "אחלו מזל טוב לזוג\nלחצו על המתנה בשביל לרענן את הברכה";
+
+//VideoToastSubmitStageView
+"VideoToastSubmitStageView.Presenter name" = "מעניק המתנה";
+"VideoToastSubmitStageView.Share.Title" = "שיתוף";
+"VideoToastSubmitStageView.Share.Description" = "יצאתם פוטוגנים? שתפו עם החברים";
+"VideoToastSubmitStageView.Share.Facebook" = "פייסבוק";
+"VideoToastSubmitStageView.Share.Instagram" = "אינסטגרם";
+"VideoToastSubmitStageView.Switch ToTextual Toast Anyway" = "לא אהבתם? לחצו להוספת ברכה פשוטה";
+"VideoToastSubmitStageView.Save and continue" = "שמור והמשך להענקת מתנה";

@@ -140,3 +140,26 @@
 "ContactDetailsView.Last name" = "Last name";
 "ContactDetailsView.Phone number" = "Phone number";
 "CreateCoupleView.Continue button" = "Continue to grant the gift";
+
+//VideoToastViewController
+"VideoToastViewController.Title.Toast" = "Toast";
+"VideoToastViewController.Title.Edit and share" = "Edit & Share";
+"VideoToastViewController.Recapture" = "Recapture";
+
+//VideoToastStartStageViewDelegate
+"VideoToastStartStageViewDelegate.Title" = "There are a lot of gifts,\nBut only one toast";
+"VideoToastStartStageViewDelegate.Description" = "Don't waste time,\nupgrade a doll toast with a cool and personal video.";
+"VideoToastStartStageViewDelegate.Take video now" = "Take video now";
+"VideoToastStartStageViewDelegate.Skip to textual toast" = "Skip to simple toast";
+
+//VideoToastCaptureStageViewDelegate
+"VideoToastCaptureStageViewDelegate.Description" = "Wish the best for the new couple\nTap on the gift to upgrade your toast";
+
+//VideoToastSubmitStageView
+"VideoToastSubmitStageView.Presenter name" = "The present is from";
+"VideoToastSubmitStageView.Share.Title" = "Share";
+"VideoToastSubmitStageView.Share.Description" = "Love what you see? Share it with your friends";
+"VideoToastSubmitStageView.Share.Facebook" = "Facebook";
+"VideoToastSubmitStageView.Share.Instagram" = "Instagram";
+"VideoToastSubmitStageView.Switch ToTextual Toast Anyway" = "Still want to make a simple toast?";
+"VideoToastSubmitStageView.Save and continue" = "Save and continue";

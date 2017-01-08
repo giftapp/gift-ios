@@ -7,5 +7,6 @@
 */
 
 "NSCameraUsageDescription" = "האפליקציה צריכה גישה למצלמה על מנת לצלם";
+"NSMicrophoneUsageDescription" = "האפליקציה צריה גישה למיקרופון בכדי לאפשר לך לצלם ברכה";
 "NSPhotoLibraryUsageDescription" = "האפליקציה צריכה גישה לאלבום התמונות על מנת לבחור תמונה";
 "NSLocationAlwaysUsageDescription" = "אנחנו צריכים להשתמש במיקום שלך בכדי לעזור לך למצוא את החתונה אליה הוזמנת";

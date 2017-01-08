@@ -7,7 +7,7 @@ target 'gift' do
   pod 'Typhoon', '~> 3.5.1'
 
   # Async syntax
-  # pod 'AsyncSwift', '~> 1.7.2'
+  pod 'AsyncSwift', '~> 2.0.1'
 
   # Log
   pod 'XCGLogger', '~> 4.0.0'
