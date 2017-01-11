@@ -167,6 +167,7 @@
 //TextualToastViewController
 "TextualToastViewController.Title" = "ברכה";
 "TextualToastViewController.Description" = "%@ ו%@ ישמחו לקבל כמה מילים או זיכרונות";
+"TextualToastViewController.Toast placeholder" = "%@ ו%@,\nאני רוצה לאחל לכם המון...";
 "TextualToastViewController.Choose an image" = "בחר תמונה";
 "TextualToastViewController.Camera" = "מצלמה";
 "TextualToastViewController.Photo Library" = "אלבום תמונות";

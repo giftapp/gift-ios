@@ -167,6 +167,7 @@
 //TextualToastViewController
 "TextualToastViewController.Title" = "Toast";
 "TextualToastViewController.Description" = "%@ and %@ will be happy to recive a memorable toast";
+"TextualToastViewController.Toast placeholder" = "%@ and %@,\n I wish you all the best.";
 "TextualToastViewController.Choose an image" = "Choose an image";
 "TextualToastViewController.Camera" = "Camera";
 "TextualToastViewController.Photo Library" = "Photo Library";
