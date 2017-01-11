@@ -172,7 +172,7 @@ class TextualToastViewController: UIViewController, TextualToastViewDelegate, UI
                     imageUrl: imageUrl,
                     text: self.textualToastView.textualToast!,
                     success: { (toast) in
-                        Logger.debug("Succesfuly created textual toast")
+                        Logger.debug("Successfully created textual toast")
                         self.textualToastView.activityAnimation(shouldAnimate: false)
                     }, failure: { (error) in
                 Logger.error("Failed to create textual toast \(error)")

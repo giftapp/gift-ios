@@ -380,7 +380,17 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
             videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: true)
             fileService.uploadVideo(videoData: videoData, success: { (videoUrl) in
                 Logger.debug("Successfully uploaded toast video")
-                self.videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: false)
+                self.toastService.createToast(eventId: (self.selectedEvent?.id)!,
+                        toastFlavor: .video,
+                        giftPresenters: self.videoToastMasterView.videoToastSubmitStageView.presenterName!,
+                        videoUrl: videoUrl,
+                        success: { (toast) in
+                            Logger.debug("Successfully created video toast")
+                            self.videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: false)
+                        }, failure: { (error) in
+                    Logger.error("Failed to create video toast \(error)")
+                    self.videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: false)
+                })
             }, failure: { (error) in
                 Logger.error("Failed to upload toast video \(error)")
                 self.videoToastMasterView.videoToastSubmitStageView.activityAnimation(shouldAnimate: false)
