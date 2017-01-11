@@ -155,6 +155,12 @@ class TextualToastViewController: UIViewController, TextualToastViewDelegate, UI
         showImagePickerActionSheet(shouldShowRemoveImage: false)
     }
 
+    func didTapEditPicture() {
+        Logger.debug("Did tap edit picture")
+        showImagePickerActionSheet(shouldShowRemoveImage: true)
+    }
+
+
     func didTapContinue() {
         Logger.debug("Did tap continue")
 

@@ -10,6 +10,7 @@ import SnapKit
 protocol TextualToastViewDelegate {
     func didUpdatePresenterName()
     func didTapAddPicture()
+    func didTapEditPicture()
     func didTapContinue()
 }
 
@@ -202,7 +203,13 @@ class TextualToastView: UIView {
         if pictureImageView == nil {
             pictureImageView = UIImageView(image: nil) //Image is being set from public varaiable
             pictureImageView.contentMode = .scaleAspectFit
+
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(didTapEditPicture(sender:)))
+            pictureImageView.isUserInteractionEnabled = true
+            pictureImageView.addGestureRecognizer(tapGestureRecognizer)
+
             pictureImageView.isHidden = true
+
             contentView.addSubview(pictureImageView)
         }
 
@@ -350,7 +357,7 @@ class TextualToastView: UIView {
         delegate.didUpdatePresenterName()
     }
 
-    @objc private func didTapAddPicture(sender: UITextField!) {
+    @objc private func didTapAddPicture(sender: UIButton!) {
         guard let delegate = self.delegate
                 else {
             Logger.error("Delegate not set")
@@ -358,6 +365,16 @@ class TextualToastView: UIView {
         }
 
         delegate.didTapAddPicture()
+    }
+
+    @objc private func didTapEditPicture(sender: UIImageView!) {
+        guard let delegate = self.delegate
+                else {
+            Logger.error("Delegate not set")
+            return
+        }
+
+        delegate.didTapEditPicture()
     }
 
     @objc private func didTapContinue(sender: UIButton!) {
