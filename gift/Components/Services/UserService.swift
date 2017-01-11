@@ -45,12 +45,6 @@ class UserService: NSObject {
                 }, failure: failure)
     }
 
-    func uploadImage(image :UIImage,
-                     success: @escaping (_ imageUrl : String) -> Void,
-                     failure: @escaping (_ error: Error) -> Void) {
-        giftServiceCoreClient.uploadImage(image: image, success: success, failure: failure)
-    }
-
     func updateUserProfile(firstName: String?,
                            lastName: String?,
                            email: String?,

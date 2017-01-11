@@ -13,6 +13,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     private var identity: Identity
     private var facebookClient: FacebookClient
     private var userService: UserService
+    private var fileService: FileService
 
     //Views
     private var editProfileView: EditProfileView!
@@ -23,22 +24,19 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //Public Properties
     var cancelEnabled: Bool = false
 
-    var avatarURL: String?
-    var firstName: String?
-    var lastName:String?
-    var email: String?
-
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute: AppRoute,
                           identity: Identity,
                           facebookClient: FacebookClient,
-                          userService: UserService) {
+                          userService: UserService,
+                          fileService: FileService) {
         self.appRoute = appRoute
         self.identity = identity
         self.facebookClient = facebookClient
         self.userService = userService
+        self.fileService = fileService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -88,16 +86,18 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         if editProfileView == nil {
             editProfileView = EditProfileView(avatarView: avatarViewController.view)
             editProfileView.delegate = self
+
+            avatarViewController.imageURL = identity.user?.avatarURL
+
+            editProfileView.firstName = identity.user?.firstName
+            editProfileView.lastName = identity.user?.lastName
+            editProfileView.email = identity.user?.email
+
             self.view = editProfileView
         }
     }
     
     private func updateCustomViews() {
-        avatarViewController.imageURL = avatarURL
-
-        editProfileView.firstName = firstName
-        editProfileView.lastName = lastName
-        editProfileView.email = email
     }
 
     //-------------------------------------------------------------------------------------------
@@ -125,8 +125,9 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             success(avatarViewController.imageURL)
             return
         }
-        
-        userService.uploadImage(image: avatarViewController.image!, success: { (avatarUrl) in
+
+        let imageData = UIImagePNGRepresentation(avatarViewController.image!.resizeWith(width: 128)!)!
+        fileService.uploadImage(imageData: imageData, success: { (avatarUrl) in
             Logger.debug("Successfully uploaded avatar")
             success(avatarUrl)
         }) { (error) in
@@ -142,6 +143,13 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
 
     func didTapCancel() {
+        //Return default values
+        avatarViewController.imageURL = identity.user?.avatarURL
+
+        editProfileView.firstName = identity.user?.firstName
+        editProfileView.lastName = identity.user?.lastName
+        editProfileView.email = identity.user?.email
+
         self.appRoute.dismiss(controller: self, animated: true)
     }
 

@@ -55,12 +55,13 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(EditProfileViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(EditProfileViewController.init(appRoute:identity:facebookClient:userService:))) {
+            definition!.useInitializer(#selector(EditProfileViewController.init(appRoute:identity:facebookClient:userService:fileService:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.identity())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.facebookClient())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.userService())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.fileService())
             }
         }
     }

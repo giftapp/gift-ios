@@ -291,11 +291,6 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func didTapEdit() {
-        editProfileViewController.avatarURL = identity.user?.avatarURL
-        editProfileViewController.firstName = identity.user?.firstName
-        editProfileViewController.lastName = identity.user?.lastName
-        editProfileViewController.email = identity.user?.email
-
         let editProfileNavigationViewController = UINavigationController(rootViewController: editProfileViewController)
         editProfileNavigationViewController.navigationBar.isTranslucent = false;
         editProfileNavigationViewController.modalTransitionStyle = .crossDissolve

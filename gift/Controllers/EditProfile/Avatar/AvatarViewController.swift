@@ -32,12 +32,20 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
     }
     
     var image: UIImage? {
-        return avatarView.image
+        get {
+            return avatarView.image
+        }
+        set {
+            avatarView.image = newValue
+        }
     }
 
     var imageURL: String? {
-        didSet {
-            avatarView.imageURL = imageURL
+        get {
+            return avatarView.imageURL
+        }
+        set {
+            avatarView.imageURL = newValue
         }
     }
 
@@ -120,7 +128,7 @@ class AvatarViewController: UIViewController, AvatarViewDelegate, UIActionSheetD
     //-------------------------------------------------------------------------------------------
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            avatarView.image = pickedImage
+            image = pickedImage
         }
         self.dismiss(animated: true, completion: nil)
     }
