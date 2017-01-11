@@ -162,7 +162,22 @@ public class ViewControllersAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(VideoToastViewController.self) {
             (definition) in
             
-            definition!.useInitializer(#selector(VideoToastViewController.init(appRoute:identity:toastService:fileService:))) {
+            definition!.useInitializer(#selector(VideoToastViewController.init(appRoute:identity:toastService:fileService:textualToastViewController:))) {
+                (initializer) in
+                initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.identity())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.toastService())
+                initializer?.injectParameter(with: self.coreComponentsAssembly.fileService())
+                initializer?.injectParameter(with: self.textualToastViewController())
+            }
+        }
+    }
+    
+    public dynamic func textualToastViewController() -> Any {
+        return TyphoonDefinition.withClass(TextualToastViewController.self) {
+            (definition) in
+            
+            definition!.useInitializer(#selector(TextualToastViewController.init(appRoute:identity:toastService:fileService:))) {
                 (initializer) in
                 initializer?.injectParameter(with: self.coreComponentsAssembly.appRoute())
                 initializer?.injectParameter(with: self.coreComponentsAssembly.identity())

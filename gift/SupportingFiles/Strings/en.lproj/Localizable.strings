@@ -163,3 +163,17 @@
 "VideoToastSubmitStageView.Share.Instagram" = "Instagram";
 "VideoToastSubmitStageView.Switch ToTextual Toast Anyway" = "Still want to make a simple toast?";
 "VideoToastSubmitStageView.Save and continue" = "Save and continue";
+
+//TextualToastViewController
+"TextualToastViewController.Title" = "Toast";
+"TextualToastViewController.Description" = "%@ and %@ will be happy to recive a memorable toast";
+"TextualToastViewController.Choose an image" = "Choose an image";
+"TextualToastViewController.Camera" = "Camera";
+"TextualToastViewController.Photo Library" = "Photo Library";
+"TextualToastViewController.Remove picture" = "Remove picture";
+
+//VideoToastView
+"VideoToastView.Title" = "I wish you all the best";
+"VideoToastView.Presenter name" = "Presenter name";
+"VideoToastView.Add picture" = "Add photo";
+"VideoToastView.Continue button" = "Save and continue";

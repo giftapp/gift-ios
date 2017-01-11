@@ -22,6 +22,7 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
     private var identity: Identity
     private var toastService: ToastService
     private var fileService: FileService
+    private var textualToastViewController: TextualToastViewController
 
     //Views
     private var videoToastMasterView: VideoToastMasterView!
@@ -45,17 +46,22 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
     private var videoToastCaptureStageStartCounterTimer: Timer?
     private var videoToastCaptureStageDurationCounterTimer: Timer?
 
+    //Public Properties
+    var selectedEvent: Event?
+
     //-------------------------------------------------------------------------------------------
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     internal dynamic init(appRoute: AppRoute,
                           identity: Identity,
                           toastService: ToastService,
-                          fileService: FileService) {
+                          fileService: FileService,
+                          textualToastViewController: TextualToastViewController) {
         self.appRoute = appRoute
         self.identity = identity
         self.toastService = toastService
         self.fileService = fileService
+        self.textualToastViewController = textualToastViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -301,7 +307,8 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
 
     func didTapSkipToTextualToast() {
         Logger.debug("User tapped to skip to textual toast")
-        //TODO: implement
+        textualToastViewController.selectedEvent = selectedEvent
+        appRoute.pushViewController(controller: textualToastViewController, animated: true)
     }
 
     //-------------------------------------------------------------------------------------------
@@ -359,7 +366,8 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
 
     func didTapDidntLikeSwitchToTextualToastAnyway() {
         Logger.debug("Did tapped didn't Like switch to textual toast anyway")
-        //TODO: implement
+        textualToastViewController.selectedEvent = selectedEvent
+        appRoute.pushViewController(controller: textualToastViewController, animated: true)
     }
 
 

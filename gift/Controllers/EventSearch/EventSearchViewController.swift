@@ -220,7 +220,9 @@ class EventSearchViewController: UIViewController, EventSearchViewDelegate, UISe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Logger.debug("Did select event")
-        //TODO: pass parameters + add push to search results
+        //TODO: add push to search results
+        let selectedEvent = nearbyEvents[indexPath.item];
+        videoToastViewController.selectedEvent = selectedEvent
         appRoute.pushViewController(controller: videoToastViewController, animated: true)
     }
 

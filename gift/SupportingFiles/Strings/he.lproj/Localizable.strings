@@ -163,3 +163,17 @@
 "VideoToastSubmitStageView.Share.Instagram" = "אינסטגרם";
 "VideoToastSubmitStageView.Switch ToTextual Toast Anyway" = "לא אהבתם? לחצו להוספת ברכה פשוטה";
 "VideoToastSubmitStageView.Save and continue" = "שמור והמשך להענקת מתנה";
+
+//TextualToastViewController
+"TextualToastViewController.Title" = "ברכה";
+"TextualToastViewController.Description" = "%@ ו%@ ישמחו לקבל כמה מילים או זיכרונות";
+"TextualToastViewController.Choose an image" = "בחר תמונה";
+"TextualToastViewController.Camera" = "מצלמה";
+"TextualToastViewController.Photo Library" = "אלבום תמונות";
+"TextualToastViewController.Remove picture" = "הסר תמונה";
+
+//VideoToastView
+"VideoToastView.Title" = "זה לא אתם, זה אנחנו";
+"VideoToastView.Presenter name" = "מעניק המתנה";
+"VideoToastView.Add picture" = "צרף תמונה";
+"VideoToastView.Continue button" = "שמור והמשך להענקת מתנה";

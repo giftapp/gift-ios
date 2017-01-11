@@ -82,4 +82,21 @@ class ModelFactory: NSObject {
         return venue
     }
 
+    //-------------------------------------------------------------------------------------------
+    // MARK: - Toast
+    //-------------------------------------------------------------------------------------------
+    func createToastFrom(toastDTO: ToastDTO, toastFlavor: ToastFlavor) -> Toast{
+        let toast = Toast(userId: toastDTO.userId,
+                eventId: toastDTO.eventId,
+                toastFlavor: toastFlavor,
+                giftPresenters: toastDTO.giftPresenters,
+                videoUrl: toastDTO.videoUrl,
+                imageUrl: toastDTO.imageUrl,
+                text: toastDTO.text,
+                id: toastDTO.id,
+                createdAt: toastDTO.createdAt,
+                updatedAt: toastDTO.updatedAt)
+        return toast
+    }
+
 }
