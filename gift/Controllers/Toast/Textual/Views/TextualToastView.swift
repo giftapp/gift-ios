@@ -84,9 +84,39 @@ class TextualToastView: UIView {
             if newValue == nil {
                 addPictureButton.isHidden = false
                 pictureImageView.isHidden = true
+                
+                contentView.snp.remakeConstraints { (make) in
+                    make.edges.equalTo(scrollView)
+                    make.width.equalTo(self.snp.width)
+                    make.height.equalTo(self.snp.height)
+                }
+                
+                pictureImageView.snp.remakeConstraints { (make) in
+                    make.top.equalTo(textualToastTextView.snp.bottom)
+                    make.centerX.equalToSuperview()
+                    make.width.lessThanOrEqualTo(pictureImageView.superview!)
+                    make.height.equalTo(0)
+                }
+                
             } else {
                 addPictureButton.isHidden = true
                 pictureImageView.isHidden = false
+                
+                let aspect = newValue!.size.height/newValue!.size.width
+                
+                contentView.snp.remakeConstraints { (make) in
+                    make.edges.equalTo(scrollView)
+                    make.width.equalTo(self.snp.width)
+                    make.bottom.equalTo(pictureImageView.snp.bottom).offset(UIComponentConstants.bigButtonHeight)
+                }
+                
+                pictureImageView.snp.remakeConstraints { (make) in
+                    make.top.equalTo(textualToastTextView.snp.bottom)
+                    make.centerX.equalToSuperview()
+                    make.width.lessThanOrEqualTo(pictureImageView.superview!)
+                    make.height.equalTo(pictureImageView.snp.width).multipliedBy(aspect)
+                }
+                
             }
         }
     }
@@ -220,8 +250,9 @@ class TextualToastView: UIView {
         }
 
         if pictureImageView == nil {
-            pictureImageView = UIImageView(image: nil) //Image is being set from public varaiable
+            pictureImageView = UIImageView(image: nil) //Image is being set from public variable
             pictureImageView.contentMode = .scaleAspectFit
+            pictureImageView.clipsToBounds = true
 
             let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(didTapEditPicture(sender:)))
             pictureImageView.isUserInteractionEnabled = true
@@ -255,7 +286,8 @@ class TextualToastView: UIView {
 
         contentView.snp.makeConstraints { (make) in
             make.edges.equalTo(scrollView)
-            make.size.equalToSuperview()
+            make.width.equalTo(self.snp.width)
+            make.height.equalTo(self.snp.height)
         }
 
         toastIcon.snp.makeConstraints { (make) in
@@ -308,8 +340,8 @@ class TextualToastView: UIView {
         pictureImageView.snp.makeConstraints { (make) in
             make.top.equalTo(textualToastTextView.snp.bottom)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview()
-//            make.height.equalTo(350) //TODO: fix
+            make.width.lessThanOrEqualTo(pictureImageView.superview!)
+            make.height.equalTo(0)
         }
 
         continueButton.snp.makeConstraints { (make) in
@@ -317,8 +349,6 @@ class TextualToastView: UIView {
             make.centerX.equalToSuperview()
             make.height.equalTo(UIComponentConstants.bigButtonHeight)
             make.width.equalToSuperview()
-            
-            make.top.greaterThanOrEqualTo(pictureImageView.snp.bottom).offset(30)
         }
 
         activityIndicatorView.snp.makeConstraints { (make) in
