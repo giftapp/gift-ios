@@ -76,6 +76,7 @@ class TextualToastViewController: UIViewController, TextualToastViewDelegate, UI
 
     private func updateCustomViews() {
         textualToastView.descriptionText = String(format: "TextualToastViewController.Description".localized, arguments: [(selectedEvent?.contact1FirstName)!, (selectedEvent?.contact2FirstName)!])
+        textualToastView.textualToastPlaceholder = String(format: "TextualToastViewController.Toast placeholder".localized, arguments: [(selectedEvent?.contact1FirstName)!, (selectedEvent?.contact2FirstName)!])
         textualToastView.presenterName = identity.user?.fullName
     }
 
@@ -198,6 +199,7 @@ class TextualToastViewController: UIViewController, TextualToastViewDelegate, UI
     // MARK: - UITextViewDelegate
     //-------------------------------------------------------------------------------------------
     func textViewDidChange(_ textView: UITextView) {
+        textualToastView.hideTextualToastPlaceholder(shouldHide: !textView.text.isEmpty)
         textualToastView.enableContinueButton(enabled: validateInputs())
     }
 

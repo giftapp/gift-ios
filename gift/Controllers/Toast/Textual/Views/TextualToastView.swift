@@ -28,6 +28,7 @@ class TextualToastView: UIView {
     private var presenterNameTextField : UITextField!
 
     private var textualToastTextView : UITextView!
+    private var textualToastPlaceholderLabel : UILabel!
     private var addPictureButton: UIButton!
     private var pictureImageView: UIImageView!
 
@@ -61,6 +62,15 @@ class TextualToastView: UIView {
         }
         set {
             textualToastTextView.text = newValue
+        }
+    }
+
+    var textualToastPlaceholder: String? {
+        get {
+            return textualToastPlaceholderLabel.text
+        }
+        set {
+            textualToastPlaceholderLabel.text = newValue
         }
     }
 
@@ -175,11 +185,20 @@ class TextualToastView: UIView {
 
         if textualToastTextView == nil {
             textualToastTextView = UITextView()
-            //TODO:add placeholder
             textualToastTextView.textAlignment = .right
             textualToastTextView.font = UIFont.gftText1Font()
             textualToastTextView.addTopBottomBorders()
             contentView.addSubview(textualToastTextView)
+        }
+
+        if textualToastPlaceholderLabel == nil {
+            textualToastPlaceholderLabel = UILabel()
+            textualToastPlaceholderLabel.numberOfLines = 2
+            textualToastPlaceholderLabel.textAlignment = NSTextAlignment.right
+            textualToastPlaceholderLabel.font = UIFont.gftText1Font()
+            textualToastPlaceholderLabel.textColor = UIColor.gftTextPlaceHolderColor()
+            textualToastPlaceholderLabel.isHidden = !textualToast!.isEmpty
+            textualToastTextView.addSubview(textualToastPlaceholderLabel)
         }
 
         if addPictureButton == nil {
@@ -273,6 +292,12 @@ class TextualToastView: UIView {
             make.height.equalTo(150)
         }
 
+        textualToastPlaceholderLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(7)
+            make.left.equalToSuperview()
+            make.width.equalToSuperview().offset(-5)
+        }
+
         addPictureButton.snp.makeConstraints { (make) in
             make.top.equalTo(textualToastTextView.snp.bottom)
             make.centerX.equalToSuperview()
@@ -323,6 +348,10 @@ class TextualToastView: UIView {
     //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
+    func hideTextualToastPlaceholder(shouldHide: Bool) {
+        textualToastPlaceholderLabel.isHidden = shouldHide
+    }
+
     func removePicture() {
         picture = nil
     }
