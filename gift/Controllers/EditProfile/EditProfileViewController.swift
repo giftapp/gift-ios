@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class EditProfileViewController: UIViewController, EditProfileViewDelegate {
+class EditProfileViewController: UIViewController, EditProfileViewDelegate, UITextFieldDelegate {
 
     // Injections
     private var appRoute: AppRoute
@@ -86,6 +86,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
         if editProfileView == nil {
             editProfileView = EditProfileView(avatarView: avatarViewController.view)
             editProfileView.delegate = self
+            editProfileView.textFieldDelegate = self
 
             avatarViewController.imageURL = identity.user?.avatarURL
 
@@ -158,9 +159,9 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     //-------------------------------------------------------------------------------------------
     func didUpdateForm() {
         let shouldEnableDoneButton =
-            !(editProfileView.firstName ?? "").isEmpty &&
-            !(editProfileView.lastName ?? "").isEmpty &&
-            (editProfileView.email ?? "").isValidEmail
+            editProfileView.firstNameTextField.isInputValid() &&
+            editProfileView.lastNameTextField.isInputValid() &&
+            editProfileView.emailTextField.isInputValid()
 
         editProfileView.enableDoneButton(enabled: shouldEnableDoneButton)
     }
@@ -201,4 +202,15 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
             self.showErrorUpdatingProfile()
         })
     }
+
+    //-------------------------------------------------------------------------------------------
+    // MARK: - UITextFieldDelegate
+    //-------------------------------------------------------------------------------------------
+
+    //Dismiss keyboard on return
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return false
+    }
+
 }

@@ -6,6 +6,27 @@
 import Foundation
 import UIKit
 
+/**
+Input validators can be used to check the textfield text property,
+If the validator fails, the placeholder will be colored with placeholderInValidColor.
+*/
+public enum InputValidators {
+    case isNotEmpty
+    case isValidEmail
+    case isValidPhoneNumber
+
+    func getValidator() -> (String) -> Bool {
+        switch self {
+        case .isNotEmpty:
+            return {input in !input.isEmpty}
+        case .isValidEmail:
+            return {input in input.isValidEmail}
+        case .isValidPhoneNumber:
+            return {input in input.isValidPhoneNumber}
+        }
+    }
+}
+
 private struct AnimatedTextFieldConstants {
     static let sidePadding: CGFloat = 10
     static let activePlaceholderInsets = CGPoint(x: sidePadding, y: 6)
@@ -23,7 +44,7 @@ class AnimatedTextField: UITextField {
 
     /**
      The color of the placeholder text when it has no content.
-     This property applies a color to the complete placeholder string. The default value for this property is a black color.
+     This property applies a color to the complete placeholder string. The default value for this property is a light gray color.
      */
     var placeholderInActiveColor: UIColor = .gftTextPlaceHolderColor() {
         didSet {
@@ -33,9 +54,29 @@ class AnimatedTextField: UITextField {
     
     /**
      The color of the placeholder text when it has content.
-     This property applies a color to the complete placeholder string. The default value for this property is a black color.
+     This property applies a color to the complete placeholder string. The default value for this property is a blue color.
      */
     var placeholderActiveColor: UIColor = .gftAzureColor() {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+
+    /**
+     The color of the placeholder text when it content is not valid.
+     This property applies a color to the complete placeholder string. The default value for this property is a red color.
+     */
+    var placeholderInValidColor: UIColor = .gftTextErrorColor() {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+
+    /**
+    A list of input validators,
+    The validation will pass iff all validators pass.
+    */
+    var inputValidators: Array<InputValidators>? {
         didSet {
             updatePlaceholder()
         }
@@ -75,6 +116,17 @@ class AnimatedTextField: UITextField {
     }
 
     //-------------------------------------------------------------------------------------------
+    // MARK: - Public
+    //-------------------------------------------------------------------------------------------
+    func isInputValid() -> Bool {
+        guard inputValidators != nil else {
+            //No input validators
+            return true
+        }
+        return inputValidators!.reduce(true) {currentValue, validator in currentValue && validator.getValidator()(text!)}
+    }
+
+    //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
     private func updatePlaceholder() {
@@ -90,6 +142,12 @@ class AnimatedTextField: UITextField {
     }
     
     private func getPlaceholderColor() -> UIColor {
+        //If text is not empty apply validators
+        if !(text!.isEmpty) && !isInputValid() {
+            return placeholderInValidColor
+        }
+
+        //If text is empty mark placeholder iff self.isFirstResponder
         return self.isFirstResponder ? placeholderActiveColor : placeholderInActiveColor
     }
 

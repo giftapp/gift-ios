@@ -60,4 +60,7 @@ extension UIColor {
 		return UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 0.8)
 	}
 
+	class func gftTextErrorColor() -> UIColor {
+		return UIColor(red: 208.0 / 255.0, green: 2.0 / 255.0, blue: 27.0 / 255.0, alpha: 1.0)
+	}
 }

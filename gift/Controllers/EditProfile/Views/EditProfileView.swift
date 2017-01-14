@@ -13,12 +13,12 @@ protocol EditProfileViewDelegate {
     func didTapDone()
 }
 
-class EditProfileView: UIView, UITextFieldDelegate {
+class EditProfileView: UIView {
 
     //Views
-    private var firstNameTextField: AnimatedTextField!
-    private var lastNameTextField: AnimatedTextField!
-    private var emailTextField: AnimatedTextField!
+    var firstNameTextField: AnimatedTextField!
+    var lastNameTextField: AnimatedTextField!
+    var emailTextField: AnimatedTextField!
     private var loginWithFacebookDescriptionLabel: UILabel!
     private var loginWithFaceBookButton: UIButton!
     private var doneButton: BigButton!
@@ -29,6 +29,14 @@ class EditProfileView: UIView, UITextFieldDelegate {
 
     //Public Properties
     var delegate: EditProfileViewDelegate!
+
+    var textFieldDelegate: UITextFieldDelegate! {
+        didSet {
+            firstNameTextField.delegate = self.textFieldDelegate
+            lastNameTextField.delegate = self.textFieldDelegate
+            emailTextField.delegate = self.textFieldDelegate
+        }
+    }
 
     var firstName: String? {
         get {
@@ -82,7 +90,8 @@ class EditProfileView: UIView, UITextFieldDelegate {
             firstNameTextField.addBottomBorder(padded: true)
             firstNameTextField.placeholder = "EditProfileView.First Name".localized
             firstNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
-            firstNameTextField.delegate = self
+            firstNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+            firstNameTextField.inputValidators = [.isNotEmpty]
             self.addSubview(firstNameTextField)
         }
 
@@ -91,7 +100,8 @@ class EditProfileView: UIView, UITextFieldDelegate {
             lastNameTextField.addBottomBorder(padded: true)
             lastNameTextField.placeholder = "EditProfileView.Last Name".localized
             lastNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
-            lastNameTextField.delegate = self
+            lastNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+            lastNameTextField.inputValidators = [.isNotEmpty]
             self.addSubview(lastNameTextField)
         }
 
@@ -101,7 +111,8 @@ class EditProfileView: UIView, UITextFieldDelegate {
             emailTextField.placeholder = "EditProfileView.Email address".localized
             emailTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             emailTextField.keyboardType = .emailAddress
-            emailTextField.delegate = self
+            emailTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+            emailTextField.inputValidators = [.isNotEmpty, .isValidEmail]
             self.addSubview(emailTextField)
         }
 
@@ -220,6 +231,16 @@ class EditProfileView: UIView, UITextFieldDelegate {
     //-------------------------------------------------------------------------------------------
     // MARK: - Private
     //-------------------------------------------------------------------------------------------
+    @objc private func textFieldDidChange(sender: UITextField!) {
+        guard let delegate = self.delegate
+                else {
+            Logger.error("Delegate not set")
+            return
+        }
+
+        delegate.didUpdateForm()
+    }
+
     func didTapLoginWithFaceBook(sender: UIButton!) {
         guard let delegate = self.delegate
             else {
@@ -238,23 +259,6 @@ class EditProfileView: UIView, UITextFieldDelegate {
             }
 
         delegate.didTapDone()
-    }
-
-    //-------------------------------------------------------------------------------------------
-    // MARK: - UITextFieldDelegate
-    //-------------------------------------------------------------------------------------------
-
-    //Dismiss keyboard on return
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.endEditing(true)
-        return false
-    }
-
-    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //Update delegate
-        delegate.didUpdateForm()
-
-        return true
     }
 
 }

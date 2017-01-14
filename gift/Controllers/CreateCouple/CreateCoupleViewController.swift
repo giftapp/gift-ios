@@ -123,16 +123,14 @@ class CreateCoupleViewController: UIViewController, CreateCoupleViewDelegate, Co
     }
 
     private func validateContactDetails() -> Bool {
-        return !createCoupleView.contact1DetailsView.lastName!.isEmpty &&
-                !createCoupleView.contact1DetailsView.firstName!.isEmpty &&
-                !createCoupleView.contact1DetailsView.phoneNumber!.isEmpty &&
-                createCoupleView.contact1DetailsView.phoneNumber!.isValidPhoneNumber
-                &&
-                !createCoupleView.contact2DetailsView.lastName!.isEmpty &&
-                !createCoupleView.contact2DetailsView.firstName!.isEmpty &&
-                !createCoupleView.contact2DetailsView.phoneNumber!.isEmpty &&
-                createCoupleView.contact2DetailsView.phoneNumber!.isValidPhoneNumber
-                &&
+        return createCoupleView.contact1DetailsView.firstNameTextField.isInputValid() &&
+                createCoupleView.contact1DetailsView.lastNameTextField.isInputValid() &&
+                createCoupleView.contact1DetailsView.phoneNumberNameTextField.isInputValid() &&
+
+                createCoupleView.contact2DetailsView.firstNameTextField.isInputValid() &&
+                createCoupleView.contact2DetailsView.lastNameTextField.isInputValid() &&
+                createCoupleView.contact2DetailsView.phoneNumberNameTextField.isInputValid() &&
+
                 !(createCoupleView.contact1DetailsView.phoneNumber! == createCoupleView.contact2DetailsView.phoneNumber!)
 
     }

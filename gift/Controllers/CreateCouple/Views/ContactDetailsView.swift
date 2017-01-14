@@ -13,9 +13,9 @@ protocol ContactDetailsViewDelegate{
 class ContactDetailsView: UIView, UITextFieldDelegate {
 
     //Views
-    private var firstNameTextField: AnimatedTextField!
-    private var lastNameTextField: AnimatedTextField!
-    private var phoneNumberNameTextField: AnimatedTextField!
+    var firstNameTextField: AnimatedTextField!
+    var lastNameTextField: AnimatedTextField!
+    var phoneNumberNameTextField: AnimatedTextField!
 
 
     //Public Properties
@@ -85,6 +85,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             firstNameTextField.delegate = self
             firstNameTextField.addLeftBorder()
             firstNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+            firstNameTextField.inputValidators = [.isNotEmpty]
             self.addSubview(firstNameTextField)
         }
 
@@ -93,6 +94,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             lastNameTextField.placeholder = "ContactDetailsView.Last name".localized
             lastNameTextField.delegate = self
             lastNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+            lastNameTextField.inputValidators = [.isNotEmpty]
             self.addSubview(lastNameTextField)
         }
 
@@ -103,6 +105,7 @@ class ContactDetailsView: UIView, UITextFieldDelegate {
             phoneNumberNameTextField.keyboardType = .phonePad
             phoneNumberNameTextField.delegate = self
             phoneNumberNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+            phoneNumberNameTextField.inputValidators = [.isNotEmpty, .isValidPhoneNumber]
             self.addSubview(phoneNumberNameTextField)
         }
 
