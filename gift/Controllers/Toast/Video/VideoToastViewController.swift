@@ -333,11 +333,6 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
         //TODO: implement
     }
 
-    func didTapSwitchCameraSource() {
-        Logger.debug("User tapped to switch camera")
-        //TODO: implement
-    }
-
     //-------------------------------------------------------------------------------------------
     // MARK: - VideoToastSubmitStageViewDelegate
     //-------------------------------------------------------------------------------------------

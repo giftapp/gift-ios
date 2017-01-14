@@ -10,7 +10,6 @@ import SnapKit
 protocol VideoToastCaptureStageViewDelegate {
     func didTapExit()
     func didTapAskForHint()
-    func didTapSwitchCameraSource()
 }
 
 class VideoToastCaptureStageView: UIView {
@@ -25,7 +24,6 @@ class VideoToastCaptureStageView: UIView {
     private var descriptionLabel: UILabel!
 
     private var askForHintButton: UIButton!
-    private var switchCameraSourceButton: UIButton!
 
     //Public Properties
     var delegate: VideoToastCaptureStageViewDelegate!
@@ -116,12 +114,6 @@ class VideoToastCaptureStageView: UIView {
             self.addSubview(askForHintButton)
         }
 
-        if switchCameraSourceButton == nil {
-            switchCameraSourceButton = UIButton()
-            switchCameraSourceButton.setImage(UIImage(named: "switchCameraInput"), for: .normal)
-            switchCameraSourceButton.addTarget(self, action: #selector(didTapSwitchCameraSource(sender:)), for: UIControlEvents.touchUpInside)
-            self.addSubview(switchCameraSourceButton)
-        }
     }
 
     private func setConstraints() {
@@ -163,10 +155,6 @@ class VideoToastCaptureStageView: UIView {
             make.left.equalToSuperview().offset(15)
         }
 
-        switchCameraSourceButton.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-15)
-            make.right.equalToSuperview().offset(-15)
-        }
     }
 
     //-------------------------------------------------------------------------------------------
@@ -235,16 +223,6 @@ class VideoToastCaptureStageView: UIView {
         }
 
         delegate.didTapAskForHint()
-    }
-
-    @objc private func didTapSwitchCameraSource(sender: UIButton!) {
-        guard let delegate = self.delegate
-                else {
-            Logger.error("Delegate not set")
-            return
-        }
-
-        delegate.didTapSwitchCameraSource()
     }
 
 }
