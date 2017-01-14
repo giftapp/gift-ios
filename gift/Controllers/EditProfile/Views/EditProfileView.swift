@@ -16,12 +16,18 @@ protocol EditProfileViewDelegate {
 class EditProfileView: UIView {
 
     //Views
+    private var scrollView: UIScrollView!
+    private var contentView: UIView!
+
     var firstNameTextField: AnimatedTextField!
     var lastNameTextField: AnimatedTextField!
     var emailTextField: AnimatedTextField!
+
     private var loginWithFacebookDescriptionLabel: UILabel!
     private var loginWithFaceBookButton: UIButton!
+
     private var doneButton: BigButton!
+
     private var activityIndicatorView: ActivityIndicatorView!
 
     //Injected
@@ -71,6 +77,7 @@ class EditProfileView: UIView {
     init(avatarView: UIView) {
         self.avatarView = avatarView
         super.init(frame: CGRect.zero)
+        self.observerNotifications()
         self.addCustomViews()
         self.setConstraints()
     }
@@ -79,10 +86,29 @@ class EditProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    private func observerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name:Notification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name:Notification.Name.UIKeyboardWillHide, object: nil);
+    }
+
     private func addCustomViews() {
         self.backgroundColor = UIColor.gftBackgroundWhiteColor()
 
-        self.addSubview(avatarView)
+        if scrollView == nil {
+            scrollView = UIScrollView()
+            self.addSubview(scrollView)
+        }
+
+        if contentView == nil {
+            contentView = UIView()
+            scrollView.addSubview(contentView)
+        }
+
+        contentView.addSubview(avatarView)
 
         if firstNameTextField == nil {
             firstNameTextField = AnimatedTextField()
@@ -92,7 +118,7 @@ class EditProfileView: UIView {
             firstNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             firstNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
             firstNameTextField.inputValidators = [.isNotEmpty]
-            self.addSubview(firstNameTextField)
+            contentView.addSubview(firstNameTextField)
         }
 
         if lastNameTextField == nil {
@@ -102,7 +128,7 @@ class EditProfileView: UIView {
             lastNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing
             lastNameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
             lastNameTextField.inputValidators = [.isNotEmpty]
-            self.addSubview(lastNameTextField)
+            contentView.addSubview(lastNameTextField)
         }
 
         if emailTextField == nil {
@@ -113,7 +139,7 @@ class EditProfileView: UIView {
             emailTextField.keyboardType = .emailAddress
             emailTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
             emailTextField.inputValidators = [.isNotEmpty, .isValidEmail]
-            self.addSubview(emailTextField)
+            contentView.addSubview(emailTextField)
         }
 
         if loginWithFacebookDescriptionLabel == nil {
@@ -123,7 +149,7 @@ class EditProfileView: UIView {
             loginWithFacebookDescriptionLabel.textAlignment = NSTextAlignment.center
             loginWithFacebookDescriptionLabel.font = UIFont.gftText1Font()
             loginWithFacebookDescriptionLabel.textColor = UIColor.gftWarmGreyColor()
-            self.addSubview(loginWithFacebookDescriptionLabel)
+            contentView.addSubview(loginWithFacebookDescriptionLabel)
         }
 
         if loginWithFaceBookButton == nil {
@@ -141,7 +167,7 @@ class EditProfileView: UIView {
             loginWithFaceBookButton.addTopBottomBorders()
             loginWithFaceBookButton.addTarget(self, action: #selector(didTapLoginWithFaceBook(sender:)), for: UIControlEvents.touchUpInside)
 
-            self.addSubview(self.loginWithFaceBookButton)
+            contentView.addSubview(self.loginWithFaceBookButton)
         }
 
         if doneButton == nil {
@@ -149,16 +175,27 @@ class EditProfileView: UIView {
             doneButton.setTitle("EditProfileViewController.Done Button".localized, for: UIControlState())
             doneButton.addTarget(self, action: #selector(didTapDone(sender:)), for: UIControlEvents.touchUpInside)
             doneButton.enable(enabled: false)
-            self.addSubview(doneButton)
+            contentView.addSubview(doneButton)
         }
         
         if activityIndicatorView == nil {
             activityIndicatorView = ActivityIndicatorView()
-            self.addSubview(activityIndicatorView)
+            activityIndicatorView.isHidden = true
+            contentView.addSubview(activityIndicatorView)
         }
     }
 
     private func setConstraints() {
+        scrollView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+
+        contentView.snp.makeConstraints { (make) in
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(self.snp.width)
+            make.height.equalTo(self.snp.height)
+        }
+
         avatarView.snp.makeConstraints { (make) in
             make.top.equalTo(avatarView.superview!).offset(20)
             make.centerX.equalTo(avatarView.superview!)
@@ -212,6 +249,24 @@ class EditProfileView: UIView {
     }
 
     //-------------------------------------------------------------------------------------------
+    // MARK: - NSNotificationCenter
+    //-------------------------------------------------------------------------------------------
+    func adjustForKeyboard(notification: Notification) {
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            let userInfo = notification.userInfo!
+
+            let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardViewEndFrame = self.convert(keyboardScreenEndFrame, from: self.window)
+
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+
+    //-------------------------------------------------------------------------------------------
     // MARK: - Public
     //-------------------------------------------------------------------------------------------
     func enableDoneButton(enabled: Bool) {
@@ -222,9 +277,11 @@ class EditProfileView: UIView {
         if shouldAnimate {
             self.isUserInteractionEnabled = false
             activityIndicatorView.startAnimation()
+            activityIndicatorView.isHidden = false
         } else {
             self.isUserInteractionEnabled = true
             activityIndicatorView.stopAnimation()
+            activityIndicatorView.isHidden = true
         }
     }
 
