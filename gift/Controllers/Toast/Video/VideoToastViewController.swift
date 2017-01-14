@@ -432,11 +432,11 @@ class VideoToastViewController: UIViewController, AVCaptureFileOutputRecordingDe
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         if error != nil {
             Logger.error("Filed to record video. \(error)")
-            let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: {
+            let tryAgainAction = AlertViewAction(title: "Global.Try again".localized, style: .cancel, action: nil)
+            let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "VideoToastViewController.Alert failed to capture video.Title".localized, description: "VideoToastViewController.Alert failed to capture video.Description".localized, image: nil, actions: [tryAgainAction])
+            self.present(alertViewController, animated: true, completion: {
                 self.displayStage(videoToastViewStage: .start)
             })
-            let alertViewController = AlertViewControllerFactory.createAlertViewController(title: "VideoToastViewController.Alert failed to capture video.Title".localized, description: "VideoToastViewController.Alert failed to capture video.Description", image: nil, actions: [tryAgainAction])
-            self.present(alertViewController, animated: true, completion: nil)
             return
         }
         
