@@ -145,6 +145,8 @@
 "VideoToastViewController.Title.Toast" = "ברכה";
 "VideoToastViewController.Title.Edit and share" = "ערוך ושתף";
 "VideoToastViewController.Recapture" = "צילום מחדש";
+"VideoToastViewController.Alert failed to capture video.Title" = "נקלנו בבעיה בעת שמירת סרטון הברכה שלך";
+"VideoToastViewController.Alert failed to capture video.Description" = "אנא וודא כי ישנו מספיק מקום פנוי ונסה שנית";
 
 //VideoToastStartStageViewDelegate
 "VideoToastStartStageViewDelegate.Title" = "מתנות יש הרבה, ברכה יש אחת";
